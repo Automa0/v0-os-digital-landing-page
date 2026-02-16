@@ -11,9 +11,9 @@ export function Footer() {
             <Image
               src="/images/logo.png"
               alt="OS Digital"
-              width={160}
-              height={48}
-              className="h-12 w-auto"
+              width={220}
+              height={80}
+              className="h-16 w-auto"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Sistema completo de ordens de servico para assistencias tecnicas.
@@ -65,7 +65,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <a
-                  href="https://wa.me/221996595469?text=Ol%C3%A1,%20quero%20saber%20sobre%20o%20OS%20Digital"
+                  href="https://wa.me/5521996595469?text=Ol%C3%A1,%20quero%20saber%20sobre%20o%20OS%20Digital"
                   className="text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
                   WhatsApp

@@ -12,7 +12,7 @@ const navLinks = [
   { label: "FAQ", href: "#faq" },
 ]
 
-const LOGIN_URL = "https://v0-os-digital-app.vercel.app/auth/login"
+const LOGIN_URL = "https://app.osdigitalplus.com.br"
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -24,9 +24,9 @@ export function Header() {
           <Image
             src="/images/logo.png"
             alt="OS Digital"
-            width={200}
-            height={80}
-            className="h-16 w-auto lg:h-20"
+            width={280}
+            height={100}
+            className="h-20 w-auto lg:h-24"
             priority
           />
         </a>

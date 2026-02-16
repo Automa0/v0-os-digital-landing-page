@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { ChevronDown, ArrowRight } from "lucide-react"
 
-const LOGIN_URL = "https://v0-os-digital-app.vercel.app/auth/login"
+const LOGIN_URL = "https://app.osdigitalplus.com.br"
 
 const faqs = [
   {

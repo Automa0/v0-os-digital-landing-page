@@ -16,7 +16,7 @@ const plans = [
       "Link do Cliente",
     ],
     cta: "Comecar Gratis",
-    href: "https://v0-os-digital-app.vercel.app/auth/login",
+    href: "https://app.osdigitalplus.com.br",
   },
   {
     name: "Mensal",
