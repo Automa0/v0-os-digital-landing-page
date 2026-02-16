@@ -65,7 +65,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <a
-                  href="https://wa.me/5500000000000?text=Ol%C3%A1,%20quero%20saber%20sobre%20o%20OS%20Digital"
+                  href="https://wa.me/221996595469?text=Ol%C3%A1,%20quero%20saber%20sobre%20o%20OS%20Digital"
                   className="text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
                   WhatsApp
