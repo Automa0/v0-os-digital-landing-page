@@ -14,20 +14,21 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "OS Digital - Sistema de Ordem de Serviço para Assistências Técnicas",
+  title: "OSDigitalPlus - Sistema de Ordem de Servico para Assistencias Tecnicas",
   description:
-    "Organize ordens de serviço, envie links profissionais aos clientes e gere PDF com assinatura em segundos. Sistema completo para assistências técnicas.",
+    "Organize ordens de servico, envie links profissionais aos clientes e gere PDFs com assinatura digital em segundos. O sistema completo para assistencias tecnicas.",
   keywords: [
-    "ordem de serviço",
-    "assistência técnica",
-    "gestão",
+    "ordem de servico",
+    "assistencia tecnica",
+    "gestao",
     "OS digital",
-    "sistema",
+    "sistema de OS",
+    "OSDigitalPlus",
   ],
   openGraph: {
-    title: "OS Digital - Profissionalize sua assistência técnica",
+    title: "OSDigitalPlus - Profissionalize sua assistencia tecnica",
     description:
-      "Sistema completo de ordens de serviço para assistências técnicas. Organize, acompanhe e entregue com profissionalismo.",
+      "Sistema completo de ordens de servico para assistencias tecnicas. Organize, acompanhe e entregue com profissionalismo.",
     type: "website",
   },
 }

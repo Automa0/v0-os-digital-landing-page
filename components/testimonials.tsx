@@ -7,13 +7,13 @@ const testimonials = [
   {
     name: "Carlos Mendes",
     role: "TechFix Assistencia",
-    text: "Antes eu anotava tudo no papel. Com o OS Digital, profissionalizei meu atendimento e meus clientes perceberam a diferenca.",
+    text: "Antes eu anotava tudo no papel. Com o OSDigitalPlus, profissionalizei meu atendimento e meus clientes perceberam a diferenca na hora.",
     initials: "CM",
   },
   {
     name: "Fernanda Oliveira",
     role: "CelularTop Reparos",
-    text: "O link do cliente foi o que mais me surpreendeu. Meus clientes param de ligar toda hora perguntando do status!",
+    text: "O link do cliente foi o que mais me surpreendeu. Meus clientes pararam de ligar toda hora perguntando pelo status do aparelho!",
     initials: "FO",
   },
   {
@@ -31,24 +31,32 @@ export function Testimonials() {
   const next = () => setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1))
 
   return (
-    <section id="depoimentos" className="bg-secondary/30 py-20 lg:py-28">
+    <section id="depoimentos" className="relative bg-background py-20 lg:py-28">
+      <div className="section-divider absolute top-0 left-0 right-0" />
+
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
+          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
+            Depoimentos
+          </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
             Quem usa, recomenda
           </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Veja o que outros tecnicos e donos de assistencia dizem sobre o OSDigitalPlus.
+          </p>
         </div>
 
         <div className="mt-14 flex flex-col items-center gap-14 lg:flex-row lg:items-start lg:gap-16">
           {/* Carousel */}
-          <div className="flex-1 w-full max-w-xl">
-            <div className="relative rounded-xl border border-border bg-card p-8 shadow-sm">
+          <div className="w-full max-w-xl flex-1">
+            <div className="relative rounded-2xl border border-border bg-card p-8 shadow-md">
               <Quote className="mb-4 h-8 w-8 text-primary/20" />
               <p className="text-lg leading-relaxed text-foreground">
                 {`"${testimonials[current].text}"`}
               </p>
               <div className="mt-6 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-accent/20 text-sm font-bold text-primary">
                   {testimonials[current].initials}
                 </div>
                 <div>
@@ -105,7 +113,7 @@ export function Testimonials() {
 
 function WhatsAppSnapshot() {
   return (
-    <div className="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
+    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-md">
       {/* Header */}
       <div className="flex items-center gap-3 bg-[#075E54] px-4 py-3">
         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366]/20 text-xs font-bold text-[#dcf8c6]">
@@ -123,17 +131,17 @@ function WhatsAppSnapshot() {
         <div className="ml-0 mr-12 max-w-[85%]">
           <div className="rounded-lg rounded-tl-none bg-[#ffffff] px-3 py-2 shadow-sm">
             <p className="text-sm text-[#303030]">
-              Acompanhar pelo link foi otimo — meu aparelho foi reparado no prazo. Recomendo pela organizacao.
+              Acompanhei pelo link e meu aparelho foi entregue no prazo. Excelente organizacao, recomendo!
             </p>
             <span className="mt-1 block text-right text-xs text-[#667781]">14:32</span>
           </div>
         </div>
 
         {/* Tech message */}
-        <div className="ml-12 mr-0 max-w-[85%] self-end ml-auto">
+        <div className="ml-auto mr-0 max-w-[85%]">
           <div className="rounded-lg rounded-tr-none bg-[#dcf8c6] px-3 py-2 shadow-sm">
             <p className="text-sm text-[#303030]">
-              Obrigado! Estamos a disposicao.
+              Obrigado pela confianca! Estamos sempre a disposicao.
             </p>
             <span className="mt-1 block text-right text-xs text-[#667781]">14:35</span>
           </div>

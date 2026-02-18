@@ -3,7 +3,7 @@ import { ShieldCheck } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="border-t border-border bg-gradient-to-b from-background to-secondary/30">
       <div className="mx-auto max-w-7xl px-4 py-12 lg:px-8 lg:py-16">
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
           {/* About */}
@@ -17,7 +17,7 @@ export function Footer() {
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Sistema completo de ordens de servico para assistencias tecnicas.
-              O OSDigitalPlus ajuda voce a organizar, acompanhar e entregar com profissionalismo.
+              Organize, acompanhe e entregue com profissionalismo.
             </p>
             <div className="mt-4 inline-flex items-center gap-2 rounded-md border border-border bg-secondary/50 px-3 py-1.5">
               <ShieldCheck className="h-4 w-4 text-primary" />

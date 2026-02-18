@@ -1,50 +1,116 @@
 "use client"
 
-import { Check, ArrowRight, Clock } from "lucide-react"
+import {
+  Check,
+  ArrowRight,
+  Clock,
+  ClipboardList,
+  Users,
+  Link2,
+  History,
+  User,
+  Smartphone,
+} from "lucide-react"
 
 const LOGIN_URL = "https://app.osdigitalplus.com.br"
 
 const features = [
-  "Criar e organizar ordens",
-  "Gerenciar clientes",
-  "Gerar Link do Cliente",
+  {
+    icon: ClipboardList,
+    text: "Criar e organizar Ordens de Servico",
+  },
+  {
+    icon: Users,
+    text: "Gerenciar clientes e aparelhos",
+  },
+  {
+    icon: Link2,
+    text: "Gerar link de acompanhamento para o cliente",
+  },
+  {
+    icon: History,
+    text: "Historico completo de servicos realizados",
+  },
+  {
+    icon: User,
+    text: "1 usuario incluso",
+    highlight: true,
+  },
+  {
+    icon: Smartphone,
+    text: "Acesso pelo celular, tablet ou computador",
+  },
 ]
 
 export function FreeSection() {
   return (
-    <section className="bg-secondary/30 py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+    <section className="relative bg-gradient-to-b from-secondary/30 via-secondary/50 to-secondary/30 py-20 lg:py-28">
+      <div className="absolute inset-0 bg-lines-pattern" />
+
+      <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
+          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
+            Plano Gratuito
+          </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
             Comece hoje. Sem investir nada.
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Crie sua conta gratuita e teste o OSDigitalPlus sem cartao de credito.
-            Oferta por tempo limitado para novos usuarios.
+            Crie sua conta gratuita e experimente o OSDigitalPlus sem compromisso.
+            Nenhum cartao de credito necessario.
           </p>
 
-          <div className="mt-10 inline-flex flex-col items-start gap-3 rounded-xl border border-border bg-card p-8 text-left shadow-sm">
-            {features.map((feature) => (
-              <div key={feature} className="flex items-center gap-3">
-                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10">
-                  <Check className="h-3 w-3 text-primary" />
+          {/* Feature card */}
+          <div className="mx-auto mt-10 max-w-lg rounded-2xl border border-border bg-card p-8 shadow-md">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <span className="font-heading text-3xl font-bold text-foreground">R$ 0</span>
+              <span className="text-sm text-muted-foreground">para sempre</span>
+            </div>
+
+            <div className="space-y-4 text-left">
+              {features.map((feature) => (
+                <div
+                  key={feature.text}
+                  className={`flex items-center gap-3 rounded-lg px-3 py-2 ${
+                    feature.highlight
+                      ? "bg-primary/5 border border-primary/10"
+                      : ""
+                  }`}
+                >
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                    <feature.icon className="h-4 w-4 text-primary" />
+                  </div>
+                  <span className={`text-sm ${feature.highlight ? "font-semibold text-foreground" : "text-foreground"}`}>
+                    {feature.text}
+                  </span>
                 </div>
-                <span className="text-sm text-foreground">{feature}</span>
+              ))}
+            </div>
+
+            {/* Badges */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-chart-3/10 px-3 py-1">
+                <Check className="h-3 w-3 text-chart-3" />
+                <span className="text-xs font-medium text-chart-3">Ideal para autonomos</span>
               </div>
-            ))}
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1">
+                <Check className="h-3 w-3 text-accent" />
+                <span className="text-xs font-medium text-accent">Perfeito para comecar</span>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-8 flex items-center justify-center gap-2 text-sm text-accent font-medium">
+          <div className="mt-8 flex items-center justify-center gap-2 text-sm font-medium text-accent">
             <Clock className="h-4 w-4" />
-            <span>Acesso gratuito disponivel por tempo limitado — garanta ja sua conta.</span>
+            <span>Acesso gratuito disponivel por tempo limitado — garanta ja a sua conta.</span>
           </div>
 
           <div className="mt-6">
             <a
               href={LOGIN_URL}
-              className="animate-pulse-glow inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-base font-semibold text-primary-foreground transition-all hover:opacity-90"
+              className="animate-pulse-glow inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:opacity-90"
             >
-              Comecar Gratis
+              Comecar Gratis Agora
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>

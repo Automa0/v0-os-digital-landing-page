@@ -5,15 +5,15 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    --foreground: 215 25% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 215 25% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 215 25% 12%;
     --primary: 210 100% 40%;
     --primary-foreground: 0 0% 100%;
     --secondary: 210 40% 96%;
-    --secondary-foreground: 215 25% 15%;
+    --secondary-foreground: 215 25% 12%;
     --muted: 210 20% 96%;
     --muted-foreground: 215 15% 45%;
     --accent: 195 100% 45%;
@@ -48,6 +48,23 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Subtle dot grid pattern */
+.bg-dot-pattern {
+  background-image: radial-gradient(hsl(210 100% 40% / 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Subtle diagonal lines */
+.bg-lines-pattern {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    hsl(210 100% 40% / 0.02) 10px,
+    hsl(210 100% 40% / 0.02) 11px
+  );
 }
 
 /* Hero highlight shimmer animation */
@@ -118,4 +135,10 @@
 
 .animate-pulse-glow {
   animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* Section divider gradient */
+.section-divider {
+  background: linear-gradient(90deg, transparent, hsl(210 100% 40% / 0.15), transparent);
+  height: 1px;
 }

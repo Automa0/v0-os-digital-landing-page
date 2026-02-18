@@ -4,25 +4,32 @@ import { ExternalLink, FileDown, Monitor, Smartphone } from "lucide-react"
 
 export function MockupSection() {
   return (
-    <section className="bg-background py-20 lg:py-28">
+    <section className="relative bg-background py-20 lg:py-28">
+      <div className="section-divider absolute top-0 left-0 right-0" />
+
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
+          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
+            Na Pratica
+          </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
-            Veja como funciona na pratica
+            Veja como o OSDigitalPlus funciona no dia a dia
           </h2>
-          <p className="mt-4 text-muted-foreground">
-            Dashboard completo para voce e link exclusivo para seu cliente.
+          <p className="mt-4 text-lg text-muted-foreground">
+            Um painel completo para o tecnico e um link exclusivo para o cliente acompanhar o servico.
           </p>
         </div>
 
         <div className="mt-14 flex flex-col items-center gap-10 lg:flex-row lg:items-start lg:gap-16">
           {/* Main Dashboard */}
-          <div className="flex-1 w-full">
-            <div className="flex items-center gap-2 mb-4">
-              <Monitor className="h-5 w-5 text-primary" />
+          <div className="w-full flex-1">
+            <div className="mb-4 flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+                <Monitor className="h-4 w-4 text-primary" />
+              </div>
               <span className="font-heading text-sm font-semibold text-foreground">Painel do Tecnico</span>
             </div>
-            <div className="rounded-xl border border-border bg-card shadow-lg overflow-hidden">
+            <div className="overflow-hidden rounded-xl border border-border bg-card shadow-lg">
               {/* Browser bar */}
               <div className="flex items-center gap-2 border-b border-border bg-muted/50 px-4 py-2.5">
                 <div className="h-2.5 w-2.5 rounded-full bg-destructive/50" />
@@ -35,7 +42,7 @@ export function MockupSection() {
 
               <div className="flex">
                 {/* Sidebar */}
-                <div className="hidden w-44 border-r border-border bg-muted/30 p-4 md:block">
+                <div className="hidden w-44 border-r border-border bg-gradient-to-b from-muted/30 to-muted/10 p-4 md:block">
                   <div className="mb-6 text-sm font-bold text-primary">OSDigitalPlus</div>
                   <nav className="flex flex-col gap-1.5">
                     {["Dashboard", "Ordens", "Clientes", "Relatorios"].map((item, i) => (
@@ -58,9 +65,9 @@ export function MockupSection() {
                   <div className="mb-4 flex items-center justify-between">
                     <h3 className="text-sm font-semibold text-foreground">Ordens de Servico</h3>
                     <div className="flex gap-2">
-                      <button className="inline-flex items-center gap-1.5 rounded-md bg-accent px-3 py-1.5 text-xs font-medium text-accent-foreground">
+                      <button className="inline-flex items-center gap-1.5 rounded-md bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent">
                         <ExternalLink className="h-3 w-3" />
-                        Ver Link do Cliente
+                        Link do Cliente
                       </button>
                       <button className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground">
                         <FileDown className="h-3 w-3" />
@@ -103,11 +110,13 @@ export function MockupSection() {
 
           {/* Client mini-view */}
           <div className="w-full max-w-xs lg:mt-12">
-            <div className="flex items-center gap-2 mb-4">
-              <Smartphone className="h-5 w-5 text-accent" />
+            <div className="mb-4 flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10">
+                <Smartphone className="h-4 w-4 text-accent" />
+              </div>
               <span className="font-heading text-sm font-semibold text-foreground">Visao do Cliente</span>
             </div>
-            <div className="rounded-xl border border-border bg-card shadow-lg overflow-hidden">
+            <div className="overflow-hidden rounded-xl border border-border bg-card shadow-lg">
               {/* Phone status bar */}
               <div className="flex items-center justify-between bg-muted/50 px-4 py-2 text-xs text-muted-foreground">
                 <span>9:41</span>

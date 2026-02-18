@@ -1,38 +1,70 @@
 "use client"
 
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Shield, Zap, Users } from "lucide-react"
 
 const LOGIN_URL = "https://app.osdigitalplus.com.br"
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative overflow-hidden bg-background py-16 lg:py-24">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-accent/[0.03]" />
+    <section id="inicio" className="relative overflow-hidden bg-background py-20 lg:py-32">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-transparent to-accent/[0.04]" />
+      <div className="absolute inset-0 bg-dot-pattern" />
+      {/* Decorative circle */}
+      <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-primary/[0.06] to-accent/[0.03] blur-3xl" />
+      <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-accent/[0.05] to-primary/[0.02] blur-3xl" />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-12 px-4 lg:flex-row lg:gap-16 lg:px-8">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-14 px-4 lg:flex-row lg:gap-20 lg:px-8">
         {/* Text content */}
         <div className="flex-1 text-center lg:text-left">
+          {/* Trust badge */}
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5">
+            <Shield className="h-4 w-4 text-primary" />
+            <span className="text-xs font-medium text-primary">
+              Mais de 500 assistencias confiam no OSDigitalPlus
+            </span>
+          </div>
+
           <h1 className="font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            <span className="shimmer-text">Profissionalize</span>{" "}
-            <span className="text-balance">sua assistencia tecnica de verdade.</span>
+            <span className="shimmer-text">Controle total</span>{" "}
+            <span className="text-balance">
+              da sua assistencia tecnica em um so lugar.
+            </span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
-            Com o OSDigitalPlus, organize ordens, envie links profissionais aos clientes e gere PDF com
-            assinatura em segundos — tudo sem complicacao.
+            Crie ordens de servico, envie links de acompanhamento para seus clientes
+            e gere PDFs com assinatura digital — tudo de forma simples,
+            rapida e profissional.
           </p>
+
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
             <a
               href={LOGIN_URL}
-              className="animate-pulse-glow inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-base font-semibold text-primary-foreground transition-all hover:opacity-90"
+              className="animate-pulse-glow inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:opacity-90"
             >
-              Entrar ou Criar Minha Conta
+              Criar Minha Conta Gratis
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
-            Gratuito para comecar. Sem cartao de credito.
+            Sem cartao de credito. Comece em menos de 2 minutos.
           </p>
+
+          {/* Mini trust indicators */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Zap className="h-4 w-4 text-accent" />
+              <span>Setup instantaneo</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Shield className="h-4 w-4 text-accent" />
+              <span>Dados protegidos</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Users className="h-4 w-4 text-accent" />
+              <span>Suporte humanizado</span>
+            </div>
+          </div>
         </div>
 
         {/* Dashboard mockup */}
@@ -57,7 +89,9 @@ function DashboardMockup() {
             <div className="h-3 w-3 rounded-full bg-destructive/60" />
             <div className="h-3 w-3 rounded-full bg-chart-4/60" />
             <div className="h-3 w-3 rounded-full bg-chart-3/60" />
-            <div className="ml-4 h-5 flex-1 rounded bg-muted" />
+            <div className="ml-4 flex h-5 flex-1 items-center rounded bg-muted px-2">
+              <span className="text-[10px] text-muted-foreground">app.osdigitalplus.com.br</span>
+            </div>
           </div>
 
           {/* Sidebar + content layout */}
@@ -77,7 +111,7 @@ function DashboardMockup() {
                 <div className="h-6 w-32 rounded bg-foreground/10" />
                 <div className="flex gap-2">
                   <div className="rounded-md bg-accent px-3 py-1.5 text-xs font-medium text-accent-foreground">
-                    Ver Link do Cliente
+                    Link do Cliente
                   </div>
                   <div className="rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground">
                     Gerar PDF

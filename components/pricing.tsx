@@ -11,8 +11,8 @@ const plans = [
     highlight: false,
     features: [
       "10 ordens no total",
-      "30 clientes",
-      "1 usuario",
+      "30 clientes cadastrados",
+      "1 usuario incluso",
       "Link do Cliente",
     ],
     cta: "Comecar Gratis",
@@ -25,11 +25,11 @@ const plans = [
     badge: null,
     highlight: false,
     features: [
-      "30 ordens / mes",
-      "70 clientes",
+      "30 ordens por mes",
+      "70 clientes cadastrados",
       "1 admin + 1 operador",
       "Link do Cliente",
-      "PDF com assinatura",
+      "PDF com assinatura digital",
     ],
     cta: "Assinar Mensal",
     href: "https://app.osdigitalplus.com.br",
@@ -41,11 +41,11 @@ const plans = [
     badge: "Mais Vendido",
     highlight: true,
     features: [
-      "80 ordens / mes",
-      "200 clientes",
+      "80 ordens por mes",
+      "200 clientes cadastrados",
       "1 admin + 2 operadores",
-      "Relatorio mensal simples",
-      "Botao WhatsApp pronto",
+      "Relatorio mensal simplificado",
+      "Botao WhatsApp integrado",
       "Link do Cliente + PDF",
     ],
     cta: "Assinar Semestral",
@@ -74,14 +74,20 @@ const plans = [
 
 export function Pricing() {
   return (
-    <section id="planos" className="bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+    <section id="planos" className="relative bg-gradient-to-b from-secondary/30 via-secondary/50 to-secondary/30 py-20 lg:py-28">
+      <div className="absolute inset-0 bg-dot-pattern opacity-50" />
+      <div className="section-divider absolute top-0 left-0 right-0" />
+
+      <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
+          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
+            Planos
+          </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
-            Planos para cada momento do seu negocio
+            Escolha o plano ideal para o seu momento
           </h2>
-          <p className="mt-4 text-muted-foreground">
-            Comece gratis e escale conforme sua assistencia cresce.
+          <p className="mt-4 text-lg text-muted-foreground">
+            Comece gratuitamente e evolua conforme sua assistencia cresce. Sem surpresas, sem taxas ocultas.
           </p>
         </div>
 
@@ -89,16 +95,16 @@ export function Pricing() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative flex flex-col rounded-xl border p-6 transition-all hover:shadow-lg ${
+              className={`relative flex flex-col rounded-2xl border p-7 transition-all hover:shadow-lg ${
                 plan.highlight
-                  ? "border-primary bg-card shadow-xl shadow-primary/10 scale-[1.02]"
+                  ? "border-primary bg-card shadow-xl shadow-primary/10 scale-[1.03]"
                   : "border-border bg-card shadow-sm"
               }`}
             >
               {/* Badge */}
               {plan.badge && (
                 <div
-                  className={`absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold ${
+                  className={`absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full px-4 py-1 text-xs font-semibold ${
                     plan.highlight
                       ? "bg-primary text-primary-foreground"
                       : "bg-chart-4 text-foreground"
@@ -127,13 +133,15 @@ export function Pricing() {
               </div>
 
               {"equivalent" in plan && plan.equivalent && (
-                <p className="mt-1 text-xs text-accent font-medium">{plan.equivalent}</p>
+                <p className="mt-1 text-xs font-medium text-accent">{plan.equivalent}</p>
               )}
 
               <ul className="mt-6 flex-1 space-y-3">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-sm text-foreground">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <li key={feature} className="flex items-start gap-2.5 text-sm text-foreground">
+                    <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                      <Check className="h-3 w-3 text-primary" />
+                    </div>
                     {feature}
                   </li>
                 ))}
@@ -141,9 +149,9 @@ export function Pricing() {
 
               <a
                 href={plan.href}
-                className={`mt-8 block rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition-all ${
+                className={`mt-8 block rounded-lg px-4 py-3 text-center text-sm font-semibold transition-all ${
                   plan.highlight
-                    ? "bg-primary text-primary-foreground hover:opacity-90"
+                    ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 hover:opacity-90"
                     : "border border-border bg-secondary text-secondary-foreground hover:bg-secondary/80"
                 }`}
               >
