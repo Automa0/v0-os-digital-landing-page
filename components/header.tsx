@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
-  { label: "Inicio", href: "#inicio" },
+  { label: "Início", href: "#inicio" },
   { label: "Recursos", href: "#recursos" },
   { label: "Planos", href: "#planos" },
   { label: "Depoimentos", href: "#depoimentos" },
@@ -20,7 +20,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
-        <a href="#inicio" aria-label="OS Digital - Inicio">
+        <a href="#inicio" aria-label="OSDigitalPlus - Início">
           <Image
             src="/images/logo.png"
             alt="OSDigitalPlus"

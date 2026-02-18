@@ -9,32 +9,32 @@ const faqs = [
   {
     question: "O sistema funciona no celular?",
     answer:
-      "Sim! O OSDigitalPlus e 100% responsivo e funciona perfeitamente em smartphones, tablets e computadores. Ideal para uso no balcao, em campo ou no atendimento a domicilio.",
+      "Sim! O OSDigitalPlus é 100% responsivo e funciona perfeitamente em smartphones, tablets e computadores. Ideal para uso no balcão, em campo ou no atendimento a domicílio.",
   },
   {
-    question: "O plano gratuito e realmente sem custo?",
+    question: "O plano gratuito é realmente sem custo?",
     answer:
-      "Sim, voce pode criar sua conta e utilizar o plano gratuito sem nenhum custo e sem precisar informar cartao de credito. O plano gratuito inclui funcionalidades essenciais para voce conhecer o sistema.",
+      "Sim, você pode criar sua conta e utilizar o plano gratuito sem nenhum custo e sem precisar informar cartão de crédito. O plano gratuito inclui funcionalidades essenciais para você conhecer o sistema.",
   },
   {
     question: "Posso cancelar minha assinatura a qualquer momento?",
     answer:
-      "Claro! Voce pode cancelar sua assinatura quando quiser, sem taxas ou multas. Seu acesso continua ativo ate o final do periodo ja pago.",
+      "Claro! Você pode cancelar sua assinatura quando quiser, sem taxas ou multas. Seu acesso continua ativo até o final do período já pago.",
   },
   {
-    question: "Meus dados e os dos meus clientes estao seguros?",
+    question: "Meus dados e os dos meus clientes estão seguros?",
     answer:
-      "Sim. Utilizamos criptografia e servidores seguros para proteger todas as informacoes. Seus dados nao sao compartilhados com terceiros e backups sao realizados automaticamente.",
+      "Sim. Utilizamos criptografia e servidores seguros para proteger todas as informações. Seus dados não são compartilhados com terceiros e backups são realizados automaticamente.",
   },
   {
     question: "Como funciona o suporte?",
     answer:
-      "Oferecemos suporte via WhatsApp para todos os planos. Clientes do plano Anual contam com prioridade no atendimento. Tambem disponibilizamos tutoriais e documentacao online.",
+      "Oferecemos suporte via WhatsApp para todos os planos. Clientes do plano Anual contam com prioridade no atendimento. Também disponibilizamos tutoriais e documentação online.",
   },
   {
     question: "Quantas ordens posso criar?",
     answer:
-      "O plano Gratuito permite ate 10 ordens no total. O Mensal ate 30 por mes, o Semestral ate 80 por mes, e o Anual oferece ordens ilimitadas. Voce pode mudar de plano a qualquer momento.",
+      "O plano Gratuito permite até 10 ordens no total. O Mensal até 30 por mês, o Semestral até 80 por mês, e o Anual oferece ordens ilimitadas. Você pode mudar de plano a qualquer momento.",
   },
 ]
 
@@ -54,7 +54,7 @@ export function FAQ() {
             Perguntas Frequentes
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Tire suas duvidas sobre o OSDigitalPlus.
+            Tire suas dúvidas sobre o OSDigitalPlus.
           </p>
         </div>
 
@@ -88,10 +88,10 @@ export function FAQ() {
         {/* Final CTA */}
         <div className="mt-16 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 p-10 text-center">
           <h3 className="font-heading text-xl font-bold text-foreground">
-            Pronto para profissionalizar sua assistencia?
+            Pronto para profissionalizar sua assistência?
           </h3>
           <p className="mt-3 text-sm text-muted-foreground">
-            Crie sua conta gratuita e descubra como o OSDigitalPlus pode transformar a gestao do seu negocio.
+            Crie sua conta gratuita e descubra como o OSDigitalPlus pode transformar a gestão do seu negócio.
           </p>
           <a
             href={LOGIN_URL}

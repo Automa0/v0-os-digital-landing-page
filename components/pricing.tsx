@@ -12,20 +12,20 @@ const plans = [
     features: [
       "10 ordens no total",
       "30 clientes cadastrados",
-      "1 usuario incluso",
+      "1 usuário incluso",
       "Link do Cliente",
     ],
-    cta: "Comecar Gratis",
+    cta: "Começar Grátis",
     href: "https://app.osdigitalplus.com.br",
   },
   {
     name: "Mensal",
     price: "R$ 24,90",
-    period: "/ mes",
+    period: "/ mês",
     badge: null,
     highlight: false,
     features: [
-      "30 ordens por mes",
+      "30 ordens por mês",
       "70 clientes cadastrados",
       "1 admin + 1 operador",
       "Link do Cliente",
@@ -41,11 +41,11 @@ const plans = [
     badge: "Mais Vendido",
     highlight: true,
     features: [
-      "80 ordens por mes",
+      "80 ordens por mês",
       "200 clientes cadastrados",
       "1 admin + 2 operadores",
-      "Relatorio mensal simplificado",
-      "Botao WhatsApp integrado",
+      "Relatório mensal simplificado",
+      "Botão WhatsApp integrado",
       "Link do Cliente + PDF",
     ],
     cta: "Assinar Semestral",
@@ -61,14 +61,14 @@ const plans = [
     features: [
       "Ordens ilimitadas",
       "Clientes ilimitados",
-      "Relatorios completos",
+      "Relatórios completos",
       "Prioridade no suporte",
-      "Selo Assistencia Verificada",
+      "Selo Assistência Verificada",
       "Tudo do plano Semestral",
     ],
     cta: "Assinar Anual",
     href: "https://app.osdigitalplus.com.br",
-    equivalent: "Equivalente a R$ 16,41 / mes",
+    equivalent: "Equivalente a R$ 16,41 / mês",
   },
 ]
 
@@ -87,7 +87,7 @@ export function Pricing() {
             Escolha o plano ideal para o seu momento
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Comece gratuitamente e evolua conforme sua assistencia cresce. Sem surpresas, sem taxas ocultas.
+            Comece gratuitamente e evolua conforme sua assistência cresce. Sem surpresas, sem taxas ocultas.
           </p>
         </div>
 

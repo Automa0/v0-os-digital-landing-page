@@ -17,7 +17,7 @@ const LOGIN_URL = "https://app.osdigitalplus.com.br"
 const features = [
   {
     icon: ClipboardList,
-    text: "Criar e organizar Ordens de Servico",
+    text: "Criar e organizar Ordens de Serviço",
   },
   {
     icon: Users,
@@ -29,11 +29,11 @@ const features = [
   },
   {
     icon: History,
-    text: "Historico completo de servicos realizados",
+    text: "Histórico completo de serviços realizados",
   },
   {
     icon: User,
-    text: "1 usuario incluso",
+    text: "1 usuário incluso",
     highlight: true,
   },
   {
@@ -57,7 +57,7 @@ export function FreeSection() {
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Crie sua conta gratuita e experimente o OSDigitalPlus sem compromisso.
-            Nenhum cartao de credito necessario.
+            Nenhum cartão de crédito necessário.
           </p>
 
           {/* Feature card */}
@@ -91,18 +91,18 @@ export function FreeSection() {
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <div className="inline-flex items-center gap-1.5 rounded-full bg-chart-3/10 px-3 py-1">
                 <Check className="h-3 w-3 text-chart-3" />
-                <span className="text-xs font-medium text-chart-3">Ideal para autonomos</span>
+                <span className="text-xs font-medium text-chart-3">Ideal para autônomos</span>
               </div>
               <div className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1">
                 <Check className="h-3 w-3 text-accent" />
-                <span className="text-xs font-medium text-accent">Perfeito para comecar</span>
+                <span className="text-xs font-medium text-accent">Perfeito para começar</span>
               </div>
             </div>
           </div>
 
           <div className="mt-8 flex items-center justify-center gap-2 text-sm font-medium text-accent">
             <Clock className="h-4 w-4" />
-            <span>Acesso gratuito disponivel por tempo limitado — garanta ja a sua conta.</span>
+            <span>Acesso gratuito disponível por tempo limitado — garanta já a sua conta.</span>
           </div>
 
           <div className="mt-6">
@@ -110,7 +110,7 @@ export function FreeSection() {
               href={LOGIN_URL}
               className="animate-pulse-glow inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:opacity-90"
             >
-              Comecar Gratis Agora
+              Começar Grátis Agora
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>

@@ -6,8 +6,8 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 const testimonials = [
   {
     name: "Carlos Mendes",
-    role: "TechFix Assistencia",
-    text: "Antes eu anotava tudo no papel. Com o OSDigitalPlus, profissionalizei meu atendimento e meus clientes perceberam a diferenca na hora.",
+    role: "TechFix Assistência",
+    text: "Antes eu anotava tudo no papel. Com o OSDigitalPlus, profissionalizei meu atendimento e meus clientes perceberam a diferença na hora.",
     initials: "CM",
   },
   {
@@ -43,7 +43,7 @@ export function Testimonials() {
             Quem usa, recomenda
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Veja o que outros tecnicos e donos de assistencia dizem sobre o OSDigitalPlus.
+            Veja o que outros técnicos e donos de assistência dizem sobre o OSDigitalPlus.
           </p>
         </div>
 
@@ -94,7 +94,7 @@ export function Testimonials() {
               <button
                 onClick={next}
                 className="rounded-full border border-border bg-card p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-                aria-label="Proximo depoimento"
+                aria-label="Próximo depoimento"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
@@ -120,7 +120,7 @@ function WhatsAppSnapshot() {
           JS
         </div>
         <div>
-          <div className="text-sm font-medium text-[#e9edef]">Joao Silva</div>
+          <div className="text-sm font-medium text-[#e9edef]">João Silva</div>
           <div className="text-xs text-[#e9edef]/60">online</div>
         </div>
       </div>
@@ -131,7 +131,7 @@ function WhatsAppSnapshot() {
         <div className="ml-0 mr-12 max-w-[85%]">
           <div className="rounded-lg rounded-tl-none bg-[#ffffff] px-3 py-2 shadow-sm">
             <p className="text-sm text-[#303030]">
-              Acompanhei pelo link e meu aparelho foi entregue no prazo. Excelente organizacao, recomendo!
+              Acompanhei pelo link e meu aparelho foi entregue no prazo. Excelente organização, recomendo!
             </p>
             <span className="mt-1 block text-right text-xs text-[#667781]">14:32</span>
           </div>
@@ -141,7 +141,7 @@ function WhatsAppSnapshot() {
         <div className="ml-auto mr-0 max-w-[85%]">
           <div className="rounded-lg rounded-tr-none bg-[#dcf8c6] px-3 py-2 shadow-sm">
             <p className="text-sm text-[#303030]">
-              Obrigado pela confianca! Estamos sempre a disposicao.
+              Obrigado pela confiança! Estamos sempre à disposição.
             </p>
             <span className="mt-1 block text-right text-xs text-[#667781]">14:35</span>
           </div>

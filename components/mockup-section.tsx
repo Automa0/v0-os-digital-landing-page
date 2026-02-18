@@ -10,13 +10,13 @@ export function MockupSection() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
-            Na Pratica
+            Na Prática
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
             Veja como o OSDigitalPlus funciona no dia a dia
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Um painel completo para o tecnico e um link exclusivo para o cliente acompanhar o servico.
+            Um painel completo para o técnico e um link exclusivo para o cliente acompanhar o serviço.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ export function MockupSection() {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
                 <Monitor className="h-4 w-4 text-primary" />
               </div>
-              <span className="font-heading text-sm font-semibold text-foreground">Painel do Tecnico</span>
+              <span className="font-heading text-sm font-semibold text-foreground">Painel do Técnico</span>
             </div>
             <div className="overflow-hidden rounded-xl border border-border bg-card shadow-lg">
               {/* Browser bar */}
@@ -45,7 +45,7 @@ export function MockupSection() {
                 <div className="hidden w-44 border-r border-border bg-gradient-to-b from-muted/30 to-muted/10 p-4 md:block">
                   <div className="mb-6 text-sm font-bold text-primary">OSDigitalPlus</div>
                   <nav className="flex flex-col gap-1.5">
-                    {["Dashboard", "Ordens", "Clientes", "Relatorios"].map((item, i) => (
+                    {["Dashboard", "Ordens", "Clientes", "Relatórios"].map((item, i) => (
                       <div
                         key={item}
                         className={`rounded-md px-3 py-2 text-xs font-medium ${
@@ -63,7 +63,7 @@ export function MockupSection() {
                 {/* Content */}
                 <div className="flex-1 p-5">
                   <div className="mb-4 flex items-center justify-between">
-                    <h3 className="text-sm font-semibold text-foreground">Ordens de Servico</h3>
+                    <h3 className="text-sm font-semibold text-foreground">Ordens de Serviço</h3>
                     <div className="flex gap-2">
                       <button className="inline-flex items-center gap-1.5 rounded-md bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent">
                         <ExternalLink className="h-3 w-3" />
@@ -86,10 +86,10 @@ export function MockupSection() {
 
                   {/* Rows */}
                   {[
-                    { id: "001", name: "Joao Silva", device: "iPhone 11", status: "Em Conserto", statusColor: "bg-chart-4/15 text-chart-4" },
+                    { id: "001", name: "João Silva", device: "iPhone 11", status: "Em Conserto", statusColor: "bg-chart-4/15 text-chart-4" },
                     { id: "002", name: "Maria Santos", device: "Samsung S21", status: "Aguardando", statusColor: "bg-accent/15 text-accent" },
-                    { id: "003", name: "Pedro Lima", device: "Notebook Dell", status: "Concluido", statusColor: "bg-chart-3/15 text-chart-3" },
-                    { id: "004", name: "Ana Costa", device: "iPad Air", status: "Orcamento", statusColor: "bg-primary/15 text-primary" },
+                    { id: "003", name: "Pedro Lima", device: "Notebook Dell", status: "Concluído", statusColor: "bg-chart-3/15 text-chart-3" },
+                    { id: "004", name: "Ana Costa", device: "iPad Air", status: "Orçamento", statusColor: "bg-primary/15 text-primary" },
                   ].map((row) => (
                     <div
                       key={row.id}
@@ -114,7 +114,7 @@ export function MockupSection() {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10">
                 <Smartphone className="h-4 w-4 text-accent" />
               </div>
-              <span className="font-heading text-sm font-semibold text-foreground">Visao do Cliente</span>
+              <span className="font-heading text-sm font-semibold text-foreground">Visão do Cliente</span>
             </div>
             <div className="overflow-hidden rounded-xl border border-border bg-card shadow-lg">
               {/* Phone status bar */}
@@ -129,16 +129,16 @@ export function MockupSection() {
               <div className="p-5">
                 <div className="mb-4 text-center">
                   <div className="text-xs font-bold text-primary">OSDigitalPlus</div>
-                  <h4 className="mt-1 text-sm font-semibold text-foreground">Ordem de Servico</h4>
+                  <h4 className="mt-1 text-sm font-semibold text-foreground">Ordem de Serviço</h4>
                 </div>
 
                 <div className="space-y-3 rounded-lg bg-secondary/50 p-4">
                   {[
-                    { label: "Cliente", value: "Joao Silva" },
+                    { label: "Cliente", value: "João Silva" },
                     { label: "Aparelho", value: "iPhone 11" },
                     { label: "Status", value: "Em Conserto", highlight: true },
-                    { label: "Previsao", value: "2 dias" },
-                    { label: "Orcamento", value: "R$ 250,00" },
+                    { label: "Previsão", value: "2 dias" },
+                    { label: "Orçamento", value: "R$ 250,00" },
                   ].map((item) => (
                     <div key={item.label} className="flex items-center justify-between">
                       <span className="text-xs text-muted-foreground">{item.label}</span>

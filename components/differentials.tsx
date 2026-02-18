@@ -7,37 +7,37 @@ const cards = [
     icon: Link2,
     title: "Link Exclusivo do Cliente",
     description:
-      "Seu cliente acompanha o status do reparo em tempo real, aprova orcamentos e visualiza a previsao de entrega — sem precisar ligar.",
+      "Seu cliente acompanha o status do reparo em tempo real, aprova orçamentos e visualiza a previsão de entrega — sem precisar ligar.",
   },
   {
     icon: FileText,
     title: "PDF Profissional com Assinatura",
     description:
-      "Gere documentos organizados e prontos para impressao, com assinatura digital integrada. Transmita credibilidade em cada entrega.",
+      "Gere documentos organizados e prontos para impressão, com assinatura digital integrada. Transmita credibilidade em cada entrega.",
   },
   {
     icon: MousePointerClick,
-    title: "Gestao Simples e Rapida",
+    title: "Gestão Simples e Rápida",
     description:
-      "Crie, atualize e finalize ordens de servico em poucos cliques. Funciona no balcao, no celular e em qualquer navegador.",
+      "Crie, atualize e finalize ordens de serviço em poucos cliques. Funciona no balcão, no celular e em qualquer navegador.",
   },
   {
     icon: BarChart3,
-    title: "Relatorios Inteligentes",
+    title: "Relatórios Inteligentes",
     description:
-      "Acompanhe o desempenho da sua assistencia com relatorios claros. Saiba quantas ordens foram abertas, concluidas e o faturamento do periodo.",
+      "Acompanhe o desempenho da sua assistência com relatórios claros. Saiba quantas ordens foram abertas, concluídas e o faturamento do período.",
   },
   {
     icon: Smartphone,
     title: "Acesso de Qualquer Lugar",
     description:
-      "100% online e responsivo. Gerencie sua assistencia pelo celular, tablet ou computador — de onde voce estiver.",
+      "100% online e responsivo. Gerencie sua assistência pelo celular, tablet ou computador — de onde você estiver.",
   },
   {
     icon: ShieldCheck,
-    title: "Seguranca e Confiabilidade",
+    title: "Segurança e Confiabilidade",
     description:
-      "Seus dados e os dados dos seus clientes ficam protegidos com criptografia. Backups automaticos garantem que nada se perca.",
+      "Seus dados e os dados dos seus clientes ficam protegidos com criptografia. Backups automáticos garantem que nada se perca.",
   },
 ]
 
@@ -53,10 +53,10 @@ export function Differentials() {
             Recursos
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
-            Tudo que sua assistencia precisa para crescer
+            Tudo que sua assistência precisa para crescer
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Ferramentas pensadas para simplificar a rotina e profissionalizar o atendimento da sua assistencia tecnica.
+            Ferramentas pensadas para simplificar a rotina e profissionalizar o atendimento da sua assistência técnica.
           </p>
         </div>
 

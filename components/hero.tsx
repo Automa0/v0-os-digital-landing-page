@@ -21,20 +21,20 @@ export function Hero() {
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5">
             <Shield className="h-4 w-4 text-primary" />
             <span className="text-xs font-medium text-primary">
-              Mais de 500 assistencias confiam no OSDigitalPlus
+              Mais de 500 assistências confiam no OSDigitalPlus
             </span>
           </div>
 
           <h1 className="font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
             <span className="shimmer-text">Controle total</span>{" "}
             <span className="text-balance">
-              da sua assistencia tecnica em um so lugar.
+              da sua assistência técnica em um só lugar.
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
-            Crie ordens de servico, envie links de acompanhamento para seus clientes
-            e gere PDFs com assinatura digital — tudo de forma simples,
-            rapida e profissional.
+            Com o OSDigitalPlus, crie ordens de serviço, envie links de acompanhamento
+            para seus clientes e gere PDFs com assinatura digital — tudo de forma
+            simples, rápida e profissional.
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
@@ -42,19 +42,19 @@ export function Hero() {
               href={LOGIN_URL}
               className="animate-pulse-glow inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:opacity-90"
             >
-              Criar Minha Conta Gratis
+              Criar Minha Conta Grátis
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
-            Sem cartao de credito. Comece em menos de 2 minutos.
+            Sem cartão de crédito. Comece em menos de 2 minutos.
           </p>
 
           {/* Mini trust indicators */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Zap className="h-4 w-4 text-accent" />
-              <span>Setup instantaneo</span>
+              <span>Setup instantâneo</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Shield className="h-4 w-4 text-accent" />
@@ -121,9 +121,9 @@ function DashboardMockup() {
 
               {/* Order rows */}
               {[
-                { name: "Joao Silva", device: "iPhone 11", status: "Em Conserto", color: "bg-chart-4" },
+                { name: "João Silva", device: "iPhone 11", status: "Em Conserto", color: "bg-chart-4" },
                 { name: "Maria Santos", device: "Samsung S21", status: "Aguardando", color: "bg-accent" },
-                { name: "Pedro Lima", device: "Notebook Dell", status: "Concluido", color: "bg-chart-3" },
+                { name: "Pedro Lima", device: "Notebook Dell", status: "Concluído", color: "bg-chart-3" },
               ].map((order) => (
                 <div key={order.name} className="flex items-center justify-between rounded-md bg-card p-2.5 shadow-sm">
                   <div className="flex flex-col">
@@ -142,11 +142,11 @@ function DashboardMockup() {
 
       {/* Client mini-view */}
       <div className="absolute -bottom-8 -right-4 w-52 rounded-lg border border-border bg-card p-3 shadow-xl transition-all hover:shadow-2xl sm:-right-8 lg:-right-12">
-        <div className="mb-2 text-xs font-semibold text-primary">Ordem de Servico</div>
+        <div className="mb-2 text-xs font-semibold text-primary">Ordem de Serviço</div>
         <div className="space-y-1.5">
           <div className="flex justify-between text-xs">
             <span className="text-muted-foreground">Cliente:</span>
-            <span className="font-medium text-foreground">Joao Silva</span>
+            <span className="font-medium text-foreground">João Silva</span>
           </div>
           <div className="flex justify-between text-xs">
             <span className="text-muted-foreground">Aparelho:</span>
@@ -157,7 +157,7 @@ function DashboardMockup() {
             <span className="font-medium text-chart-4">Em Conserto</span>
           </div>
           <div className="flex justify-between text-xs">
-            <span className="text-muted-foreground">Previsao:</span>
+            <span className="text-muted-foreground">Previsão:</span>
             <span className="font-medium text-foreground">2 dias</span>
           </div>
         </div>

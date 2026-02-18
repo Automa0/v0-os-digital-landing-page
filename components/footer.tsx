@@ -16,8 +16,8 @@ export function Footer() {
               className="h-16 w-auto"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Sistema completo de ordens de servico para assistencias tecnicas.
-              Organize, acompanhe e entregue com profissionalismo.
+              Sistema completo de ordens de serviço para assistências técnicas.
+              O OSDigitalPlus ajuda você a organizar, acompanhar e entregar com profissionalismo.
             </p>
             <div className="mt-4 inline-flex items-center gap-2 rounded-md border border-border bg-secondary/50 px-3 py-1.5">
               <ShieldCheck className="h-4 w-4 text-primary" />
@@ -53,7 +53,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">
-                  Politica de Privacidade
+                  Política de Privacidade
                 </a>
               </li>
             </ul>

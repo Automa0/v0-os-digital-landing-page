@@ -7,25 +7,25 @@ const LOGIN_URL = "https://app.osdigitalplus.com.br"
 const benefits = [
   {
     icon: User,
-    title: "Tecnicos Autonomos",
+    title: "Técnicos Autônomos",
     description:
-      "Trabalha por conta propria? O OSDigitalPlus organiza todas as suas ordens sem a necessidade de equipe ou estrutura complexa.",
+      "Trabalha por conta própria? O OSDigitalPlus organiza todas as suas ordens sem a necessidade de equipe ou estrutura complexa.",
   },
   {
     icon: Wrench,
-    title: "Pequenas Assistencias",
+    title: "Pequenas Assistências",
     description:
-      "Ideal para quem esta comecando ou possui uma assistencia de pequeno porte e quer crescer com organizacao e profissionalismo.",
+      "Ideal para quem está começando ou possui uma assistência de pequeno porte e quer crescer com organização e profissionalismo.",
   },
   {
     icon: Smartphone,
-    title: "Atendimento em Domicilio",
+    title: "Atendimento em Domicílio",
     description:
-      "Atende em casa ou vai ate o cliente? Gerencie tudo pelo celular, de qualquer lugar, a qualquer momento.",
+      "Atende em casa ou vai até o cliente? Gerencie tudo pelo celular, de qualquer lugar, a qualquer momento.",
   },
   {
     icon: TrendingUp,
-    title: "Profissionalize seu Negocio",
+    title: "Profissionalize seu Negócio",
     description:
       "Transmita credibilidade com links de acompanhamento e PDFs profissionais — mesmo trabalhando sozinho.",
   },
@@ -39,15 +39,15 @@ export function AutonomosSection() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
-            Para Autonomos
+            Para Autônomos
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
             Feito para quem trabalha sozinho e quer ir mais longe
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Seja voce um tecnico autonomo, dono de uma pequena assistencia ou
-            profissional que atende a domicilio — o OSDigitalPlus se adapta
-            a sua realidade e profissionaliza o seu atendimento.
+            Seja você um técnico autônomo, dono de uma pequena assistência ou
+            profissional que atende a domicílio — o OSDigitalPlus se adapta
+            à sua realidade e profissionaliza o seu atendimento.
           </p>
         </div>
 
@@ -72,13 +72,13 @@ export function AutonomosSection() {
 
         <div className="mt-12 text-center">
           <p className="text-base font-medium text-foreground">
-            Tenha controle total do seu negocio, mesmo sem equipe.
+            Tenha controle total do seu negócio, mesmo sem equipe.
           </p>
           <a
             href={LOGIN_URL}
             className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:opacity-90"
           >
-            Comecar Agora
+            Começar Agora
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>
