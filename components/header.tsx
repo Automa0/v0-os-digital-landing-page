@@ -23,7 +23,7 @@ export function Header() {
         <a href="#inicio" aria-label="OS Digital - Inicio">
           <Image
             src="/images/logo.png"
-            alt="OS Digital"
+            alt="OSDigitalPlus"
             width={280}
             height={100}
             className="h-20 w-auto lg:h-24"

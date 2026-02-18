@@ -5,6 +5,7 @@ import { MockupSection } from "@/components/mockup-section"
 import { FreeSection } from "@/components/free-section"
 import { Pricing } from "@/components/pricing"
 import { Testimonials } from "@/components/testimonials"
+import { AutonomosSection } from "@/components/autonomos-section"
 import { FAQ } from "@/components/faq"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
@@ -24,6 +25,9 @@ export default function Home() {
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <FreeSection />
+        </ScrollRevealWrapper>
+        <ScrollRevealWrapper>
+          <AutonomosSection />
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <Pricing />

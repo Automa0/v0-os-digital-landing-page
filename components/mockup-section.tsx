@@ -29,14 +29,14 @@ export function MockupSection() {
                 <div className="h-2.5 w-2.5 rounded-full bg-chart-4/50" />
                 <div className="h-2.5 w-2.5 rounded-full bg-chart-3/50" />
                 <div className="ml-3 flex-1 rounded bg-background px-3 py-1 text-xs text-muted-foreground">
-                  app.osdigital.com.br/dashboard
+                  app.osdigitalplus.com.br/dashboard
                 </div>
               </div>
 
               <div className="flex">
                 {/* Sidebar */}
                 <div className="hidden w-44 border-r border-border bg-muted/30 p-4 md:block">
-                  <div className="mb-6 text-sm font-bold text-primary">OS Digital</div>
+                  <div className="mb-6 text-sm font-bold text-primary">OSDigitalPlus</div>
                   <nav className="flex flex-col gap-1.5">
                     {["Dashboard", "Ordens", "Clientes", "Relatorios"].map((item, i) => (
                       <div
@@ -119,7 +119,7 @@ export function MockupSection() {
 
               <div className="p-5">
                 <div className="mb-4 text-center">
-                  <div className="text-xs font-bold text-primary">OS Digital</div>
+                  <div className="text-xs font-bold text-primary">OSDigitalPlus</div>
                   <h4 className="mt-1 text-sm font-semibold text-foreground">Ordem de Servico</h4>
                 </div>
 

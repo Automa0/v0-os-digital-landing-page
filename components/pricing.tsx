@@ -20,7 +20,7 @@ const plans = [
   },
   {
     name: "Mensal",
-    price: "R$ 19,99",
+    price: "R$ 24,90",
     period: "/ mes",
     badge: null,
     highlight: false,
@@ -32,7 +32,7 @@ const plans = [
       "PDF com assinatura",
     ],
     cta: "Assinar Mensal",
-    href: "#",
+    href: "https://app.osdigitalplus.com.br",
   },
   {
     name: "Semestral",
@@ -49,7 +49,7 @@ const plans = [
       "Link do Cliente + PDF",
     ],
     cta: "Assinar Semestral",
-    href: "#",
+    href: "https://app.osdigitalplus.com.br",
   },
   {
     name: "Anual",
@@ -67,7 +67,7 @@ const plans = [
       "Tudo do plano Semestral",
     ],
     cta: "Assinar Anual",
-    href: "#",
+    href: "https://app.osdigitalplus.com.br",
     equivalent: "Equivalente a R$ 16,41 / mes",
   },
 ]

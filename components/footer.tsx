@@ -10,14 +10,14 @@ export function Footer() {
           <div className="flex-1">
             <Image
               src="/images/logo.png"
-              alt="OS Digital"
+              alt="OSDigitalPlus"
               width={220}
               height={80}
               className="h-16 w-auto"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Sistema completo de ordens de servico para assistencias tecnicas.
-              Organize, acompanhe e entregue com profissionalismo.
+              O OSDigitalPlus ajuda voce a organizar, acompanhar e entregar com profissionalismo.
             </p>
             <div className="mt-4 inline-flex items-center gap-2 rounded-md border border-border bg-secondary/50 px-3 py-1.5">
               <ShieldCheck className="h-4 w-4 text-primary" />
@@ -65,14 +65,14 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <a
-                  href="https://wa.me/5521996595469?text=Ol%C3%A1,%20quero%20saber%20sobre%20o%20OS%20Digital"
+                  href="https://wa.me/5521996595469?text=Ol%C3%A1,%20quero%20saber%20sobre%20o%20OSDigitalPlus"
                   className="text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
                   WhatsApp
                 </a>
               </li>
               <li>
-                <span className="text-sm text-muted-foreground">contato@osdigital.com.br</span>
+                <span className="text-sm text-muted-foreground">contato@osdigitalplus.com.br</span>
               </li>
             </ul>
           </div>
@@ -80,7 +80,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border pt-6">
           <p className="text-center text-xs text-muted-foreground">
-            {`© ${new Date().getFullYear()} OS Digital. Todos os direitos reservados.`}
+            {`© ${new Date().getFullYear()} OSDigitalPlus. Todos os direitos reservados.`}
           </p>
         </div>
       </div>

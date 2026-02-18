@@ -44,7 +44,7 @@ export function FAQ() {
             Perguntas Frequentes
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Tire suas duvidas sobre o OS Digital.
+            Tire suas duvidas sobre o OSDigitalPlus.
           </p>
         </div>
 

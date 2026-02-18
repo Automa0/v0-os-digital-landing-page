@@ -2,12 +2,11 @@
 
 import { Check, ArrowRight, Clock } from "lucide-react"
 
-const LOGIN_URL = "https://v0-os-digital-app.vercel.app/auth/login"
+const LOGIN_URL = "https://app.osdigitalplus.com.br"
 
 const features = [
   "Criar e organizar ordens",
   "Gerenciar clientes",
-  "Usar modo administrador (basico)",
   "Gerar Link do Cliente",
 ]
 
@@ -20,7 +19,7 @@ export function FreeSection() {
             Comece hoje. Sem investir nada.
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Crie sua conta gratuita e teste o OS Digital sem cartao de credito.
+            Crie sua conta gratuita e teste o OSDigitalPlus sem cartao de credito.
             Oferta por tempo limitado para novos usuarios.
           </p>
 

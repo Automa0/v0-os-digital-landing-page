@@ -18,7 +18,7 @@ export function Hero() {
             <span className="text-balance">sua assistencia tecnica de verdade.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
-            Organize ordens, envie links profissionais aos clientes e gere PDF com
+            Com o OSDigitalPlus, organize ordens, envie links profissionais aos clientes e gere PDF com
             assinatura em segundos — tudo sem complicacao.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
