@@ -76,31 +76,31 @@ export function Footer() {
               </li>
             </ul>
           </div>
-        </div>
 
-        <div className="mt-12 border-t border-border pt-6">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-end">
-            <p className="text-center text-xs text-muted-foreground sm:text-left">
-              {`© ${new Date().getFullYear()} OSDigitalPlus. Todos os direitos reservados.`}
-            </p>
-            
-            {/* Automatize 360 Integration Badge */}
+          {/* Automatize 360 Integration */}
+          <div className="flex flex-col items-start lg:items-end">
             <a
               href="https://automatize360.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-end gap-1 transition-opacity duration-200 hover:opacity-70"
+              className="flex flex-col items-center gap-2 transition-transform duration-200 hover:scale-105 lg:items-end"
             >
-              <span className="text-xs text-gray-500">Integrado com</span>
+              <span className="text-xs font-medium text-gray-600">Integrado com</span>
               <Image
                 src="/images/automatize360-logo.png"
                 alt="Automatize 360"
-                width={120}
-                height={22}
-                className="h-5 w-auto"
+                width={140}
+                height={30}
+                className="h-7 w-auto"
               />
             </a>
           </div>
+        </div>
+
+        <div className="mt-12 border-t border-border pt-6">
+          <p className="text-center text-xs text-muted-foreground">
+            {`© ${new Date().getFullYear()} OSDigitalPlus. Todos os direitos reservados.`}
+          </p>
         </div>
       </div>
     </footer>
