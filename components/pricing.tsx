@@ -32,7 +32,7 @@ const plans = [
       "PDF com assinatura digital",
     ],
     cta: "Assinar Mensal",
-    href: "https://app.osdigitalplus.com.br",
+    href: "https://app.osdigitalplus.com.br/register?plan=mensal",
   },
   {
     name: "Semestral",
@@ -49,7 +49,7 @@ const plans = [
       "Link do Cliente + PDF",
     ],
     cta: "Assinar Semestral",
-    href: "https://app.osdigitalplus.com.br",
+    href: "https://app.osdigitalplus.com.br/register?plan=semestral",
   },
   {
     name: "Anual",
@@ -67,7 +67,7 @@ const plans = [
       "Tudo do plano Semestral",
     ],
     cta: "Assinar Anual",
-    href: "https://app.osdigitalplus.com.br",
+    href: "https://app.osdigitalplus.com.br/register?plan=anual",
     equivalent: "Equivalente a R$ 16,41 / mês",
   },
 ]
