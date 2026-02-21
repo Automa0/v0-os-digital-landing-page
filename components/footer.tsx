@@ -90,8 +90,8 @@ export function Footer() {
                 src="/images/automatize360-logo.png"
                 alt="Automatize 360"
                 width={140}
-                height={30}
-                className="h-7 w-auto"
+                height={32}
+                className="h-8 w-auto"
               />
             </a>
           </div>
