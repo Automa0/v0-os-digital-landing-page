@@ -98,9 +98,36 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-border pt-6">
-          <p className="text-center text-xs text-muted-foreground">
-            {`© ${new Date().getFullYear()} OSDigitalPlus. Todos os direitos reservados.`}
-          </p>
+          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+            <p className="text-center text-xs text-muted-foreground sm:text-left">
+              {`© ${new Date().getFullYear()} OSDigitalPlus. Todos os direitos reservados.`}
+            </p>
+            
+            {/* Final CTA */}
+            <a
+              href="https://app.osdigitalplus.com.br"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/20 transition-all hover:opacity-90"
+            >
+              Criar Conta Grátis Agora
+            </a>
+
+            {/* Automatize 360 Integration */}
+            <a
+              href="https://automatize360.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-1 transition-transform duration-200 hover:scale-105"
+            >
+              <span className="text-xs font-medium text-gray-600">Integrado com</span>
+              <Image
+                src="/images/automatize360-logo.png"
+                alt="Automatize 360"
+                width={140}
+                height={32}
+                className="h-8 w-auto"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

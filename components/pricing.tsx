@@ -79,6 +79,16 @@ export function Pricing() {
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+        {/* Urgency message block */}
+        <div className="mx-auto max-w-3xl rounded-xl border border-primary/20 bg-gradient-to-r from-primary/5 to-accent/5 p-6 text-center mb-12 sm:mb-16">
+          <p className="text-sm font-semibold text-foreground">
+            🔒 Chega de depender só da conversa no WhatsApp.
+          </p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Profissionalize seu serviço com registros organizados e link exclusivo para o cliente.
+          </p>
+        </div>
+
         <div className="mx-auto max-w-2xl text-center">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
             Planos

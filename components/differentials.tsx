@@ -5,21 +5,21 @@ import { Link2, FileText, MousePointerClick, BarChart3, Smartphone, ShieldCheck 
 const cards = [
   {
     icon: Link2,
-    title: "Link Exclusivo do Cliente",
+    title: "Seu cliente acompanha tudo pelo link",
     description:
-      "Seu cliente acompanha o status do reparo em tempo real, aprova orçamentos e visualiza a previsão de entrega — sem precisar ligar.",
+      "Envie um link exclusivo e mostre mais profissionalismo no atendimento.",
   },
   {
     icon: FileText,
-    title: "PDF Profissional com Assinatura",
+    title: "Formalize seu serviço com assinatura digital",
     description:
-      "Gere documentos organizados e prontos para impressão, com assinatura digital integrada. Transmita credibilidade em cada entrega.",
+      "Gere termo editável e registre a aprovação do cliente de forma simples.",
   },
   {
     icon: MousePointerClick,
-    title: "Gestão Simples e Rápida",
+    title: "Controle seu caixa sem planilha complicada",
     description:
-      "Crie, atualize e finalize ordens de serviço em poucos cliques. Funciona no balcão, no celular e em qualquer navegador.",
+      "Registre entradas e acompanhe relatórios básicos do seu negócio.",
   },
   {
     icon: BarChart3,

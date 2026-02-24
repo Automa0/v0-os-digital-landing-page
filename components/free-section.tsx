@@ -53,11 +53,10 @@ export function FreeSection() {
             Plano Gratuito
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
-            Comece hoje. Sem investir nada.
+            Trabalhe como empresa, mesmo sendo autônomo.
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Crie sua conta gratuita e experimente o OSDigitalPlus sem compromisso.
-            Nenhum cartão de crédito necessário.
+            Organize seus serviços, profissionalize seu atendimento e passe mais confiança ao cliente.
           </p>
 
           {/* Feature card */}

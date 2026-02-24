@@ -26,15 +26,13 @@ export function Hero() {
           </div>
 
           <h1 className="font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            <span className="shimmer-text">Controle total</span>{" "}
+            <span className="shimmer-text">Pare de perder cliente</span>{" "}
             <span className="text-balance">
-              da sua assistência técnica em um só lugar.
+              por falta de organização.
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
-            Com o OSDigitalPlus, crie ordens de serviço, envie links de acompanhamento
-            para seus clientes e gere PDFs com assinatura digital — tudo de forma
-            simples, rápida e profissional.
+            Crie ordens de serviço profissionais, gere termo digital e envie o link para seu cliente em segundos — direto do celular ou computador.
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
@@ -47,7 +45,7 @@ export function Hero() {
             </a>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
-            Sem cartão de crédito. Comece em menos de 2 minutos.
+            Comece grátis. Sem cartão. Sem burocracia.
           </p>
 
           {/* Mini trust indicators */}
