@@ -31,6 +31,23 @@ export const metadata: Metadata = {
     description:
       "Sistema completo de ordens de serviço para assistências técnicas. Organize, acompanhe e entregue com profissionalismo.",
     type: "website",
+    url: "https://osdigitalplus.com.br",
+    siteName: "OSDigitalPlus",
+    images: [
+      {
+        url: "https://osdigitalplus.com.br/images/og-image.png",
+        width: 1200,
+        height: 1200,
+        alt: "OSDigitalPlus - Sistema de Ordem de Serviço",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OSDigitalPlus - Profissionalize sua assistência técnica",
+    description:
+      "Sistema completo de ordens de serviço para assistências técnicas.",
+    images: ["https://osdigitalplus.com.br/images/og-image.png"],
   },
 }
 
