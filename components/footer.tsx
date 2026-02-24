@@ -97,46 +97,47 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border pt-6">
-          {/* Social Media */}
-          <div className="mb-6 flex justify-center gap-4">
-            <a
-              href="https://www.instagram.com/osdigitalplus?igsh=MTEzMHdvZm44MmRxYQ=="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
-              aria-label="Instagram"
-            >
-              <Instagram className="h-5 w-5" />
-            </a>
-            <a
-              href="https://www.tiktok.com/@osdigitalplus"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
-              aria-label="TikTok"
-            >
-              <Music2 className="h-5 w-5" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/osdigitalplus"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="https://wa.me/5521996595469?text=Ol%C3%A1,%20quero%20saber%20sobre%20o%20OSDigitalPlus"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
-              aria-label="WhatsApp"
-            >
-              <MessageCircle className="h-5 w-5" />
-            </a>
-          </div>
+        {/* Social Media - Above the border line */}
+        <div className="mb-12 flex justify-center gap-4">
+          <a
+            href="https://www.instagram.com/osdigitalplus?igsh=MTEzMHdvZm44MmRxYQ=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
+            aria-label="Instagram"
+          >
+            <Instagram className="h-5 w-5" />
+          </a>
+          <a
+            href="https://www.tiktok.com/@osdigitalplus"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
+            aria-label="TikTok"
+          >
+            <Music2 className="h-5 w-5" />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/osdigitalplus"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="h-5 w-5" />
+          </a>
+          <a
+            href="https://wa.me/5521996595469?text=Ol%C3%A1,%20quero%20saber%20sobre%20o%20OSDigitalPlus"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
+            aria-label="WhatsApp"
+          >
+            <MessageCircle className="h-5 w-5" />
+          </a>
+        </div>
+
+        <div className="border-t border-border pt-6">
 
           <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
             <p className="text-center text-xs text-muted-foreground sm:text-left">
