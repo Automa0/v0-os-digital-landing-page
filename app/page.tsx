@@ -2,7 +2,6 @@ import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { Differentials } from "@/components/differentials"
 import { MockupSection } from "@/components/mockup-section"
-import { FreeSection } from "@/components/free-section"
 import { Pricing } from "@/components/pricing"
 import { Testimonials } from "@/components/testimonials"
 import { AutonomosSection } from "@/components/autonomos-section"
@@ -22,9 +21,6 @@ export default function Home() {
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <MockupSection />
-        </ScrollRevealWrapper>
-        <ScrollRevealWrapper>
-          <FreeSection />
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <AutonomosSection />
