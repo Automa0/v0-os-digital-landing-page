@@ -32,7 +32,7 @@ export function MockupSection() {
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-01%20at%2016.12.04-b5c0vrfDXLsUQXiv3mtk4sadtTjDxY.jpeg"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-01%20162539-YqFjq5QzElTPxCHXY9hwv6aD43BsKX.png"
             alt="Dashboard empresarial real do OS Digital+ — faturamento, metas, ordens e lojas"
             className="w-full object-cover"
           />
