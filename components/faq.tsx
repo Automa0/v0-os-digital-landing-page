@@ -7,34 +7,44 @@ const LOGIN_URL = "https://app.osdigitalplus.com.br"
 
 const faqs = [
   {
+    question: "O que é o OS Digital+?",
+    answer:
+      "O OS Digital+ é um sistema completo de gestão para assistências técnicas, lojas físicas e autônomos. Você organiza ordens de serviço, controla caixa e faturamento, acompanha métricas por loja e tem dashboard empresarial em tempo real — tudo sem precisar saber tecnologia.",
+  },
+  {
+    question: "Funciona para quem trabalha sozinho?",
+    answer:
+      "Sim. O plano Básico foi feito exatamente para autônomos e técnicos que trabalham sozinhos. Você usa do celular, cria OS, envia link pro cliente e controla o caixa sem precisar de equipe.",
+  },
+  {
+    question: "Posso gerenciar mais de uma loja?",
+    answer:
+      "Sim. O plano Pro suporta até 2 lojas e o Master até 7 lojas. O dono vê tudo em um painel único, com caixa separado por loja e métricas individuais de cada unidade.",
+  },
+  {
+    question: "O que é a IA integrada?",
+    answer:
+      "A IA é um chat inteligente dentro do sistema disponível nos planos Pro e Master. Ela analisa seu faturamento, sugere melhorias e responde dúvidas do dono sobre o negócio.",
+  },
+  {
     question: "O sistema funciona no celular?",
     answer:
-      "Sim! O OSDigitalPlus é 100% responsivo e funciona perfeitamente em smartphones, tablets e computadores. Ideal para uso no balcão, em campo ou no atendimento a domicílio.",
+      "Sim. O OS Digital+ é 100% responsivo e funciona perfeitamente em smartphones, tablets e computadores. Ideal para uso no balcão, em campo ou no atendimento em domicílio.",
   },
   {
-    question: "O plano gratuito é realmente sem custo?",
+    question: "Posso cancelar a qualquer momento?",
     answer:
-      "Sim, você pode criar sua conta e utilizar o plano gratuito sem nenhum custo e sem precisar informar cartão de crédito. O plano gratuito inclui funcionalidades essenciais para você conhecer o sistema.",
+      "Sim. Não há fidelidade. Você pode cancelar quando quiser, sem taxas ou multas. Seu acesso continua ativo até o final do período já pago.",
   },
   {
-    question: "Posso cancelar minha assinatura a qualquer momento?",
+    question: "Meus dados estão seguros?",
     answer:
-      "Claro! Você pode cancelar sua assinatura quando quiser, sem taxas ou multas. Seu acesso continua ativo até o final do período já pago.",
-  },
-  {
-    question: "Meus dados e os dos meus clientes estão seguros?",
-    answer:
-      "Sim. Utilizamos criptografia e servidores seguros para proteger todas as informações. Seus dados não são compartilhados com terceiros e backups são realizados automaticamente.",
+      "Sim. Utilizamos criptografia e servidores seguros para proteger todas as informações. Cada loja vê apenas seus próprios dados e backups são realizados automaticamente.",
   },
   {
     question: "Como funciona o suporte?",
     answer:
-      "Oferecemos suporte via WhatsApp para todos os planos. Clientes do plano Anual contam com prioridade no atendimento. Também disponibilizamos tutoriais e documentação online.",
-  },
-  {
-    question: "Quantas ordens posso criar?",
-    answer:
-      "O plano Gratuito permite até 10 ordens no total. O Mensal até 30 por mês, o Semestral até 80 por mês, e o Anual oferece ordens ilimitadas. Você pode mudar de plano a qualquer momento.",
+      "Oferecemos suporte via WhatsApp para todos os planos. Clientes do plano Master contam com suporte prioritário. Também disponibilizamos tutoriais e documentação online.",
   },
 ]
 
@@ -51,10 +61,10 @@ export function FAQ() {
             FAQ
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
-            Perguntas Frequentes
+            Perguntas frequentes
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Tire suas dúvidas sobre o OSDigitalPlus.
+            Tire suas dúvidas sobre o OS Digital+.
           </p>
         </div>
 
@@ -88,16 +98,16 @@ export function FAQ() {
         {/* Final CTA */}
         <div className="mt-16 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 p-10 text-center">
           <h3 className="font-heading text-xl font-bold text-foreground">
-            Pronto para profissionalizar sua assistência?
+            Comece agora e organize sua loja hoje
           </h3>
           <p className="mt-3 text-sm text-muted-foreground">
-            Crie sua conta gratuita e descubra como o OSDigitalPlus pode transformar a gestão do seu negócio.
+            Sem cartão. Sem risco. Sem complicação.
           </p>
           <a
             href={LOGIN_URL}
             className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:opacity-90"
           >
-            Criar Minha Conta Agora
+            Criar conta grátis
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>

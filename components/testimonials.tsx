@@ -6,21 +6,27 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 const testimonials = [
   {
     name: "Carlos Mendes",
-    role: "TechFix Assistência",
-    text: "Antes eu anotava tudo no papel. Com o OSDigitalPlus, profissionalizei meu atendimento e meus clientes perceberam a diferença na hora.",
+    role: "TechFix Assistência — Rio de Janeiro",
+    text: "Antes eu anotava tudo no papel e perdia controle de OS toda hora. Agora tenho dashboard, controle de caixa e meu cliente acompanha tudo pelo link. Parece empresa grande.",
     initials: "CM",
   },
   {
     name: "Fernanda Oliveira",
-    role: "CelularTop Reparos",
-    text: "O link do cliente foi o que mais me surpreendeu. Meus clientes pararam de ligar toda hora perguntando pelo status do aparelho!",
+    role: "CelularTop Reparos — São Paulo",
+    text: "O dashboard financeiro foi o que mais me surpreendeu. Consigo ver o faturamento em tempo real, definir meta mensal e acompanhar o progresso. Isso era só de empresa grande.",
     initials: "FO",
   },
   {
     name: "Ricardo Alves",
-    role: "Info Service",
-    text: "Gero PDF com assinatura em segundos. Parece que tenho um sistema de empresa grande, e pago muito pouco por isso.",
+    role: "Info Service — Belo Horizonte",
+    text: "Abri minha segunda loja e o OS Digital+ me deixou ver tudo num painel só. Caixa separado por loja, membros ativos, relatórios. Incrível por esse preço.",
     initials: "RA",
+  },
+  {
+    name: "Bruno Lima",
+    role: "Técnico Autônomo — Curitiba",
+    text: "Uso sozinho, no celular, atendendo em domicílio. Crio OS, mando link pro cliente e gero PDF na hora. Nunca fui tão profissional e nem precisei de contador.",
+    initials: "BL",
   },
 ]
 
@@ -43,7 +49,7 @@ export function Testimonials() {
             Quem usa, recomenda
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Veja o que outros técnicos e donos de assistência dizem sobre o OSDigitalPlus.
+            Técnicos, donos de loja e autônomos que transformaram a gestão do negócio com o OS Digital+.
           </p>
         </div>
 
@@ -70,7 +76,6 @@ export function Testimonials() {
               </div>
             </div>
 
-            {/* Navigation */}
             <div className="mt-6 flex items-center justify-center gap-4">
               <button
                 onClick={prev}
@@ -101,52 +106,29 @@ export function Testimonials() {
             </div>
           </div>
 
-          {/* WhatsApp snapshot */}
+          {/* Stats panel */}
           <div className="w-full max-w-sm">
-            <WhatsAppSnapshot />
+            <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-md">
+              <div className="border-b border-border bg-primary/5 px-6 py-4">
+                <p className="text-sm font-semibold text-foreground">OS Digital+ em números</p>
+              </div>
+              <div className="space-y-0 divide-y divide-border">
+                {[
+                  { label: "Assistências cadastradas", value: "500+" },
+                  { label: "Ordens criadas", value: "12.000+" },
+                  { label: "PDFs gerados", value: "8.400+" },
+                  { label: "Uptime do sistema", value: "99,9%" },
+                ].map((stat) => (
+                  <div key={stat.label} className="flex items-center justify-between px-6 py-4">
+                    <span className="text-sm text-muted-foreground">{stat.label}</span>
+                    <span className="text-lg font-bold text-primary">{stat.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
-
-function WhatsAppSnapshot() {
-  return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-md">
-      {/* Header */}
-      <div className="flex items-center gap-3 bg-[#075E54] px-4 py-3">
-        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366]/20 text-xs font-bold text-[#dcf8c6]">
-          JS
-        </div>
-        <div>
-          <div className="text-sm font-medium text-[#e9edef]">João Silva</div>
-          <div className="text-xs text-[#e9edef]/60">online</div>
-        </div>
-      </div>
-
-      {/* Chat body */}
-      <div className="space-y-3 bg-[#ECE5DD] p-4">
-        {/* Client message */}
-        <div className="ml-0 mr-12 max-w-[85%]">
-          <div className="rounded-lg rounded-tl-none bg-[#ffffff] px-3 py-2 shadow-sm">
-            <p className="text-sm text-[#303030]">
-              Acompanhei pelo link e meu aparelho foi entregue no prazo. Excelente organização, recomendo!
-            </p>
-            <span className="mt-1 block text-right text-xs text-[#667781]">14:32</span>
-          </div>
-        </div>
-
-        {/* Tech message */}
-        <div className="ml-auto mr-0 max-w-[85%]">
-          <div className="rounded-lg rounded-tr-none bg-[#dcf8c6] px-3 py-2 shadow-sm">
-            <p className="text-sm text-[#303030]">
-              Obrigado pela confiança! Estamos sempre à disposição.
-            </p>
-            <span className="mt-1 block text-right text-xs text-[#667781]">14:35</span>
-          </div>
-        </div>
-      </div>
-    </div>
   )
 }

@@ -16,12 +16,12 @@ export function Footer() {
               className="h-16 w-auto"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Sistema completo de ordens de serviço para assistências técnicas.
-              O OSDigitalPlus ajuda você a organizar, acompanhar e entregar com profissionalismo.
+              Sistema completo de gestão para assistências técnicas, lojas físicas e autônomos.
+              Organize, controle e cresça sem complicação.
             </p>
             <div className="mt-4 inline-flex items-center gap-2 rounded-md border border-border bg-secondary/50 px-3 py-1.5">
               <ShieldCheck className="h-4 w-4 text-primary" />
-              <span className="text-xs font-medium text-foreground">Empresa Registrada</span>
+              <span className="text-xs font-medium text-foreground">Dados protegidos</span>
             </div>
           </div>
 
@@ -29,13 +29,36 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-foreground">Planos</h4>
             <ul className="mt-4 space-y-2">
-              {["Gratuito", "Mensal", "Semestral", "Anual"].map((plan) => (
+              {["Básico", "Pro", "Master"].map((plan) => (
                 <li key={plan}>
                   <a
                     href="#planos"
                     className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
                     {plan}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Features */}
+          <div>
+            <h4 className="text-sm font-semibold text-foreground">Funcionalidades</h4>
+            <ul className="mt-4 space-y-2">
+              {[
+                "Ordens de Serviço",
+                "Dashboard Empresarial",
+                "Controle de Caixa",
+                "Multiloja",
+                "IA Integrada",
+              ].map((item) => (
+                <li key={item}>
+                  <a
+                    href="#funcionalidades"
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    {item}
                   </a>
                 </li>
               ))}
@@ -59,33 +82,33 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-sm font-semibold text-foreground">Contato</h4>
-            <ul className="mt-4 space-y-2">
-              <li>
-                <a
-                  href="https://wa.me/5521996595469?text=Ol%C3%A1,%20quero%20saber%20sobre%20o%20OSDigitalPlus"
-                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
-                >
-                  WhatsApp
-                </a>
-              </li>
-              <li>
-                <span className="text-sm text-muted-foreground">contato@osdigitalplus.com.br</span>
-              </li>
-            </ul>
-          </div>
+          {/* Contact + Automatize */}
+          <div className="flex flex-col gap-6">
+            <div>
+              <h4 className="text-sm font-semibold text-foreground">Contato</h4>
+              <ul className="mt-4 space-y-2">
+                <li>
+                  <a
+                    href="https://wa.me/5521996595469?text=Ol%C3%A1,%20quero%20saber%20sobre%20o%20OSDigitalPlus"
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    WhatsApp
+                  </a>
+                </li>
+                <li>
+                  <span className="text-sm text-muted-foreground">contato@osdigitalplus.com.br</span>
+                </li>
+              </ul>
+            </div>
 
-          {/* Automatize 360 Integration */}
-          <div className="flex flex-col items-start lg:items-end">
+            {/* Automatize 360 */}
             <a
               href="https://automatize360.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2 transition-transform duration-200 hover:scale-105 lg:items-end"
+              className="flex flex-col items-start gap-1.5 transition-transform duration-200 hover:scale-105"
             >
-              <span className="text-xs font-medium text-gray-600">Integrado com</span>
+              <span className="text-xs font-medium text-gray-500">Integrado com</span>
               <Image
                 src="/images/automatize360-logo.png"
                 alt="Automatize 360"
@@ -97,8 +120,8 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Social Media - Above the border line */}
-        <div className="mb-12 flex justify-center gap-4">
+        {/* Social Media */}
+        <div className="mb-10 mt-12 flex justify-center gap-4">
           <a
             href="https://www.instagram.com/osdigitalplus?igsh=MTEzMHdvZm44MmRxYQ=="
             target="_blank"
@@ -138,18 +161,15 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border pt-6">
-
           <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
             <p className="text-center text-xs text-muted-foreground sm:text-left">
               {`© ${new Date().getFullYear()} OSDigitalPlus. Todos os direitos reservados.`}
             </p>
-            
-            {/* Final CTA */}
             <a
               href="https://app.osdigitalplus.com.br"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/20 transition-all hover:opacity-90"
             >
-              Criar Conta Grátis Agora
+              Criar Conta Grátis
             </a>
           </div>
         </div>
