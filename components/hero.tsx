@@ -105,7 +105,7 @@ export function Hero() {
               <div className="float-animation-delayed overflow-hidden rounded-3xl border-4 border-gray-800 bg-gray-900 shadow-2xl">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-05%20at%2000.56.14-n9wi8ktCWAtgZo4Ck0DbAIbP4cOEZ8.jpeg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-05%20at%2000.58.03-nSO3dfqhVNjHEQ1f0m4Gb80a2aBttr.jpeg"
                   alt="OS Digital+ no celular"
                   className="w-full"
                   loading="eager"
