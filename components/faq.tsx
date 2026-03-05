@@ -95,22 +95,7 @@ export function FAQ() {
           ))}
         </div>
 
-        {/* Final CTA */}
-        <div className="mt-16 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 p-10 text-center">
-          <h3 className="font-heading text-xl font-bold text-foreground">
-            Comece agora e organize sua loja hoje
-          </h3>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Sem cartão. Sem risco. Sem complicação.
-          </p>
-          <a
-            href={LOGIN_URL}
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:opacity-90"
-          >
-            Criar conta grátis
-            <ArrowRight className="h-4 w-4" />
-          </a>
-        </div>
+
       </div>
     </section>
   )
