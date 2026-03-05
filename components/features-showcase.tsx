@@ -2,24 +2,14 @@
 
 const features = [
   {
-    title: "Dashboard Empresarial",
-    description: "Visão completa do seu negócio: faturamento, metas, lojas e membros ativos em tempo real.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-01%20162539-YqFjq5QzElTPxCHXY9hwv6aD43BsKX.png",
-  },
-  {
     title: "Controle de Caixa",
-    description: "Registre entradas por PIX, dinheiro, cartão. Acompanhe saldo e resultado do período.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-01%20162539-YqFjq5QzElTPxCHXY9hwv6aD43BsKX.png",
+    description: "Registre entradas por PIX, dinheiro, cartao. Acompanhe saldo, saidas e suprimentos em tempo real.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/caixa-zSxiJ4jSUGiiI2OjFJv39fpID0hrIN.png",
   },
   {
-    title: "Gestão de Clientes",
-    description: "Cadastro completo com histórico de serviços, equipamentos e contatos.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-01%20162539-YqFjq5QzElTPxCHXY9hwv6aD43BsKX.png",
-  },
-  {
-    title: "Ordens de Serviço",
-    description: "Crie OS profissionais em segundos. Gere PDF com logo e termo de aceite digital.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-01%20162539-YqFjq5QzElTPxCHXY9hwv6aD43BsKX.png",
+    title: "Ordens de Servico",
+    description: "Crie OS profissionais em segundos. Checklist do aparelho, condicoes fisicas, funcionalidades e fotos de entrada.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-05%20010620-1hczKFKdGzjF1IJl6NfmgiTZaKBADk.png",
   },
 ]
 
@@ -72,10 +62,10 @@ export function FeaturesShowcase() {
                   {feature.description}
                 </p>
                 <a
-                  href="https://app.osdigitalplus.com.br/register"
+                  href="https://app.osdigitalplus.com.br/register?plan=mensal"
                   className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
                 >
-                  Testar grátis
+                  Comecar agora por R$29/mes
                   <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>

@@ -16,15 +16,16 @@ const plans = [
       anual: { amount: "R$ 299", period: "/ano", link: "https://app.osdigitalplus.com.br/register?plan=anual", note: "Equivale a R$ 24,90/mês" },
     },
     features: [
-      "Até 10 ordens de serviço",
-      "1 loja",
-      "Cadastro de clientes",
-      "OS com PDF profissional",
+      "Ordens de serviço",
+      "Gestão de clientes",
+      "Controle de caixa",
       "Logo na OS",
-      "Link do cliente",
-      "Controle básico de caixa",
+      "1 loja",
+      "OS com PDF profissional",
+      "Dashboard empresarial",
+      "Suporte",
     ],
-    cta: "Começar no Básico",
+    cta: "Começar agora",
   },
   {
     name: "Pro",
@@ -212,6 +213,9 @@ export function Pricing() {
 
         <p className="mt-8 text-center text-sm text-muted-foreground">
           Todos os planos incluem suporte via WhatsApp. Sem fidelidade. Cancele quando quiser.
+        </p>
+        <p className="mt-4 text-center text-base font-medium text-foreground">
+          Menos que um cafe por dia para organizar toda sua assistencia tecnica.
         </p>
       </div>
     </section>

@@ -56,10 +56,10 @@ export function Hero() {
 
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
             <a
-              href={SIGNUP_URL}
+              href="https://app.osdigitalplus.com.br/register?plan=mensal"
               className="pulse-glow group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90"
             >
-              Testar grátis
+              Comecar agora por R$29/mes
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
@@ -70,8 +70,14 @@ export function Hero() {
             </a>
           </div>
 
-          <p className="mt-4 text-xs text-white/40">
-            Sem cartão de crédito. Cancele quando quiser.
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-xs text-white/60 lg:justify-start">
+            <span>Sem contrato</span>
+            <span>Cancele quando quiser</span>
+            <span>Acesso imediato</span>
+          </div>
+
+          <p className="mt-3 text-xs font-medium text-accent">
+            Valor promocional disponivel apenas esta semana.
           </p>
         </div>
 
