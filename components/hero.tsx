@@ -103,13 +103,9 @@ export function Hero() {
             {/* Mobile mockup */}
             <div className="absolute -right-4 bottom-8 z-20 w-32 sm:-right-8 sm:w-40 lg:-right-12 lg:w-48">
               <div className="float-animation-delayed overflow-hidden rounded-3xl border-4 border-gray-800 bg-gray-900 shadow-2xl">
-                {/* Phone notch */}
-                <div className="relative bg-gray-900 px-4 py-2">
-                  <div className="mx-auto h-4 w-16 rounded-full bg-gray-800" />
-                </div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-01%20162539-YqFjq5QzElTPxCHXY9hwv6aD43BsKX.png"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-05%20at%2000.56.14-n9wi8ktCWAtgZo4Ck0DbAIbP4cOEZ8.jpeg"
                   alt="OS Digital+ no celular"
                   className="w-full"
                   loading="eager"
