@@ -161,17 +161,9 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border pt-6">
-          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-            <p className="text-center text-xs text-muted-foreground sm:text-left">
-              {`© ${new Date().getFullYear()} OSDigitalPlus. Todos os direitos reservados.`}
-            </p>
-            <a
-              href="https://app.osdigitalplus.com.br"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/20 transition-all hover:opacity-90"
-            >
-              Criar Conta Grátis
-            </a>
-          </div>
+          <p className="text-center text-xs text-muted-foreground">
+            {`© ${new Date().getFullYear()} OSDigitalPlus. Todos os direitos reservados.`}
+          </p>
         </div>
       </div>
     </footer>
