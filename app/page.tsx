@@ -1,11 +1,11 @@
-import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { Differentials } from "@/components/differentials"
-import { MockupSection } from "@/components/mockup-section"
+import { PainPoints } from "@/components/pain-points"
+import { Solutions } from "@/components/solutions"
+import { FeaturesShowcase } from "@/components/features-showcase"
 import { Pricing } from "@/components/pricing"
 import { Testimonials } from "@/components/testimonials"
-import { AutonomosSection } from "@/components/autonomos-section"
 import { FAQ } from "@/components/faq"
+import { FinalCTA } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 import { ScrollRevealWrapper } from "@/components/scroll-reveal-wrapper"
@@ -13,17 +13,16 @@ import { ScrollRevealWrapper } from "@/components/scroll-reveal-wrapper"
 export default function Home() {
   return (
     <>
-      <Header />
       <main>
         <Hero />
         <ScrollRevealWrapper>
-          <Differentials />
+          <PainPoints />
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
-          <MockupSection />
+          <Solutions />
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
-          <AutonomosSection />
+          <FeaturesShowcase />
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <Pricing />
@@ -34,6 +33,7 @@ export default function Home() {
         <ScrollRevealWrapper>
           <FAQ />
         </ScrollRevealWrapper>
+        <FinalCTA />
       </main>
       <Footer />
       <WhatsAppButton />

@@ -63,11 +63,9 @@
 .shimmer-text {
   background: linear-gradient(
     90deg,
-    hsl(210 100% 40%) 0%,
-    hsl(195 100% 55%) 25%,
+    hsl(195 100% 55%) 0%,
     hsl(0 0% 100%) 50%,
-    hsl(195 100% 55%) 75%,
-    hsl(210 100% 40%) 100%
+    hsl(195 100% 55%) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -86,6 +84,11 @@
   animation: float 4s ease-in-out infinite;
 }
 
+.float-animation-delayed {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
 /* Fade-in up */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(24px); }
@@ -100,24 +103,6 @@
 .stagger-item {
   opacity: 0;
   animation: fadeInUp 0.5s ease-out forwards;
-}
-.stagger-item:nth-child(1) { animation-delay: 0.05s; }
-.stagger-item:nth-child(2) { animation-delay: 0.10s; }
-.stagger-item:nth-child(3) { animation-delay: 0.15s; }
-.stagger-item:nth-child(4) { animation-delay: 0.20s; }
-.stagger-item:nth-child(5) { animation-delay: 0.25s; }
-.stagger-item:nth-child(6) { animation-delay: 0.30s; }
-.stagger-item:nth-child(7) { animation-delay: 0.35s; }
-.stagger-item:nth-child(8) { animation-delay: 0.40s; }
-
-/* Slide carousel */
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(32px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-.slide-in {
-  animation: slideIn 0.4s ease-out forwards;
 }
 
 /* Pulse glow for CTA */
@@ -134,4 +119,45 @@
 .section-divider {
   background: linear-gradient(90deg, transparent, hsl(210 100% 40% / 0.15), transparent);
   height: 1px;
+}
+
+/* Infinite scroll carousel */
+@keyframes infiniteScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.infinite-scroll {
+  animation: infiniteScroll 40s linear infinite;
+}
+
+.infinite-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Floating particles for hero */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: hsl(195 100% 55% / 0.6);
+  border-radius: 50%;
+  animation: particleFloat 8s ease-in-out infinite;
+}
+
+.particle-1 { top: 20%; left: 10%; animation-delay: 0s; }
+.particle-2 { top: 60%; left: 20%; animation-delay: 1s; }
+.particle-3 { top: 40%; right: 15%; animation-delay: 2s; }
+.particle-4 { top: 80%; right: 25%; animation-delay: 3s; }
+.particle-5 { top: 30%; right: 40%; animation-delay: 4s; }
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 1;
+  }
 }
