@@ -8,57 +8,65 @@ import {
   Store,
   Bot,
   FileText,
-  Smartphone,
+  ShoppingBag,
 } from "lucide-react"
 
 const features = [
   {
     icon: ClipboardList,
-    title: "Ordens de Serviço Inteligentes",
+    title: "Ordens de Serviço",
     description:
-      "Criação rápida com status automáticos, valores integrados ao caixa, forma de pagamento e PDF profissional com a sua logo.",
+      "Criação rápida com status, valores integrados ao caixa, forma de pagamento e PDF profissional com a sua logo.",
+    badge: null,
   },
   {
     icon: Users,
     title: "Gestão de Clientes",
     description:
-      "Cadastro automático, histórico completo de serviços e link exclusivo para o cliente acompanhar a OS. Mais confiança e profissionalismo.",
+      "Cadastro automático, histórico completo e link exclusivo para o cliente acompanhar a OS. Mais confiança e profissionalismo.",
+    badge: null,
   },
   {
     icon: DollarSign,
     title: "Caixa & Financeiro",
     description:
       "Abertura e fechamento de caixa, entradas por forma de pagamento, saldo automático e relatórios por período.",
+    badge: null,
   },
   {
     icon: LayoutDashboard,
     title: "Dashboard Empresarial",
     description:
-      "Faturamento por loja, ordens finalizadas, membros ativos, meta mensal com progresso e comparativo de períodos para tomada de decisão.",
+      "Faturamento por loja, ordens finalizadas, membros ativos, meta mensal com progresso e comparativo de períodos.",
+    badge: null,
   },
   {
     icon: Store,
     title: "Multiloja",
     description:
-      "Crie e gerencie várias lojas, cada uma com seu próprio caixa. O dono vê tudo em um único painel — ideal para expansão.",
+      "Crie e gerencie várias lojas, cada uma com seu próprio caixa. O dono vê tudo em um único painel.",
+    badge: null,
   },
   {
     icon: Bot,
     title: "IA Integrada",
     description:
-      "Chat inteligente dentro do sistema que analisa faturamento, sugere melhorias e responde dúvidas do dono. Disponível nos planos Pro e Master.",
+      "Chat inteligente que analisa faturamento, sugere melhorias e responde dúvidas do dono — disponível nos planos Pro e Master.",
+    badge: "Em breve",
   },
   {
     icon: FileText,
     title: "PDF & Marca",
     description:
-      "Gere ordens de serviço profissionais com a logo da sua empresa, layout limpo e confiável — passa credibilidade ao cliente.",
+      "Gere ordens com a logo da sua empresa, layout limpo e confiável — passa credibilidade ao cliente na hora da entrega.",
+    badge: null,
   },
   {
-    icon: Smartphone,
-    title: "Para Autônomos",
+    icon: ShoppingBag,
+    title: "Venda de Produtos",
     description:
-      "Use sozinho, controle simples, sem equipe. Perfeito para quem atende em casa, na rua ou em domicílio.",
+      "Venda películas, capinhas e acessórios direto no sistema com controle de estoque integrado.",
+    badge: "Em breve",
   },
 ]
 
@@ -83,18 +91,24 @@ export function Differentials() {
             Tudo que você precisa para organizar e crescer
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Do atendimento ao financeiro, do técnico ao dono da loja — o OS Digital+ cobre tudo, sem complicação.
+            Do atendimento ao financeiro — o OS Digital+ cobre tudo, sem complicação.
           </p>
         </div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature) => {
+          {features.map((feature, i) => {
             const Icon = feature.icon
             return (
               <div
                 key={feature.title}
-                className="group flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/20 hover:shadow-lg"
+                className={`stagger-item group relative flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/20 hover:shadow-lg`}
+                style={{ animationDelay: `${i * 0.06}s` }}
               >
+                {feature.badge && (
+                  <span className="absolute right-3 top-3 rounded-full bg-accent/15 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-accent">
+                    {feature.badge}
+                  </span>
+                )}
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 text-primary transition-all group-hover:from-primary group-hover:to-primary group-hover:text-primary-foreground">
                   <Icon className="h-6 w-6" />
                 </div>
@@ -109,14 +123,6 @@ export function Differentials() {
               </div>
             )
           })}
-        </div>
-
-        {/* Roadmap banner */}
-        <div className="mt-12 rounded-2xl border border-dashed border-primary/30 bg-primary/5 px-6 py-6 text-center">
-          <p className="text-sm font-semibold text-foreground">Em breve no OS Digital+</p>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Venda de produtos (película, capinha, acessórios) · Controle de estoque · Integração com pagamentos · App mobile
-          </p>
         </div>
       </div>
     </section>

@@ -24,11 +24,6 @@
     --input: 214 20% 90%;
     --ring: 210 100% 40%;
     --radius: 0.625rem;
-    --chart-1: 210 100% 40%;
-    --chart-2: 195 100% 45%;
-    --chart-3: 150 60% 45%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
   }
 }
 
@@ -48,33 +43,21 @@
   .text-balance {
     text-wrap: balance;
   }
+  .text-pretty {
+    text-wrap: pretty;
+  }
 }
 
-/* Subtle dot grid pattern */
+/* Dot grid pattern */
 .bg-dot-pattern {
   background-image: radial-gradient(hsl(210 100% 40% / 0.06) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* Subtle diagonal lines */
-.bg-lines-pattern {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 10px,
-    hsl(210 100% 40% / 0.02) 10px,
-    hsl(210 100% 40% / 0.02) 11px
-  );
-}
-
-/* Hero highlight shimmer animation */
+/* Hero shimmer */
 @keyframes shimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
 
 .shimmer-text {
@@ -93,51 +76,61 @@
   animation: shimmer 3s linear infinite;
 }
 
-/* Float animation for mockup */
+/* Float animation */
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
-.animate-float {
+.float-animation {
   animation: float 4s ease-in-out infinite;
 }
 
-/* Fade-in on scroll */
+/* Fade-in up */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
 }
 
-/* Pulse glow for CTA */
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 0 0 hsla(210, 100%, 40%, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 0 12px hsla(210, 100%, 40%, 0);
-  }
+/* Staggered fade-in for feature cards */
+.stagger-item {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+.stagger-item:nth-child(1) { animation-delay: 0.05s; }
+.stagger-item:nth-child(2) { animation-delay: 0.10s; }
+.stagger-item:nth-child(3) { animation-delay: 0.15s; }
+.stagger-item:nth-child(4) { animation-delay: 0.20s; }
+.stagger-item:nth-child(5) { animation-delay: 0.25s; }
+.stagger-item:nth-child(6) { animation-delay: 0.30s; }
+.stagger-item:nth-child(7) { animation-delay: 0.35s; }
+.stagger-item:nth-child(8) { animation-delay: 0.40s; }
+
+/* Slide carousel */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(32px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-.animate-pulse-glow {
+.slide-in {
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+/* Pulse glow for CTA */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 hsla(210, 100%, 40%, 0.4); }
+  50% { box-shadow: 0 0 0 12px hsla(210, 100%, 40%, 0); }
+}
+
+.pulse-glow {
   animation: pulse-glow 2.5s ease-in-out infinite;
 }
 
-/* Section divider gradient */
+/* Section divider */
 .section-divider {
   background: linear-gradient(90deg, transparent, hsl(210 100% 40% / 0.15), transparent);
   height: 1px;

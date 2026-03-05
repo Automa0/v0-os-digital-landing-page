@@ -43,7 +43,7 @@ const plans = [
       "Dashboard empresarial completo",
       "Relatórios financeiros avançados",
       "Controle por membro",
-      "IA integrada",
+      "IA integrada [Em breve]",
     ],
     cta: "Assinar Pro",
   },
@@ -60,9 +60,9 @@ const plans = [
     features: [
       "Tudo do Pro",
       "Até 7 lojas",
-      "IA avançada",
+      "IA avançada [Em breve]",
       "Prioridade em novas funções",
-      "Futuro: venda de produtos (POS)",
+      "Venda de produtos (POS) [Em breve]",
       "Relatórios completos por loja",
       "Suporte prioritário",
     ],
@@ -174,14 +174,25 @@ export function Pricing() {
                 )}
 
                 <ul className="mt-8 flex-1 space-y-3">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-foreground">
-                      <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                        <Check className="h-3 w-3 text-primary" />
-                      </div>
-                      {f}
-                    </li>
-                  ))}
+                  {plan.features.map((f) => {
+                    const hasTag = f.includes("[Em breve]")
+                    const label = f.replace(" [Em breve]", "")
+                    return (
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-foreground">
+                        <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                          <Check className="h-3 w-3 text-primary" />
+                        </div>
+                        <span className="flex flex-wrap items-center gap-1.5">
+                          {label}
+                          {hasTag && (
+                            <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-accent">
+                              Em breve
+                            </span>
+                          )}
+                        </span>
+                      </li>
+                    )
+                  })}
                 </ul>
 
                 <a
