@@ -1,23 +1,30 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { useSearchParams, useRouter } from "next/navigation"
+import { Suspense, useEffect, useState } from "react"
+import { useSearchParams } from "next/navigation"
 import Image from "next/image"
 import { CheckCircle2, Eye, EyeOff, Loader2 } from "lucide-react"
 
 type Status = "loading" | "ready" | "submitting" | "error" | "invalid"
 
-export default function CriarContaPage() {
+function LoadingState() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background">
+      <div className="flex flex-col items-center gap-4">
+        <Loader2 className="h-10 w-10 animate-spin text-primary" />
+        <p className="text-sm text-muted-foreground">Verificando pagamento...</p>
+      </div>
+    </div>
+  )
+}
+
+function CriarContaContent() {
   const searchParams = useSearchParams()
-  const router = useRouter()
   const sessionId = searchParams.get("session_id")
 
   const [status, setStatus] = useState<Status>("loading")
   const [email, setEmail] = useState("")
   const [planName, setPlanName] = useState("")
-  const [priceId, setPriceId] = useState("")
-  const [stripeCustomerId, setStripeCustomerId] = useState("")
-  const [subscriptionId, setSubscriptionId] = useState("")
   const [password, setPassword] = useState("")
   const [confirm, setConfirm] = useState("")
   const [showPw, setShowPw] = useState(false)
@@ -42,9 +49,6 @@ export default function CriarContaPage() {
 
         setEmail(data.email)
         setPlanName(data.plan_name)
-        setPriceId(data.price_id)
-        setStripeCustomerId(data.stripe_customer_id)
-        setSubscriptionId(data.subscription_id)
         setStatus("ready")
       } catch {
         setStatus("invalid")
@@ -92,14 +96,7 @@ export default function CriarContaPage() {
   }
 
   if (status === "loading") {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-background">
-        <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-10 w-10 animate-spin text-primary" />
-          <p className="text-sm text-muted-foreground">Verificando pagamento...</p>
-        </div>
-      </div>
-    )
+    return <LoadingState />
   }
 
   if (status === "invalid") {
@@ -107,16 +104,16 @@ export default function CriarContaPage() {
       <div className="flex min-h-screen items-center justify-center bg-background px-4">
         <div className="max-w-md text-center">
           <h1 className="font-heading text-2xl font-bold text-foreground">
-            Pagamento não encontrado
+            Pagamento nao encontrado
           </h1>
           <p className="mt-3 text-muted-foreground">
-            Não foi possível verificar seu pagamento. Se você acabou de assinar, aguarde alguns segundos e recarregue a página.
+            Nao foi possivel verificar seu pagamento. Se voce acabou de assinar, aguarde alguns segundos e recarregue a pagina.
           </p>
           <a
             href="/"
             className="mt-6 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground"
           >
-            Voltar para a página inicial
+            Voltar para a pagina inicial
           </a>
         </div>
       </div>
@@ -144,7 +141,7 @@ export default function CriarContaPage() {
             Crie sua senha para acessar o sistema
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Seu plano <span className="font-semibold text-primary">{planName}</span> está ativo. Defina uma senha para entrar.
+            Seu plano <span className="font-semibold text-primary">{planName}</span> esta ativo. Defina uma senha para entrar.
           </p>
         </div>
 
@@ -175,7 +172,7 @@ export default function CriarContaPage() {
                 type={showPw ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Mínimo 8 caracteres"
+                placeholder="Minimo 8 caracteres"
                 required
                 className="w-full rounded-lg border border-border bg-background px-4 py-3 pr-12 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
               />
@@ -248,5 +245,13 @@ export default function CriarContaPage() {
         </p>
       </div>
     </div>
+  )
+}
+
+export default function CriarContaPage() {
+  return (
+    <Suspense fallback={<LoadingState />}>
+      <CriarContaContent />
+    </Suspense>
   )
 }
