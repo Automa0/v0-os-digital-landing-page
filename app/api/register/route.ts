@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { supabaseAdmin } from "@/lib/supabase/admin"
+import { getSupabaseAdmin } from "@/lib/supabase/admin"
 import { stripe } from "@/lib/stripe"
 
 export async function POST(req: NextRequest) {
@@ -37,6 +37,7 @@ export async function POST(req: NextRequest) {
     const plan_name = session.metadata?.plan_name || ""
 
     // 2. Create user in Supabase (using admin client to skip email confirmation)
+    const supabaseAdmin = getSupabaseAdmin()
     const { data, error } = await supabaseAdmin.auth.admin.createUser({
       email,
       password,
