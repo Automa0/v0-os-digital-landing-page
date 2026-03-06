@@ -108,14 +108,8 @@ export function Footer() {
               rel="noopener noreferrer"
               className="flex flex-col items-start gap-1.5 transition-transform duration-200 hover:scale-105"
             >
-              <span className="text-xs font-medium text-gray-500">Integrado com</span>
-              <Image
-                src="/images/automatize360-logo.png"
-                alt="Automatize 360"
-                width={112}
-                height={28}
-                className="h-7 w-auto"
-              />
+              <span className="text-xs font-medium text-muted-foreground">Integrado com</span>
+              <span className="text-sm font-bold text-foreground">Automatize 360</span>
             </a>
           </div>
         </div>
