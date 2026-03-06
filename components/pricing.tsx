@@ -1,6 +1,7 @@
 "use client"
 
-import { Check, Star, Zap } from "lucide-react"
+import { Check, Star, Zap, Loader2 } from "lucide-react"
+import { useState } from "react"
 
 type BillingCycle = "mensal" | "semestral" | "anual"
 
@@ -11,9 +12,9 @@ const plans = [
     highlight: false,
     badge: null,
     prices: {
-      mensal: { amount: "R$ 29", period: "/mês", link: "https://app.osdigitalplus.com.br/register?plan=mensal" },
-      semestral: { amount: "R$ 159", period: "/semestre", link: "https://app.osdigitalplus.com.br/register?plan=semestral", note: "Economia de R$ 15" },
-      anual: { amount: "R$ 299", period: "/ano", link: "https://app.osdigitalplus.com.br/register?plan=anual", note: "Equivale a R$ 24,90/mês" },
+      mensal: { amount: "R$ 29", period: "/mês", priceId: "price_1T7M1Z85UXhVWhVPPUUICbSI" },
+      semestral: { amount: "R$ 159", period: "/semestre", priceId: "price_1T7M1Z85UXhVWhVPPUUICbSI", note: "Economia de R$ 15" },
+      anual: { amount: "R$ 299", period: "/ano", priceId: "price_1T7M1Z85UXhVWhVPPUUICbSI", note: "Equivale a R$ 24,90/mês" },
     },
     features: [
       "Ordens de serviço",
@@ -33,9 +34,9 @@ const plans = [
     highlight: true,
     badge: "Mais popular",
     prices: {
-      mensal: { amount: "R$ 59", period: "/mês", link: "https://app.osdigitalplus.com.br/register?plan=mensal" },
-      semestral: { amount: "R$ 319", period: "/semestre", link: "https://app.osdigitalplus.com.br/register?plan=semestral", note: "Economia de R$ 35" },
-      anual: { amount: "R$ 599", period: "/ano", link: "https://app.osdigitalplus.com.br/register?plan=anual", note: "Equivale a R$ 49,90/mês" },
+      mensal: { amount: "R$ 59", period: "/mês", priceId: "price_1T7M4985UXhVWhVPn6O8mBfT" },
+      semestral: { amount: "R$ 319", period: "/semestre", priceId: "price_1T7M4985UXhVWhVPn6O8mBfT", note: "Economia de R$ 35" },
+      anual: { amount: "R$ 599", period: "/ano", priceId: "price_1T7M4985UXhVWhVPn6O8mBfT", note: "Equivale a R$ 49,90/mês" },
     },
     features: [
       "Tudo do Básico",
@@ -54,9 +55,9 @@ const plans = [
     highlight: false,
     badge: "Melhor custo-benefício",
     prices: {
-      mensal: { amount: "R$ 99", period: "/mês", link: "https://app.osdigitalplus.com.br/register?plan=mensal" },
-      semestral: { amount: "R$ 549", period: "/semestre", link: "https://app.osdigitalplus.com.br/register?plan=semestral", note: "Economia de R$ 45" },
-      anual: { amount: "R$ 999", period: "/ano", link: "https://app.osdigitalplus.com.br/register?plan=anual", note: "Equivale a R$ 83,25/mês" },
+      mensal: { amount: "R$ 99", period: "/mês", priceId: "price_1T7M4g85UXhVWhVPtVVZnvzp" },
+      semestral: { amount: "R$ 549", period: "/semestre", priceId: "price_1T7M4g85UXhVWhVPtVVZnvzp", note: "Economia de R$ 45" },
+      anual: { amount: "R$ 999", period: "/ano", priceId: "price_1T7M4g85UXhVWhVPtVVZnvzp", note: "Equivale a R$ 83,25/mês" },
     },
     features: [
       "Tudo do Pro",
@@ -77,10 +78,30 @@ const cycleLabels: Record<BillingCycle, string> = {
   anual: "Anual",
 }
 
-import { useState } from "react"
-
 export function Pricing() {
   const [cycle, setCycle] = useState<BillingCycle>("anual")
+  const [loadingPriceId, setLoadingPriceId] = useState<string | null>(null)
+
+  async function handleCheckout(priceId: string) {
+    setLoadingPriceId(priceId)
+    try {
+      const res = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ price_id: priceId }),
+      })
+      const data = await res.json()
+      if (data.url) {
+        window.location.href = data.url
+      } else {
+        alert("Erro ao iniciar pagamento. Tente novamente.")
+      }
+    } catch {
+      alert("Erro ao iniciar pagamento. Tente novamente.")
+    } finally {
+      setLoadingPriceId(null)
+    }
+  }
 
   return (
     <section id="planos" className="relative bg-gradient-to-b from-secondary/30 via-secondary/50 to-secondary/30 py-20 lg:py-28">
@@ -196,16 +217,24 @@ export function Pricing() {
                   })}
                 </ul>
 
-                <a
-                  href={price.link}
-                  className={`mt-8 block rounded-xl px-4 py-3.5 text-center text-sm font-bold transition-all ${
+                <button
+                  onClick={() => handleCheckout(price.priceId)}
+                  disabled={loadingPriceId === price.priceId}
+                  className={`mt-8 flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-sm font-bold transition-all disabled:opacity-70 ${
                     plan.highlight
                       ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 hover:opacity-90"
                       : "border border-border bg-secondary text-foreground hover:bg-secondary/80"
                   }`}
                 >
-                  {plan.cta}
-                </a>
+                  {loadingPriceId === price.priceId ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Aguarde...
+                    </>
+                  ) : (
+                    plan.cta
+                  )}
+                </button>
               </div>
             )
           })}
