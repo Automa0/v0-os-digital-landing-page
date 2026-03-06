@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
-import { createClient } from "@/lib/supabase/client"
 import Image from "next/image"
 import { CheckCircle2, Eye, EyeOff, Loader2 } from "lucide-react"
 
@@ -71,27 +70,21 @@ export default function CriarContaPage() {
     setStatus("submitting")
 
     try {
-      const supabase = createClient()
-      const { error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            plan: planName,
-            price_id: priceId,
-            stripe_customer_id: stripeCustomerId,
-            subscription_id: subscriptionId,
-          },
-        },
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ session_id: sessionId, password }),
       })
 
-      if (error) {
-        setErrorMsg(error.message)
+      const data = await res.json()
+
+      if (!res.ok) {
+        setErrorMsg(data.error || "Erro ao criar conta. Tente novamente.")
         setStatus("ready")
         return
       }
 
-      router.push("https://app.osdigitalplus.com.br/dashboard")
+      window.location.href = "https://app.osdigitalplus.com.br/dashboard"
     } catch {
       setErrorMsg("Erro inesperado. Tente novamente.")
       setStatus("ready")
