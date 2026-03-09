@@ -3,9 +3,13 @@ import { stripe } from "@/lib/stripe"
 
 // Map price IDs to plan names for validation
 const VALID_PRICE_IDS: Record<string, string> = {
+  // Básico
   price_1T7Qsd85UXhVWhVP7ay2FLXj: "Básico Mensal",
-  price_1T7M4985UXhVWhVPn6O8mBfT: "Pro Mensal",
-  price_1T7M4g85UXhVWhVPtVVZnvzp: "Master Mensal",
+  price_1T7M1Z85UXhVWhVPPUUICbSI: "Básico Semestral/Anual",
+  // Pro
+  price_1T7M4985UXhVWhVPn6O8mBfT: "Pro",
+  // Master
+  price_1T7M4g85UXhVWhVPtVVZnvzp: "Master",
 }
 
 export async function POST(req: NextRequest) {
