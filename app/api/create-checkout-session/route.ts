@@ -42,8 +42,13 @@ export async function POST(req: NextRequest) {
     // Initialize Stripe client inside the request handler
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || req.headers.get("origin") || "https://osdigitalplus.com.br"
-    console.log("[v0] Using base URL:", baseUrl)
+    // Always use explicit https URLs for Stripe
+    const SITE_URL = "https://osdigitalplus.com.br"
+    const successUrl = `${SITE_URL}/criar-conta?session_id={CHECKOUT_SESSION_ID}`
+    const cancelUrl = SITE_URL
+
+    console.log("[v0] Using success_url:", successUrl)
+    console.log("[v0] Using cancel_url:", cancelUrl)
 
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
@@ -54,8 +59,8 @@ export async function POST(req: NextRequest) {
         },
       ],
       billing_address_collection: "required",
-      success_url: `${baseUrl}/criar-conta?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: baseUrl,
+      success_url: successUrl,
+      cancel_url: cancelUrl,
       metadata: {
         plan_name: VALID_PRICE_IDS[price_id],
         price_id,
