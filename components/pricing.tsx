@@ -84,6 +84,7 @@ export function Pricing() {
 
   async function handleCheckout(priceId: string) {
     setLoadingPriceId(priceId)
+    console.log("[v0] Starting checkout for priceId:", priceId)
     try {
       const res = await fetch("/api/create-checkout-session", {
         method: "POST",
@@ -91,13 +92,17 @@ export function Pricing() {
         body: JSON.stringify({ price_id: priceId }),
       })
       const data = await res.json()
+      console.log("[v0] Checkout response:", data)
       if (data.url) {
+        console.log("[v0] Redirecting to:", data.url)
         window.location.href = data.url
       } else {
-        alert("Erro ao iniciar pagamento. Tente novamente.")
+        console.error("[v0] No URL in response:", data)
+        alert(data.error || "Erro ao iniciar pagamento. Tente novamente.")
       }
-    } catch {
-      alert("Erro ao iniciar pagamento. Tente novamente.")
+    } catch (err) {
+      console.error("[v0] Checkout fetch error:", err)
+      alert("Erro de conexão. Verifique sua internet e tente novamente.")
     } finally {
       setLoadingPriceId(null)
     }
