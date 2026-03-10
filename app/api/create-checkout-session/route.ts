@@ -42,10 +42,11 @@ export async function POST(req: NextRequest) {
     // Initialize Stripe client inside the request handler
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
-    // Always use explicit https URLs for Stripe
-    const SITE_URL = "https://osdigitalplus.com.br"
-    const successUrl = `${SITE_URL}/criar-conta?session_id={CHECKOUT_SESSION_ID}`
-    const cancelUrl = SITE_URL
+    // Redirect URLs - success goes to app, cancel stays on landing
+    const APP_URL = "https://app.osdigitalplus.com.br"
+    const LANDING_URL = "https://osdigitalplus.com.br"
+    const successUrl = `${APP_URL}/criar-conta?session_id={CHECKOUT_SESSION_ID}`
+    const cancelUrl = LANDING_URL
 
     console.log("[v0] Using success_url:", successUrl)
     console.log("[v0] Using cancel_url:", cancelUrl)
