@@ -32,25 +32,34 @@ function CriarContaContent() {
   const [errorMsg, setErrorMsg] = useState("")
 
   useEffect(() => {
+    console.log("[v0] useEffect - sessionId:", sessionId)
+    
     if (!sessionId) {
+      console.error("[v0] No session_id in URL")
       setStatus("invalid")
       return
     }
 
     async function verifySession() {
       try {
+        console.log("[v0] Verifying session:", sessionId)
         const res = await fetch(`/api/verify-checkout-session?session_id=${sessionId}`)
         const data = await res.json()
+        
+        console.log("[v0] Verify response status:", res.status, "data:", data)
 
         if (!res.ok || data.payment_status !== "paid") {
+          console.error("[v0] Verification failed, status:", res.status, "payment_status:", data.payment_status)
           setStatus("invalid")
           return
         }
 
+        console.log("[v0] Session verified successfully, email:", data.email)
         setEmail(data.email)
         setPlanName(data.plan_name)
         setStatus("ready")
-      } catch {
+      } catch (err) {
+        console.error("[v0] Verify session error (catch):", err)
         setStatus("invalid")
       }
     }
@@ -61,6 +70,7 @@ function CriarContaContent() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setErrorMsg("")
+    console.log("[v0] handleSubmit called, sessionId:", sessionId)
 
     if (password.length < 8) {
       setErrorMsg("A senha deve ter pelo menos 8 caracteres.")
@@ -74,6 +84,7 @@ function CriarContaContent() {
     setStatus("submitting")
 
     try {
+      console.log("[v0] Posting to /api/register with session_id:", sessionId)
       const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -81,15 +92,20 @@ function CriarContaContent() {
       })
 
       const data = await res.json()
+      console.log("[v0] Register response status:", res.status, "data:", data)
 
       if (!res.ok) {
-        setErrorMsg(data.error || "Erro ao criar conta. Tente novamente.")
+        const errorMsg = data.error || "Erro ao criar conta. Tente novamente."
+        console.error("[v0] Register failed:", errorMsg)
+        setErrorMsg(errorMsg)
         setStatus("ready")
         return
       }
 
+      console.log("[v0] User created successfully, redirecting...")
       window.location.href = "https://app.osdigitalplus.com.br/dashboard"
-    } catch {
+    } catch (err) {
+      console.error("[v0] Register error (catch):", err)
       setErrorMsg("Erro inesperado. Tente novamente.")
       setStatus("ready")
     }
