@@ -56,7 +56,18 @@ export async function POST(req: NextRequest) {
     const price_id = session.metadata?.price_id || ""
     const plan_name = session.metadata?.plan_name || ""
 
-    console.log("[v0] Plan info - name:", plan_name, "price_id:", price_id, "customer_id:", stripe_customer_id)
+    // Extract subscription period details
+    const current_period_start = subscription?.current_period_start
+    const current_period_end = subscription?.current_period_end
+    const billing_cycle_anchor = subscription?.billing_cycle_anchor
+    const status = subscription?.status || "active"
+
+    console.log("[v0] Subscription details:")
+    console.log("[v0] - subscription_id:", subscription_id)
+    console.log("[v0] - current_period_start:", current_period_start, new Date(current_period_start ? current_period_start * 1000 : 0))
+    console.log("[v0] - current_period_end:", current_period_end, new Date(current_period_end ? current_period_end * 1000 : 0))
+    console.log("[v0] - billing_cycle_anchor:", billing_cycle_anchor, new Date(billing_cycle_anchor ? billing_cycle_anchor * 1000 : 0))
+    console.log("[v0] - status:", status)
 
     // 2. Create user in Supabase (using admin client to skip email confirmation)
     console.log("[v0] Getting Supabase admin client")
@@ -80,8 +91,32 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: `Erro no Supabase: ${error.message}` }, { status: 400 })
     }
 
-    console.log("[v0] User created successfully:", data.user?.id)
-    return NextResponse.json({ success: true, user_id: data.user?.id })
+    const user_id = data.user?.id
+    console.log("[v0] User created successfully:", user_id)
+
+    // 3. Save subscription data to subscriptions table
+    console.log("[v0] Saving subscription data to database")
+    const { error: subscriptionError } = await supabaseAdmin
+      .from("subscriptions")
+      .insert({
+        user_id,
+        stripe_customer_id,
+        stripe_subscription_id: subscription_id,
+        stripe_price_id: price_id,
+        plan_name,
+        status,
+        current_period_start: current_period_start ? new Date(current_period_start * 1000) : null,
+        current_period_end: current_period_end ? new Date(current_period_end * 1000) : null,
+        billing_cycle_anchor: billing_cycle_anchor ? new Date(billing_cycle_anchor * 1000) : null,
+      })
+
+    if (subscriptionError) {
+      console.error("[v0] Error saving subscription:", subscriptionError)
+      return NextResponse.json({ error: `Erro ao salvar assinatura: ${subscriptionError.message}` }, { status: 400 })
+    }
+
+    console.log("[v0] Subscription saved successfully")
+    return NextResponse.json({ success: true, user_id })
   } catch (error) {
     console.error("[v0] Register error (catch):", error)
     const errorMsg = error instanceof Error ? error.message : String(error)
