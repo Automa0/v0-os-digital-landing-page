@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
     // Redirect URLs - success goes to app, cancel stays on landing
-    const APP_URL = "https://app.osdigitalplus.com.br"
+    const APP_URL = "https://os-digitalapp--enzocastilho93.replit.app"
     const LANDING_URL = "https://osdigitalplus.com.br"
     const successUrl = `${APP_URL}/criar-conta?session_id={CHECKOUT_SESSION_ID}`
     const cancelUrl = LANDING_URL
