@@ -12,7 +12,7 @@ const plans = [
     highlight: false,
     badge: null,
     prices: {
-      mensal: { amount: "R$ 29", period: "/mês", priceId: "price_1T7Qsd85UXhVWhVP7ay2FLXj" },
+      mensal: { amount: "R$ 29", period: "/mês", priceId: "price_1TAiJ385UXhVWhVPvU9vKfre" },
       semestral: { amount: "R$ 159", period: "/semestre", priceId: "price_1T7M1Z85UXhVWhVPPUUICbSI", note: "Economia de R$ 15" },
       anual: { amount: "R$ 299", period: "/ano", priceId: "price_1T7M1Z85UXhVWhVPPUUICbSI", note: "Equivale a R$ 24,90/mês" },
     },

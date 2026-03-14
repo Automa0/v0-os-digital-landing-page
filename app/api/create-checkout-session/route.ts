@@ -4,7 +4,7 @@ import Stripe from "stripe"
 // Map price IDs to plan names for validation
 const VALID_PRICE_IDS: Record<string, string> = {
   // Básico
-  price_1T7Qsd85UXhVWhVP7ay2FLXj: "Básico Mensal",
+  price_1TAiJ385UXhVWhVPvU9vKfre: "Básico Mensal",
   price_1T7M1Z85UXhVWhVPPUUICbSI: "Básico Semestral/Anual",
   // Pro
   price_1T7M4985UXhVWhVPn6O8mBfT: "Pro",
