@@ -86,12 +86,8 @@ export function Pricing() {
     setLoadingPlanKey(planKey)
     try {
       const res = await fetch(
-        "https://os-digitalapp--enzocastilho93.replit.app/api/create-checkout",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ plan: planKey }),
-        }
+        "https://os-digitalapp--enzocastilho93.replit.app/api/create-checkout-session",
+        { method: "POST" }
       )
       const data = await res.json()
       if (data.url) {
@@ -100,7 +96,7 @@ export function Pricing() {
         alert(data.error || "Erro ao iniciar pagamento. Tente novamente.")
       }
     } catch {
-      alert("Erro de conexão. Verifique sua internet e tente novamente.")
+      alert("Erro ao conectar com o servidor.")
     } finally {
       setLoadingPlanKey(null)
     }
