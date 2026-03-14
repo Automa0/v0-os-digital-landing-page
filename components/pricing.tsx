@@ -86,8 +86,12 @@ export function Pricing() {
     setLoadingPlanKey(planKey)
     try {
       const res = await fetch(
-        "https://os-digitalapp--enzocastilho93.replit.app/api/create-checkout-session",
-        { method: "POST" }
+        "https://os-digitalapp--enzocastilho93.replit.app/api/external-checkout",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ plan: planKey }),
+        }
       )
       const data = await res.json()
       if (data.url) {
