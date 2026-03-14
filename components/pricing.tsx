@@ -12,9 +12,9 @@ const plans = [
     highlight: false,
     badge: null,
     prices: {
-      mensal: { amount: "R$ 29", period: "/mês", priceId: "price_1TAiJ385UXhVWhVPvU9vKfre" },
-      semestral: { amount: "R$ 159", period: "/semestre", priceId: "price_1T7M1Z85UXhVWhVPPUUICbSI", note: "Economia de R$ 15" },
-      anual: { amount: "R$ 299", period: "/ano", priceId: "price_1T7M1Z85UXhVWhVPPUUICbSI", note: "Equivale a R$ 24,90/mês" },
+      mensal: { amount: "R$ 29", period: "/mês", priceId: "price_1TAiJ385UXhVWhVPvU9vKfre", planKey: "basico_mensal" },
+      semestral: { amount: "R$ 159", period: "/semestre", priceId: "price_1T7M1Z85UXhVWhVPPUUICbSI", planKey: "basico_semestral", note: "Economia de R$ 15" },
+      anual: { amount: "R$ 299", period: "/ano", priceId: "price_1T7M1Z85UXhVWhVPPUUICbSI", planKey: "basico_anual", note: "Equivale a R$ 24,90/mês" },
     },
     features: [
       "Ordens de serviço",
@@ -34,9 +34,9 @@ const plans = [
     highlight: true,
     badge: "Mais popular",
     prices: {
-      mensal: { amount: "R$ 59", period: "/mês", priceId: "price_1T7M4985UXhVWhVPn6O8mBfT" },
-      semestral: { amount: "R$ 319", period: "/semestre", priceId: "price_1T7M4985UXhVWhVPn6O8mBfT", note: "Economia de R$ 35" },
-      anual: { amount: "R$ 599", period: "/ano", priceId: "price_1T7M4985UXhVWhVPn6O8mBfT", note: "Equivale a R$ 49,90/mês" },
+      mensal: { amount: "R$ 59", period: "/mês", priceId: "price_1T7M4985UXhVWhVPn6O8mBfT", planKey: "pro_mensal" },
+      semestral: { amount: "R$ 319", period: "/semestre", priceId: "price_1T7M4985UXhVWhVPn6O8mBfT", planKey: "pro_semestral", note: "Economia de R$ 35" },
+      anual: { amount: "R$ 599", period: "/ano", priceId: "price_1T7M4985UXhVWhVPn6O8mBfT", planKey: "pro_anual", note: "Equivale a R$ 49,90/mês" },
     },
     features: [
       "Tudo do Básico",
@@ -55,9 +55,9 @@ const plans = [
     highlight: false,
     badge: "Melhor custo-benefício",
     prices: {
-      mensal: { amount: "R$ 99", period: "/mês", priceId: "price_1T7M4g85UXhVWhVPtVVZnvzp" },
-      semestral: { amount: "R$ 549", period: "/semestre", priceId: "price_1T7M4g85UXhVWhVPtVVZnvzp", note: "Economia de R$ 45" },
-      anual: { amount: "R$ 999", period: "/ano", priceId: "price_1T7M4g85UXhVWhVPtVVZnvzp", note: "Equivale a R$ 83,25/mês" },
+      mensal: { amount: "R$ 99", period: "/mês", priceId: "price_1T7M4g85UXhVWhVPtVVZnvzp", planKey: "master_mensal" },
+      semestral: { amount: "R$ 549", period: "/semestre", priceId: "price_1T7M4g85UXhVWhVPtVVZnvzp", planKey: "master_semestral", note: "Economia de R$ 45" },
+      anual: { amount: "R$ 999", period: "/ano", priceId: "price_1T7M4g85UXhVWhVPtVVZnvzp", planKey: "master_anual", note: "Equivale a R$ 83,25/mês" },
     },
     features: [
       "Tudo do Pro",
@@ -80,31 +80,29 @@ const cycleLabels: Record<BillingCycle, string> = {
 
 export function Pricing() {
   const [cycle, setCycle] = useState<BillingCycle>("anual")
-  const [loadingPriceId, setLoadingPriceId] = useState<string | null>(null)
+  const [loadingPlanKey, setLoadingPlanKey] = useState<string | null>(null)
 
-  async function handleCheckout(priceId: string) {
-    setLoadingPriceId(priceId)
-    console.log("[v0] Starting checkout for priceId:", priceId)
+  async function handleCheckout(planKey: string) {
+    setLoadingPlanKey(planKey)
     try {
-      const res = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ price_id: priceId }),
-      })
+      const res = await fetch(
+        "https://os-digitalapp--enzocastilho93.replit.app/api/create-checkout",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ plan: planKey }),
+        }
+      )
       const data = await res.json()
-      console.log("[v0] Checkout response:", data)
       if (data.url) {
-        console.log("[v0] Redirecting to:", data.url)
         window.location.href = data.url
       } else {
-        console.error("[v0] No URL in response:", data)
         alert(data.error || "Erro ao iniciar pagamento. Tente novamente.")
       }
-    } catch (err) {
-      console.error("[v0] Checkout fetch error:", err)
+    } catch {
       alert("Erro de conexão. Verifique sua internet e tente novamente.")
     } finally {
-      setLoadingPriceId(null)
+      setLoadingPlanKey(null)
     }
   }
 
@@ -223,15 +221,15 @@ export function Pricing() {
                 </ul>
 
                 <button
-                  onClick={() => handleCheckout(price.priceId)}
-                  disabled={loadingPriceId === price.priceId}
+                  onClick={() => handleCheckout(price.planKey)}
+                  disabled={loadingPlanKey === price.planKey}
                   className={`mt-8 flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-sm font-bold transition-all disabled:opacity-70 ${
                     plan.highlight
                       ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 hover:opacity-90"
                       : "border border-border bg-secondary text-foreground hover:bg-secondary/80"
                   }`}
                 >
-                  {loadingPriceId === price.priceId ? (
+                  {loadingPlanKey === price.planKey ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
                       Aguarde...
