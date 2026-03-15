@@ -1,9 +1,7 @@
 "use client"
 
 import { ArrowRight, Sparkles } from "lucide-react"
-
-const SIGNUP_URL =
-  "https://app.osdigitalplus.com.br/register?utm_source=landing&utm_medium=hero&utm_campaign=cta"
+import { startCheckout } from "@/lib/checkout"
 
 export function Hero() {
   return (
@@ -55,13 +53,13 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
-            <a
-              href="https://app.osdigitalplus.com.br/register?plan=mensal"
+            <button
+              onClick={() => startCheckout("basico", "mensal")}
               className="pulse-glow group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90"
             >
               Comecar agora por R$29/mes
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
+            </button>
             <a
               href="#planos"
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"

@@ -1,6 +1,7 @@
 "use client"
 
 import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react"
+import { startCheckout } from "@/lib/checkout"
 
 const benefits = [
   "Sem contrato",
@@ -48,13 +49,13 @@ export function FinalCTA() {
         </div>
 
         <div className="mt-10">
-          <a
-            href="https://app.osdigitalplus.com.br/register?plan=mensal"
+          <button
+            onClick={() => startCheckout("basico", "mensal")}
             className="pulse-glow group inline-flex items-center justify-center gap-3 rounded-xl bg-white px-10 py-5 text-lg font-bold text-primary shadow-2xl transition-all hover:bg-white/90"
           >
             Comecar agora por R$29/mes
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </a>
+          </button>
         </div>
 
         <p className="mt-6 text-sm text-white/50">

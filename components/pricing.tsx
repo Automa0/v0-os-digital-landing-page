@@ -11,10 +11,11 @@ const plans = [
     description: "Para quem está começando ou trabalha sozinho",
     highlight: false,
     badge: null,
+    planId: "basico",
     prices: {
-      mensal: { amount: "R$ 29", period: "/mês", priceId: "price_1TAiJ385UXhVWhVPvU9vKfre", planKey: "basico_mensal" },
-      semestral: { amount: "R$ 159", period: "/semestre", priceId: "price_1T7M1Z85UXhVWhVPPUUICbSI", planKey: "basico_semestral", note: "Economia de R$ 15" },
-      anual: { amount: "R$ 299", period: "/ano", priceId: "price_1T7M1Z85UXhVWhVPPUUICbSI", planKey: "basico_anual", note: "Equivale a R$ 24,90/mês" },
+      mensal: { amount: "R$ 29", period: "/mês", note: "" },
+      semestral: { amount: "R$ 159", period: "/semestre", note: "Economia de R$ 15" },
+      anual: { amount: "R$ 299", period: "/ano", note: "Equivale a R$ 24,90/mês" },
     },
     features: [
       "Ordens de serviço",
@@ -33,10 +34,11 @@ const plans = [
     description: "Para quem quer crescer e ter controle real",
     highlight: true,
     badge: "Mais popular",
+    planId: "pro",
     prices: {
-      mensal: { amount: "R$ 59", period: "/mês", priceId: "price_1T7M4985UXhVWhVPn6O8mBfT", planKey: "pro_mensal" },
-      semestral: { amount: "R$ 319", period: "/semestre", priceId: "price_1T7M4985UXhVWhVPn6O8mBfT", planKey: "pro_semestral", note: "Economia de R$ 35" },
-      anual: { amount: "R$ 599", period: "/ano", priceId: "price_1T7M4985UXhVWhVPn6O8mBfT", planKey: "pro_anual", note: "Equivale a R$ 49,90/mês" },
+      mensal: { amount: "R$ 59", period: "/mês", note: "" },
+      semestral: { amount: "R$ 319", period: "/semestre", note: "Economia de R$ 35" },
+      anual: { amount: "R$ 599", period: "/ano", note: "Equivale a R$ 49,90/mês" },
     },
     features: [
       "Tudo do Básico",
@@ -54,10 +56,11 @@ const plans = [
     description: "Para quem quer escalar e profissionalizar de verdade",
     highlight: false,
     badge: "Melhor custo-benefício",
+    planId: "master",
     prices: {
-      mensal: { amount: "R$ 99", period: "/mês", priceId: "price_1T7M4g85UXhVWhVPtVVZnvzp", planKey: "master_mensal" },
-      semestral: { amount: "R$ 549", period: "/semestre", priceId: "price_1T7M4g85UXhVWhVPtVVZnvzp", planKey: "master_semestral", note: "Economia de R$ 45" },
-      anual: { amount: "R$ 999", period: "/ano", priceId: "price_1T7M4g85UXhVWhVPtVVZnvzp", planKey: "master_anual", note: "Equivale a R$ 83,25/mês" },
+      mensal: { amount: "R$ 99", period: "/mês", note: "" },
+      semestral: { amount: "R$ 549", period: "/semestre", note: "Economia de R$ 45" },
+      anual: { amount: "R$ 999", period: "/ano", note: "Equivale a R$ 83,25/mês" },
     },
     features: [
       "Tudo do Pro",
@@ -80,17 +83,17 @@ const cycleLabels: Record<BillingCycle, string> = {
 
 export function Pricing() {
   const [cycle, setCycle] = useState<BillingCycle>("anual")
-  const [loadingPlanKey, setLoadingPlanKey] = useState<string | null>(null)
+  const [loading, setLoading] = useState<string | null>(null)
 
-  async function handleCheckout(planKey: string) {
-    setLoadingPlanKey(planKey)
+  async function handleCheckout(plan: string, interval: BillingCycle) {
+    setLoading(`${plan}-${interval}`)
     try {
       const res = await fetch(
-        "https://os-digitalapp--enzocastilho93.replit.app/api/external-checkout",
+        "https://app.osdigitalplus.com.br/api/external-checkout",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ plan: planKey }),
+          body: JSON.stringify({ plan, interval }),
         }
       )
       const data = await res.json()
@@ -102,7 +105,7 @@ export function Pricing() {
     } catch {
       alert("Erro ao conectar com o servidor.")
     } finally {
-      setLoadingPlanKey(null)
+      setLoading(null)
     }
   }
 
@@ -221,15 +224,15 @@ export function Pricing() {
                 </ul>
 
                 <button
-                  onClick={() => handleCheckout(price.planKey)}
-                  disabled={loadingPlanKey === price.planKey}
+                  onClick={() => handleCheckout(plan.planId, cycle)}
+                  disabled={loading === `${plan.planId}-${cycle}`}
                   className={`mt-8 flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-sm font-bold transition-all disabled:opacity-70 ${
                     plan.highlight
                       ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 hover:opacity-90"
                       : "border border-border bg-secondary text-foreground hover:bg-secondary/80"
                   }`}
                 >
-                  {loadingPlanKey === price.planKey ? (
+                  {loading === `${plan.planId}-${cycle}` ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
                       Aguarde...
