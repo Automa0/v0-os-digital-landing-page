@@ -1,14 +1,30 @@
 "use client"
 
 const companies = [
-  { name: "TechFix Assistência", initials: "TF" },
-  { name: "ConsertaCel", initials: "CC" },
-  { name: "InfoRepair", initials: "IR" },
-  { name: "MasterPhone", initials: "MP" },
-  { name: "DigitalFix", initials: "DF" },
-  { name: "TechPro", initials: "TP" },
-  { name: "CelularMaster", initials: "CM" },
-  { name: "Assistência++", initials: "A+" },
+  { 
+    name: "TecCel", 
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/16018-assistencia-tecnica-celular-1080-webp-600x600.jpg-QvbpSlFggyyRdUXbcqDOPPf39SEA1y.webp" 
+  },
+  { 
+    name: "ConsertaCel", 
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images%20%285%29-oLNt1t659BbJ0O5phja89eqmE8daR4.jpeg" 
+  },
+  { 
+    name: "Digital Fix", 
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/modern-digital-fix-logo-template-260nw-1282340674.jpg-rzExt2zWl8apaJWtmR6i2rrtGQNKlx.webp" 
+  },
+  { 
+    name: "TechFix", 
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images%20%284%29-inRGViahs6cf5s67wy5wtaGduxcZVp.jpeg" 
+  },
+  { 
+    name: "MasterCell", 
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images%20%283%29-atrZpcE2pWXAK3PqI8TUcMZjLFbClA.jpeg" 
+  },
+  { 
+    name: "TechPro", 
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images-hcjDf8al5NJKRJfb9SDe3cTo0qmyVk.png" 
+  },
 ]
 
 // Duplicate for infinite scroll
@@ -19,9 +35,9 @@ export function CompaniesCarousel() {
     <section className="relative bg-background py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center mb-12">
-          <p className="text-sm font-medium text-muted-foreground">
+          <h3 className="text-lg font-semibold text-foreground tracking-wide">
             Assistências técnicas que já utilizam o sistema
-          </p>
+          </h3>
         </div>
 
         {/* Infinite scroll carousel */}
@@ -30,18 +46,23 @@ export function CompaniesCarousel() {
           <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
 
-          <div className="infinite-scroll-companies flex gap-8 px-4">
+          <div className="infinite-scroll-companies flex gap-10 px-4">
             {duplicatedCompanies.map((company, i) => (
               <div
                 key={`${company.name}-${i}`}
                 className="flex flex-col items-center gap-3 flex-shrink-0"
               >
                 {/* Logo circle */}
-                <div className="h-16 w-16 rounded-full border border-border/50 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center hover:from-primary/20 hover:to-accent/20 transition-all">
-                  <span className="text-sm font-bold text-primary">{company.initials}</span>
+                <div className="h-20 w-20 rounded-full border-2 border-border/30 bg-white overflow-hidden shadow-md hover:shadow-lg hover:scale-105 transition-all">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src={company.logo} 
+                    alt={`Logo ${company.name}`}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 {/* Company name */}
-                <p className="text-xs font-medium text-muted-foreground text-center whitespace-nowrap">
+                <p className="text-sm font-medium text-foreground/80 text-center whitespace-nowrap">
                   {company.name}
                 </p>
               </div>
