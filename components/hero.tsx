@@ -16,34 +16,32 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
 
       {/* Content overlay */}
-      <div className="relative z-10 flex min-h-screen flex-col justify-center px-8 py-20 lg:px-16 xl:px-24">
-        <div className="max-w-2xl">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm">
+      <div className="relative z-10 flex min-h-screen flex-col justify-center px-8 py-20 lg:px-16 xl:px-32">
+        <div className="max-w-2xl mx-auto lg:mx-0 lg:max-w-3xl">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm animate-fade-in">
             <Sparkles className="h-4 w-4 text-accent" />
             <span className="text-sm font-medium text-white/80">
               Sistema completo para assistências técnicas
             </span>
           </div>
 
-          <h1 className="font-heading text-4xl font-extrabold leading-[1.15] tracking-tight text-white md:text-5xl lg:text-6xl">
-            Controle total da sua
-            <br />
-            assistência técnica
+          <h1 className="font-heading text-5xl font-extrabold leading-[1.1] tracking-tight text-white md:text-6xl lg:text-7xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <span className="block">Controle total</span>
+            <span className="block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">da sua assistência técnica</span>
           </h1>
 
-          <p className="mt-6 text-lg leading-relaxed text-white/80">
-            Gerencie ordens de serviço, clientes e caixa em um só lugar.
-            <span className="font-semibold text-white"> Funciona no celular e no computador.</span>
+          <p className="mt-8 text-lg leading-relaxed text-white/90 max-w-2xl animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            Organize ordens de serviço, clientes e financeiro em um único sistema.
+          </p>
+          
+          <p className="mt-2 text-base text-white/80 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Funciona no celular e no computador.
           </p>
 
-          <p className="mt-4 text-sm font-medium text-accent">
-            Crie sua primeira ordem de serviço em menos de 30 segundos
-          </p>
-
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <button
               onClick={() => startCheckout("basico", "mensal")}
-              className="pulse-glow group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90"
+              className="pulse-glow group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90 hover:shadow-2xl hover:shadow-primary/50"
             >
               Começar agora por R$29/mês
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -56,7 +54,7 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-white/60">
+          <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-white/60 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <span>Sem contrato</span>
             <span>•</span>
             <span>Cancele quando quiser</span>
@@ -64,11 +62,42 @@ export function Hero() {
             <span>Acesso imediato</span>
           </div>
 
-          <p className="mt-4 text-xs font-medium text-accent">
-            Pagamento seguro • acesso liberado imediatamente após criar sua senha
+          <p className="mt-4 text-xs font-medium text-accent animate-fade-in" style={{ animationDelay: '0.7s' }}>
+            Pagamento seguro
           </p>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes slide-up {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        .animate-slide-up {
+          animation: slide-up 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in {
+          animation: fade-in 0.8s ease-out forwards;
+          opacity: 0;
+        }
+      `}</style>
     </section>
   )
 }

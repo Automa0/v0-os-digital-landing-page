@@ -23,11 +23,11 @@ export function FinalCTA() {
 
       <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-8">
         <h2 className="font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl text-balance">
-          Comece hoje a organizar sua assistência técnica
+          Ainda está em dúvida?
         </h2>
 
         <p className="mx-auto mt-8 max-w-2xl text-xl text-white/90">
-          Centenas de assistências já utilizam o OS Digital Plus para organizar clientes, serviços e financeiro.
+          Crie sua conta e teste o sistema gratuitamente.
         </p>
 
         <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -45,13 +45,6 @@ export function FinalCTA() {
             Criar conta grátis
           </a>
         </div>
-
-        <p className="mt-6 text-sm text-white/50">
-          Ainda está pensando?
-        </p>
-        <p className="text-sm text-white/70">
-          Você pode criar uma conta e testar gratuitamente o sistema.
-        </p>
       </div>
     </section>
   )

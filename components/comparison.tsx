@@ -66,7 +66,7 @@ export function Comparison() {
             {/* Left side - Problems */}
             <div className="space-y-4">
               <div className="text-center mb-8">
-                <h3 className="font-heading text-2xl font-bold text-foreground">
+                <h3 className="font-heading text-2xl font-bold text-foreground opacity-60">
                   Sem um sistema organizado
                 </h3>
               </div>
@@ -74,8 +74,8 @@ export function Comparison() {
               {comparison.map((item, idx) => (
                 <div
                   key={idx}
-                  className={`p-6 rounded-2xl bg-slate-700/30 border border-slate-600/50 hover:border-slate-500 transition-all hover:shadow-md transform ${
-                    isVisible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-50"
+                  className={`p-6 rounded-2xl bg-slate-700/20 border border-slate-600/30 hover:border-slate-500 transition-all hover:shadow-md transform opacity-75 ${
+                    isVisible ? "translate-x-0 opacity-75" : "-translate-x-8 opacity-30"
                   }`}
                   style={{
                     transitionDelay: `${idx * 50}ms`,
@@ -83,8 +83,8 @@ export function Comparison() {
                   }}
                 >
                   <div className="flex items-start gap-3">
-                    <X className="h-5 w-5 text-slate-500 flex-shrink-0 mt-0.5" />
-                    <p className="text-sm font-medium text-slate-700">
+                    <X className="h-5 w-5 text-slate-400 flex-shrink-0 mt-0.5" />
+                    <p className="text-sm font-medium text-slate-600">
                       {item.problem}
                     </p>
                   </div>
@@ -92,17 +92,27 @@ export function Comparison() {
               ))}
             </div>
 
-            {/* VS divider */}
+            {/* VS divider with central circle */}
             <div className="hidden lg:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 z-20 top-1/2 -translate-y-1/2">
-              <div className="flex items-center justify-center h-14 w-14 rounded-full bg-gradient-to-br from-primary to-accent shadow-lg hover:scale-110 transition-transform">
-                <span className="text-sm font-bold text-white">VS</span>
+              <div className="relative">
+                {/* Glow effect background */}
+                <div className="absolute inset-0 h-20 w-20 rounded-full bg-gradient-to-br from-primary to-accent opacity-30 blur-2xl animate-pulse" />
+                
+                {/* Central circle with VS */}
+                <div className="relative flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-primary to-accent shadow-2xl shadow-primary/40 hover:scale-110 transition-transform">
+                  <span className="text-sm font-bold text-white">VS</span>
+                </div>
+
+                {/* Subtle connecting lines */}
+                <div className="absolute top-1/2 -left-8 w-8 h-0.5 bg-gradient-to-r from-transparent to-primary/30" />
+                <div className="absolute top-1/2 -right-8 w-8 h-0.5 bg-gradient-to-l from-transparent to-primary/30" />
               </div>
             </div>
 
             {/* Right side - Solutions */}
             <div className="space-y-4">
               <div className="text-center mb-8">
-                <h3 className="font-heading text-2xl font-bold text-primary">
+                <h3 className="font-heading text-2xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                   Com OS Digital Plus
                 </h3>
               </div>
@@ -110,8 +120,8 @@ export function Comparison() {
               {comparison.map((item, idx) => (
                 <div
                   key={idx}
-                  className={`p-6 rounded-2xl bg-gradient-to-br from-blue-50/80 to-blue-50/40 border border-primary/40 shadow-lg shadow-primary/10 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/60 transition-all transform ${
-                    isVisible ? "translate-x-0 opacity-100" : "translate-x-8 opacity-50"
+                  className={`p-6 rounded-2xl bg-gradient-to-br from-blue-50/90 to-blue-50/50 border border-primary/50 shadow-lg shadow-primary/15 hover:shadow-2xl hover:shadow-primary/30 hover:border-primary/70 transition-all transform ${
+                    isVisible ? "translate-x-0 opacity-100" : "translate-x-8 opacity-30"
                   }`}
                   style={{
                     transitionDelay: `${idx * 50}ms`,
@@ -120,7 +130,7 @@ export function Comparison() {
                 >
                   <div className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <p className="text-sm font-medium text-primary/95">
+                    <p className="text-sm font-medium text-primary">
                       {item.solution}
                     </p>
                   </div>
