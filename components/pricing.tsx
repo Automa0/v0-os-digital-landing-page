@@ -13,9 +13,9 @@ const plans = [
     badge: null,
     planId: "basico",
     prices: {
-      mensal: { amount: "R$ 29", period: "/mês", note: "" },
-      semestral: { amount: "R$ 159", period: "/semestre", note: "Economia de R$ 15" },
-      anual: { amount: "R$ 299", period: "/ano", note: "Equivale a R$ 24,90/mês" },
+      mensal: { amount: "R$ 49", period: "/mês", note: "" },
+      semestral: { amount: "R$ 249", period: "/semestre", note: "Economia de R$ 45" },
+      anual: { amount: "R$ 499", period: "/ano", note: "Equivale a R$ 41,50/mês" },
     },
     features: [
       "Ordens de serviço",

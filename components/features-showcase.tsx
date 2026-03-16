@@ -67,10 +67,10 @@ export function FeaturesShowcase() {
                   {feature.description}
                 </p>
                 <a
-                  href="https://app.osdigitalplus.com.br/register?plan=mensal"
+                  href="https://checkout.stripe.com/c/pay/cs_live_a1VroMKqRYpWW1DL4heBR4ipZQabPzHqhIZ52W5o4KWa4QMKARhIH76oRf#fid1d2BpamRhQ2prcSc%2FJ0dgJVNsYHFrZGglVXdqJyknZ2p3YWB3VnF8aWAnPyd3anBrYScpJ3ZwZ3Zmd2x1cWxqa1BrbHRwYGtgdnZAa2RnaWBhJz9jZGl2YCknZHVsTmB8Jz8ndW5aaWxzYFowNFZ8V3JvPTBQXW1TUm1TVTdcUn9xTW98NW82YUk0cW5OZEFcdUhmcmlnVmBzPWpqTmFMNVJfYTE2QVNiQWxJYTZgaExxQH90bV9yTlZAM1JRbnB8XENMXzU1T0dwcVFWbFEnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmNmcxMzxnJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
                   className="mt-4 sm:mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
                 >
-                  Começar agora por R$29/mês
+                  Começar agora por R$49/mês
                   <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>

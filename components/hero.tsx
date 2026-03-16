@@ -21,8 +21,8 @@ export function Hero() {
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-12 sm:px-8 sm:py-16">
         <div className="w-full max-w-4xl text-center pt-12 sm:pt-16">
-          <p className="font-heading text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2 sm:mb-4 text-white">
-            A <span className="digital-highlight">OS Digital+</span>
+          <p className="font-heading text-2xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold mb-2 sm:mb-4 text-white">
+            A <span className="digital-highlight-animated">OS Digital+</span>
           </p>
 
           <h1 className="font-heading text-3xl sm:text-5xl font-extrabold leading-[1.15] tracking-tight text-white md:text-6xl lg:text-7xl animate-slide-up" style={{ 
@@ -47,7 +47,7 @@ export function Hero() {
               onClick={() => startCheckout("basico", "mensal")}
               className="btn-hero-pulse group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 sm:px-8 text-sm sm:text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90 w-full sm:w-auto"
             >
-              Começar agora por R$29/mês
+              Começar agora por R$49/mês
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
             <a
@@ -171,6 +171,25 @@ export function Hero() {
           -webkit-text-fill-color: transparent;
           background-clip: text;
           filter: drop-shadow(0 0 12px rgba(59,130,246,0.6));
+        }
+
+        .digital-highlight-animated {
+          background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: shimmer-brand 3s linear infinite;
+          filter: drop-shadow(0 0 12px rgba(59,130,246,0.8)) drop-shadow(0 0 24px rgba(96,165,250,0.4));
+        }
+
+        @keyframes shimmer-brand {
+          0% {
+            background-position: 200% center;
+          }
+          100% {
+            background-position: -200% center;
+          }
         }
       `}</style>
     </section>
