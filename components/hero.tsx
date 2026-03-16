@@ -25,7 +25,7 @@ export function Hero() {
             A <span className="digital-highlight">OS Digital+</span>
           </p>
 
-          <h1 className="font-heading text-xl sm:text-5xl font-extrabold leading-[1.15] tracking-tight text-white md:text-6xl lg:text-7xl animate-slide-up" style={{ 
+          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold leading-[1.15] tracking-tight text-white md:text-6xl lg:text-7xl animate-slide-up" style={{ 
             animationDelay: '0.1s'
           }}>
             <span className="block">
