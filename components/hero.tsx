@@ -16,8 +16,8 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
 
       {/* Content overlay */}
-      <div className="relative z-10 flex min-h-screen flex-col justify-center px-8 py-20 lg:px-16 xl:px-32">
-        <div className="max-w-2xl mx-auto lg:mx-0 lg:max-w-3xl">
+      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8 py-20">
+        <div className="max-w-3xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm animate-fade-in">
             <Sparkles className="h-4 w-4 text-accent" />
             <span className="text-sm font-medium text-white/80">
@@ -30,7 +30,7 @@ export function Hero() {
             <span className="block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">da sua assistência técnica</span>
           </h1>
 
-          <p className="mt-8 text-lg leading-relaxed text-white/90 max-w-2xl animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <p className="mt-8 text-lg leading-relaxed text-white/90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             Organize ordens de serviço, clientes e financeiro em um único sistema.
           </p>
           
@@ -38,7 +38,7 @@ export function Hero() {
             Funciona no celular e no computador.
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row justify-center animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <button
               onClick={() => startCheckout("basico", "mensal")}
               className="pulse-glow group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90 hover:shadow-2xl hover:shadow-primary/50"
@@ -54,7 +54,7 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-white/60 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-xs text-white/60 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <span>Sem contrato</span>
             <span>•</span>
             <span>Cancele quando quiser</span>
