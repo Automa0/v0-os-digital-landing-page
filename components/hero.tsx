@@ -16,7 +16,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
 
       {/* Bottom shadow fade into next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/80 to-transparent" />
 
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8 py-16">
