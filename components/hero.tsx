@@ -74,6 +74,10 @@ export function Hero() {
             <span>Acesso imediato</span>
           </div>
 
+          <p className="mt-6 text-xs font-medium text-accent">
+            Pagamento seguro • acesso liberado imediatamente após criar sua senha
+          </p>
+
           <p className="mt-3 text-xs font-medium text-accent">
             Valor promocional disponivel apenas esta semana.
           </p>

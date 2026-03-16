@@ -29,10 +29,10 @@ export function FinalCTA() {
 
       <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-8">
         <h2 className="font-heading text-3xl font-bold text-white md:text-4xl lg:text-5xl text-balance">
-          Comece a organizar sua assistencia tecnica hoje
+          Comece hoje a organizar sua assistência técnica
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80">
-          Por apenas R$29/mes voce tem controle total. Chega de planilha, papel e WhatsApp baguncado.
+          Tenha controle total das ordens de serviço e do financeiro da sua assistência.
         </p>
 
         <p className="mt-4 text-sm font-medium text-accent">
@@ -53,7 +53,7 @@ export function FinalCTA() {
             onClick={() => startCheckout("basico", "mensal")}
             className="pulse-glow group inline-flex items-center justify-center gap-3 rounded-xl bg-white px-10 py-5 text-lg font-bold text-primary shadow-2xl transition-all hover:bg-white/90"
           >
-            Comecar agora por R$29/mes
+            Criar minha conta
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </button>
         </div>

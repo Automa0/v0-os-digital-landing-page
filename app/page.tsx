@@ -1,4 +1,7 @@
 import { Hero } from "@/components/hero"
+import { CompaniesCarousel } from "@/components/companies-carousel"
+import { Comparison } from "@/components/comparison"
+import { AboutUs } from "@/components/about-us"
 import { PainPoints } from "@/components/pain-points"
 import { Solutions } from "@/components/solutions"
 import { FeaturesShowcase } from "@/components/features-showcase"
@@ -15,11 +18,12 @@ export default function Home() {
     <>
       <main>
         <Hero />
+        <CompaniesCarousel />
         <ScrollRevealWrapper>
-          <PainPoints />
+          <Comparison />
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
-          <Solutions />
+          <AboutUs />
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <FeaturesShowcase />
@@ -40,3 +44,4 @@ export default function Home() {
     </>
   )
 }
+
