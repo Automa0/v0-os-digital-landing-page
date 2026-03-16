@@ -19,8 +19,12 @@ export function Hero() {
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8 py-20">
         <div className="max-w-3xl text-center">
           <h1 className="font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            <span className="block title-shimmer">O sistema que está revolucionando</span>
-            <span className="block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">as assistências técnicas.</span>
+            <span className="block">
+              Está
+              <span className="title-shimmer mx-2 inline-block">revolucionando</span>
+              <br />
+              as assistências técnicas.
+            </span>
           </h1>
 
           <p className="mt-8 text-lg leading-relaxed text-white/90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
