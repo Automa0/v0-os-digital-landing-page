@@ -26,7 +26,7 @@ export function TopBar() {
 
   return (
     <>
-      <div className="hidden sm:block fixed top-0 left-0 right-0 z-50 h-10 overflow-hidden border-b border-slate-700/50" style={{ background: 'linear-gradient(90deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)' }}>
+      <div className="fixed top-0 left-0 right-0 z-50 h-10 overflow-hidden border-b border-slate-700/50" style={{ background: 'linear-gradient(90deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)' }}>
         <div className="marquee-track h-full flex items-center">
           <div className="marquee-inner whitespace-nowrap text-white text-sm font-medium">
             <span>{text}</span>

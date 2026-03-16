@@ -2,19 +2,16 @@
 
 import { ArrowRight, Sparkles } from "lucide-react"
 import { startCheckout } from "@/lib/checkout"
-import { TopBar } from "@/components/top-bar"
 
 export function Hero() {
   return (
-    <>
-      <TopBar />
-      <section 
-        className="relative min-h-screen overflow-hidden bg-cover bg-center"
-        style={{
-          backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png')`,
-          backgroundAttachment: 'fixed'
-        }}
-      >
+    <section 
+      className="relative min-h-screen overflow-hidden bg-cover bg-center pt-10"
+      style={{
+        backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png')`,
+        backgroundAttachment: 'fixed'
+      }}
+    >
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
 
@@ -158,7 +155,6 @@ export function Hero() {
           filter: drop-shadow(0 0 12px rgba(59,130,246,0.6));
         }
       `}</style>
-      </section>
-    </>
+    </section>
   )
 }

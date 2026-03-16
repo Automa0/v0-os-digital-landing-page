@@ -1,6 +1,7 @@
 import Script from "next/script"
 import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
+import { TopBar } from "@/components/top-bar"
 import "./globals.css"
 
 const inter = Inter({
@@ -70,6 +71,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${inter.variable} ${poppins.variable}`}>
       <body className="font-sans antialiased">
+        <TopBar />
         {children}
 
         {/* Meta Pixel Code */}
