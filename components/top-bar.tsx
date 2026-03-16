@@ -7,25 +7,46 @@ export function TopBar() {
 
   useEffect(() => {
     const fetchLocation = async () => {
+      // Tenta API principal
       try {
-        const response = await fetch('https://ipwho.is/')
-        const data = await response.json()
-        console.log("[v0] IP data received:", data)
+        const res = await fetch('https://ip-api.com/json/?fields=status,city,regionName,country', {
+          cache: 'no-store'
+        })
+        const data = await res.json()
+        console.log("[v0] ip-api.com response:", data)
         
-        if (data.city && data.city.trim() !== '') {
-          console.log("[v0] Setting location to city:", data.city)
-          setLocation(data.city)
-        } else if (data.region && data.region.trim() !== '') {
-          console.log("[v0] Setting location to region:", data.region)
-          setLocation(data.region)
-        } else {
-          console.log("[v0] No city or region, using fallback: Brasil")
-          setLocation('Brasil')
+        if (data.status === 'success') {
+          if (data.city) {
+            setLocation(data.city)
+            return
+          } else if (data.regionName) {
+            setLocation(data.regionName)
+            return
+          }
         }
-      } catch (error) {
-        console.log("[v0] Error fetching location:", error)
-        setLocation('Brasil')
+      } catch (err) {
+        console.log("[v0] ip-api.com failed:", err)
       }
+
+      // Fallback: ipapi.co
+      try {
+        const res2 = await fetch('https://ipapi.co/json/', { cache: 'no-store' })
+        const data2 = await res2.json()
+        console.log("[v0] ipapi.co response:", data2)
+        
+        if (data2.city) {
+          setLocation(data2.city)
+          return
+        } else if (data2.region) {
+          setLocation(data2.region)
+          return
+        }
+      } catch (err2) {
+        console.log("[v0] ipapi.co failed:", err2)
+      }
+
+      // Fallback final
+      setLocation('Brasil')
     }
 
     fetchLocation()

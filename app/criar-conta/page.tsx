@@ -33,7 +33,7 @@ function CriarContaContent() {
 
   useEffect(() => {
     console.log("[v0] useEffect - sessionId:", sessionId)
-    
+
     if (!sessionId) {
       console.error("[v0] No session_id in URL")
       setStatus("invalid")
@@ -45,7 +45,7 @@ function CriarContaContent() {
         console.log("[v0] Verifying session:", sessionId)
         const res = await fetch(`/api/verify-checkout-session?session_id=${sessionId}`)
         const data = await res.json()
-        
+
         console.log("[v0] Verify response status:", res.status, "data:", data)
 
         if (!res.ok || data.payment_status !== "paid") {
