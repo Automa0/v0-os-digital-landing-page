@@ -7,7 +7,7 @@ export function AboutUs() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Image */}
           <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-lg border-4 border-primary">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_2f3b8f47-8155-4ba8-a874-fa3da9dae741-QBvPbUhc6Kxi0hu5S8fVvukzrsxRVJ.png"
