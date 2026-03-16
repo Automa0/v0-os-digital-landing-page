@@ -22,43 +22,44 @@ export function TopBar() {
 
   useEffect(() => {
     const fetchLocation = async () => {
-      // Tenta API principal
+      // Tenta ipapi.co (funciona com HTTPS)
       try {
-        const res = await fetch('https://ip-api.com/json/?fields=status,city,regionName,country', {
-          cache: 'no-store'
-        })
-        const data = await res.json()
+        const response = await fetch('https://ipapi.co/json/')
+        const data = await response.json()
+        console.log("[v0] ipapi.co response:", data)
 
-        if (data.status === 'success') {
-          if (data.city) {
+        if (!data.error) {
+          if (data.city && data.city.trim()) {
             setLoc({ type: 'city', value: data.city })
             return
-          } else if (data.regionName) {
-            setLoc({ type: 'state', value: data.regionName })
+          } else if (data.region && data.region.trim()) {
+            setLoc({ type: 'state', value: data.region })
             return
           }
         }
-      } catch {
-        // silently fall through to next provider
+      } catch (err) {
+        console.log("[v0] ipapi.co error:", err)
       }
 
-      // Fallback: ipapi.co
+      // Fallback: ipinfo.io (funciona com HTTPS)
       try {
-        const res2 = await fetch('https://ipapi.co/json/', { cache: 'no-store' })
-        const data2 = await res2.json()
+        const response = await fetch('https://ipinfo.io/json?token=')
+        const data = await response.json()
+        console.log("[v0] ipinfo.io response:", data)
 
-        if (data2.city) {
-          setLoc({ type: 'city', value: data2.city })
+        if (data.city) {
+          setLoc({ type: 'city', value: data.city })
           return
-        } else if (data2.region) {
-          setLoc({ type: 'state', value: data2.region })
+        } else if (data.region) {
+          setLoc({ type: 'state', value: data.region })
           return
         }
-      } catch {
-        // silently fall through to fallback
+      } catch (err) {
+        console.log("[v0] ipinfo.io error:", err)
       }
 
       // Fallback final
+      console.log("[v0] Using default Brazil fallback")
       setLoc({ type: 'brazil' })
     }
 

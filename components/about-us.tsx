@@ -14,8 +14,8 @@ export function AboutUs() {
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" className="animate-pulse"/>
         </svg>
-        {/* Animated particles - fixed positions to avoid hydration mismatch */}
-        <div className="particle-container absolute inset-0">
+        {/* Animated particles with fixed positions */}
+        <div className="particle-container absolute inset-0" aria-hidden="true">
           {[
             { left: "10%", top: "15%" },
             { left: "25%", top: "70%" },
@@ -26,11 +26,15 @@ export function AboutUs() {
             { left: "15%", top: "50%" },
             { left: "90%", top: "20%" },
           ].map((pos, i) => (
-            <div key={i} className="particle" style={{
-              left: pos.left,
-              top: pos.top,
-              animationDelay: `${i * 0.5}s`
-            }}></div>
+            <div 
+              key={i} 
+              className="particle" 
+              style={{
+                left: pos.left,
+                top: pos.top,
+                animationDelay: `${i * 0.5}s`
+              }}
+            />
           ))}
         </div>
       </div>
