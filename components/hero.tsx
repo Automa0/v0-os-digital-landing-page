@@ -16,8 +16,8 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
 
       {/* Content overlay */}
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8 py-32">
-        <div className="max-w-3xl text-center -mt-20">
+      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8 py-16">
+        <div className="max-w-3xl text-center pt-20">
           <p className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold animate-fade-in mb-2 brand-glow" style={{ animationDelay: '0.05s' }}>
             A OS Digital+
           </p>
