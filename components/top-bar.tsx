@@ -22,52 +22,45 @@ export function TopBar() {
 
   useEffect(() => {
     const fetchLocation = async () => {
+      // Tenta ipapi.co (funciona com HTTPS)
       try {
-        // Tenta API de geolocalização do browser primeiro
-        try {
-          const response = await fetch('https://ipwho.is/')
-          const data = await response.json()
-          console.log("[v0] ipwho.is response:", data)
+        const response = await fetch('https://ipapi.co/json/')
+        const data = await response.json()
+        console.log("[v0] ipapi.co response:", data)
 
-          if (data.success) {
-            if (data.city && data.city.trim()) {
-              setLoc({ type: 'city', value: data.city })
-              return
-            } else if (data.region && data.region.trim()) {
-              setLoc({ type: 'state', value: data.region })
-              return
-            }
+        if (!data.error) {
+          if (data.city && data.city.trim()) {
+            setLoc({ type: 'city', value: data.city })
+            return
+          } else if (data.region && data.region.trim()) {
+            setLoc({ type: 'state', value: data.region })
+            return
           }
-        } catch (err) {
-          console.log("[v0] ipwho.is error:", err)
         }
-
-        // Fallback: ip-api.com (free tier)
-        try {
-          const response = await fetch('https://ip-api.com/json/?fields=status,city,region,country')
-          const data = await response.json()
-          console.log("[v0] ip-api.com response:", data)
-
-          if (data.status === 'success') {
-            if (data.city) {
-              setLoc({ type: 'city', value: data.city })
-              return
-            } else if (data.region) {
-              setLoc({ type: 'state', value: data.region })
-              return
-            }
-          }
-        } catch (err) {
-          console.log("[v0] ip-api.com error:", err)
-        }
-
-        // Fallback final
-        console.log("[v0] Using default Brazil fallback")
-        setLoc({ type: 'brazil' })
       } catch (err) {
-        console.log("[v0] Unexpected error in fetchLocation:", err)
-        setLoc({ type: 'brazil' })
+        console.log("[v0] ipapi.co error:", err)
       }
+
+      // Fallback: ipinfo.io (funciona com HTTPS)
+      try {
+        const response = await fetch('https://ipinfo.io/json?token=')
+        const data = await response.json()
+        console.log("[v0] ipinfo.io response:", data)
+
+        if (data.city) {
+          setLoc({ type: 'city', value: data.city })
+          return
+        } else if (data.region) {
+          setLoc({ type: 'state', value: data.region })
+          return
+        }
+      } catch (err) {
+        console.log("[v0] ipinfo.io error:", err)
+      }
+
+      // Fallback final
+      console.log("[v0] Using default Brazil fallback")
+      setLoc({ type: 'brazil' })
     }
 
     fetchLocation()
