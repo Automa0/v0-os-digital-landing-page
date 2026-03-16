@@ -22,44 +22,52 @@ export function TopBar() {
 
   useEffect(() => {
     const fetchLocation = async () => {
-      // Tenta API principal
       try {
-        const res = await fetch('https://ip-api.com/json/?fields=status,city,regionName,country', {
-          cache: 'no-store'
-        })
-        const data = await res.json()
+        // Tenta API principal
+        try {
+          const res = await fetch('https://ip-api.com/json/?fields=status,city,regionName,country', {
+            cache: 'no-store'
+          })
+          const data = await res.json()
+          console.log("[v0] ip-api.com response:", data)
 
-        if (data.status === 'success') {
-          if (data.city) {
-            setLoc({ type: 'city', value: data.city })
+          if (data.status === 'success') {
+            if (data.city) {
+              setLoc({ type: 'city', value: data.city })
+              return
+            } else if (data.regionName) {
+              setLoc({ type: 'state', value: data.regionName })
+              return
+            }
+          }
+        } catch (err) {
+          console.log("[v0] ip-api.com error:", err)
+        }
+
+        // Fallback: ipapi.co
+        try {
+          const res2 = await fetch('https://ipapi.co/json/', { cache: 'no-store' })
+          const data2 = await res2.json()
+          console.log("[v0] ipapi.co response:", data2)
+
+          if (data2.city) {
+            setLoc({ type: 'city', value: data2.city })
             return
-          } else if (data.regionName) {
-            setLoc({ type: 'state', value: data.regionName })
+          } else if (data2.region) {
+            setLoc({ type: 'state', value: data2.region })
             return
           }
+        } catch (err) {
+          console.log("[v0] ipapi.co error:", err)
         }
-      } catch {
-        // silently fall through to next provider
+
+        // Fallback final
+        console.log("[v0] Using default Brazil fallback")
+        setLoc({ type: 'brazil' })
+      } catch (err) {
+        console.log("[v0] Unexpected error in fetchLocation:", err)
+        setLoc({ type: 'brazil' })
       }
-
-      // Fallback: ipapi.co
-      try {
-        const res2 = await fetch('https://ipapi.co/json/', { cache: 'no-store' })
-        const data2 = await res2.json()
-
-        if (data2.city) {
-          setLoc({ type: 'city', value: data2.city })
-          return
-        } else if (data2.region) {
-          setLoc({ type: 'state', value: data2.region })
-          return
-        }
-      } catch {
-        // silently fall through to fallback
-      }
-
-      // Fallback final
-      setLoc({ type: 'brazil' })
     }
 
     fetchLocation()
