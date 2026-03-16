@@ -21,8 +21,8 @@ export function TopBar() {
   }, [])
 
   const text = location
-    ? `📍 Assistências técnicas em ${location} já estão usando o OS Digital Plus`
-    : '📍 Assistências técnicas em todo o Brasil já estão usando o OS Digital Plus'
+    ? `📍 Assistências técnicas espalhada pelo ${location} já estão usando o OS Digital`
+    : '📍 Assistências técnicas espalhada pelo Brasil já estão usando o OS Digital'
 
   return (
     <>
