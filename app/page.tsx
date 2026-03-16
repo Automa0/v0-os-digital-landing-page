@@ -6,6 +6,7 @@ import { PainPoints } from "@/components/pain-points"
 import { Solutions } from "@/components/solutions"
 import { FeaturesShowcase } from "@/components/features-showcase"
 import { Pricing } from "@/components/pricing"
+import { SecurityBenefits } from "@/components/security-benefits"
 import { Testimonials } from "@/components/testimonials"
 import { FAQ } from "@/components/faq"
 import { FinalCTA } from "@/components/final-cta"
@@ -31,6 +32,7 @@ export default function Home() {
         <ScrollRevealWrapper>
           <Pricing />
         </ScrollRevealWrapper>
+        <SecurityBenefits />
         <ScrollRevealWrapper>
           <Testimonials />
         </ScrollRevealWrapper>
