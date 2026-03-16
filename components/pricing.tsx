@@ -64,7 +64,7 @@ const plans = [
     },
     features: [
       "Tudo do Pro",
-      "Até 7 lojas",
+      "Até 4 lojas",
       "IA avançada [Em breve]",
       "Prioridade em novas funções",
       "Venda de produtos (POS) [Em breve]",

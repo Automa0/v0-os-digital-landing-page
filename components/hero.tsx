@@ -21,16 +21,15 @@ export function Hero() {
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-12 sm:px-8 sm:py-16">
         <div className="w-full max-w-4xl text-center pt-12 sm:pt-16">
-          <p className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2 sm:mb-4 text-white">
+          <p className="font-heading text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2 sm:mb-4 text-white">
             A <span className="digital-highlight">OS Digital+</span>
           </p>
 
-          <h1 className="font-heading text-4xl sm:text-5xl font-extrabold leading-[1.15] tracking-tight text-white md:text-6xl lg:text-7xl animate-slide-up" style={{ 
+          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold leading-[1.15] tracking-tight text-white md:text-6xl lg:text-7xl animate-slide-up" style={{ 
             animationDelay: '0.1s'
           }}>
             <span className="block">
-              Está
-              <span className="title-shimmer mx-2 inline-block">revolucionando</span>
+              Está <span className="title-shimmer">revolucionando</span>
             </span>
             <span className="block">as assistências técnicas.</span>
           </h1>
@@ -154,7 +153,7 @@ export function Hero() {
 
         @media (max-width: 768px) {
           .hero-section {
-            background-position: 50% 35%;
+            background-position: 45% 28%;
             background-size: cover;
           }
         }
