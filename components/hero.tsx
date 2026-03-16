@@ -20,24 +20,23 @@ export function Hero() {
 
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-12 sm:px-8 sm:py-16">
-        <div className="w-full max-w-3xl text-center pt-12 sm:pt-16">
-          {/* Title background container */}
-          <div className="rounded-2xl backdrop-blur-sm p-4 sm:p-6" style={{
-            background: 'linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.35))'
+        <div className="w-full max-w-4xl text-center pt-12 sm:pt-16">
+          <p className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2 sm:mb-4 text-white" style={{
+            textShadow: '0 2px 8px rgba(0,0,0,0.4)'
           }}>
-            <p className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 text-white">
-              A <span className="digital-highlight">OS Digital+</span>
-            </p>
+            A <span className="digital-highlight">OS Digital+</span>
+          </p>
 
-            <h1 className="font-heading text-3xl sm:text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              <span className="block">
-                Está
-                <span className="title-shimmer mx-2 inline-block">revolucionando</span>
-                <br />
-                as assistências técnicas.
-              </span>
-            </h1>
-          </div>
+          <h1 className="font-heading text-4xl sm:text-5xl font-extrabold leading-[1.15] tracking-tight text-white md:text-6xl lg:text-7xl animate-slide-up" style={{ 
+            animationDelay: '0.1s',
+            textShadow: '0 2px 10px rgba(0,0,0,0.5)'
+          }}>
+            <span className="block">
+              Está
+              <span className="title-shimmer mx-2 inline-block">revolucionando</span>
+            </span>
+            <span className="block">as assistências técnicas.</span>
+          </h1>
 
           <p className="mt-6 text-base sm:text-lg leading-relaxed text-white/90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             Organize ordens de serviço, clientes e financeiro em um único sistema.
