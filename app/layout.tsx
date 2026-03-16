@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     "OSDigitalPlus",
   ],
   icons: {
-    icon: "/favicon-rounded.png",
-    shortcut: "/favicon-rounded.png",
-    apple: "/favicon-rounded.png",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
     title: "OSDigitalPlus - Profissionalize sua assistência técnica",
