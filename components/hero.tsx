@@ -18,15 +18,8 @@ export function Hero() {
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8 py-20">
         <div className="max-w-3xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm animate-fade-in">
-            <Sparkles className="h-4 w-4 text-accent" />
-            <span className="text-sm font-medium text-white/80">
-              Sistema completo para assistências técnicas
-            </span>
-          </div>
-
-          <h1 className="font-heading text-5xl font-extrabold leading-[1.1] tracking-tight text-white md:text-6xl lg:text-7xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            <span className="block">Controle total</span>
+          <h1 className="font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <span className="block hero-pulse">Controle total</span>
             <span className="block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">da sua assistência técnica</span>
           </h1>
 
@@ -34,7 +27,7 @@ export function Hero() {
             Organize ordens de serviço, clientes e financeiro em um único sistema.
           </p>
           
-          <p className="mt-2 text-base text-white/80 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <p className="mt-2 text-base font-bold text-white animate-fade-in" style={{ animationDelay: '0.4s' }}>
             Funciona no celular e no computador.
           </p>
 
@@ -61,10 +54,6 @@ export function Hero() {
             <span>•</span>
             <span>Acesso imediato</span>
           </div>
-
-          <p className="mt-4 text-xs font-medium text-accent animate-fade-in" style={{ animationDelay: '0.7s' }}>
-            Pagamento seguro
-          </p>
         </div>
       </div>
 
@@ -89,6 +78,17 @@ export function Hero() {
           }
         }
 
+        @keyframes text-pulse {
+          0%, 100% {
+            opacity: 1;
+            text-shadow: 0 0 20px rgba(255,255,255,0.4);
+          }
+          50% {
+            opacity: 0.75;
+            text-shadow: 0 0 40px rgba(255,255,255,0.8), 0 0 80px rgba(59,130,246,0.4);
+          }
+        }
+
         .animate-slide-up {
           animation: slide-up 0.8s ease-out forwards;
         }
@@ -96,6 +96,10 @@ export function Hero() {
         .animate-fade-in {
           animation: fade-in 0.8s ease-out forwards;
           opacity: 0;
+        }
+
+        .hero-pulse {
+          animation: text-pulse 2.5s ease-in-out infinite;
         }
       `}</style>
     </section>
