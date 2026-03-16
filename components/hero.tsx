@@ -21,15 +21,12 @@ export function Hero() {
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-12 sm:px-8 sm:py-16">
         <div className="w-full max-w-4xl text-center pt-12 sm:pt-16">
-          <p className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2 sm:mb-4 text-white" style={{
-            textShadow: '0 2px 8px rgba(0,0,0,0.4)'
-          }}>
+          <p className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2 sm:mb-4 text-white">
             A <span className="digital-highlight">OS Digital+</span>
           </p>
 
           <h1 className="font-heading text-4xl sm:text-5xl font-extrabold leading-[1.15] tracking-tight text-white md:text-6xl lg:text-7xl animate-slide-up" style={{ 
-            animationDelay: '0.1s',
-            textShadow: '0 2px 10px rgba(0,0,0,0.5)'
+            animationDelay: '0.1s'
           }}>
             <span className="block">
               Está
@@ -129,7 +126,7 @@ export function Hero() {
           -webkit-text-fill-color: transparent;
           background-clip: text;
           animation: shimmer 3s linear infinite;
-          filter: drop-shadow(0 0 8px rgba(234,179,8,0.5));
+          filter: drop-shadow(0 0 12px rgba(234,179,8,0.8)) drop-shadow(0 0 24px rgba(255,255,255,0.4));
         }
 
         .btn-hero-pulse {
