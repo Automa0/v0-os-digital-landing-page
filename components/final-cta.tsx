@@ -1,7 +1,6 @@
 "use client"
 
 import { ArrowRight } from "lucide-react"
-import { startCheckout } from "@/lib/checkout"
 
 export function FinalCTA() {
   return (
@@ -31,15 +30,15 @@ export function FinalCTA() {
         </p>
 
         <div className="mt-8 sm:mt-12 flex flex-col items-center gap-3 sm:gap-4 sm:flex-row sm:justify-center">
-          <button
-            onClick={() => startCheckout("basico", "mensal")}
+          <a
+            href="https://checkout.stripe.com/g/pay/cs_live_a1Q6AaW8n4GtDHQiFOy08Hl4ZklX8mKOlK6KxHQPhv9Z5QECNY8WCfO2dZ#fid1d2BpamRhQ2prcSc%2FJ0dgJVNsYHFrZGglVXdqJyknZ2p3YWB3VnF8aWAnPyd3anBrYScpJ3ZwZ3Zmd2x1cWxqa1BrbHRwYGtgdnZAa2RnaWBhJz9jZGl2YCknZHVsTmB8Jz8ndW5aaWxzYFowNFZ8V3JvPTBQXW1TUm1TVTdcUn9xTW98NW82YUk0cW5OZEFcdUhmcmlnVmBzPWpqTmFMNVJfYTE2QVNiQWxJYTZgaExxQH90bV9yTlZAM1JRbnB8XENMXzU1T0dwcVFWbFEnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmNmcxMzxnJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
             className="pulse-glow group inline-flex items-center justify-center gap-3 rounded-xl bg-white px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-bold text-primary shadow-2xl transition-all hover:bg-white/90 w-full sm:w-auto"
           >
             Começar agora
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </button>
+          </a>
           <a
-            href="https://app.osdigitalplus.com.br/register?plan=mensal"
+            href="https://app.osdigitalplus.com.br/auth/cadastro"
             className="inline-flex items-center justify-center gap-3 rounded-xl border-2 border-white px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-bold text-white transition-all hover:bg-white/10 w-full sm:w-auto"
           >
             Criar conta grátis
