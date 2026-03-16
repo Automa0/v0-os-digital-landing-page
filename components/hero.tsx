@@ -37,8 +37,8 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
-            <span className="shimmer-text">Controle total</span> da sua
+          <h1 className="font-heading text-4xl font-extrabold leading-[1.2] tracking-tight text-white md:text-5xl lg:text-6xl">
+            Controle total da sua
             <br className="hidden sm:block" />
             assistência técnica
           </h1>
@@ -83,58 +83,16 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Right: Desktop + Mobile mockups */}
+        {/* Right: New hero image */}
         <div className="relative flex-1">
           <div className="relative mx-auto max-w-2xl">
-            {/* Desktop mockup */}
-            <div className="float-animation relative z-10">
-              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl shadow-black/50 backdrop-blur-sm">
-                {/* Browser chrome */}
-                <div className="flex items-center gap-2 border-b border-white/10 bg-white/5 px-4 py-2.5">
-                  <span className="h-3 w-3 rounded-full bg-red-400/80" />
-                  <span className="h-3 w-3 rounded-full bg-yellow-400/80" />
-                  <span className="h-3 w-3 rounded-full bg-green-400/80" />
-                  <div className="mx-3 flex-1 rounded-md bg-white/10 px-3 py-1 text-xs text-white/60">
-                    app.osdigitalplus.com.br/empresarial
-                  </div>
-                </div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-01%20162539-YqFjq5QzElTPxCHXY9hwv6aD43BsKX.png"
-                  alt="Dashboard empresarial do OS Digital+"
-                  className="w-full"
-                  loading="eager"
-                />
-              </div>
-            </div>
-
-            {/* Mobile mockup */}
-            <div className="absolute -right-4 bottom-8 z-20 w-32 sm:-right-8 sm:w-40 lg:-right-12 lg:w-48">
-              <div className="float-animation-delayed overflow-hidden rounded-3xl border-4 border-gray-800 bg-gray-900 shadow-2xl">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-05%20at%2000.58.03-nSO3dfqhVNjHEQ1f0m4Gb80a2aBttr.jpeg"
-                  alt="OS Digital+ no celular"
-                  className="w-full"
-                  loading="eager"
-                />
-              </div>
-            </div>
-
-            {/* Floating badge: faturamento */}
-            <div className="absolute -left-4 top-12 z-30 rounded-xl border border-white/10 bg-white/95 px-4 py-3 shadow-xl backdrop-blur-sm sm:-left-8">
-              <p className="text-xs text-gray-500">Faturamento do mês</p>
-              <p className="text-xl font-bold text-primary">R$ 10.108</p>
-            </div>
-
-            {/* Floating badge: meta */}
-            <div className="absolute -left-4 bottom-32 z-30 rounded-xl border border-white/10 bg-white/95 px-4 py-3 shadow-xl backdrop-blur-sm sm:-left-8 lg:bottom-40">
-              <p className="text-xs text-gray-500">Meta mensal</p>
-              <p className="text-lg font-bold text-gray-800">83%</p>
-              <div className="mt-1.5 h-1.5 w-20 rounded-full bg-gray-200">
-                <div className="h-full w-[83%] rounded-full bg-primary" />
-              </div>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png"
+              alt="OS Digital Plus - Homem com celular e laptop"
+              className="w-full"
+              loading="eager"
+            />
           </div>
         </div>
       </div>

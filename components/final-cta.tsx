@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { startCheckout } from "@/lib/checkout"
 
 export function FinalCTA() {
@@ -22,48 +22,36 @@ export function FinalCTA() {
       <div className="absolute -right-32 bottom-0 h-64 w-64 rounded-full bg-accent/20 blur-[100px]" />
 
       <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-8">
-        <h2 className="font-heading text-3xl font-bold text-white md:text-4xl lg:text-5xl text-balance">
+        <h2 className="font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl text-balance">
           Comece hoje a organizar sua assistência técnica
         </h2>
 
-        <div className="mt-8 space-y-3">
-          <p className="text-lg text-white/90">
-            Ainda não tem certeza?
-          </p>
-          <p className="text-base text-white/80">
-            Você pode realizar um <span className="font-semibold text-white">teste gratuito</span>.
-          </p>
-        </div>
+        <p className="mx-auto mt-8 max-w-2xl text-xl text-white/90">
+          Centenas de assistências já utilizam o OS Digital Plus para organizar clientes, serviços e financeiro.
+        </p>
 
-        <div className="mt-10">
+        <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <button
             onClick={() => startCheckout("basico", "mensal")}
-            className="pulse-glow group inline-flex items-center justify-center gap-3 rounded-xl bg-white px-10 py-5 text-lg font-bold text-primary shadow-2xl transition-all hover:bg-white/90"
+            className="pulse-glow group inline-flex items-center justify-center gap-3 rounded-xl bg-white px-10 py-5 text-lg font-bold text-primary shadow-2xl transition-all hover:bg-white/90 w-full sm:w-auto"
           >
-            Criar minha conta
+            Começar agora
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </button>
+          <a
+            href="https://app.osdigitalplus.com.br/register?plan=mensal"
+            className="inline-flex items-center justify-center gap-3 rounded-xl border-2 border-white px-10 py-5 text-lg font-bold text-white transition-all hover:bg-white/10 w-full sm:w-auto"
+          >
+            Criar conta grátis
+          </a>
         </div>
 
         <p className="mt-6 text-sm text-white/50">
-          Mais de 500 assistências já usam o OS Digital+
+          Ainda está pensando?
         </p>
-
-        {/* Teste gratuito via suporte */}
-        <div className="mt-12 border-t border-white/10 pt-8">
-          <p className="text-sm text-white/60">
-            Ainda não tem certeza? Você pode solicitar um teste gratuito falando com nosso suporte.
-          </p>
-          <a
-            href="https://wa.me/5521996595469?text=Olá,%20quero%20solicitar%20um%20teste%20gratuito%20do%20OSDigitalPlus"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white"
-          >
-            <MessageCircle className="h-4 w-4" />
-            Solicitar teste gratuito
-          </a>
-        </div>
+        <p className="text-sm text-white/70">
+          Você pode criar uma conta e testar gratuitamente o sistema.
+        </p>
       </div>
     </section>
   )

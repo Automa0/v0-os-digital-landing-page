@@ -127,18 +127,6 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
-            Planos
-          </span>
-          <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
-            Escolha o plano ideal para o seu momento
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Comece no básico e evolua conforme sua assistência cresce. Sem surpresas, sem taxas ocultas.
-          </p>
-        </div>
-
         {/* Billing toggle */}
         <div className="mt-10 flex justify-center">
           <div className="inline-flex rounded-xl border border-border bg-card p-1">

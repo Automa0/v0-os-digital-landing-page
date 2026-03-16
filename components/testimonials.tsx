@@ -5,58 +5,45 @@ import { Star } from "lucide-react"
 const testimonials = [
   {
     name: "Carlos Mendes",
-    location: "Rio de Janeiro",
-    text: "Antes eu anotava tudo no papel e perdia controle de OS toda hora. Agora tenho dashboard, controle de caixa e meu cliente acompanha tudo pelo link.",
+    company: "SmartFix",
+    text: "Depois que comecei a usar o sistema nunca mais perdi uma ordem de serviço.",
     rating: 5,
     initials: "CM",
+    photo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png",
   },
   {
     name: "Fernanda Oliveira",
-    location: "São Paulo",
-    text: "O dashboard financeiro foi o que mais me surpreendeu. Consigo ver o faturamento em tempo real e definir meta mensal.",
+    company: "CelularTop",
+    text: "O dashboard financeiro me surpreendeu. Vejo o faturamento em tempo real e consigo definir meta mensal.",
     rating: 5,
     initials: "FO",
+    photo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png",
   },
   {
     name: "Ricardo Alves",
-    location: "Belo Horizonte",
-    text: "Abri minha segunda loja e o OS Digital+ me deixou ver tudo num painel só. Caixa separado por loja, membros ativos, relatórios.",
+    company: "Info Service",
+    text: "Com duas lojas agora, consigo ver tudo num painel só. Separado por loja, membros ativos, tudo organizado.",
     rating: 5,
     initials: "RA",
+    photo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png",
   },
   {
     name: "Bruno Lima",
-    location: "Curitiba",
-    text: "Uso sozinho, no celular, atendendo em domicílio. Crio OS, mando link pro cliente e gero PDF na hora. Nunca fui tão profissional.",
+    company: "Técnico Autônomo",
+    text: "Uso sozinho no celular em domicílio. Crio OS, mando link pro cliente e gero PDF. Nunca fui tão profissional.",
     rating: 5,
     initials: "BL",
-  },
-  {
-    name: "Ana Paula Silva",
-    location: "Brasília",
-    text: "A organização mudou completamente. Não perco mais OS e meus clientes elogiam o link de acompanhamento.",
-    rating: 5,
-    initials: "AS",
-  },
-  {
-    name: "João Pedro Costa",
-    location: "Fortaleza",
-    text: "Melhor investimento que fiz para minha assistência. O controle de caixa me salvou de muita dor de cabeça.",
-    rating: 5,
-    initials: "JC",
+    photo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png",
   },
 ]
 
-// Duplicate for infinite scroll
-const duplicatedTestimonials = [...testimonials, ...testimonials]
-
 export function Testimonials() {
   return (
-    <section id="depoimentos" className="relative overflow-hidden bg-gradient-to-b from-background to-secondary/30 py-20 lg:py-28">
+    <section id="depoimentos" className="relative bg-gradient-to-b from-background to-secondary/30 py-20 lg:py-28">
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center mb-16">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
             Depoimentos
           </span>
@@ -67,50 +54,42 @@ export function Testimonials() {
             Técnicos, donos de loja e autônomos que transformaram a gestão com o OS Digital+.
           </p>
         </div>
-      </div>
 
-      {/* Infinite scroll carousel */}
-      <div className="mt-14 relative">
-        {/* Fade edges */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-32 bg-gradient-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-32 bg-gradient-to-l from-background to-transparent" />
-
-        <div className="infinite-scroll flex gap-6 px-4">
-          {duplicatedTestimonials.map((t, i) => (
+        {/* Testimonials grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {testimonials.map((t) => (
             <div
-              key={`${t.name}-${i}`}
-              className="w-80 flex-shrink-0 rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-lg hover:border-primary/30"
+              key={t.name}
+              className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-lg hover:border-primary/30"
             >
-              {/* Rating stars */}
+              {/* Stars */}
               <div className="mb-4 flex gap-0.5">
                 {Array.from({ length: t.rating }).map((_, j) => (
                   <Star key={j} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
 
-              {/* Testimonial text */}
-              <p className="mb-6 text-sm leading-relaxed text-foreground min-h-[80px]">
+              {/* Quote */}
+              <p className="mb-6 text-sm leading-relaxed text-foreground">
                 "{t.text}"
               </p>
 
-              {/* User info */}
+              {/* Author */}
               <div className="flex items-center gap-3 border-t border-border/50 pt-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-accent/20 text-xs font-bold text-primary">
+                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-xs font-bold text-primary flex-shrink-0">
                   {t.initials}
                 </div>
-                <div className="flex-1">
-                  <div className="text-sm font-semibold text-foreground">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.location}</div>
+                <div className="min-w-0 flex-1">
+                  <div className="text-sm font-semibold text-foreground truncate">{t.name}</div>
+                  <div className="text-xs text-muted-foreground truncate">{t.company}</div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Stats */}
-      <div className="mx-auto mt-16 max-w-4xl px-4">
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+        {/* Stats */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { label: "Assistências", value: "500+" },
             { label: "Ordens criadas", value: "12.000+" },

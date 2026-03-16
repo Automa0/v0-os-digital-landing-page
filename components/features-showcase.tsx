@@ -2,6 +2,11 @@
 
 const features = [
   {
+    title: "Dashboard",
+    description: "Visão completa do seu negócio em tempo real. Faturamento, metas, tickets em andamento e relatórios financeiros.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-01%20162539-YqFjq5QzElTPxCHXY9hwv6aD43BsKX.png",
+  },
+  {
     title: "Controle de Caixa",
     description: "Registre entradas por PIX, dinheiro, cartao. Acompanhe saldo, saidas e suprimentos em tempo real.",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/caixa-zSxiJ4jSUGiiI2OjFJv39fpID0hrIN.png",
@@ -10,11 +15,6 @@ const features = [
     title: "Ordens de Servico",
     description: "Crie OS profissionais em segundos. Checklist do aparelho, condicoes fisicas, funcionalidades e fotos de entrada.",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-05%20010620-1hczKFKdGzjF1IJl6NfmgiTZaKBADk.png",
-  },
-  {
-    title: "Dashboard",
-    description: "Visão completa do seu negócio em tempo real. Faturamento, metas, tickets em andamento e relatórios financeiros.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-01%20162539-YqFjq5QzElTPxCHXY9hwv6aD43BsKX.png",
   },
 ]
 

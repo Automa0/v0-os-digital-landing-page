@@ -74,7 +74,7 @@ export function Comparison() {
               {comparison.map((item, idx) => (
                 <div
                   key={idx}
-                  className={`p-4 rounded-lg bg-red-50 border border-red-200/50 hover:border-red-300 transition-all hover:shadow-md transform ${
+                  className={`p-6 rounded-2xl bg-slate-700/30 border border-slate-600/50 hover:border-slate-500 transition-all hover:shadow-md transform ${
                     isVisible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-50"
                   }`}
                   style={{
@@ -83,8 +83,8 @@ export function Comparison() {
                   }}
                 >
                   <div className="flex items-start gap-3">
-                    <X className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <p className="text-sm font-medium text-red-900/80">
+                    <X className="h-5 w-5 text-slate-500 flex-shrink-0 mt-0.5" />
+                    <p className="text-sm font-medium text-slate-700">
                       {item.problem}
                     </p>
                   </div>
@@ -110,7 +110,7 @@ export function Comparison() {
               {comparison.map((item, idx) => (
                 <div
                   key={idx}
-                  className={`p-4 rounded-lg bg-blue-50 border border-primary/30 hover:border-primary/60 transition-all hover:shadow-md transform ${
+                  className={`p-6 rounded-2xl bg-gradient-to-br from-blue-50/80 to-blue-50/40 border border-primary/40 shadow-lg shadow-primary/10 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/60 transition-all transform ${
                     isVisible ? "translate-x-0 opacity-100" : "translate-x-8 opacity-50"
                   }`}
                   style={{
@@ -120,7 +120,7 @@ export function Comparison() {
                 >
                   <div className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <p className="text-sm font-medium text-primary/90">
+                    <p className="text-sm font-medium text-primary/95">
                       {item.solution}
                     </p>
                   </div>

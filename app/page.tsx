@@ -7,6 +7,7 @@ import { Solutions } from "@/components/solutions"
 import { FeaturesShowcase } from "@/components/features-showcase"
 import { Pricing } from "@/components/pricing"
 import { Testimonials } from "@/components/testimonials"
+import { SecuritySection } from "@/components/security-section"
 import { FAQ } from "@/components/faq"
 import { FinalCTA } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
@@ -33,6 +34,9 @@ export default function Home() {
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <Testimonials />
+        </ScrollRevealWrapper>
+        <ScrollRevealWrapper>
+          <SecuritySection />
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <FAQ />
