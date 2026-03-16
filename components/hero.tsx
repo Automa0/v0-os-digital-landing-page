@@ -18,7 +18,7 @@ export function Hero() {
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8 py-20">
         <div className="max-w-3xl text-center">
-          <p className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-white/90 animate-fade-in mb-2" style={{ animationDelay: '0.05s' }}>
+          <p className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold animate-fade-in mb-2 brand-glow" style={{ animationDelay: '0.05s' }}>
             A OS Digital+
           </p>
 
@@ -126,6 +126,21 @@ export function Hero() {
 
         .btn-hero-pulse {
           animation: btn-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes brand-glow {
+          0%, 100% {
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255,255,255,0.2);
+          }
+          50% {
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.5), 0 0 60px rgba(59,130,246,0.3);
+          }
+        }
+
+        .brand-glow {
+          animation: brand-glow 3s ease-in-out infinite;
         }
       `}</style>
     </section>
