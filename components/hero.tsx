@@ -8,7 +8,7 @@ export function Hero() {
     <section 
       className="relative min-h-screen overflow-hidden pt-10 hero-section"
       style={{
-        backgroundImage: `url('/hero-mobile-bg.jpeg')`,
+        backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome%20%2832%29-WcXImLQBSRhG85aAgtNKLH5VTUU8T7.png')`,
         backgroundAttachment: 'scroll'
       }}
     >
@@ -156,7 +156,7 @@ export function Hero() {
         @media (max-width: 639px) {
           .hero-section {
             background-position: center center;
-            background-size: 80%;
+            background-size: cover;
           }
         }
 
