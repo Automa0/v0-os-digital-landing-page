@@ -19,7 +19,7 @@ export function Hero() {
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8 py-20">
         <div className="max-w-3xl text-center">
           <h1 className="font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            <span className="block hero-pulse">Controle total</span>
+            <span className="block hero-pulse text-primary">Controle total</span>
             <span className="block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">da sua assistência técnica</span>
           </h1>
 
@@ -79,13 +79,20 @@ export function Hero() {
         }
 
         @keyframes text-pulse {
-          0%, 100% {
-            opacity: 1;
-            text-shadow: 0 0 20px rgba(255,255,255,0.4);
+          0% {
+            transform: scale(1);
+            color: rgb(59, 130, 246);
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(59, 130, 246, 0.2);
           }
           50% {
-            opacity: 0.75;
-            text-shadow: 0 0 40px rgba(255,255,255,0.8), 0 0 80px rgba(59,130,246,0.4);
+            transform: scale(1.08);
+            color: rgb(96, 165, 250);
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 50px rgba(59, 130, 246, 0.6);
+          }
+          100% {
+            transform: scale(1);
+            color: rgb(59, 130, 246);
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(59, 130, 246, 0.2);
           }
         }
 
@@ -99,7 +106,8 @@ export function Hero() {
         }
 
         .hero-pulse {
-          animation: text-pulse 2.5s ease-in-out infinite;
+          animation: text-pulse 2s ease-in-out infinite;
+          display: inline-block;
         }
       `}</style>
     </section>
