@@ -15,12 +15,14 @@ export function Hero() {
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
 
+      {/* Bottom shadow fade into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8 py-16">
         <div className="max-w-3xl text-center pt-16">
           <p className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 text-white">
-            A OS{" "}
-            <span className="digital-highlight">Digital+</span>
+            A <span className="digital-highlight">OS Digital+</span>
           </p>
 
           <h1 className="font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
@@ -117,12 +119,13 @@ export function Hero() {
         }
 
         .title-shimmer {
-          background: linear-gradient(90deg, rgb(59,130,246) 0%, rgb(147,197,253) 40%, rgb(255,255,255) 50%, rgb(147,197,253) 60%, rgb(59,130,246) 100%);
+          background: linear-gradient(90deg, rgb(234,179,8) 0%, rgb(253,224,71) 40%, rgb(255,255,255) 50%, rgb(253,224,71) 60%, rgb(234,179,8) 100%);
           background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           animation: shimmer 3s linear infinite;
+          filter: drop-shadow(0 0 8px rgba(234,179,8,0.5));
         }
 
         .btn-hero-pulse {
