@@ -19,13 +19,13 @@ export function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/80 to-transparent" />
 
       {/* Content overlay */}
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8 py-16">
-        <div className="max-w-3xl text-center pt-16">
-          <p className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 text-white">
+      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-12 sm:px-8 sm:py-16">
+        <div className="w-full max-w-3xl text-center pt-12 sm:pt-16">
+          <p className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 text-white">
             A <span className="digital-highlight">OS Digital+</span>
           </p>
 
-          <h1 className="font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
+          <h1 className="font-heading text-3xl sm:text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
             <span className="block">
               Está
               <span className="title-shimmer mx-2 inline-block">revolucionando</span>
@@ -34,31 +34,31 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="mt-8 text-lg leading-relaxed text-white/90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <p className="mt-6 text-base sm:text-lg leading-relaxed text-white/90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             Organize ordens de serviço, clientes e financeiro em um único sistema.
           </p>
           
-          <p className="mt-2 text-base font-bold text-white animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <p className="mt-2 text-sm sm:text-base font-bold text-white animate-fade-in" style={{ animationDelay: '0.4s' }}>
             Funciona no celular e no computador.
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row justify-center animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <button
               onClick={() => startCheckout("basico", "mensal")}
-              className="btn-hero-pulse group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90"
+              className="btn-hero-pulse group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 sm:px-8 text-sm sm:text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90 w-full sm:w-auto"
             >
               Começar agora por R$29/mês
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
             <a
               href="#planos"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-4 sm:px-8 text-sm sm:text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 w-full sm:w-auto"
             >
               Ver planos
             </a>
           </div>
 
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-xs text-white/60 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-white/60 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <span>Sem contrato</span>
             <span>•</span>
             <span>Cancele quando quiser</span>

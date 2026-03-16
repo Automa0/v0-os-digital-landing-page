@@ -37,17 +37,17 @@ export function FeaturesShowcase() {
           </p>
         </div>
 
-        <div className="mt-14 space-y-16">
+        <div className="mt-10 sm:mt-14 space-y-12 sm:space-y-16">
           {features.map((feature, i) => (
             <div
               key={feature.title}
-              className={`flex flex-col items-center gap-8 lg:flex-row lg:gap-16 ${
+              className={`flex flex-col items-center gap-6 sm:gap-8 lg:flex-row lg:gap-16 ${
                 i % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
             >
               {/* Image */}
               <div className="w-full flex-1">
-                <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl transition-transform hover:scale-[1.02]">
+                <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-border bg-card shadow-lg sm:shadow-xl transition-transform hover:scale-[1.01] sm:hover:scale-[1.02]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={feature.image}
@@ -59,18 +59,18 @@ export function FeaturesShowcase() {
               </div>
 
               {/* Text */}
-              <div className="flex-1 text-center lg:text-left">
-                <h3 className="font-heading text-2xl font-bold text-foreground md:text-3xl">
+              <div className="flex-1 text-center lg:text-left px-1 sm:px-0">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground md:text-3xl">
                   {feature.title}
                 </h3>
-                <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                <p className="mt-3 sm:mt-4 text-base sm:text-lg leading-relaxed text-muted-foreground">
                   {feature.description}
                 </p>
                 <a
                   href="https://app.osdigitalplus.com.br/register?plan=mensal"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                  className="mt-4 sm:mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
                 >
-                  Comecar agora por R$29/mes
+                  Começar agora por R$29/mês
                   <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>

@@ -4,7 +4,7 @@ export function AboutUs() {
   return (
     <section className="relative bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left - Image */}
           <div className="relative">
             <div className="aspect-square rounded-2xl overflow-hidden shadow-lg border-4 border-primary">

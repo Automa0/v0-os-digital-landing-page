@@ -58,17 +58,17 @@ export function PainPoints() {
           </h2>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
           {pains.map((pain, i) => (
             <div
               key={pain.title}
-              className="stagger-item group relative overflow-hidden rounded-2xl border border-destructive/20 bg-card p-6 shadow-sm transition-all hover:border-destructive/40 hover:shadow-lg"
+              className="stagger-item group relative overflow-hidden rounded-xl sm:rounded-2xl border border-destructive/20 bg-card p-5 sm:p-6 shadow-sm transition-all hover:border-destructive/40 hover:shadow-lg"
               style={{ animationDelay: `${i * 0.08}s` }}
             >
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-destructive/10 text-destructive transition-colors group-hover:bg-destructive/20">
-                <pain.icon className="h-6 w-6" />
+              <div className="mb-3 sm:mb-4 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-destructive/10 text-destructive transition-colors group-hover:bg-destructive/20">
+                <pain.icon className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <h3 className="mb-2 text-lg font-bold text-foreground">{pain.title}</h3>
+              <h3 className="mb-2 text-base sm:text-lg font-bold text-foreground">{pain.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">
                 {pain.description}
               </p>

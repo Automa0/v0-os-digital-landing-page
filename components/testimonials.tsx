@@ -56,11 +56,11 @@ export function Testimonials() {
         </div>
 
         {/* Testimonials grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-lg hover:border-primary/30"
+              className="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-sm transition-all hover:shadow-lg hover:border-primary/30"
             >
               {/* Stars */}
               <div className="mb-4 flex gap-0.5">
@@ -89,7 +89,7 @@ export function Testimonials() {
         </div>
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {[
             { label: "Assistências", value: "500+" },
             { label: "Ordens criadas", value: "12.000+" },

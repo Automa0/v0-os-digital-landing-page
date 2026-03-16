@@ -5,9 +5,9 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-gradient-to-b from-background to-secondary/30">
       <div className="mx-auto max-w-7xl px-4 py-12 lg:px-8 lg:py-16">
-        <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
+        <div className="grid grid-cols-2 gap-8 sm:gap-10 lg:flex lg:flex-row lg:gap-16">
           {/* About */}
-          <div className="flex-1">
+          <div className="col-span-2 lg:col-span-1 flex-1">
             <Image
               src="/images/logo.png"
               alt="OSDigitalPlus"

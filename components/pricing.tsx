@@ -128,13 +128,13 @@ export function Pricing() {
         </div>
 
         {/* Billing toggle */}
-        <div className="mt-10 flex justify-center">
-          <div className="inline-flex rounded-xl border border-border bg-card p-1">
+        <div className="mt-8 flex justify-center px-2">
+          <div className="inline-flex w-full max-w-xs sm:w-auto rounded-xl border border-border bg-card p-1">
             {(Object.keys(cycleLabels) as BillingCycle[]).map((c) => (
               <button
                 key={c}
                 onClick={() => setCycle(c)}
-                className={`rounded-lg px-5 py-2 text-sm font-medium transition-all ${
+                className={`flex-1 sm:flex-none rounded-lg px-3 sm:px-5 py-2 text-xs sm:text-sm font-medium transition-all ${
                   cycle === c
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground"
@@ -142,8 +142,8 @@ export function Pricing() {
               >
                 {cycleLabels[c]}
                 {c === "anual" && (
-                  <span className="ml-2 rounded-full bg-accent/20 px-2 py-0.5 text-xs font-semibold text-accent">
-                    Mais barato
+                  <span className="ml-1 sm:ml-2 rounded-full bg-accent/20 px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-xs font-semibold text-accent">
+                    -30%
                   </span>
                 )}
               </button>
@@ -151,15 +151,15 @@ export function Pricing() {
           </div>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-3">
           {plans.map((plan) => {
             const price = plan.prices[cycle]
             return (
               <div
                 key={plan.name}
-                className={`relative flex flex-col rounded-2xl border p-8 transition-all hover:shadow-xl ${
+                className={`relative flex flex-col rounded-2xl border p-5 sm:p-8 transition-all hover:shadow-xl ${
                   plan.highlight
-                    ? "border-primary bg-card shadow-xl shadow-primary/10 scale-[1.03]"
+                    ? "border-primary bg-card shadow-xl shadow-primary/10 lg:scale-[1.03]"
                     : "border-border bg-card shadow-sm"
                 }`}
               >
