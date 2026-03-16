@@ -1,6 +1,7 @@
 "use client"
 
 import { X, Check } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 
 const comparison = [
   {
@@ -26,8 +27,29 @@ const comparison = [
 ]
 
 export function Comparison() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 to-slate-100 py-20 lg:py-28">
+    <section ref={sectionRef} className="relative bg-gradient-to-br from-slate-50 to-slate-100 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-16">
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
@@ -38,12 +60,12 @@ export function Comparison() {
           </p>
         </div>
 
-        {/* Comparison cards */}
-        <div className="relative mx-auto max-w-4xl">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-4 mb-8">
+        {/* Comparison cards - side by side */}
+        <div className="relative mx-auto max-w-5xl">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-4 mb-8">
             {/* Left side - Problems */}
             <div className="space-y-4">
-              <div className="text-center md:text-right mb-8">
+              <div className="text-center mb-8">
                 <h3 className="font-heading text-2xl font-bold text-foreground">
                   Sem um sistema organizado
                 </h3>
@@ -52,7 +74,13 @@ export function Comparison() {
               {comparison.map((item, idx) => (
                 <div
                   key={idx}
-                  className="group p-4 rounded-lg bg-red-50 border border-red-200/50 hover:border-red-300 transition-all hover:shadow-md"
+                  className={`p-4 rounded-lg bg-red-50 border border-red-200/50 hover:border-red-300 transition-all hover:shadow-md transform ${
+                    isVisible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-50"
+                  }`}
+                  style={{
+                    transitionDelay: `${idx * 50}ms`,
+                    transition: isVisible ? `all 0.6s ease-out ${idx * 50}ms` : "none"
+                  }}
                 >
                   <div className="flex items-start gap-3">
                     <X className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
@@ -65,17 +93,15 @@ export function Comparison() {
             </div>
 
             {/* VS divider */}
-            <div className="hidden md:flex items-center justify-center">
-              <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-primary to-accent shadow-lg">
-                  <span className="text-sm font-bold text-white">VS</span>
-                </div>
+            <div className="hidden lg:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 z-20 top-1/2 -translate-y-1/2">
+              <div className="flex items-center justify-center h-14 w-14 rounded-full bg-gradient-to-br from-primary to-accent shadow-lg hover:scale-110 transition-transform">
+                <span className="text-sm font-bold text-white">VS</span>
               </div>
             </div>
 
             {/* Right side - Solutions */}
             <div className="space-y-4">
-              <div className="text-center md:text-left mb-8">
+              <div className="text-center mb-8">
                 <h3 className="font-heading text-2xl font-bold text-primary">
                   Com OS Digital Plus
                 </h3>
@@ -84,7 +110,13 @@ export function Comparison() {
               {comparison.map((item, idx) => (
                 <div
                   key={idx}
-                  className="group p-4 rounded-lg bg-blue-50 border border-primary/30 hover:border-primary/60 transition-all hover:shadow-md hover:bg-blue-100/50"
+                  className={`p-4 rounded-lg bg-blue-50 border border-primary/30 hover:border-primary/60 transition-all hover:shadow-md transform ${
+                    isVisible ? "translate-x-0 opacity-100" : "translate-x-8 opacity-50"
+                  }`}
+                  style={{
+                    transitionDelay: `${idx * 50}ms`,
+                    transition: isVisible ? `all 0.6s ease-out ${idx * 50}ms` : "none"
+                  }}
                 >
                   <div className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />

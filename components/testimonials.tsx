@@ -5,7 +5,6 @@ import { Star } from "lucide-react"
 const testimonials = [
   {
     name: "Carlos Mendes",
-    role: "TechFix Assistência",
     location: "Rio de Janeiro",
     text: "Antes eu anotava tudo no papel e perdia controle de OS toda hora. Agora tenho dashboard, controle de caixa e meu cliente acompanha tudo pelo link.",
     rating: 5,
@@ -13,7 +12,6 @@ const testimonials = [
   },
   {
     name: "Fernanda Oliveira",
-    role: "CelularTop Reparos",
     location: "São Paulo",
     text: "O dashboard financeiro foi o que mais me surpreendeu. Consigo ver o faturamento em tempo real e definir meta mensal.",
     rating: 5,
@@ -21,7 +19,6 @@ const testimonials = [
   },
   {
     name: "Ricardo Alves",
-    role: "Info Service",
     location: "Belo Horizonte",
     text: "Abri minha segunda loja e o OS Digital+ me deixou ver tudo num painel só. Caixa separado por loja, membros ativos, relatórios.",
     rating: 5,
@@ -29,7 +26,6 @@ const testimonials = [
   },
   {
     name: "Bruno Lima",
-    role: "Técnico Autônomo",
     location: "Curitiba",
     text: "Uso sozinho, no celular, atendendo em domicílio. Crio OS, mando link pro cliente e gero PDF na hora. Nunca fui tão profissional.",
     rating: 5,
@@ -37,7 +33,6 @@ const testimonials = [
   },
   {
     name: "Ana Paula Silva",
-    role: "SmartFix",
     location: "Brasília",
     text: "A organização mudou completamente. Não perco mais OS e meus clientes elogiam o link de acompanhamento.",
     rating: 5,
@@ -45,7 +40,6 @@ const testimonials = [
   },
   {
     name: "João Pedro Costa",
-    role: "TechMaster",
     location: "Fortaleza",
     text: "Melhor investimento que fiz para minha assistência. O controle de caixa me salvou de muita dor de cabeça.",
     rating: 5,
@@ -85,28 +79,28 @@ export function Testimonials() {
           {duplicatedTestimonials.map((t, i) => (
             <div
               key={`${t.name}-${i}`}
-              className="w-80 flex-shrink-0 rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-lg"
+              className="w-80 flex-shrink-0 rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-lg hover:border-primary/30"
             >
-              {/* Rating */}
-              <div className="mb-4 flex gap-1">
+              {/* Rating stars */}
+              <div className="mb-4 flex gap-0.5">
                 {Array.from({ length: t.rating }).map((_, j) => (
                   <Star key={j} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
 
-              <p className="mb-6 text-sm leading-relaxed text-foreground">
-                &ldquo;{t.text}&rdquo;
+              {/* Testimonial text */}
+              <p className="mb-6 text-sm leading-relaxed text-foreground min-h-[80px]">
+                "{t.text}"
               </p>
 
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-accent/20 text-sm font-bold text-primary">
+              {/* User info */}
+              <div className="flex items-center gap-3 border-t border-border/50 pt-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-accent/20 text-xs font-bold text-primary">
                   {t.initials}
                 </div>
-                <div>
+                <div className="flex-1">
                   <div className="text-sm font-semibold text-foreground">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">
-                    {t.role} — {t.location}
-                  </div>
+                  <div className="text-xs text-muted-foreground">{t.location}</div>
                 </div>
               </div>
             </div>
