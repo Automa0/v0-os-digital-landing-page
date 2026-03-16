@@ -8,7 +8,7 @@ export function Hero() {
     <section 
       className="relative min-h-screen overflow-hidden pt-10 hero-section"
       style={{
-        backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome%20%2832%29-WcXImLQBSRhG85aAgtNKLH5VTUU8T7.png')`,
+        backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome%20%2833%29-mmsr0yqFkYvbpBsdm10KvfajpXc8dC.png')`,
         backgroundAttachment: 'scroll'
       }}
     >
@@ -149,24 +149,8 @@ export function Hero() {
 
         .hero-section {
           background-position: center center;
-          background-size: contain;
+          background-size: cover;
           background-repeat: no-repeat;
-        }
-
-        @media (max-width: 639px) {
-          .hero-section {
-            background-position: center center;
-            background-size: cover;
-          }
-        }
-
-        @media (min-width: 640px) {
-          .hero-section {
-            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png') !important;
-            background-attachment: fixed;
-            background-size: contain;
-            background-repeat: no-repeat;
-          }
         }
 
         .digital-highlight {
