@@ -67,7 +67,7 @@ export function FeaturesShowcase() {
                   {feature.description}
                 </p>
                 <a
-                  href="https://app.osdigitalplus.com.br/register?plan=mensal"
+                  href="#planos"
                   className="mt-4 sm:mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
                 >
                   Começar agora por R$29/mês
