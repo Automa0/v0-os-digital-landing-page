@@ -1,6 +1,6 @@
 "use client"
 
-import { Check, Star, Zap, Loader2 } from "lucide-react"
+import { Check, Star, Zap, Loader2, Shield, Lock, Key } from "lucide-react"
 import { useState } from "react"
 
 type BillingCycle = "mensal" | "semestral" | "anual"
@@ -256,6 +256,45 @@ export function Pricing() {
         <p className="mt-4 text-center text-base font-medium text-white/80">
           Menos que um café por dia para organizar toda sua assistência técnica.
         </p>
+
+        {/* Security strip */}
+        <div className="mt-10 mx-auto max-w-3xl rounded-2xl border border-blue-400/15 bg-slate-800/50 backdrop-blur-sm px-6 py-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-8">
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/20 border border-blue-400/30">
+                <Shield className="h-4 w-4 text-blue-400" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-white leading-tight">Dados protegidos</p>
+                <p className="text-[11px] text-white/55 leading-tight">Criptografia com os mais altos padrões</p>
+              </div>
+            </div>
+
+            <div className="hidden sm:block w-px h-8 bg-blue-400/15" />
+
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/20 border border-blue-400/30">
+                <Lock className="h-4 w-4 text-blue-400" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-white leading-tight">Sistema confiável</p>
+                <p className="text-[11px] text-white/55 leading-tight">Infraestrutura segura e redundante</p>
+              </div>
+            </div>
+
+            <div className="hidden sm:block w-px h-8 bg-blue-400/15" />
+
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/20 border border-blue-400/30">
+                <Key className="h-4 w-4 text-blue-400" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-white leading-tight">Acesso protegido</p>
+                <p className="text-[11px] text-white/55 leading-tight">Login seguro e autenticação robusta</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <style jsx>{`
