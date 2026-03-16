@@ -23,42 +23,42 @@ export function TopBar() {
   useEffect(() => {
     const fetchLocation = async () => {
       try {
-        // Tenta API principal
+        // Tenta API de geolocalização do browser primeiro
         try {
-          const res = await fetch('https://ip-api.com/json/?fields=status,city,regionName,country', {
-            cache: 'no-store'
-          })
-          const data = await res.json()
+          const response = await fetch('https://ipwho.is/')
+          const data = await response.json()
+          console.log("[v0] ipwho.is response:", data)
+
+          if (data.success) {
+            if (data.city && data.city.trim()) {
+              setLoc({ type: 'city', value: data.city })
+              return
+            } else if (data.region && data.region.trim()) {
+              setLoc({ type: 'state', value: data.region })
+              return
+            }
+          }
+        } catch (err) {
+          console.log("[v0] ipwho.is error:", err)
+        }
+
+        // Fallback: ip-api.com (free tier)
+        try {
+          const response = await fetch('https://ip-api.com/json/?fields=status,city,region,country')
+          const data = await response.json()
           console.log("[v0] ip-api.com response:", data)
 
           if (data.status === 'success') {
             if (data.city) {
               setLoc({ type: 'city', value: data.city })
               return
-            } else if (data.regionName) {
-              setLoc({ type: 'state', value: data.regionName })
+            } else if (data.region) {
+              setLoc({ type: 'state', value: data.region })
               return
             }
           }
         } catch (err) {
           console.log("[v0] ip-api.com error:", err)
-        }
-
-        // Fallback: ipapi.co
-        try {
-          const res2 = await fetch('https://ipapi.co/json/', { cache: 'no-store' })
-          const data2 = await res2.json()
-          console.log("[v0] ipapi.co response:", data2)
-
-          if (data2.city) {
-            setLoc({ type: 'city', value: data2.city })
-            return
-          } else if (data2.region) {
-            setLoc({ type: 'state', value: data2.region })
-            return
-          }
-        } catch (err) {
-          console.log("[v0] ipapi.co error:", err)
         }
 
         // Fallback final
