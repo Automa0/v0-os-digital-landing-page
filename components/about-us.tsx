@@ -5,15 +5,15 @@ export function AboutUs() {
     <section className="relative bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Image placeholder */}
+          {/* Left - Image */}
           <div className="relative">
-            <div className="aspect-square rounded-2xl border-2 border-dashed border-border bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-muted-foreground/30 mb-2">📸</div>
-                <p className="text-sm text-muted-foreground">
-                  Imagem será adicionada em breve
-                </p>
-              </div>
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_2f3b8f47-8155-4ba8-a874-fa3da9dae741-QBvPbUhc6Kxi0hu5S8fVvukzrsxRVJ.png"
+                alt="Time OS Digital Plus"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
