@@ -47,7 +47,7 @@ export function Hero() {
               onClick={() => startCheckout("basico", "mensal")}
               className="btn-hero-pulse group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 sm:px-8 text-sm sm:text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90 w-full sm:w-auto"
             >
-              Começar agora por R$29/mês
+              Começar agora por R$49/mês
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
             <a
