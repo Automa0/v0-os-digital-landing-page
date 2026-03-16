@@ -3,26 +3,35 @@
 import { useEffect, useState } from 'react'
 
 export function TopBar() {
-  const [location, setLocation] = useState('')
+  const [location, setLocation] = useState('Brasil')
 
   useEffect(() => {
-    fetch('https://ipwho.is/')
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchLocation = async () => {
+      try {
+        const response = await fetch('https://ipwho.is/')
+        const data = await response.json()
+        console.log("[v0] IP data received:", data)
+        
         if (data.city && data.city.trim() !== '') {
+          console.log("[v0] Setting location to city:", data.city)
           setLocation(data.city)
         } else if (data.region && data.region.trim() !== '') {
+          console.log("[v0] Setting location to region:", data.region)
           setLocation(data.region)
         } else {
-          setLocation('todo o Brasil')
+          console.log("[v0] No city or region, using fallback: Brasil")
+          setLocation('Brasil')
         }
-      })
-      .catch(() => setLocation('todo o Brasil'))
+      } catch (error) {
+        console.log("[v0] Error fetching location:", error)
+        setLocation('Brasil')
+      }
+    }
+
+    fetchLocation()
   }, [])
 
-  const text = location
-    ? `📍 Assistências técnicas espalhada pelo ${location} já estão usando o OS Digital`
-    : '📍 Assistências técnicas espalhada pelo Brasil já estão usando o OS Digital'
+  const text = `📍 Assistências técnicas espalhada pelo ${location} já estão usando o OS Digital`
 
   return (
     <>
