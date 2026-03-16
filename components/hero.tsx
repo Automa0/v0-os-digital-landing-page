@@ -6,7 +6,7 @@ import { startCheckout } from "@/lib/checkout"
 export function Hero() {
   return (
     <section 
-      className="relative min-h-screen overflow-hidden bg-cover bg-center"
+      className="relative min-h-screen overflow-hidden bg-cover bg-center pt-10"
       style={{
         backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png')`,
         backgroundAttachment: 'fixed'
