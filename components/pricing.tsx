@@ -81,18 +81,6 @@ const cycleLabels: Record<BillingCycle, string> = {
   anual: "Anual",
 }
 
-// Sparkle positions — placed on the border edges of the card
-const sparkles = [
-  { top: "-4px",        left: "20%",         delay: "0s",   size: 6 },
-  { top: "-4px",        left: "65%",         delay: "0.8s", size: 4 },
-  { top: "30%",         left: "calc(100% - 3px)", delay: "1.5s", size: 5 },
-  { top: "70%",         left: "calc(100% - 3px)", delay: "0.4s", size: 4 },
-  { bottom: "-4px",     left: "50%",         delay: "1.0s", size: 6 },
-  { bottom: "-4px",     left: "15%",         delay: "1.9s", size: 4 },
-  { top: "50%",         left: "-3px",        delay: "0.6s", size: 5 },
-  { top: "15%",         left: "-3px",        delay: "1.3s", size: 4 },
-]
-
 export function Pricing() {
   const [cycle, setCycle] = useState<BillingCycle>("anual")
   const [loading, setLoading] = useState<string | null>(null)
@@ -189,22 +177,6 @@ export function Pricing() {
                   plan.highlight ? "plan-card--highlight" : ""
                 }`}
               >
-                {/* Sparkles — positioned on the card border edges */}
-                {sparkles.map((s, i) => (
-                  <span
-                    key={i}
-                    className="sparkle"
-                    style={{
-                      top: "top" in s ? s.top : undefined,
-                      bottom: "bottom" in s ? s.bottom : undefined,
-                      left: s.left,
-                      animationDelay: s.delay,
-                      width: s.size,
-                      height: s.size,
-                    }}
-                  />
-                ))}
-
                 {plan.badge && (
                   <div
                     className={`absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full px-4 py-1 text-xs font-bold ${
@@ -315,27 +287,6 @@ export function Pricing() {
         @keyframes card-pulse-highlight {
           0%, 100% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.15), 0 0 50px rgba(96, 165, 250, 0.08); }
           50%       { box-shadow: 0 0 40px rgba(96, 165, 250, 0.30), 0 0 80px rgba(96, 165, 250, 0.15); }
-        }
-
-        /* --- Sparkles on border edges --- */
-        .sparkle {
-          position: absolute;
-          border-radius: 50%;
-          background: #ffffff;
-          opacity: 0;
-          pointer-events: none;
-          z-index: 20;
-          animation: sparkle-blink 2.8s ease-in-out infinite;
-          box-shadow:
-            0 0 4px 2px #60a5fa,
-            0 0 10px 3px rgba(96, 165, 250, 0.6);
-        }
-
-        @keyframes sparkle-blink {
-          0%, 100% { opacity: 0;    transform: scale(0.3); }
-          35%       { opacity: 1;    transform: scale(1.4); }
-          55%       { opacity: 0.85; transform: scale(1.0); }
-          75%       { opacity: 0.4;  transform: scale(0.7); }
         }
       `}</style>
     </section>
