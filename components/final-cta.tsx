@@ -31,7 +31,7 @@ export function FinalCTA() {
 
         <div className="mt-8 sm:mt-12 flex flex-col items-center gap-3 sm:gap-4 sm:flex-row sm:justify-center">
           <a
-            href="https://checkout.stripe.com/c/pay/cs_live_a1VroMKqRYpWW1DL4heBR4ipZQabPzHqhIZ52W5o4KWa4QMKARhIH76oRf#fid1d2BpamRhQ2prcSc%2FJ0dgJVNsYHFrZGglVXdqJyknZ2p3YWB3VnF8aWAnPyd3anBrYScpJ3ZwZ3Zmd2x1cWxqa1BrbHRwYGtgdnZAa2RnaWBhJz9jZGl2YCknZHVsTmB8Jz8ndW5aaWxzYFowNFZ8V3JvPTBQXW1TUm1TVTdcUn9xTW98NW82YUk0cW5OZEFcdUhmcmlnVmBzPWpqTmFMNVJfYTE2QVNiQWxJYTZgaExxQH90bV9yTlZAM1JRbnB8XENMXzU1T0dwcVFWbFEnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmNmcxMzxnJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
+            href="https://checkout.stripe.com/c/pay/cs_live_a1ZShxC1pzdtl5ZtP9rwYJP4zTleVGx2BjtrPm2Z5uVzkhJo5cbDO8BpDI#fid1d2BpamRhQ2prcSc%2FJ0dgJVNsYHFrZGglVXdqJyknZ2p3YWB3VnF8aWAnPyd3anBrYScpJ3ZwZ3Zmd2x1cWxqa1BrbHRwYGtgdnZAa2RnaWBhJz9jZGl2YCknZHVsTmB8Jz8ndW5aaWxzYFowNFZ8V3JvPTBQXW1TUm1TVTdcUn9xTW98NW82YUk0cW5OZEFcdUhmcmlnVmBzPWpqTmFMNVJfYTE2QVNiQWxJYTZgaExxQH90bV9yTlZAM1JRbnB8XENMXzU1T0dwcVFWbFEnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmNmcxMzxnJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
             className="pulse-glow group inline-flex items-center justify-center gap-3 rounded-xl bg-white px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-bold text-primary shadow-2xl transition-all hover:bg-white/90 w-full sm:w-auto"
           >
             Começar agora
