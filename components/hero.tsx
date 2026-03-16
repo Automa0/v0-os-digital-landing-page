@@ -20,18 +20,19 @@ export function Hero() {
 
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-12 sm:px-8 sm:py-16">
-        <div className="w-full max-w-3xl text-center pt-12 sm:pt-16">
-          <p className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 text-white">
+        <div className="w-full max-w-4xl text-center pt-12 sm:pt-16">
+          <p className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2 sm:mb-4 text-white">
             A <span className="digital-highlight">OS Digital+</span>
           </p>
 
-          <h1 className="font-heading text-3xl sm:text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
+          <h1 className="font-heading text-4xl sm:text-5xl font-extrabold leading-[1.15] tracking-tight text-white md:text-6xl lg:text-7xl animate-slide-up" style={{ 
+            animationDelay: '0.1s'
+          }}>
             <span className="block">
               Está
               <span className="title-shimmer mx-2 inline-block">revolucionando</span>
-              <br />
-              as assistências técnicas.
             </span>
+            <span className="block">as assistências técnicas.</span>
           </h1>
 
           <p className="mt-6 text-base sm:text-lg leading-relaxed text-white/90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
@@ -125,7 +126,7 @@ export function Hero() {
           -webkit-text-fill-color: transparent;
           background-clip: text;
           animation: shimmer 3s linear infinite;
-          filter: drop-shadow(0 0 8px rgba(234,179,8,0.5));
+          filter: drop-shadow(0 0 12px rgba(234,179,8,0.8)) drop-shadow(0 0 24px rgba(255,255,255,0.4));
         }
 
         .btn-hero-pulse {
@@ -151,9 +152,10 @@ export function Hero() {
           background-position: center center;
         }
 
-        @media (max-width: 639px) {
+        @media (max-width: 768px) {
           .hero-section {
-            background-position: center center;
+            background-position: 50% 35%;
+            background-size: cover;
           }
         }
 
