@@ -17,9 +17,10 @@ export function Hero() {
 
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8 py-16">
-        <div className="max-w-3xl text-center pt-20">
-          <p className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold animate-fade-in mb-2 brand-glow" style={{ animationDelay: '0.05s' }}>
-            A OS Digital+
+        <div className="max-w-3xl text-center pt-16">
+          <p className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 text-white">
+            A OS{" "}
+            <span className="digital-highlight">Digital+</span>
           </p>
 
           <h1 className="font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
@@ -141,6 +142,14 @@ export function Hero() {
 
         .brand-glow {
           animation: brand-glow 3s ease-in-out infinite;
+        }
+
+        .digital-highlight {
+          background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #93c5fd 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          filter: drop-shadow(0 0 12px rgba(59,130,246,0.6));
         }
       `}</style>
     </section>
