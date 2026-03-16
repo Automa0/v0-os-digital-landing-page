@@ -110,39 +110,54 @@ export function Pricing() {
   }
 
   return (
-    <section id="planos" className="relative bg-gradient-to-b from-secondary/30 via-secondary/50 to-secondary/30 py-20 lg:py-28">
-      <div className="absolute inset-0 bg-dot-pattern opacity-50" />
-      <div className="section-divider absolute top-0 left-0 right-0" />
+    <section id="planos" className="pricing-section relative py-20 lg:py-28 overflow-hidden">
+
+      {/* Same dark background as AboutUs */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900" />
+        <svg className="absolute w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="pricing-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#60a5fa" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#pricing-grid)" />
+        </svg>
+      </div>
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+
+        {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
+          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-blue-400">
             Planos
           </span>
-          <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
-            Escolha o plano ideal para o seu momento
+          <h2 className="font-heading text-3xl font-bold text-white md:text-4xl text-balance">
+            Escolha o plano{" "}
+            <span className="text-blue-400">ideal</span>{" "}
+            para o seu momento
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-white/80">
             Comece no básico e evolua conforme sua assistência cresce. Sem surpresas, sem taxas ocultas.
           </p>
         </div>
 
         {/* Billing toggle */}
         <div className="mt-8 flex justify-center px-2">
-          <div className="inline-flex w-full max-w-xs sm:w-auto rounded-xl border border-border bg-card p-1">
+          <div className="inline-flex w-full max-w-xs sm:w-auto rounded-xl border border-blue-400/20 bg-slate-800/80 p-1">
             {(Object.keys(cycleLabels) as BillingCycle[]).map((c) => (
               <button
                 key={c}
                 onClick={() => setCycle(c)}
                 className={`flex-1 sm:flex-none rounded-lg px-3 sm:px-5 py-2 text-xs sm:text-sm font-medium transition-all ${
                   cycle === c
-                    ? "bg-primary text-primary-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-blue-500 text-white shadow-sm shadow-blue-500/30"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
                 {cycleLabels[c]}
                 {c === "anual" && (
-                  <span className="ml-1 sm:ml-2 rounded-full bg-accent/20 px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-xs font-semibold text-accent">
+                  <span className="ml-1 sm:ml-2 rounded-full bg-blue-400/20 px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-xs font-semibold text-blue-300">
                     -30%
                   </span>
                 )}
@@ -151,24 +166,23 @@ export function Pricing() {
           </div>
         </div>
 
+        {/* Cards */}
         <div className="mt-8 grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-3">
           {plans.map((plan) => {
             const price = plan.prices[cycle]
             return (
               <div
                 key={plan.name}
-                className={`relative flex flex-col rounded-2xl border p-5 sm:p-8 transition-all hover:shadow-xl ${
-                  plan.highlight
-                    ? "border-primary bg-card shadow-xl shadow-primary/10 lg:scale-[1.03]"
-                    : "border-border bg-card shadow-sm"
+                className={`plan-card relative flex flex-col rounded-2xl p-5 sm:p-8 transition-all ${
+                  plan.highlight ? "plan-card--highlight" : ""
                 }`}
               >
                 {plan.badge && (
                   <div
                     className={`absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full px-4 py-1 text-xs font-bold ${
                       plan.highlight
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-accent/20 text-accent"
+                        ? "bg-blue-500 text-white shadow-md shadow-blue-500/40"
+                        : "bg-slate-700 text-blue-300 border border-blue-400/30"
                     }`}
                   >
                     {plan.highlight ? <Star className="h-3 w-3" /> : <Zap className="h-3 w-3" />}
@@ -177,18 +191,18 @@ export function Pricing() {
                 )}
 
                 <div>
-                  <h3 className="font-heading text-xl font-bold text-foreground">{plan.name}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{plan.description}</p>
+                  <h3 className="font-heading text-xl font-bold text-white">{plan.name}</h3>
+                  <p className="mt-1 text-sm text-white/70">{plan.description}</p>
                 </div>
 
                 <div className="mt-6 flex items-baseline gap-1">
-                  <span className="font-heading text-4xl font-extrabold text-foreground">
+                  <span className="font-heading text-4xl font-extrabold text-white">
                     {price.amount}
                   </span>
-                  <span className="text-sm text-muted-foreground">{price.period}</span>
+                  <span className="text-sm text-white/60">{price.period}</span>
                 </div>
                 {"note" in price && price.note && (
-                  <p className="mt-1 text-xs font-medium text-accent">{price.note}</p>
+                  <p className="mt-1 text-xs font-medium text-blue-300">{price.note}</p>
                 )}
 
                 <ul className="mt-8 flex-1 space-y-3">
@@ -196,14 +210,14 @@ export function Pricing() {
                     const hasTag = f.includes("[Em breve]")
                     const label = f.replace(" [Em breve]", "")
                     return (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-foreground">
-                        <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                          <Check className="h-3 w-3 text-primary" />
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-white/90">
+                        <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500/30 border border-blue-400/50">
+                          <Check className="h-3 w-3 text-blue-300" />
                         </div>
                         <span className="flex flex-wrap items-center gap-1.5">
                           {label}
                           {hasTag && (
-                            <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-accent">
+                            <span className="rounded-full bg-blue-400/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-blue-200 border border-blue-400/30">
                               Em breve
                             </span>
                           )}
@@ -218,8 +232,8 @@ export function Pricing() {
                   disabled={loading === `${plan.planId}-${cycle}`}
                   className={`mt-8 flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-sm font-bold transition-all disabled:opacity-70 ${
                     plan.highlight
-                      ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 hover:opacity-90"
-                      : "border border-border bg-secondary text-foreground hover:bg-secondary/80"
+                      ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30 hover:bg-blue-400"
+                      : "border border-blue-400/30 bg-slate-700/60 text-white hover:bg-slate-700"
                   }`}
                 >
                   {loading === `${plan.planId}-${cycle}` ? (
@@ -236,13 +250,45 @@ export function Pricing() {
           })}
         </div>
 
-        <p className="mt-8 text-center text-sm text-muted-foreground">
+        <p className="mt-8 text-center text-sm text-white/55">
           Todos os planos incluem suporte via WhatsApp. Sem fidelidade. Cancele quando quiser.
         </p>
-        <p className="mt-4 text-center text-base font-medium text-foreground">
-          Menos que um cafe por dia para organizar toda sua assistencia tecnica.
+        <p className="mt-4 text-center text-base font-medium text-white/80">
+          Menos que um café por dia para organizar toda sua assistência técnica.
         </p>
       </div>
+
+      <style jsx>{`
+        .pricing-section {
+          background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+
+        /* --- Card base --- */
+        .plan-card {
+          background: rgba(15, 23, 42, 0.7);
+          border: 1px solid rgba(96, 165, 250, 0.15);
+          backdrop-filter: blur(8px);
+          animation: card-pulse 4s ease-in-out infinite;
+        }
+
+        .plan-card--highlight {
+          border-color: rgba(96, 165, 250, 0.5);
+          background: rgba(30, 41, 59, 0.85);
+          box-shadow: 0 0 30px rgba(96, 165, 250, 0.12), 0 0 60px rgba(96, 165, 250, 0.06);
+          transform: scale(1.03);
+          animation: card-pulse-highlight 3s ease-in-out infinite;
+        }
+
+        @keyframes card-pulse {
+          0%, 100% { box-shadow: 0 0 0px rgba(96, 165, 250, 0); }
+          50%       { box-shadow: 0 0 18px rgba(96, 165, 250, 0.10); }
+        }
+
+        @keyframes card-pulse-highlight {
+          0%, 100% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.15), 0 0 50px rgba(96, 165, 250, 0.08); }
+          50%       { box-shadow: 0 0 40px rgba(96, 165, 250, 0.30), 0 0 80px rgba(96, 165, 250, 0.15); }
+        }
+      `}</style>
     </section>
   )
 }
