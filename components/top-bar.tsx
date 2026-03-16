@@ -2,8 +2,23 @@
 
 import { useEffect, useState } from 'react'
 
+type LocationState =
+  | { type: 'city'; value: string }
+  | { type: 'state'; value: string }
+  | { type: 'brazil' }
+
+function buildText(loc: LocationState): string {
+  if (loc.type === 'city') {
+    return `📍 Assistências técnicas em ${loc.value} já estão usando o OS Digital Plus.`
+  }
+  if (loc.type === 'state') {
+    return `📍 Assistências técnicas no estado de ${loc.value} já estão usando o OS Digital Plus.`
+  }
+  return '📍 Assistências técnicas em todo o Brasil já estão usando o OS Digital Plus.'
+}
+
 export function TopBar() {
-  const [location, setLocation] = useState('Brasil')
+  const [loc, setLoc] = useState<LocationState>({ type: 'brazil' })
 
   useEffect(() => {
     const fetchLocation = async () => {
@@ -13,46 +28,44 @@ export function TopBar() {
           cache: 'no-store'
         })
         const data = await res.json()
-        console.log("[v0] ip-api.com response:", data)
-        
+
         if (data.status === 'success') {
           if (data.city) {
-            setLocation(data.city)
+            setLoc({ type: 'city', value: data.city })
             return
           } else if (data.regionName) {
-            setLocation(data.regionName)
+            setLoc({ type: 'state', value: data.regionName })
             return
           }
         }
-      } catch (err) {
-        console.log("[v0] ip-api.com failed:", err)
+      } catch {
+        // silently fall through to next provider
       }
 
       // Fallback: ipapi.co
       try {
         const res2 = await fetch('https://ipapi.co/json/', { cache: 'no-store' })
         const data2 = await res2.json()
-        console.log("[v0] ipapi.co response:", data2)
-        
+
         if (data2.city) {
-          setLocation(data2.city)
+          setLoc({ type: 'city', value: data2.city })
           return
         } else if (data2.region) {
-          setLocation(data2.region)
+          setLoc({ type: 'state', value: data2.region })
           return
         }
-      } catch (err2) {
-        console.log("[v0] ipapi.co failed:", err2)
+      } catch {
+        // silently fall through to fallback
       }
 
       // Fallback final
-      setLocation('Brasil')
+      setLoc({ type: 'brazil' })
     }
 
     fetchLocation()
   }, [])
 
-  const text = `📍 Assistências técnicas espalhada pelo ${location} já estão usando o OS Digital`
+  const text = buildText(loc)
 
   return (
     <>
