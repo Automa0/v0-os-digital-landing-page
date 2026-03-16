@@ -156,9 +156,10 @@ export function Hero() {
           background-position: center center;
         }
 
-        @media (max-width: 639px) {
+        @media (max-width: 768px) {
           .hero-section {
-            background-position: center center;
+            background-position: 50% 35%;
+            background-size: cover;
           }
         }
 
