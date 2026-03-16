@@ -81,14 +81,16 @@ const cycleLabels: Record<BillingCycle, string> = {
   anual: "Anual",
 }
 
-// Sparkle positions per card (stable, not random)
+// Sparkle positions — placed on the border edges of the card
 const sparkles = [
-  { top: "10%",  left: "8%",  delay: "0s",    size: 4 },
-  { top: "20%",  left: "92%", delay: "0.6s",  size: 3 },
-  { top: "75%",  left: "5%",  delay: "1.2s",  size: 5 },
-  { top: "85%",  left: "88%", delay: "0.3s",  size: 3 },
-  { top: "50%",  left: "96%", delay: "1.8s",  size: 4 },
-  { top: "40%",  left: "2%",  delay: "0.9s",  size: 3 },
+  { top: "-4px",        left: "20%",         delay: "0s",   size: 6 },
+  { top: "-4px",        left: "65%",         delay: "0.8s", size: 4 },
+  { top: "30%",         left: "calc(100% - 3px)", delay: "1.5s", size: 5 },
+  { top: "70%",         left: "calc(100% - 3px)", delay: "0.4s", size: 4 },
+  { bottom: "-4px",     left: "50%",         delay: "1.0s", size: 6 },
+  { bottom: "-4px",     left: "15%",         delay: "1.9s", size: 4 },
+  { top: "50%",         left: "-3px",        delay: "0.6s", size: 5 },
+  { top: "15%",         left: "-3px",        delay: "1.3s", size: 4 },
 ]
 
 export function Pricing() {
@@ -147,7 +149,7 @@ export function Pricing() {
             <span className="text-blue-400">ideal</span>{" "}
             para o seu momento
           </h2>
-          <p className="mt-4 text-lg text-slate-400">
+          <p className="mt-4 text-lg text-white/80">
             Comece no básico e evolua conforme sua assistência cresce. Sem surpresas, sem taxas ocultas.
           </p>
         </div>
@@ -187,13 +189,14 @@ export function Pricing() {
                   plan.highlight ? "plan-card--highlight" : ""
                 }`}
               >
-                {/* Sparkles */}
+                {/* Sparkles — positioned on the card border edges */}
                 {sparkles.map((s, i) => (
                   <span
                     key={i}
                     className="sparkle"
                     style={{
-                      top: s.top,
+                      top: "top" in s ? s.top : undefined,
+                      bottom: "bottom" in s ? s.bottom : undefined,
                       left: s.left,
                       animationDelay: s.delay,
                       width: s.size,
@@ -217,14 +220,14 @@ export function Pricing() {
 
                 <div>
                   <h3 className="font-heading text-xl font-bold text-white">{plan.name}</h3>
-                  <p className="mt-1 text-sm text-slate-400">{plan.description}</p>
+                  <p className="mt-1 text-sm text-white/70">{plan.description}</p>
                 </div>
 
                 <div className="mt-6 flex items-baseline gap-1">
                   <span className="font-heading text-4xl font-extrabold text-white">
                     {price.amount}
                   </span>
-                  <span className="text-sm text-slate-400">{price.period}</span>
+                  <span className="text-sm text-white/60">{price.period}</span>
                 </div>
                 {"note" in price && price.note && (
                   <p className="mt-1 text-xs font-medium text-blue-300">{price.note}</p>
@@ -235,14 +238,14 @@ export function Pricing() {
                     const hasTag = f.includes("[Em breve]")
                     const label = f.replace(" [Em breve]", "")
                     return (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-slate-300">
-                        <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500/20 border border-blue-400/30">
-                          <Check className="h-3 w-3 text-blue-400" />
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-white/90">
+                        <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500/30 border border-blue-400/50">
+                          <Check className="h-3 w-3 text-blue-300" />
                         </div>
                         <span className="flex flex-wrap items-center gap-1.5">
                           {label}
                           {hasTag && (
-                            <span className="rounded-full bg-blue-400/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-blue-300 border border-blue-400/20">
+                            <span className="rounded-full bg-blue-400/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-blue-200 border border-blue-400/30">
                               Em breve
                             </span>
                           )}
@@ -275,10 +278,10 @@ export function Pricing() {
           })}
         </div>
 
-        <p className="mt-8 text-center text-sm text-slate-500">
+        <p className="mt-8 text-center text-sm text-white/55">
           Todos os planos incluem suporte via WhatsApp. Sem fidelidade. Cancele quando quiser.
         </p>
-        <p className="mt-4 text-center text-base font-medium text-slate-300">
+        <p className="mt-4 text-center text-base font-medium text-white/80">
           Menos que um café por dia para organizar toda sua assistência técnica.
         </p>
       </div>
@@ -314,22 +317,25 @@ export function Pricing() {
           50%       { box-shadow: 0 0 40px rgba(96, 165, 250, 0.30), 0 0 80px rgba(96, 165, 250, 0.15); }
         }
 
-        /* --- Sparkles --- */
+        /* --- Sparkles on border edges --- */
         .sparkle {
           position: absolute;
           border-radius: 50%;
-          background: #93c5fd;
+          background: #ffffff;
           opacity: 0;
           pointer-events: none;
-          animation: sparkle-blink 3s ease-in-out infinite;
-          filter: blur(0.5px);
-          box-shadow: 0 0 4px 1px rgba(147, 197, 253, 0.8);
+          z-index: 20;
+          animation: sparkle-blink 2.8s ease-in-out infinite;
+          box-shadow:
+            0 0 4px 2px #60a5fa,
+            0 0 10px 3px rgba(96, 165, 250, 0.6);
         }
 
         @keyframes sparkle-blink {
-          0%, 100% { opacity: 0;   transform: scale(0.4); }
-          40%       { opacity: 0.9; transform: scale(1.2); }
-          60%       { opacity: 0.7; transform: scale(1); }
+          0%, 100% { opacity: 0;    transform: scale(0.3); }
+          35%       { opacity: 1;    transform: scale(1.4); }
+          55%       { opacity: 0.85; transform: scale(1.0); }
+          75%       { opacity: 0.4;  transform: scale(0.7); }
         }
       `}</style>
     </section>
