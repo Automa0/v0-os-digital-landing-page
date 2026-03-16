@@ -18,6 +18,10 @@ export function Hero() {
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8 py-20">
         <div className="max-w-3xl text-center">
+          <p className="text-lg font-semibold text-white/80 animate-fade-in mb-4" style={{ animationDelay: '0.05s' }}>
+            A OS Digital+
+          </p>
+
           <h1 className="font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
             <span className="block">
               Está
