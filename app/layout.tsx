@@ -18,7 +18,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "OSDigitalPlus - Sistema de Ordem de Serviço para Assistências Técnicas",
   description:
-    "Organize ordens de serviço, envie links profissionais aos clientes e gere PDFs com assinatura digital em segundos. O sistema completo para assistências técnicas.",
+    "Organize ordens de serviço, envie links profissionais aos clientes e gere PDFs com assinatura digital em segundos.O sistema completo para assistências técnicas.",
   keywords: [
     "ordem de serviço",
     "assistência técnica",
