@@ -21,23 +21,16 @@ export function Hero() {
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-12 sm:px-8 sm:py-16">
         <div className="w-full max-w-4xl text-center pt-12 sm:pt-16">
-          <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-6 sm:mb-8 text-white/80 animate-fade-in" style={{ animationDelay: '0s' }}>
-            Você tem o controle total da sua assistência...
-            <br />
-            Ou só acha que tem?
-          </h2>
-
-          <p className="font-heading text-2xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold mb-2 sm:mb-4 text-white">
-            A <span className="digital-highlight-animated">OS Digital+</span>
-          </p>
-
-          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold leading-[1.15] tracking-tight text-white md:text-6xl lg:text-7xl animate-slide-up" style={{ 
-            animationDelay: '0.1s'
-          }}>
+          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.15] tracking-tight text-white animate-slide-up" style={{ animationDelay: '0s' }}>
             <span className="block">
-              Está <span className="title-shimmer">revolucionando</span>
+              Você tem o <span className="title-shimmer">controle total</span>
             </span>
-            <span className="block">as assistências técnicas.</span>
+            <span className="block">
+              da sua <span className="title-underline">assistência</span>...
+            </span>
+            <span className="block mt-2 text-white/60 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+              Ou só <span className="title-question">acha que tem?</span>
+            </span>
           </h1>
 
           <p className="mt-6 text-base sm:text-lg leading-relaxed text-white/90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
@@ -169,6 +162,37 @@ export function Hero() {
             background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png') !important;
             background-attachment: fixed;
           }
+        }
+
+        .title-underline {
+          position: relative;
+          color: #ffffff;
+        }
+
+        .title-underline::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(90deg, #3b82f6, #60a5fa, #93c5fd);
+          border-radius: 2px;
+          box-shadow: 0 0 10px rgba(59,130,246,0.8);
+          animation: underline-pulse 2s ease-in-out infinite;
+        }
+
+        .title-question {
+          background: linear-gradient(90deg, #f97316 0%, #fb923c 50%, #fdba74 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          filter: drop-shadow(0 0 10px rgba(249,115,22,0.6));
+        }
+
+        @keyframes underline-pulse {
+          0%, 100% { opacity: 1; transform: scaleX(1); }
+          50% { opacity: 0.6; transform: scaleX(0.9); }
         }
 
         .digital-highlight {
