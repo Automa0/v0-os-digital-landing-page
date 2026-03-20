@@ -22,9 +22,6 @@ export default function Home() {
         <CompaniesCarousel />
         <HowItWorks />
         <ScrollRevealWrapper>
-          <AboutUs />
-        </ScrollRevealWrapper>
-        <ScrollRevealWrapper>
           <FeaturesShowcase />
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
@@ -36,6 +33,9 @@ export default function Home() {
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <FAQ />
+        </ScrollRevealWrapper>
+        <ScrollRevealWrapper>
+          <AboutUs />
         </ScrollRevealWrapper>
         <FinalCTA />
       </main>
