@@ -21,6 +21,12 @@ export function Hero() {
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-12 sm:px-8 sm:py-16">
         <div className="w-full max-w-4xl text-center pt-12 sm:pt-16">
+          <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-6 sm:mb-8 text-white/80 animate-fade-in" style={{ animationDelay: '0s' }}>
+            Você tem o controle total da sua assistência...
+            <br />
+            Ou só acha que tem?
+          </h2>
+
           <p className="font-heading text-2xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold mb-2 sm:mb-4 text-white">
             A <span className="digital-highlight-animated">OS Digital+</span>
           </p>
