@@ -13,7 +13,7 @@ export function Hero() {
       }}
     >
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/60 to-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/65 to-black/55" />
 
       {/* Bottom shadow fade into next section */}
       <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/80 to-transparent" />
@@ -31,8 +31,8 @@ export function Hero() {
             Ou só <span className="title-question">acha que tem?</span>
           </p>
           
-          <p className="mt-2 text-sm sm:text-base font-bold text-white animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            Funciona no celular e no computador.
+          <p className="mt-4 text-sm sm:text-base text-white/70 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Tenha controle total das suas ordens, clientes e financeiro em um só lugar.
           </p>
 
           <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.5s' }}>
