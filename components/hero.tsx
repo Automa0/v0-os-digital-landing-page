@@ -13,7 +13,7 @@ export function Hero() {
       }}
     >
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/75 to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/60 to-black/50" />
 
       {/* Bottom shadow fade into next section */}
       <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/80 to-transparent" />
@@ -155,7 +155,6 @@ export function Hero() {
           .hero-section {
             background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png') !important;
             background-attachment: fixed;
-            filter: brightness(0.6) contrast(1.1);
           }
         }
 
