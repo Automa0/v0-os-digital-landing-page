@@ -19,6 +19,7 @@ export default function Home() {
     <>
       <main>
         <Hero />
+        <PainPoints />
         <CompaniesCarousel />
         <ScrollRevealWrapper>
           <Comparison />
