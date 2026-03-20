@@ -26,7 +26,7 @@ const pains = [
   },
   {
     icon: Info,
-    title: "Informações espalhadas no WhatsApp, papel ou cabeça",
+    title: "Informações espalhadas no WhatsApp, papel ou anotações",
     description: "Dados importantes ficam perdidos e difíceis de encontrar quando você precisa",
   },
   {
@@ -38,7 +38,7 @@ const pains = [
 
 export function PainPoints() {
   return (
-    <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28 bg-white">
+    <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28" style={{ backgroundColor: '#F8FAFC' }}>
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         {/* Label - Realidade do dia a dia */}
         <div className="text-center mb-6 sm:mb-8">
@@ -67,16 +67,19 @@ export function PainPoints() {
                 className={`group relative animate-fade-in ${gridClass}`}
                 style={{ animationDelay: `${i * 0.08}s`, animationDuration: '0.6s' }}
               >
-                <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:p-8 transition-all duration-300 hover:border-blue-400 hover:bg-blue-50 hover:shadow-md">
+                <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                  {/* Inner background com azul suave */}
+                  <div className="absolute inset-0 rounded-2xl" style={{ backgroundColor: 'rgba(59,130,246,0.08)' }} />
+                  
                   {/* Flex container para ícone e texto lado a lado */}
-                  <div className="flex gap-4 items-center">
-                    {/* Icon Container */}
+                  <div className="relative flex gap-4 items-start">
+                    {/* Icon Container - alinhado ao topo */}
                     <div className="flex-shrink-0 inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-blue-100 text-blue-600 transition-all duration-300 group-hover:bg-blue-200">
                       <pain.icon className="h-6 w-6 sm:h-7 sm:w-7" />
                     </div>
 
                     {/* Text Content */}
-                    <div className="flex-1">
+                    <div className="flex-1 pt-0.5">
                       <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-tight mb-2">
                         {pain.title}
                       </h3>
@@ -92,7 +95,7 @@ export function PainPoints() {
         </div>
 
         {/* Closing Statement */}
-        <div className="mx-auto max-w-2xl text-center pt-8 sm:pt-12 border-t border-gray-200">
+        <div className="mx-auto max-w-2xl text-center pt-8 sm:pt-12 border-t border-gray-300">
           <p className="text-lg sm:text-xl text-gray-700">
             Se você se identificou com isso, sua assistência não tem <span className="text-blue-600 font-bold">falta de clientes</span>… tem <span className="text-blue-600 font-bold">falta de controle.</span>
           </p>
