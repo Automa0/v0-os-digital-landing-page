@@ -1,7 +1,6 @@
 import { Hero } from "@/components/hero"
 import { CompaniesCarousel } from "@/components/companies-carousel"
 import { HowItWorks } from "@/components/how-it-works"
-import { Comparison } from "@/components/comparison"
 import { AboutUs } from "@/components/about-us"
 import { PainPoints } from "@/components/pain-points"
 import { FeaturesShowcase } from "@/components/features-showcase"
@@ -22,9 +21,6 @@ export default function Home() {
         <PainPoints />
         <CompaniesCarousel />
         <HowItWorks />
-        <ScrollRevealWrapper>
-          <Comparison />
-        </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <AboutUs />
         </ScrollRevealWrapper>
