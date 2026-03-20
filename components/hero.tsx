@@ -22,19 +22,13 @@ export function Hero() {
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-12 sm:px-8 sm:py-16">
         <div className="w-full max-w-4xl text-center pt-12 sm:pt-16">
           <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.15] tracking-tight text-white animate-slide-up" style={{ animationDelay: '0s' }}>
-            <span className="block">
-              Você tem o <span className="title-shimmer">controle total</span>
-            </span>
-            <span className="block">
-              da sua <span className="title-underline">assistência</span>...
-            </span>
-            <span className="block mt-2 text-white/60 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              Ou só <span className="title-question">acha que tem?</span>
-            </span>
+            Você realmente tem o <span className="title-shimmer">controle total</span>
+            <br />
+            da sua <span className="title-underline">assistência</span>?
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg leading-relaxed text-white/90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            Organize ordens de serviço, clientes e financeiro em um único sistema.
+          <p className="mt-6 text-lg sm:text-2xl md:text-3xl font-bold text-white/80 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            Ou só <span className="title-question">acha que tem?</span>
           </p>
           
           <p className="mt-2 text-sm sm:text-base font-bold text-white animate-fade-in" style={{ animationDelay: '0.4s' }}>
