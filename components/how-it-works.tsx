@@ -15,6 +15,14 @@ const timelineItems = [
     title: "Financeiro claro e organizado",
     description: "Saiba exatamente quanto entrou, saiu e quanto você realmente lucrou",
   },
+  {
+    title: "Informações centralizadas",
+    description: "Pare de depender de WhatsApp, papel ou memória — tudo fica salvo no sistema",
+  },
+  {
+    title: "Controle de múltiplas lojas",
+    description: "Gerencie duas ou mais unidades sem se perder ou misturar informações",
+  },
 ]
 
 export function HowItWorks() {
@@ -41,13 +49,13 @@ export function HowItWorks() {
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Linha vertical - responsiva */}
-          <div className="absolute left-5 sm:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/30 via-blue-500/20 to-transparent sm:-translate-x-1/2" />
+        {/* Timeline - Mobile (vertical) */}
+        <div className="relative lg:hidden">
+          {/* Linha vertical - mobile apenas */}
+          <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/30 via-blue-500/20 to-transparent" />
 
           {/* Items */}
-          <div className="space-y-8 sm:space-y-12">
+          <div className="space-y-8">
             {timelineItems.map((item, index) => (
               <div
                 key={item.title}
@@ -55,16 +63,16 @@ export function HowItWorks() {
                 style={{ animationDelay: `${index * 0.1}s`, animationDuration: '0.6s' }}
               >
                 {/* Bolinha do timeline */}
-                <div className="absolute left-0 sm:left-1/2 top-0 sm:-translate-x-1/2 -translate-y-1/2">
-                  <div className="relative z-10 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-black border-2 border-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                    <CheckCircle2 className="h-5 w-5 sm:h-6 sm:w-6 text-blue-400" />
+                <div className="absolute left-0 top-0 -translate-y-1/2">
+                  <div className="relative z-10 h-10 w-10 rounded-full bg-black border-2 border-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                    <CheckCircle2 className="h-5 w-5 text-blue-400" />
                   </div>
                 </div>
 
-                {/* Conteúdo - alinhado à direita em mobile, alternado em desktop */}
-                <div className={`pl-20 sm:pl-0 ${index % 2 === 0 ? 'sm:pr-1/2 sm:text-right' : 'sm:pl-1/2'}`}>
-                  <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-5 sm:p-6 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8">
-                    <h3 className="text-base sm:text-lg font-bold text-white mb-2">
+                {/* Conteúdo - alinhado à direita */}
+                <div className="pl-20">
+                  <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8">
+                    <h3 className="text-base font-bold text-white mb-2">
                       {item.title}
                     </h3>
                     <p className="text-sm text-white/60 leading-relaxed">
@@ -75,6 +83,60 @@ export function HowItWorks() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Grid Layout - Desktop (3 colunas + 2 colunas) */}
+        <div className="hidden lg:grid grid-cols-3 gap-8 mb-12">
+          {timelineItems.slice(0, 3).map((item, index) => (
+            <div
+              key={item.title}
+              className="relative animate-fade-in"
+              style={{ animationDelay: `${index * 0.1}s`, animationDuration: '0.6s' }}
+            >
+              {/* Circle marker */}
+              <div className="flex justify-center mb-4">
+                <div className="h-12 w-12 rounded-full bg-blue-500 border-4 border-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
+                  <CheckCircle2 className="h-6 w-6 text-white" />
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
+                <h3 className="text-base font-bold text-white mb-3 text-center">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-white/60 leading-relaxed text-center">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom 2 items - Desktop (2 colunas centradas) */}
+        <div className="hidden lg:grid grid-cols-2 gap-8 max-w-2xl mx-auto mb-12">
+          {timelineItems.slice(3).map((item, index) => (
+            <div
+              key={item.title}
+              className="relative animate-fade-in"
+              style={{ animationDelay: `${(index + 3) * 0.1}s`, animationDuration: '0.6s' }}
+            >
+              {/* Circle marker */}
+              <div className="flex justify-center mb-4">
+                <div className="h-12 w-12 rounded-full bg-blue-500 border-4 border-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
+                  <CheckCircle2 className="h-6 w-6 text-white" />
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
+                <h3 className="text-base font-bold text-white mb-3 text-center">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-white/60 leading-relaxed text-center">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Fechamento */}
