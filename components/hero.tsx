@@ -39,7 +39,7 @@ export function Hero() {
             Funciona no celular e no computador.
           </p>
 
-          <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <div className="mt-6 sm:mt-8 flex flex-row gap-3 sm:gap-4 justify-center items-start animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <div className="flex flex-col items-center">
               <button
                 onClick={() => startCheckout("basico", "mensal")}
@@ -54,7 +54,7 @@ export function Hero() {
             </div>
             <a
               href="#planos"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-4 sm:px-8 text-sm sm:text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-4 sm:px-8 text-sm sm:text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 h-fit mt-2 sm:mt-0"
             >
               Ver planos
             </a>
