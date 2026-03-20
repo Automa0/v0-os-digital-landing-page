@@ -35,6 +35,10 @@ export function Hero() {
             Tenha controle total das suas ordens, clientes e financeiro em um só lugar.
           </p>
 
+          <p className="mt-2 text-sm sm:text-base font-bold text-white animate-fade-in" style={{ animationDelay: '0.45s' }}>
+            Funciona no celular e no computador.
+          </p>
+
           <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <button
               onClick={() => startCheckout("basico", "mensal")}
