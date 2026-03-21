@@ -55,14 +55,14 @@ export function PainStories() {
     checkScroll()
     window.addEventListener('resize', checkScroll)
     
-    // Auto-scroll a cada 5 segundos
+    // Auto-scroll a cada 2.5 segundos (mais rápido)
     const autoScrollInterval = setInterval(() => {
       if (scrollRef.current) {
         const cardWidth = scrollRef.current.offsetWidth / 2
         scrollRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' })
         setTimeout(checkScroll, 300)
       }
-    }, 5000)
+    }, 2500)
 
     return () => {
       window.removeEventListener('resize', checkScroll)
@@ -147,6 +147,16 @@ export function PainStories() {
                 className="h-1.5 w-8 rounded-full bg-gray-300"
               />
             ))}
+          </div>
+
+          {/* Linha separadora */}
+          <div className="mt-8 sm:mt-10 border-t border-gray-300" />
+
+          {/* Closing Statement */}
+          <div className="mt-6 sm:mt-8 text-center">
+            <p className="text-base sm:text-lg text-gray-700">
+              Se você se identificou com isso, sua assistência não tem <span className="text-blue-600 font-bold">falta de clientes</span>… tem <span className="text-blue-600 font-bold">falta de controle.</span>
+            </p>
           </div>
         </div>
       </div>
