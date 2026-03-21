@@ -80,7 +80,7 @@ export function PainStories() {
   }
 
   return (
-    <section className="relative py-12 sm:py-16" style={{ backgroundColor: '#F8FAFC' }}>
+    <section className="relative pt-4 pb-8 sm:pt-6 sm:pb-10" style={{ backgroundColor: '#F8FAFC' }}>
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         {/* Carrossel Container */}
         <div className="relative">
@@ -148,13 +148,6 @@ export function PainStories() {
               />
             ))}
           </div>
-        </div>
-
-        {/* Closing Statement */}
-        <div className="mt-12 sm:mt-16 text-center pt-8 sm:pt-12 border-t border-gray-300">
-          <p className="text-base sm:text-lg text-gray-700">
-            Se você se identificou com isso, sua assistência não tem <span className="text-blue-600 font-bold">falta de clientes</span>… tem <span className="text-blue-600 font-bold">falta de controle.</span>
-          </p>
         </div>
       </div>
 
