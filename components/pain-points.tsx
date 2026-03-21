@@ -33,8 +33,8 @@ const stories = [
     label: "Você (dono)",
     lines: [
       "Qual loja fechou mais serviço hoje?",
-      "Tem OS parada e eu nem vi?",
-      "Quanto cada loja realmente lucrou?",
+      "Estou com mais de 4 serviços em aberto e eu nem percebi.",
+      "Quanto minha loja realmente lucrou?",
     ],
   },
   {
