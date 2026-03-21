@@ -14,7 +14,7 @@ const stories = [
     label: "Cliente",
     lines: [
       "Meu celular já ficou pronto?",
-      "Você não me respondeu ainda",
+      "Você não me respondeu ainda,",
       "Qual foi o valor mesmo?",
     ],
   },
@@ -39,7 +39,7 @@ const stories = [
     lines: [
       "Vou te passar o orçamento já já…",
       "(...tempo passa...)",
-      "Fechei com outro, obrigado.",
+      "Cliente: Fechei com outro, obrigado.",
     ],
   },
 ]
