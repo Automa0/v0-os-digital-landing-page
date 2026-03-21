@@ -7,33 +7,33 @@ const stories = [
   {
     label: "Cliente",
     lines: [
-      '"Meu celular já ficou pronto?"',
-      '"Você não me respondeu ainda"',
-      '"Qual foi o valor mesmo?"',
+      "Meu celular já ficou pronto?",
+      "Você não me respondeu ainda",
+      "Qual foi o valor mesmo?",
     ],
   },
   {
     label: "Você (autônomo)",
     lines: [
-      '"Quanto entrou hoje mesmo?"',
-      '"Esse dinheiro foi de qual cliente?"',
-      '"Já recebi tudo ou ainda falta algo?"',
+      "Quanto entrou hoje mesmo?",
+      "Esse dinheiro foi de qual cliente?",
+      "Já recebi tudo ou ainda falta algo?",
     ],
   },
   {
     label: "Você (dono)",
     lines: [
-      '"Qual loja fechou mais serviço hoje?"',
-      '"Tem OS parada e eu nem vi?"',
-      '"Quanto cada loja realmente lucrou?"',
+      "Qual loja fechou mais serviço hoje?",
+      "Tem OS parada e eu nem vi?",
+      "Quanto cada loja realmente lucrou?",
     ],
   },
   {
     label: "Situação real",
     lines: [
-      '"Vou te passar o orçamento já já…"',
+      "Vou te passar o orçamento já já…",
       "(...tempo passa...)",
-      '"Fechei com outro, obrigado."',
+      "Fechei com outro, obrigado.",
     ],
   },
 ]
@@ -54,7 +54,20 @@ export function PainStories() {
   useEffect(() => {
     checkScroll()
     window.addEventListener('resize', checkScroll)
-    return () => window.removeEventListener('resize', checkScroll)
+    
+    // Auto-scroll a cada 5 segundos
+    const autoScrollInterval = setInterval(() => {
+      if (scrollRef.current) {
+        const cardWidth = scrollRef.current.offsetWidth / 2
+        scrollRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' })
+        setTimeout(checkScroll, 300)
+      }
+    }, 5000)
+
+    return () => {
+      window.removeEventListener('resize', checkScroll)
+      clearInterval(autoScrollInterval)
+    }
   }, [])
 
   const scroll = (direction: 'left' | 'right') => {
@@ -102,7 +115,7 @@ export function PainStories() {
                 className="flex-shrink-0 w-[85%] sm:w-[75%] lg:w-[calc(50%-12px)] snap-center animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="h-full rounded-2xl bg-white border border-gray-100 p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="h-full rounded-2xl bg-white border-2 border-blue-500 p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                   {/* Label pequeno */}
                   <span className="inline-block text-xs font-medium text-blue-600 uppercase tracking-wider mb-5 px-3 py-1.5 bg-blue-50 rounded-md">
                     {story.label}
