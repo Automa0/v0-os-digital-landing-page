@@ -70,8 +70,8 @@ export function PainStories() {
   }
 
   return (
-    <section className="relative pt-4 pb-0 sm:pt-6 sm:pb-0" style={{ backgroundColor: '#F8FAFC' }}>
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 pb-6 sm:pb-8">
+    <section className="relative pt-0 pb-0 sm:pt-0 sm:pb-0" style={{ backgroundColor: '#F8FAFC' }}>
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 pb-4 sm:pb-6">
         {/* Carrossel Container */}
         <div className="relative">
           {/* Botao Esquerda - Desktop */}
@@ -105,19 +105,19 @@ export function PainStories() {
                 className="flex-shrink-0 w-[85%] sm:w-[75%] lg:w-[calc(50%-12px)] snap-center animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="h-full rounded-2xl bg-white border-2 border-blue-500 p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="h-full rounded-2xl bg-white border-2 border-blue-500 p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                   {/* Label pequeno */}
-                  <span className="inline-block text-xs font-medium text-blue-600 uppercase tracking-wider mb-5 px-3 py-1.5 bg-blue-50 rounded-md">
+                  <span className="inline-block text-xs font-medium text-blue-600 uppercase tracking-wider mb-3 px-2 py-1 bg-blue-50 rounded-md">
                     {story.label}
                   </span>
 
-                  {/* Frases - tipografia maior */}
-                  <div className="space-y-4">
+                  {/* Frases - tipografia menor */}
+                  <div className="space-y-2">
                     {story.lines.map((line, lineIndex) => (
                       <p
                         key={lineIndex}
-                        className={`text-lg sm:text-xl font-medium leading-relaxed ${
-                          line.startsWith("(") ? "text-gray-400 text-base italic" : "text-gray-800"
+                        className={`text-sm sm:text-base font-medium leading-relaxed ${
+                          line.startsWith("(") ? "text-gray-400 text-xs italic" : "text-gray-800"
                         }`}
                       >
                         {line}
@@ -130,7 +130,7 @@ export function PainStories() {
           </div>
 
           {/* Indicadores de scroll - Mobile */}
-          <div className="flex justify-center gap-2 mt-4 lg:hidden">
+          <div className="flex justify-center gap-2 mt-2 lg:hidden">
             {stories.map((_, index) => (
               <div
                 key={index}
@@ -140,11 +140,11 @@ export function PainStories() {
           </div>
 
           {/* Linha separadora */}
-          <div className="mt-6 sm:mt-8 border-t border-gray-300" />
+          <div className="mt-3 sm:mt-4 border-t border-gray-300" />
 
           {/* Closing Statement */}
-          <div className="mt-6 sm:mt-8 text-center">
-            <p className="text-base sm:text-lg text-gray-700">
+          <div className="mt-4 sm:mt-5 text-center">
+            <p className="text-sm sm:text-base text-gray-700">
               Se você se identificou com isso, sua assistência não tem <span className="text-blue-600 font-bold">falta de clientes</span>… tem <span className="text-blue-600 font-bold">falta de controle.</span>
             </p>
           </div>
