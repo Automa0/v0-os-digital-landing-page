@@ -55,18 +55,8 @@ export function PainStories() {
     checkScroll()
     window.addEventListener('resize', checkScroll)
     
-    // Auto-scroll a cada 2.5 segundos (mais rápido)
-    const autoScrollInterval = setInterval(() => {
-      if (scrollRef.current) {
-        const cardWidth = scrollRef.current.offsetWidth / 2
-        scrollRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' })
-        setTimeout(checkScroll, 300)
-      }
-    }, 2500)
-
     return () => {
       window.removeEventListener('resize', checkScroll)
-      clearInterval(autoScrollInterval)
     }
   }, [])
 
@@ -80,8 +70,8 @@ export function PainStories() {
   }
 
   return (
-    <section className="relative pt-4 pb-8 sm:pt-6 sm:pb-10" style={{ backgroundColor: '#F8FAFC' }}>
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+    <section className="relative pt-4 pb-0 sm:pt-6 sm:pb-0" style={{ backgroundColor: '#F8FAFC' }}>
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 pb-6 sm:pb-8">
         {/* Carrossel Container */}
         <div className="relative">
           {/* Botao Esquerda - Desktop */}
@@ -150,7 +140,7 @@ export function PainStories() {
           </div>
 
           {/* Linha separadora */}
-          <div className="mt-8 sm:mt-10 border-t border-gray-300" />
+          <div className="mt-6 sm:mt-8 border-t border-gray-300" />
 
           {/* Closing Statement */}
           <div className="mt-6 sm:mt-8 text-center">
