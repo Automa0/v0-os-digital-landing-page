@@ -1,70 +1,138 @@
 "use client"
 
-const painCards = [
+import { useRef, useState, useEffect } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+
+const stories = [
   {
-    title: "Clientes cobrando o tempo todo",
-    description: "Seu WhatsApp não para.\nClientes perguntando status, valor e prazo o dia inteiro.",
-    highlight: "Você responde… mas continua sem controle.",
+    label: "Cliente",
+    lines: [
+      '"Meu celular já ficou pronto?"',
+      '"Você não me respondeu ainda"',
+      '"Qual foi o valor mesmo?"',
+    ],
   },
   {
-    title: "Você não sabe quanto realmente entrou",
-    description: "No fim do dia, você tenta lembrar:\nquem pagou, quanto entrou e o que ficou pendente.",
-    highlight: "Tudo misturado. Nenhum controle real.",
+    label: "Você (autônomo)",
+    lines: [
+      '"Quanto entrou hoje mesmo?"',
+      '"Esse dinheiro foi de qual cliente?"',
+      '"Já recebi tudo ou ainda falta algo?"',
+    ],
   },
   {
-    title: "Falta de visão da sua própria empresa",
-    description: "Você não sabe qual loja performou melhor,\nnem quais serviços ainda estão em aberto.",
-    highlight: "Decisões no escuro todos os dias.",
+    label: "Você (dono)",
+    lines: [
+      '"Qual loja fechou mais serviço hoje?"',
+      '"Tem OS parada e eu nem vi?"',
+      '"Quanto cada loja realmente lucrou?"',
+    ],
   },
   {
-    title: "Você perde clientes por demora",
-    description: "O cliente pede orçamento…\nvocê deixa pra depois…\ne quando vê, ele já fechou com outro.",
-    highlight: "Venda perdida por falta de agilidade.",
+    label: "Situação real",
+    lines: [
+      '"Vou te passar o orçamento já já…"',
+      "(...tempo passa...)",
+      '"Fechei com outro, obrigado."',
+    ],
   },
 ]
 
 export function PainStories() {
-  return (
-    <section className="relative overflow-hidden py-0 bg-white">
-      <div className="relative mx-auto max-w-6xl px-5 sm:px-8 py-12 sm:py-16">
-        {/* Desktop Grid - 2x2 */}
-        <div className="hidden md:grid grid-cols-2 gap-6 lg:gap-8 mb-12">
-          {painCards.map((card) => (
-            <div
-              key={card.title}
-              className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1"
-            >
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
-                {card.title}
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed whitespace-pre-line">
-                {card.description}
-              </p>
-              <p className="text-xs sm:text-sm text-gray-500 italic">
-                {card.highlight}
-              </p>
-            </div>
-          ))}
-        </div>
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(true)
 
-        {/* Mobile Carousel - Horizontal Scroll */}
-        <div className="md:hidden">
-          <div className="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory scroll-smooth">
-            {painCards.map((card) => (
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
+      setCanScrollLeft(scrollLeft > 0)
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10)
+    }
+  }
+
+  useEffect(() => {
+    checkScroll()
+    window.addEventListener('resize', checkScroll)
+    return () => window.removeEventListener('resize', checkScroll)
+  }, [])
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const cardWidth = scrollRef.current.offsetWidth / 2
+      const scrollAmount = direction === 'left' ? -cardWidth : cardWidth
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+      setTimeout(checkScroll, 300)
+    }
+  }
+
+  return (
+    <section className="relative py-12 sm:py-16" style={{ backgroundColor: '#F8FAFC' }}>
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        {/* Carrossel Container */}
+        <div className="relative">
+          {/* Botao Esquerda - Desktop */}
+          <button
+            onClick={() => scroll('left')}
+            className={`hidden lg:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg border border-gray-200 transition-all ${canScrollLeft ? 'opacity-100 hover:bg-gray-50 hover:scale-105' : 'opacity-30 cursor-not-allowed'}`}
+            disabled={!canScrollLeft}
+          >
+            <ChevronLeft className="h-6 w-6 text-gray-700" />
+          </button>
+
+          {/* Botao Direita - Desktop */}
+          <button
+            onClick={() => scroll('right')}
+            className={`hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg border border-gray-200 transition-all ${canScrollRight ? 'opacity-100 hover:bg-gray-50 hover:scale-105' : 'opacity-30 cursor-not-allowed'}`}
+            disabled={!canScrollRight}
+          >
+            <ChevronRight className="h-6 w-6 text-gray-700" />
+          </button>
+
+          {/* Cards Container */}
+          <div
+            ref={scrollRef}
+            onScroll={checkScroll}
+            className="flex gap-5 lg:gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 sm:-mx-8 sm:px-8"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {stories.map((story, index) => (
               <div
-                key={card.title}
-                className="flex-shrink-0 w-full sm:w-80 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm snap-start transition-all duration-300"
+                key={story.label}
+                className="flex-shrink-0 w-[85%] sm:w-[75%] lg:w-[calc(50%-12px)] snap-center animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight">
-                  {card.title}
-                </h3>
-                <p className="text-sm text-gray-600 mb-4 leading-relaxed whitespace-pre-line">
-                  {card.description}
-                </p>
-                <p className="text-xs text-gray-500 italic">
-                  {card.highlight}
-                </p>
+                <div className="h-full rounded-2xl bg-white border border-gray-100 p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                  {/* Label pequeno */}
+                  <span className="inline-block text-xs font-medium text-blue-600 uppercase tracking-wider mb-5 px-3 py-1.5 bg-blue-50 rounded-md">
+                    {story.label}
+                  </span>
+
+                  {/* Frases - tipografia maior */}
+                  <div className="space-y-4">
+                    {story.lines.map((line, lineIndex) => (
+                      <p
+                        key={lineIndex}
+                        className={`text-lg sm:text-xl font-medium leading-relaxed ${
+                          line.startsWith("(") ? "text-gray-400 text-base italic" : "text-gray-800"
+                        }`}
+                      >
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                </div>
               </div>
+            ))}
+          </div>
+
+          {/* Indicadores de scroll - Mobile */}
+          <div className="flex justify-center gap-2 mt-4 lg:hidden">
+            {stories.map((_, index) => (
+              <div
+                key={index}
+                className="h-1.5 w-8 rounded-full bg-gray-300"
+              />
             ))}
           </div>
         </div>
@@ -78,23 +146,25 @@ export function PainStories() {
       </div>
 
       <style jsx>{`
-        /* Customizar scrollbar do carrossel mobile */
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(16px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in-up 0.5s ease-out forwards;
+          opacity: 0;
+        }
+
+        /* Hide scrollbar */
         .overflow-x-auto::-webkit-scrollbar {
-          height: 4px;
-        }
-
-        .overflow-x-auto::-webkit-scrollbar-track {
-          background: #f0f0f0;
-          border-radius: 2px;
-        }
-
-        .overflow-x-auto::-webkit-scrollbar-thumb {
-          background: #cbd5e0;
-          border-radius: 2px;
-        }
-
-        .overflow-x-auto::-webkit-scrollbar-thumb:hover {
-          background: #a0aec0;
+          display: none;
         }
       `}</style>
     </section>
