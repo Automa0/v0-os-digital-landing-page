@@ -3,7 +3,6 @@ import { CompaniesCarousel } from "@/components/companies-carousel"
 import { HowItWorks } from "@/components/how-it-works"
 import { AboutUs } from "@/components/about-us"
 import { PainPoints } from "@/components/pain-points"
-import { PainStories } from "@/components/pain-stories"
 import { FeaturesShowcase } from "@/components/features-showcase"
 import { Pricing } from "@/components/pricing"
 import { SecurityBenefits } from "@/components/security-benefits"
@@ -20,7 +19,6 @@ export default function Home() {
       <main>
         <Hero />
         <PainPoints />
-        <PainStories />
         <CompaniesCarousel />
         <HowItWorks />
         <ScrollRevealWrapper>

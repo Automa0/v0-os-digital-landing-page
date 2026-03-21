@@ -1,5 +1,6 @@
 "use client"
 
+import { useRef, useEffect, useState } from "react"
 import {
   AlertCircle,
   MessageCircle,
@@ -7,6 +8,41 @@ import {
   Info,
   Store,
 } from "lucide-react"
+
+const stories = [
+  {
+    label: "Cliente",
+    lines: [
+      "Meu celular já ficou pronto?",
+      "Você não me respondeu ainda",
+      "Qual foi o valor mesmo?",
+    ],
+  },
+  {
+    label: "Você (autônomo)",
+    lines: [
+      "Quanto entrou hoje mesmo?",
+      "Esse dinheiro foi de qual cliente?",
+      "Já recebi tudo ou ainda falta algo?",
+    ],
+  },
+  {
+    label: "Você (dono)",
+    lines: [
+      "Qual loja fechou mais serviço hoje?",
+      "Tem OS parada e eu nem vi?",
+      "Quanto cada loja realmente lucrou?",
+    ],
+  },
+  {
+    label: "Situação real",
+    lines: [
+      "Vou te passar o orçamento já já…",
+      "(...tempo passa...)",
+      "Fechei com outro, obrigado.",
+    ],
+  },
+]
 
 const pains = [
   {
@@ -37,6 +73,33 @@ const pains = [
 ]
 
 export function PainPoints() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [isPaused, setIsPaused] = useState(false)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  useEffect(() => {
+    const startAutoScroll = () => {
+      intervalRef.current = setInterval(() => {
+        if (!isPaused && scrollRef.current) {
+          const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
+          const cardWidth = clientWidth / 2
+
+          if (scrollLeft + clientWidth >= scrollWidth - 10) {
+            // Voltou ao início suavemente
+            scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' })
+          } else {
+            scrollRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' })
+          }
+        }
+      }, 3000)
+    }
+
+    startAutoScroll()
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+    }
+  }, [isPaused])
+
   return (
     <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28" style={{ backgroundColor: '#F8FAFC' }}>
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
@@ -94,6 +157,53 @@ export function PainPoints() {
           })}
         </div>
 
+        {/* Linha separadora */}
+        <div className="border-t border-gray-300 mb-8" />
+
+        {/* Carrossel de frases reais */}
+        <div
+          className="relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div
+            ref={scrollRef}
+            className="flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory pb-2 -mx-5 px-5 sm:-mx-8 sm:px-8"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {stories.map((story) => (
+              <div
+                key={story.label}
+                className="flex-shrink-0 w-[80%] sm:w-[60%] lg:w-[calc(50%-10px)] snap-center"
+              >
+                <div className="h-full rounded-2xl bg-white border-2 border-blue-500 p-4 sm:p-5 shadow-sm">
+                  <span className="inline-block text-xs font-medium text-blue-600 uppercase tracking-wider mb-3 px-2 py-1 bg-blue-50 rounded-md">
+                    {story.label}
+                  </span>
+                  <div className="space-y-2">
+                    {story.lines.map((line, lineIndex) => (
+                      <p
+                        key={lineIndex}
+                        className={`text-sm sm:text-base font-medium leading-relaxed ${
+                          line.startsWith("(") ? "text-gray-400 text-xs italic" : "text-gray-800"
+                        }`}
+                      >
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Frase de fechamento */}
+        <div className="mt-6 sm:mt-8 text-center">
+          <p className="text-sm sm:text-base text-gray-700">
+            Se você se identificou com isso, sua assistência não tem <span className="text-blue-600 font-bold">falta de clientes</span>… tem <span className="text-blue-600 font-bold">falta de controle.</span>
+          </p>
+        </div>
 
       </div>
 
