@@ -94,12 +94,7 @@ export function PainPoints() {
           })}
         </div>
 
-        {/* Closing Statement */}
-        <div className="mx-auto max-w-2xl text-center pt-8 sm:pt-12 border-t border-gray-300">
-          <p className="text-lg sm:text-xl text-gray-700">
-            Se você se identificou com isso, sua assistência não tem <span className="text-blue-600 font-bold">falta de clientes</span>… tem <span className="text-blue-600 font-bold">falta de controle.</span>
-          </p>
-        </div>
+
       </div>
 
       <style jsx>{`
