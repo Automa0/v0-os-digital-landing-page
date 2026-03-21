@@ -7,6 +7,9 @@ import {
   TrendingDown,
   Info,
   Store,
+  Clock,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react"
 
 const stories = [
@@ -70,14 +73,39 @@ const pains = [
     title: "Dificuldade de controlar mais de uma loja",
     description: "Fica difícil acompanhar tudo sem perder controle das operações",
   },
+  {
+    icon: Clock,
+    title: "Você esquece de responder orçamentos",
+    description: "O cliente pede o orçamento… você anota… e simplesmente esquece de verificar o valor do serviço.",
+  },
 ]
 
 export function PainPoints() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [isPaused, setIsPaused] = useState(false)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(true)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
+      setCanScrollLeft(scrollLeft > 0)
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10)
+    }
+  }
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const cardWidth = scrollRef.current.offsetWidth / 2
+      const scrollAmount = direction === 'left' ? -cardWidth : cardWidth
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+      setTimeout(checkScroll, 300)
+    }
+  }
+
   useEffect(() => {
+    checkScroll()
     const startAutoScroll = () => {
       intervalRef.current = setInterval(() => {
         if (!isPaused && scrollRef.current) {
@@ -85,11 +113,11 @@ export function PainPoints() {
           const cardWidth = clientWidth / 2
 
           if (scrollLeft + clientWidth >= scrollWidth - 10) {
-            // Voltou ao início suavemente
             scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' })
           } else {
             scrollRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' })
           }
+          setTimeout(checkScroll, 300)
         }
       }, 3000)
     }
@@ -117,44 +145,38 @@ export function PainPoints() {
           </h2>
         </div>
 
-        {/* Grid of Problems */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12 sm:mb-16">
-          {pains.map((pain, i) => {
-            // Último card deve ser centralizado em desktop
-            const isLastCard = i === pains.length - 1;
-            const gridClass = isLastCard ? "md:col-span-2 md:w-1/2 md:mx-auto" : "";
+        {/* Grid of Problems - 3x2 layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-12 sm:mb-16">
+          {pains.map((pain, i) => (
+            <div
+              key={pain.title}
+              className="group relative animate-fade-in"
+              style={{ animationDelay: `${i * 0.08}s`, animationDuration: '0.6s' }}
+            >
+              <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                {/* Inner background com azul suave */}
+                <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: 'rgba(59,130,246,0.08)' }} />
+                
+                {/* Flex container para ícone e texto lado a lado */}
+                <div className="relative flex gap-3 items-start">
+                  {/* Icon Container - alinhado ao topo */}
+                  <div className="flex-shrink-0 inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-lg bg-blue-100 text-blue-600 transition-all duration-300 group-hover:bg-blue-200">
+                    <pain.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                  </div>
 
-            return (
-              <div
-                key={pain.title}
-                className={`group relative animate-fade-in ${gridClass}`}
-                style={{ animationDelay: `${i * 0.08}s`, animationDuration: '0.6s' }}
-              >
-                <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                  {/* Inner background com azul suave */}
-                  <div className="absolute inset-0 rounded-2xl" style={{ backgroundColor: 'rgba(59,130,246,0.08)' }} />
-                  
-                  {/* Flex container para ícone e texto lado a lado */}
-                  <div className="relative flex gap-4 items-start">
-                    {/* Icon Container - alinhado ao topo */}
-                    <div className="flex-shrink-0 inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-blue-100 text-blue-600 transition-all duration-300 group-hover:bg-blue-200">
-                      <pain.icon className="h-6 w-6 sm:h-7 sm:w-7" />
-                    </div>
-
-                    {/* Text Content */}
-                    <div className="flex-1 pt-0.5">
-                      <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-tight mb-2">
-                        {pain.title}
-                      </h3>
-                      <p className="text-sm text-gray-600 leading-relaxed">
-                        {pain.description}
-                      </p>
-                    </div>
+                  {/* Text Content */}
+                  <div className="flex-1 pt-0.5">
+                    <h3 className="text-sm sm:text-base font-bold text-gray-900 leading-tight mb-1">
+                      {pain.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                      {pain.description}
+                    </p>
                   </div>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
         {/* Linha separadora */}
@@ -166,10 +188,33 @@ export function PainPoints() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
+          {/* Botão Esquerda */}
+          <button
+            onClick={() => scroll('left')}
+            className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 z-10 h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center rounded-full bg-white shadow-md border border-gray-200 transition-all ${
+              canScrollLeft ? 'opacity-100 hover:bg-gray-50 hover:scale-110' : 'opacity-30 cursor-not-allowed'
+            }`}
+            disabled={!canScrollLeft}
+          >
+            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700" />
+          </button>
+
+          {/* Botão Direita */}
+          <button
+            onClick={() => scroll('right')}
+            className={`absolute -right-4 sm:-right-6 top-1/2 -translate-y-1/2 z-10 h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center rounded-full bg-white shadow-md border border-gray-200 transition-all ${
+              canScrollRight ? 'opacity-100 hover:bg-gray-50 hover:scale-110' : 'opacity-30 cursor-not-allowed'
+            }`}
+            disabled={!canScrollRight}
+          >
+            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700" />
+          </button>
+
           <div
             ref={scrollRef}
             className="flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory pb-2 -mx-5 px-5 sm:-mx-8 sm:px-8"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            onScroll={checkScroll}
           >
             {stories.map((story) => (
               <div
