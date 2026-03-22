@@ -47,7 +47,7 @@ export function HowItWorks() {
         </div>
 
         {/* Subtítulo */}
-        <div className="mx-auto max-w-2xl text-center mb-14 sm:mb-20">
+        <div className="mx-auto max-w-2xl text-center mb-10 sm:mb-12">
           <p className="text-base sm:text-lg text-white/60">
             Menos bagunça, mais controle e mais resultado no dia a dia
           </p>
@@ -90,7 +90,7 @@ export function HowItWorks() {
         </div>
 
         {/* Grid Layout - Desktop (3 colunas + 2 colunas) */}
-        <div className="hidden lg:grid grid-cols-3 gap-5 mb-5">
+        <div className="hidden lg:grid grid-cols-3 gap-4 mb-4">
           {timelineItems.slice(0, 3).map((item, index) => (
             <div
               key={item.title}
@@ -98,14 +98,14 @@ export function HowItWorks() {
               style={{ animationDelay: `${index * 0.1}s`, animationDuration: '0.6s' }}
             >
               {/* Circle marker */}
-              <div className="flex justify-center mb-4">
-                <div className="h-12 w-12 rounded-full bg-blue-500 border-4 border-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
-                  <CheckCircle2 className="h-6 w-6 text-white" />
+              <div className="flex justify-center mb-3">
+                <div className="h-10 w-10 rounded-full bg-blue-500 border-2 border-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
+                  <CheckCircle2 className="h-5 w-5 text-white" />
                 </div>
               </div>
 
-              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
-                <h3 className="text-base font-bold text-white mb-3 text-center">
+              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
+                <h3 className="text-base font-bold text-white mb-2 text-center">
                   {item.title}
                 </h3>
                 <p className="text-sm text-white/60 leading-relaxed text-center">
@@ -117,7 +117,7 @@ export function HowItWorks() {
         </div>
 
         {/* Bottom 2 items - Desktop (2 colunas centradas) */}
-        <div className="hidden lg:grid grid-cols-2 gap-5 max-w-2xl mx-auto mb-5">
+        <div className="hidden lg:grid grid-cols-2 gap-4 max-w-2xl mx-auto mb-4">
           {timelineItems.slice(3, 5).map((item, index) => (
             <div
               key={item.title}
@@ -125,14 +125,14 @@ export function HowItWorks() {
               style={{ animationDelay: `${(index + 3) * 0.1}s`, animationDuration: '0.6s' }}
             >
               {/* Circle marker */}
-              <div className="flex justify-center mb-4">
-                <div className="h-12 w-12 rounded-full bg-blue-500 border-4 border-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
-                  <CheckCircle2 className="h-6 w-6 text-white" />
+              <div className="flex justify-center mb-3">
+                <div className="h-10 w-10 rounded-full bg-blue-500 border-2 border-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
+                  <CheckCircle2 className="h-5 w-5 text-white" />
                 </div>
               </div>
 
-              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
-                <h3 className="text-base font-bold text-white mb-3 text-center">
+              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
+                <h3 className="text-base font-bold text-white mb-2 text-center">
                   {item.title}
                 </h3>
                 <p className="text-sm text-white/60 leading-relaxed text-center whitespace-pre-line">
@@ -144,7 +144,7 @@ export function HowItWorks() {
         </div>
 
         {/* Last item - Desktop (1 coluna centrada) */}
-        <div className="hidden lg:flex justify-center mb-5">
+        <div className="hidden lg:flex justify-center mb-4">
           {timelineItems.slice(5).map((item, index) => (
             <div
               key={item.title}
@@ -152,14 +152,14 @@ export function HowItWorks() {
               style={{ animationDelay: `${(index + 5) * 0.1}s`, animationDuration: '0.6s' }}
             >
               {/* Circle marker */}
-              <div className="flex justify-center mb-4">
-                <div className="h-12 w-12 rounded-full bg-blue-500 border-4 border-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
-                  <CheckCircle2 className="h-6 w-6 text-white" />
+              <div className="flex justify-center mb-3">
+                <div className="h-10 w-10 rounded-full bg-blue-500 border-2 border-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
+                  <CheckCircle2 className="h-5 w-5 text-white" />
                 </div>
               </div>
 
-              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
-                <h3 className="text-base font-bold text-white mb-3 text-center">
+              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
+                <h3 className="text-base font-bold text-white mb-2 text-center">
                   {item.title}
                 </h3>
                 <p className="text-sm text-white/60 leading-relaxed text-center whitespace-pre-line">
