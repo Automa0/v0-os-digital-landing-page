@@ -26,8 +26,9 @@ const timelineItems = [
   {
     title: "Orçamento automático em segundos",
     description: "Gere um orçamento profissional com poucos cliques e envie direto para o cliente.\n\nSem papel, sem esquecer, sem perder vendas.",
+    highlighted: true,
   },
-]
+] as const
 
 export function HowItWorks() {
   return (
@@ -60,32 +61,49 @@ export function HowItWorks() {
 
           {/* Items */}
           <div className="space-y-5">
-            {timelineItems.map((item, index) => (
-              <div
-                key={item.title}
-                className="relative animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s`, animationDuration: '0.6s' }}
-              >
-                {/* Bolinha do timeline */}
-                <div className="absolute left-0 top-0 -translate-y-1/2">
-                  <div className="relative z-10 h-10 w-10 rounded-full bg-black border-2 border-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                    <CheckCircle2 className="h-5 w-5 text-blue-400" />
+            {timelineItems.map((item, index) => {
+              const isHighlighted = 'highlighted' in item && item.highlighted
+              
+              return (
+                <div
+                  key={item.title}
+                  className="relative animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s`, animationDuration: '0.6s' }}
+                >
+                  {/* Bolinha do timeline */}
+                  <div className="absolute left-0 top-0 -translate-y-1/2">
+                    <div className={`relative z-10 h-10 w-10 rounded-full flex items-center justify-center shadow-lg ${
+                      isHighlighted 
+                        ? 'bg-gradient-to-br from-green-500 to-green-600 border-2 border-green-400 shadow-green-500/50 animate-pulse' 
+                        : 'bg-black border-2 border-blue-500 shadow-blue-500/30'
+                    }`}>
+                      <CheckCircle2 className={`h-5 w-5 ${isHighlighted ? 'text-white' : 'text-blue-400'}`} />
+                    </div>
                   </div>
-                </div>
 
-                {/* Conteúdo - alinhado à direita */}
-                <div className="pl-20">
-                  <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8">
-                    <h3 className="text-base font-bold text-white mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-white/60 leading-relaxed">
-                      {item.description}
-                    </p>
+                  {/* Conteúdo - alinhado à direita */}
+                  <div className="pl-20">
+                    <div className={`rounded-xl backdrop-blur-md p-5 transition-all duration-300 relative overflow-hidden ${
+                      isHighlighted 
+                        ? 'border-2 border-green-500/50 bg-gradient-to-br from-green-500/10 to-green-600/5 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20' 
+                        : 'border border-white/10 bg-white/5 hover:border-blue-500/30 hover:bg-white/8'
+                    }`}>
+                      {isHighlighted && (
+                        <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-bl-lg rounded-tr-lg">
+                          IMPORTANTE
+                        </div>
+                      )}
+                      <h3 className={`text-base font-bold mb-2 ${isHighlighted ? 'text-green-400' : 'text-white'}`}>
+                        {item.title}
+                      </h3>
+                      <p className={`text-sm leading-relaxed whitespace-pre-line ${isHighlighted ? 'text-white/70' : 'text-white/60'}`}>
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
 
@@ -143,26 +161,31 @@ export function HowItWorks() {
           ))}
         </div>
 
-        {/* Last item - Desktop (1 coluna centrada) */}
+        {/* Last item - Desktop (1 coluna centrada) - DESTACADO */}
         <div className="hidden lg:flex justify-center mb-4">
           {timelineItems.slice(5).map((item, index) => (
             <div
               key={item.title}
-              className="relative animate-fade-in w-full max-w-sm"
+              className="relative animate-fade-in w-full max-w-md"
               style={{ animationDelay: `${(index + 5) * 0.1}s`, animationDuration: '0.6s' }}
             >
-              {/* Circle marker */}
+              {/* Circle marker - destacado */}
               <div className="flex justify-center mb-3">
-                <div className="h-10 w-10 rounded-full bg-blue-500 border-2 border-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
-                  <CheckCircle2 className="h-5 w-5 text-white" />
+                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-500 to-green-600 border-2 border-green-400 flex items-center justify-center shadow-lg shadow-green-500/50 animate-pulse">
+                  <CheckCircle2 className="h-6 w-6 text-white" />
                 </div>
               </div>
 
-              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
-                <h3 className="text-base font-bold text-white mb-2 text-center">
+              <div className="rounded-xl border-2 border-green-500/50 bg-gradient-to-br from-green-500/10 to-green-600/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20 h-full relative overflow-hidden">
+                {/* Badge de destaque */}
+                <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                  IMPORTANTE
+                </div>
+                
+                <h3 className="text-lg font-bold text-green-400 mb-3 text-center">
                   {item.title}
                 </h3>
-                <p className="text-sm text-white/60 leading-relaxed text-center whitespace-pre-line">
+                <p className="text-sm text-white/70 leading-relaxed text-center whitespace-pre-line">
                   {item.description}
                 </p>
               </div>
