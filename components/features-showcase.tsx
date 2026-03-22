@@ -1,83 +1,135 @@
 "use client"
 
 import { startCheckout } from "@/lib/checkout"
+import { Store, Smartphone, FolderOpen, Wrench, Zap } from "lucide-react"
 
-const features = [
+const funcionalidades = [
   {
-    title: "Dashboard",
-    description: "Visão completa do seu negócio em tempo real. Faturamento, metas, tickets em andamento e relatórios financeiros.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-01%20162539-YqFjq5QzElTPxCHXY9hwv6aD43BsKX.png",
+    icon: Store,
+    title: "Controle de múltiplas lojas",
+    description: "Veja o desempenho de cada loja mês a mês. Acompanhe quanto cada unidade faturou no mês e veja o ticket médio de cada loja. Compare os resultados e entenda qual está performando melhor — sem misturar informações.",
   },
   {
-    title: "Controle de Caixa",
-    description: "Registre entradas por PIX, dinheiro, cartao. Acompanhe saldo, saidas e suprimentos em tempo real.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/caixa-zSxiJ4jSUGiiI2OjFJv39fpID0hrIN.png",
+    icon: Smartphone,
+    title: "Cliente acompanha o serviço",
+    description: "Assim que a ordem de serviço é criada, o sistema gera automaticamente um link para o cliente. Ele acompanha status, andamento e informações sem precisar te chamar no WhatsApp.",
   },
   {
-    title: "Ordens de Servico",
-    description: "Crie OS profissionais em segundos. Checklist do aparelho, condicoes fisicas, funcionalidades e fotos de entrada.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202026-03-05%20010620-1hczKFKdGzjF1IJl6NfmgiTZaKBADk.png",
+    icon: FolderOpen,
+    title: "Informações centralizadas",
+    description: "Tudo fica salvo dentro do sistema: cliente, aparelho, serviço e histórico. Você não depende mais de papel, memória ou mensagens perdidas.",
+  },
+  {
+    icon: Wrench,
+    title: "Controle das ordens de serviço",
+    description: "Cada aparelho fica organizado por etapa. Você sabe exatamente em que fase está, sem se perder no dia a dia.",
+  },
+  {
+    icon: Zap,
+    title: "Orçamento automático em segundos",
+    description: "Crie e envie orçamentos rapidamente, mesmo sem ter o valor definido ainda. E mais: se você esquecer de enviar o valor, o sistema te avisa para você não perder o cliente.",
   },
 ]
 
 export function FeaturesShowcase() {
   return (
-    <section className="relative bg-gradient-to-b from-secondary/30 to-background py-20 lg:py-28">
+    <section id="veja-na-pratica" className="relative bg-gradient-to-b from-secondary/30 to-background py-20 lg:py-28">
       <div className="absolute inset-0 bg-dot-pattern opacity-30" />
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
+        {/* Header */}
+        <div className="mx-auto max-w-3xl text-center mb-12 lg:mb-16">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
             Veja na prática
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
             Conheça as funcionalidades do sistema
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Cada tela foi pensada para facilitar sua rotina e aumentar sua produtividade.
-          </p>
         </div>
 
-        <div className="mt-10 sm:mt-14 space-y-12 sm:space-y-16">
-          {features.map((feature, i) => (
-            <div
-              key={feature.title}
-              className={`flex flex-col items-center gap-6 sm:gap-8 lg:flex-row lg:gap-16 ${
-                i % 2 === 1 ? "lg:flex-row-reverse" : ""
-              }`}
-            >
-              {/* Image */}
-              <div className="w-full flex-1">
-                <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-border bg-card shadow-lg sm:shadow-xl transition-transform hover:scale-[1.01] sm:hover:scale-[1.02]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className="w-full"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-
-              {/* Text */}
-              <div className="flex-1 text-center lg:text-left px-1 sm:px-0">
-                <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground md:text-3xl">
-                  {feature.title}
-                </h3>
-                <p className="mt-3 sm:mt-4 text-base sm:text-lg leading-relaxed text-muted-foreground">
-                  {feature.description}
-                </p>
-                <button
-                  onClick={() => startCheckout("basico", "mensal")}
-                  className="mt-4 sm:mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
-                >
-                  Começar agora por R$49/mês
-                  <span aria-hidden="true">&rarr;</span>
-                </button>
+        {/* Layout 2 colunas Desktop / Stack Mobile */}
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+          
+          {/* COLUNA ESQUERDA - Vídeo */}
+          <div className="w-full lg:w-1/2">
+            {/* Texto acima do vídeo */}
+            <p className="text-center text-lg font-semibold text-foreground mb-4">
+              Orçamento em menos de 30 segundos
+            </p>
+            
+            {/* Vídeo */}
+            <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
+              <div className="relative w-full" style={{ paddingBottom: '177.78%' }}>
+                <iframe
+                  src="https://player.vimeo.com/video/1175863288?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1"
+                  className="absolute inset-0 w-full h-full"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                  title="Demonstração OS Digital+"
+                />
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* COLUNA DIREITA - Conteúdo */}
+          <div className="w-full lg:w-1/2">
+            {/* Título principal */}
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center lg:text-left">
+              Tudo que você viu como problema aqui já está resolvido
+            </h3>
+
+            {/* Blocos de funcionalidades */}
+            <div className="space-y-6">
+              {funcionalidades.map((item) => (
+                <div
+                  key={item.title}
+                  className="flex gap-4 p-4 rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:bg-card/80"
+                >
+                  {/* Ícone */}
+                  <div className="flex-shrink-0">
+                    <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <item.icon className="h-5 w-5 text-primary" />
+                    </div>
+                  </div>
+                  
+                  {/* Texto */}
+                  <div>
+                    <h4 className="font-bold text-foreground mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+              {/* Botão Principal */}
+              <button
+                onClick={() => startCheckout("basico", "mensal")}
+                className="w-full sm:w-auto px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg shadow-green-600/25 transition-all duration-300 hover:scale-[1.02]"
+              >
+                Criar meu primeiro orçamento agora
+              </button>
+              
+              {/* Botão Secundário */}
+              <a
+                href="#planos"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Ver planos
+              </a>
+            </div>
+
+            {/* Texto abaixo do CTA */}
+            <p className="mt-3 text-center sm:text-left text-sm text-muted-foreground">
+              Teste grátis
+            </p>
+          </div>
         </div>
       </div>
     </section>
