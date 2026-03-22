@@ -75,8 +75,8 @@ export function FeaturesShowcase() {
           {/* COLUNA DIREITA - Conteúdo */}
           <div className="w-full lg:w-1/2">
             {/* Título principal */}
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center lg:text-left">
-              Tudo que você viu como <span className="text-red-500 font-bold">problema</span> aqui já está <span className="text-green-500 font-bold inline-block animate-pulse scale-110">resolvido</span>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+              Tudo que você viu como <span className="text-red-500 font-bold">problema</span> aqui já está <span className="text-green-500 font-bold inline-block animate-pulse scale-110 font-['Montserrat']">RESOLVIDO</span>
             </h3>
 
             {/* Blocos de funcionalidades */}
@@ -111,7 +111,7 @@ export function FeaturesShowcase() {
               {/* Botão Principal */}
               <button
                 onClick={() => startCheckout("basico", "mensal")}
-                className="w-full sm:w-auto px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg shadow-green-600/25 transition-all duration-300 hover:scale-[1.02]"
+                className="w-full sm:w-auto px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white font-semibold text-sm rounded-xl shadow-lg shadow-green-600/25 transition-all duration-300 hover:scale-[1.02]"
               >
                 Criar meu primeiro orçamento agora
               </button>
@@ -126,7 +126,7 @@ export function FeaturesShowcase() {
             </div>
 
             {/* Texto abaixo do CTA */}
-            <p className="mt-3 text-center sm:text-left text-sm text-muted-foreground">
+            <p className="mt-2 text-center sm:text-left text-xs text-muted-foreground font-['Montserrat']">
               Teste grátis
             </p>
           </div>
