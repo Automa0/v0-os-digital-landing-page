@@ -150,23 +150,23 @@ export function PainPoints() {
           {pains.map((pain, i) => (
             <div
               key={pain.title}
-              className="group relative animate-fade-in"
+              className="group relative animate-fade-in h-full"
               style={{ animationDelay: `${i * 0.08}s`, animationDuration: '0.6s' }}
             >
-              <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+              <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full flex flex-col">
                 {/* Inner background com azul suave */}
                 <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: 'rgba(59,130,246,0.08)' }} />
                 
                 {/* Flex container para ícone e texto lado a lado */}
-                <div className="relative flex gap-3 items-start">
+                <div className="relative flex gap-3 items-start flex-1">
                   {/* Icon Container - alinhado ao topo */}
-                  <div className="flex-shrink-0 inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-lg bg-blue-100 text-blue-600 transition-all duration-300 group-hover:bg-blue-200">
+                  <div className="flex-shrink-0 inline-flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-lg bg-blue-100 text-blue-600 transition-all duration-300 group-hover:bg-blue-200">
                     <pain.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
 
                   {/* Text Content */}
                   <div className="flex-1 pt-0.5">
-                    <h3 className="text-sm sm:text-base font-bold text-gray-900 leading-tight mb-1">
+                    <h3 className="text-sm sm:text-[15px] font-bold text-gray-900 leading-tight mb-1.5">
                       {pain.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
@@ -212,24 +212,24 @@ export function PainPoints() {
 
           <div
             ref={scrollRef}
-            className="flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory pb-2 -mx-5 px-5 sm:-mx-8 sm:px-8"
+            className="flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-5 px-5 sm:-mx-8 sm:px-8"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             onScroll={checkScroll}
           >
             {stories.map((story) => (
               <div
                 key={story.label}
-                className="flex-shrink-0 w-[80%] sm:w-[60%] lg:w-[calc(50%-10px)] snap-center"
+                className="flex-shrink-0 w-[75%] sm:w-[55%] lg:w-[calc(45%-8px)] snap-center"
               >
-                <div className="h-full rounded-2xl bg-white border-2 border-blue-500 p-4 sm:p-5 shadow-sm">
-                  <span className="inline-block text-xs font-medium text-blue-600 uppercase tracking-wider mb-3 px-2 py-1 bg-blue-50 rounded-md">
+                <div className="h-full rounded-xl bg-white border-2 border-blue-500 p-3 sm:p-4 shadow-sm">
+                  <span className="inline-block text-xs font-medium text-blue-600 uppercase tracking-wider mb-2 px-2 py-0.5 bg-blue-50 rounded-md">
                     {story.label}
                   </span>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     {story.lines.map((line, lineIndex) => (
                       <p
                         key={lineIndex}
-                        className={`text-sm sm:text-base font-medium leading-relaxed ${
+                        className={`text-sm font-medium leading-relaxed ${
                           line.startsWith("(") ? "text-gray-400 text-xs italic" : "text-gray-800"
                         }`}
                       >
