@@ -171,7 +171,7 @@ export function HowItWorks() {
         </div>
 
         {/* Fechamento */}
-        <div className="mt-8 sm:mt-10 text-center">
+        <div className="mt-16 sm:mt-20 text-center">
           <p className="text-base sm:text-lg text-white/70">
             Tudo isso em um único sistema <span className="text-blue-300 font-semibold">simples</span>, rápido e <span className="text-blue-300 font-semibold">fácil</span> de usar.
           </p>
