@@ -1,9 +1,8 @@
 import { Hero } from "@/components/hero"
 import { CompaniesCarousel } from "@/components/companies-carousel"
-import { Comparison } from "@/components/comparison"
+import { HowItWorks } from "@/components/how-it-works"
 import { AboutUs } from "@/components/about-us"
 import { PainPoints } from "@/components/pain-points"
-import { Solutions } from "@/components/solutions"
 import { FeaturesShowcase } from "@/components/features-showcase"
 import { Pricing } from "@/components/pricing"
 import { SecurityBenefits } from "@/components/security-benefits"
@@ -19,13 +18,9 @@ export default function Home() {
     <>
       <main>
         <Hero />
+        <PainPoints />
         <CompaniesCarousel />
-        <ScrollRevealWrapper>
-          <Comparison />
-        </ScrollRevealWrapper>
-        <ScrollRevealWrapper>
-          <AboutUs />
-        </ScrollRevealWrapper>
+        <HowItWorks />
         <ScrollRevealWrapper>
           <FeaturesShowcase />
         </ScrollRevealWrapper>
@@ -38,6 +33,9 @@ export default function Home() {
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <FAQ />
+        </ScrollRevealWrapper>
+        <ScrollRevealWrapper>
+          <AboutUs />
         </ScrollRevealWrapper>
         <FinalCTA />
       </main>

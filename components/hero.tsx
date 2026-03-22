@@ -13,7 +13,7 @@ export function Hero() {
       }}
     >
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/60" />
 
       {/* Bottom shadow fade into next section */}
       <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/80 to-transparent" />
@@ -21,38 +21,40 @@ export function Hero() {
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-12 sm:px-8 sm:py-16">
         <div className="w-full max-w-4xl text-center pt-12 sm:pt-16">
-          <p className="font-heading text-2xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold mb-2 sm:mb-4 text-white">
-            A <span className="digital-highlight-animated">OS Digital+</span>
-          </p>
-
-          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold leading-[1.15] tracking-tight text-white md:text-6xl lg:text-7xl animate-slide-up" style={{ 
-            animationDelay: '0.1s'
-          }}>
-            <span className="block">
-              Está <span className="title-shimmer">revolucionando</span>
-            </span>
-            <span className="block">as assistências técnicas.</span>
+          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.15] tracking-tight text-white animate-slide-up" style={{ animationDelay: '0s' }}>
+            Você realmente tem <span className="title-shimmer">controle total</span>
+            <br />
+            da sua <span className="title-underline">assistência</span>?
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg leading-relaxed text-white/90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            Organize ordens de serviço, clientes e financeiro em um único sistema.
+          <p className="mt-6 text-lg sm:text-2xl md:text-3xl font-bold text-white/80 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            Ou só <span className="title-question">acha que tem?</span>
           </p>
           
-          <p className="mt-2 text-sm sm:text-base font-bold text-white animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <p className="mt-4 text-sm sm:text-base text-white/70 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Tenha controle completo da sua assistência e nunca mais perca informações, clientes ou dinheiro.
+          </p>
+
+          <p className="mt-2 text-sm sm:text-base font-bold text-white animate-fade-in" style={{ animationDelay: '0.45s' }}>
             Funciona no celular e no computador.
           </p>
 
-          <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            <button
-              onClick={() => startCheckout("basico", "mensal")}
-              className="btn-hero-pulse group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 sm:px-8 text-sm sm:text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90 w-full sm:w-auto"
-            >
-              Começar agora por R$49/mês
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
+          <div className="mt-6 sm:mt-8 flex flex-row gap-3 sm:gap-4 justify-center items-start animate-fade-in" style={{ animationDelay: '0.5s' }}>
+            <div className="flex flex-col items-center">
+              <button
+                onClick={() => startCheckout("basico", "mensal")}
+                className="btn-hero-pulse group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 sm:px-8 text-sm sm:text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90"
+              >
+                Começa Agora
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </button>
+              <p className="mt-2 text-xs sm:text-sm text-white/60">
+                A partir de R$49/mês <span className="text-white/80 font-semibold">Acesso imediato</span>
+              </p>
+            </div>
             <a
               href="#planos"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-4 sm:px-8 text-sm sm:text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-4 sm:px-8 text-sm sm:text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 h-fit mt-2 sm:mt-0"
             >
               Ver planos
             </a>
@@ -163,6 +165,37 @@ export function Hero() {
             background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png') !important;
             background-attachment: fixed;
           }
+        }
+
+        .title-underline {
+          position: relative;
+          color: #ffffff;
+        }
+
+        .title-underline::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(90deg, #3b82f6, #60a5fa, #93c5fd);
+          border-radius: 2px;
+          box-shadow: 0 0 10px rgba(59,130,246,0.8);
+          animation: underline-pulse 2s ease-in-out infinite;
+        }
+
+        .title-question {
+          background: linear-gradient(90deg, #f97316 0%, #fb923c 50%, #fdba74 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          filter: drop-shadow(0 0 10px rgba(249,115,22,0.6));
+        }
+
+        @keyframes underline-pulse {
+          0%, 100% { opacity: 1; transform: scaleX(1); }
+          50% { opacity: 0.6; transform: scaleX(0.9); }
         }
 
         .digital-highlight {
