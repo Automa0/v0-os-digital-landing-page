@@ -25,7 +25,7 @@ const timelineItems = [
   },
   {
     title: "Orçamento automático em segundos",
-    description: "Gere um orçamento profissional com poucos cliques e envie direto para o cliente.\n\nSem papel, sem esquecer, sem perder vendas.",
+    description: "Gere um orçamento profissional com poucos cliques e envie direto para o cliente.",
     highlighted: true,
   },
 ] as const
@@ -99,6 +99,12 @@ export function HowItWorks() {
                       <p className={`text-sm leading-relaxed whitespace-pre-line ${isHighlighted ? 'text-white/70' : 'text-white/60'}`}>
                         {item.description}
                       </p>
+                      {isHighlighted && (
+                        <p className="text-sm leading-relaxed mt-4 pt-4 border-t border-green-500/30">
+                          <span className="text-green-300 font-semibold">E mais:</span> {' '}
+                          <span className="text-green-200 font-bold">se você esquecer de enviar o valor, o sistema te avisa para você não perder o cliente.</span>
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -187,6 +193,10 @@ export function HowItWorks() {
                 </h3>
                 <p className="text-sm text-white/70 leading-relaxed text-center whitespace-pre-line">
                   {item.description}
+                </p>
+                <p className="text-sm leading-relaxed mt-4 pt-4 border-t border-green-500/30 text-center">
+                  <span className="text-green-300 font-semibold">E mais:</span> {' '}
+                  <span className="text-green-200 font-bold">se você esquecer de enviar o valor, o sistema te avisa para você não perder o cliente.</span>
                 </p>
               </div>
             </div>
