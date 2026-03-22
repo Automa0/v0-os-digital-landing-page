@@ -107,7 +107,7 @@ export function FeaturesShowcase() {
             </div>
 
             {/* CTA */}
-            <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+            <div className="mt-10 flex flex-col items-center gap-3">
               {/* Botão Principal */}
               <button
                 onClick={() => startCheckout("basico", "mensal")}
@@ -116,19 +116,19 @@ export function FeaturesShowcase() {
                 Criar meu primeiro orçamento agora
               </button>
               
-              {/* Botão Secundário */}
+              {/* Texto abaixo do botão */}
+              <p className="text-center text-base font-medium text-foreground font-['Montserrat']">
+                Faça seu teste grátis Agora
+              </p>
+              
+              {/* Link Ver planos */}
               <a
                 href="#planos"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
               >
                 Ver planos
               </a>
             </div>
-
-            {/* Texto abaixo do CTA */}
-            <p className="mt-2 text-center sm:text-left text-xs text-muted-foreground font-['Montserrat']">
-              Teste grátis
-            </p>
           </div>
         </div>
       </div>
