@@ -49,7 +49,7 @@ export function Hero() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
               <p className="mt-2 text-xs sm:text-sm text-white/60">
-                <span className="font-semibold">Teste Grátis</span> <span className="text-white/80 font-semibold">• Acesso imediato</span>
+                <span className="font-medium" style={{ color: '#f5f1f1' }}>Teste Grátis</span> <span className="text-white/80 font-semibold">• Acesso imediato</span>
               </p>
             </div>
             <a
