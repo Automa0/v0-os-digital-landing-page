@@ -107,19 +107,30 @@ export function FeaturesShowcase() {
             </div>
 
             {/* CTA */}
-            <div className="mt-10 flex flex-col items-start gap-2">
+            <div className="mt-10 flex flex-col items-start gap-3">
               {/* Botão Principal */}
               <button
                 onClick={() => window.open("https://app.osdigitalplus.com.br/auth/login", "_blank")}
-                className="w-full sm:w-auto px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white font-semibold text-sm rounded-xl shadow-lg shadow-green-600/25 transition-all duration-300 hover:scale-[1.02]"
+                className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-green-600 hover:bg-green-700 px-8 py-4 text-base font-bold text-white shadow-xl shadow-green-600/30 transition-all duration-300 hover:scale-[1.03] hover:shadow-green-600/40"
               >
                 Criar meu primeiro orçamento agora
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </button>
 
               {/* Texto abaixo do botão */}
-              <p className="text-xs text-muted-foreground font-['Montserrat']">
+              <p className="text-xs text-muted-foreground">
                 Faça seu teste grátis
               </p>
+
+              {/* Link Ver planos */}
+              <a
+                href="#planos"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Ver planos
+              </a>
             </div>
           </div>
         </div>
