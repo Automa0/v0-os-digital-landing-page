@@ -172,14 +172,15 @@ export function FeaturesShowcase() {
               </button>
               
               {/* Texto abaixo do botão */}
-              <p className="text-center text-base font-medium text-foreground font-['Montserrat']">
+              <p className="text-center font-medium text-foreground font-['Montserrat']" style={{ fontSize: '13px', marginTop: '-13px', marginBottom: '9px', marginLeft: '2px' }}>
                 Faça seu teste grátis Agora
               </p>
               
               {/* Link Ver planos */}
               <a
                 href="#planos"
-                className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
+                className="font-medium text-blue-600 hover:text-blue-700 transition-colors"
+                style={{ fontSize: '16px' }}
               >
                 Ver planos
               </a>

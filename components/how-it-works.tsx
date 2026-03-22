@@ -89,7 +89,7 @@ export function HowItWorks() {
                         : 'border border-white/10 bg-white/5 hover:border-blue-500/30 hover:bg-white/8'
                     }`}>
                       {isHighlighted && (
-                        <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-bl-lg rounded-tr-lg">
+                        <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-bl-lg rounded-tr-lg" style={{ lineHeight: '1.7em', letterSpacing: '0.026em' }}>
                           IMPORTANTE
                         </div>
                       )}
@@ -141,7 +141,7 @@ export function HowItWorks() {
                             : 'border border-white/10 bg-white/5 hover:border-blue-500/30 hover:bg-white/8'
                         }`}>
                           {isHighlighted && (
-                            <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-bl-lg rounded-tr-lg">
+                            <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-bl-lg rounded-tr-lg" style={{ lineHeight: '1.7em', letterSpacing: '0.026em' }}>
                               IMPORTANTE
                             </div>
                           )}
