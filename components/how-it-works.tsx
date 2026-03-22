@@ -59,7 +59,7 @@ export function HowItWorks() {
           <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/30 via-blue-500/20 to-transparent" />
 
           {/* Items */}
-          <div className="space-y-8">
+          <div className="space-y-5">
             {timelineItems.map((item, index) => (
               <div
                 key={item.title}
@@ -90,7 +90,7 @@ export function HowItWorks() {
         </div>
 
         {/* Grid Layout - Desktop (3 colunas + 2 colunas) */}
-        <div className="hidden lg:grid grid-cols-3 gap-8 mb-12">
+        <div className="hidden lg:grid grid-cols-3 gap-6 mb-6">
           {timelineItems.slice(0, 3).map((item, index) => (
             <div
               key={item.title}
@@ -117,7 +117,7 @@ export function HowItWorks() {
         </div>
 
         {/* Bottom 2 items - Desktop (2 colunas centradas) */}
-        <div className="hidden lg:grid grid-cols-2 gap-8 max-w-2xl mx-auto mb-12">
+        <div className="hidden lg:grid grid-cols-2 gap-6 max-w-2xl mx-auto mb-6">
           {timelineItems.slice(3, 5).map((item, index) => (
             <div
               key={item.title}
@@ -144,7 +144,7 @@ export function HowItWorks() {
         </div>
 
         {/* Last item - Desktop (1 coluna centrada) */}
-        <div className="hidden lg:flex justify-center mb-12">
+        <div className="hidden lg:flex justify-center mb-6">
           {timelineItems.slice(5).map((item, index) => (
             <div
               key={item.title}
@@ -171,7 +171,7 @@ export function HowItWorks() {
         </div>
 
         {/* Fechamento */}
-        <div className="mt-16 sm:mt-20 text-center">
+        <div className="mt-8 sm:mt-10 text-center">
           <p className="text-base sm:text-lg text-white/70">
             Tudo isso em um único sistema <span className="text-blue-300 font-semibold">simples</span>, rápido e <span className="text-blue-300 font-semibold">fácil</span> de usar.
           </p>
