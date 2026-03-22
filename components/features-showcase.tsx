@@ -76,7 +76,7 @@ export function FeaturesShowcase() {
           <div className="w-full lg:w-1/2">
             {/* Título principal */}
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-              Tudo que você viu como <span className="text-red-500 font-bold">problema</span> aqui já está <span className="text-green-500 font-bold inline-block animate-pulse scale-110 font-['Montserrat']">RESOLVIDO</span>
+              Tudo que você viu como <span className="text-red-500 font-bold">problema</span> aqui já está <span className="text-green-500 font-bold inline-block animate-pulse scale-110 font-['Montserrat'] ml-6">RESOLVIDO</span>
             </h3>
 
             {/* Blocos de funcionalidades */}
