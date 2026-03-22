@@ -25,7 +25,7 @@ const timelineItems = [
   },
   {
     title: "Orçamento automático em segundos",
-    description: "Gere um orçamento profissional com poucos cliques e envie direto para o cliente.",
+    description: "Crie e envie orçamentos rapidamente, mesmo sem ter o valor definido ainda.",
     highlighted: true,
   },
 ] as const

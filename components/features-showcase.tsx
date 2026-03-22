@@ -27,7 +27,7 @@ const funcionalidades = [
   {
     icon: Zap,
     title: "Orçamento automático em segundos",
-    description: "Crie e envie orçamentos rapidamente, mesmo sem ter o valor definido ainda. E mais: se você esquecer de enviar o valor, o sistema te avisa para você não perder o cliente.",
+    description: "Gere um orçamento profissional com poucos cliques e envie direto para o cliente.",
   },
 ]
 
