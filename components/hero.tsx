@@ -35,7 +35,7 @@ export function Hero() {
             Tenha controle completo da sua assistência e nunca mais perca informações, clientes ou dinheiro.
           </p>
 
-          <p className="mt-2 text-sm sm:text-base font-bold text-white animate-fade-in" style={{ animationDelay: '0.45s' }}>
+          <p className="mt-1 text-sm sm:text-base font-thin text-white animate-fade-in font-['Montserrat']" style={{ animationDelay: '0.45s' }}>
             Funciona no celular e no computador.
           </p>
 
