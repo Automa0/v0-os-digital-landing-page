@@ -33,30 +33,25 @@ const funcionalidades = [
 ]
 
 export function FeaturesShowcase() {
-  const [countdown, setCountdown] = useState<number | null>(null)
-  const [videoKey, setVideoKey] = useState(0)
+  const [countdown, setCountdown] = useState<number>(30)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  const startCountdown = () => {
-    if (timerRef.current) clearInterval(timerRef.current)
-    setCountdown(30)
+  useEffect(() => {
+    // Inicia o cronômetro imediatamente ao montar o componente
     timerRef.current = setInterval(() => {
       setCountdown((prev) => {
-        if (prev === null || prev <= 1) {
-          if (timerRef.current) clearInterval(timerRef.current)
-          return null
+        if (prev <= 1) {
+          // Reinicia quando chega a 0
+          return 30
         }
         return prev - 1
       })
     }, 1000)
-  }
 
-  useEffect(() => {
-    startCountdown()
     return () => {
       if (timerRef.current) clearInterval(timerRef.current)
     }
-  }, [videoKey])
+  }, [])
   return (
     <section id="veja-na-pratica" className="relative bg-gradient-to-b from-secondary/30 to-background py-20 lg:py-28">
       <div className="absolute inset-0 bg-dot-pattern opacity-30" />
@@ -86,24 +81,20 @@ export function FeaturesShowcase() {
             {/* Vídeo */}
             <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl relative">
               {/* Cronômetro */}
-              {countdown !== null && (
-                <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 bg-black/70 text-white text-sm font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                  {countdown}s
-                </div>
-              )}
+              <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 bg-black/70 text-white text-sm font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                {countdown}s
+              </div>
               <div className="relative w-full" style={{ paddingBottom: '177.78%' }}>
                 <iframe
-                  key={videoKey}
                   src="https://player.vimeo.com/video/1175863288?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1"
                   className="absolute inset-0 w-full h-full"
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
                   title="Demonstração OS Digital+"
-                  onLoad={() => startCountdown()}
                 />
               </div>
             </div>
