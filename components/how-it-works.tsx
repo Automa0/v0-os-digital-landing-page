@@ -198,9 +198,6 @@ export function HowItWorks() {
             </div>
           ))}
         </div>
-            </div>
-          ))}
-        </div>
 
         {/* Last item - Desktop (1 coluna centrada) - DESTACADO */}
         <div className="hidden lg:flex justify-center mb-4">
