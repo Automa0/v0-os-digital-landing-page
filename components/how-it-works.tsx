@@ -155,7 +155,7 @@ export function HowItWorks() {
                 </div>
               </div>
 
-              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
+              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full -mb-52 pb-0">
                 <h3 className="text-base font-bold text-white mb-2 text-center">
                   {item.title}
                 </h3>
@@ -163,6 +163,41 @@ export function HowItWorks() {
                   {item.description}
                 </p>
               </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Last item - Desktop (1 coluna centrada) - DESTACADO */}
+        <div className="hidden lg:flex justify-center mb-4">
+          {timelineItems.slice(5).map((item, index) => (
+            <div
+              key={item.title}
+              className="relative animate-fade-in w-full max-w-md"
+              style={{ animationDelay: `${(index + 5) * 0.1}s`, animationDuration: '0.6s' }}
+            >
+              {/* Circle marker - destacado */}
+              <div className="flex justify-center mb-3">
+                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-500 to-green-600 border-2 border-green-400 flex items-center justify-center shadow-lg shadow-green-500/50 animate-pulse">
+                  <CheckCircle2 className="h-6 w-6 text-white" />
+                </div>
+              </div>
+
+              <div className="rounded-xl border-2 border-green-500/50 bg-gradient-to-br from-green-500/10 to-green-600/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20 h-full relative overflow-hidden -pb-6 -mb-26">
+                {/* Badge de destaque */}
+                <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                  IMPORTANTE
+                </div>
+                
+                <h3 className="text-lg font-bold text-green-400 mb-3 text-center">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-white/70 leading-relaxed text-center whitespace-pre-line">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
             </div>
           ))}
         </div>
