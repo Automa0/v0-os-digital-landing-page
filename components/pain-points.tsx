@@ -153,12 +153,12 @@ export function PainPoints() {
               className="group relative animate-fade-in"
               style={{ animationDelay: `${i * 0.08}s`, animationDuration: '0.6s' }}
             >
-              <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+              <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full min-h-[120px] sm:min-h-[130px]">
                 {/* Inner background com azul suave */}
                 <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: 'rgba(59,130,246,0.08)' }} />
                 
                 {/* Flex container para ícone e texto lado a lado */}
-                <div className="relative flex gap-3 items-start">
+                <div className="relative flex gap-3 items-start h-full">
                   {/* Icon Container - alinhado ao topo */}
                   <div className="flex-shrink-0 inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-lg bg-blue-100 text-blue-600 transition-all duration-300 group-hover:bg-blue-200">
                     <pain.icon className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -166,10 +166,10 @@ export function PainPoints() {
 
                   {/* Text Content */}
                   <div className="flex-1 pt-0.5">
-                    <h3 className="text-sm sm:text-base font-bold text-gray-900 leading-tight mb-1">
+                    <h3 className="text-sm sm:text-base font-bold text-gray-900 leading-tight mb-1 line-clamp-2">
                       {pain.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-3">
                       {pain.description}
                     </p>
                   </div>
