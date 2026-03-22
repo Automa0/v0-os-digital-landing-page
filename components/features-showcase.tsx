@@ -107,28 +107,20 @@ export function FeaturesShowcase() {
             </div>
 
             {/* CTA */}
-            <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+            <div className="mt-10 flex flex-col items-start gap-2">
               {/* Botão Principal */}
               <button
-                onClick={() => startCheckout("basico", "mensal")}
+                onClick={() => window.open("https://app.osdigitalplus.com.br/auth/login", "_blank")}
                 className="w-full sm:w-auto px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white font-semibold text-sm rounded-xl shadow-lg shadow-green-600/25 transition-all duration-300 hover:scale-[1.02]"
               >
                 Criar meu primeiro orçamento agora
               </button>
-              
-              {/* Botão Secundário */}
-              <a
-                href="#planos"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Ver planos
-              </a>
-            </div>
 
-            {/* Texto abaixo do CTA */}
-            <p className="mt-2 text-center sm:text-left text-xs text-muted-foreground font-['Montserrat']">
-              Teste grátis
-            </p>
+              {/* Texto abaixo do botão */}
+              <p className="text-xs text-muted-foreground font-['Montserrat']">
+                Faça seu teste grátis
+              </p>
+            </div>
           </div>
         </div>
       </div>
