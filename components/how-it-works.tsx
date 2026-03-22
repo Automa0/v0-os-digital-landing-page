@@ -47,8 +47,8 @@ export function HowItWorks() {
         </div>
 
         {/* Subtítulo */}
-        <div className="mx-auto max-w-2xl text-center mb-10 sm:mb-12">
-          <p className="text-base sm:text-lg text-white/60">
+        <div className="mx-auto max-w-2xl text-center -mt-8 sm:-mt-6 mb-10 sm:mb-16">
+          <p className="text-sm sm:text-base text-white/60 tracking-tighter">
             Menos bagunça, mais controle e mais resultado no dia a dia
           </p>
         </div>
