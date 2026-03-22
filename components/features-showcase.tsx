@@ -111,8 +111,8 @@ export function FeaturesShowcase() {
               {/* Botão Principal */}
               <button
                 onClick={() => window.open("https://app.osdigitalplus.com.br/auth/login", "_blank")}
-                className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-green-600 hover:bg-green-700 px-8 py-4 text-base font-bold text-white shadow-xl shadow-green-600/30 transition-all duration-300 hover:scale-[1.03] hover:shadow-green-600/40"
-                style={{ fontSize: '10px', lineHeight: '1em', letterSpacing: '-0.005em', marginTop: '-2px', marginBottom: '3px', marginLeft: '26px', paddingBottom: '14px', paddingLeft: '20px', paddingRight: '19px', borderRadius: '27px' }}
+                className="group inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 px-8 py-4 font-bold text-white shadow-xl shadow-green-600/30 transition-all duration-300 hover:scale-[1.03] hover:shadow-green-600/40 border"
+                style={{ fontSize: '14px', lineHeight: '1.3em', letterSpacing: '0.002em', marginTop: '-2px', marginBottom: '3px', marginLeft: '26px', paddingBottom: '14px', paddingLeft: '20px', paddingRight: '19px', borderRadius: '43px' }}
               >
                 Criar meu primeiro orçamento agora
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -121,15 +121,15 @@ export function FeaturesShowcase() {
               </button>
 
               {/* Texto abaixo do botão */}
-              <p className="text-sm sm:text-base font-semibold text-muted-foreground" style={{ fontSize: '12px', marginLeft: '84px', marginRight: '-1px', marginTop: '-8px', paddingLeft: '1px' }}>
+              <p className="font-semibold text-muted-foreground" style={{ fontSize: '12px', marginLeft: '100px', marginRight: '-4px', marginTop: '-10px', paddingLeft: '1px' }}>
                 Faça seu teste grátis
               </p>
 
               {/* Link Ver planos */}
               <a
                 href="#planos"
-                className="text-base font-semibold text-muted-foreground hover:text-foreground transition-colors"
-                style={{ fontSize: '13px', marginLeft: '115px', marginBottom: '-11px' }}
+                className="font-semibold transition-colors"
+                style={{ fontSize: '19px', marginLeft: '114px', marginBottom: '-11px', color: '#096cff' }}
               >
                 Ver planos
               </a>
