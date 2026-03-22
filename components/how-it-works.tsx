@@ -23,6 +23,10 @@ const timelineItems = [
     title: "Controle de múltiplas lojas",
     description: "Gerencie duas ou mais unidades sem se perder ou misturar informações",
   },
+  {
+    title: "Orçamento automático em segundos",
+    description: "Gere um orçamento profissional com poucos cliques e envie direto para o cliente.\n\nSem papel, sem esquecer, sem perder vendas.",
+  },
 ]
 
 export function HowItWorks() {
@@ -114,7 +118,7 @@ export function HowItWorks() {
 
         {/* Bottom 2 items - Desktop (2 colunas centradas) */}
         <div className="hidden lg:grid grid-cols-2 gap-8 max-w-2xl mx-auto mb-12">
-          {timelineItems.slice(3).map((item, index) => (
+          {timelineItems.slice(3, 5).map((item, index) => (
             <div
               key={item.title}
               className="relative animate-fade-in"
@@ -131,7 +135,34 @@ export function HowItWorks() {
                 <h3 className="text-base font-bold text-white mb-3 text-center">
                   {item.title}
                 </h3>
-                <p className="text-sm text-white/60 leading-relaxed text-center">
+                <p className="text-sm text-white/60 leading-relaxed text-center whitespace-pre-line">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Last item - Desktop (1 coluna centrada) */}
+        <div className="hidden lg:flex justify-center mb-12">
+          {timelineItems.slice(5).map((item, index) => (
+            <div
+              key={item.title}
+              className="relative animate-fade-in w-full max-w-sm"
+              style={{ animationDelay: `${(index + 5) * 0.1}s`, animationDuration: '0.6s' }}
+            >
+              {/* Circle marker */}
+              <div className="flex justify-center mb-4">
+                <div className="h-12 w-12 rounded-full bg-blue-500 border-4 border-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
+                  <CheckCircle2 className="h-6 w-6 text-white" />
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
+                <h3 className="text-base font-bold text-white mb-3 text-center">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-white/60 leading-relaxed text-center whitespace-pre-line">
                   {item.description}
                 </p>
               </div>
