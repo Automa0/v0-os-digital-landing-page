@@ -120,14 +120,14 @@ export function FeaturesShowcase() {
               </button>
 
               {/* Texto abaixo do botão */}
-              <p className="text-xs text-muted-foreground">
+              <p className="text-sm sm:text-base font-semibold text-muted-foreground">
                 Faça seu teste grátis
               </p>
 
               {/* Link Ver planos */}
               <a
                 href="#planos"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-base font-semibold text-muted-foreground hover:text-foreground transition-colors"
               >
                 Ver planos
               </a>
