@@ -36,7 +36,7 @@ function CriarContaContent() {
 
     if (!sessionId) {
       console.error("[v0] No session_id in URL")
-      setStatus("invalid")
+      setStatus("invali")
       return
     }
 
