@@ -19,7 +19,6 @@ export default function Home() {
       <main>
         <Hero />
         <PainPoints />
-        <CompaniesCarousel />
         <HowItWorks />
         <ScrollRevealWrapper>
           <FeaturesShowcase />
@@ -28,6 +27,7 @@ export default function Home() {
           <Pricing />
         </ScrollRevealWrapper>
         <SecurityBenefits />
+        <CompaniesCarousel />
         <ScrollRevealWrapper>
           <Testimonials />
         </ScrollRevealWrapper>

@@ -44,15 +44,12 @@ export function Testimonials() {
 
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground md:text-4xl text-balance mb-6">
-            Assistências técnicas que já utilizam o sistema
-          </h2>
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
             Depoimentos
           </span>
-          <h3 className="font-heading text-xl font-bold text-foreground md:text-2xl text-balance">
+          <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
             Quem usa, recomenda
-          </h3>
+          </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Técnicos, donos de loja e autônomos que transformaram a gestão com o OS Digital+.
           </p>
