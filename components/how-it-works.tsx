@@ -89,7 +89,7 @@ export function HowItWorks() {
                         : 'border border-white/10 bg-white/5 hover:border-blue-500/30 hover:bg-white/8'
                     }`}>
                       {isHighlighted && (
-                        <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-bl-lg rounded-tr-lg">
+                        <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
                           IMPORTANTE
                         </div>
                       )}
@@ -99,12 +99,6 @@ export function HowItWorks() {
                       <p className={`text-sm leading-relaxed whitespace-pre-line ${isHighlighted ? 'text-white/70' : 'text-white/60'}`}>
                         {item.description}
                       </p>
-                      {isHighlighted && (
-                        <p className="text-sm leading-relaxed mt-4 pt-4 border-t border-green-500/30">
-                          <span className="text-green-300 font-semibold">E mais:</span> {' '}
-                          <span className="text-green-200 font-bold">se você esquecer de enviar o valor, o sistema te avisa para você não perder o cliente.</span>
-                        </p>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -193,10 +187,6 @@ export function HowItWorks() {
                 </h3>
                 <p className="text-sm text-white/70 leading-relaxed text-center whitespace-pre-line">
                   {item.description}
-                </p>
-                <p className="text-sm leading-relaxed mt-4 pt-4 border-t border-green-500/30 text-center">
-                  <span className="text-green-300 font-semibold">E mais:</span> {' '}
-                  <span className="text-green-200 font-bold">se você esquecer de enviar o valor, o sistema te avisa para você não perder o cliente.</span>
                 </p>
               </div>
             </div>
