@@ -35,21 +35,21 @@ export function Hero() {
             Tenha controle completo da sua assistência e nunca mais perca informações, clientes ou dinheiro.
           </p>
 
-          <p className="mt-2 text-sm sm:text-base font-bold text-white animate-fade-in" style={{ animationDelay: '0.45s' }}>
+          <p className="mt-1 text-sm sm:text-base font-thin text-white animate-fade-in font-['Montserrat']" style={{ animationDelay: '0.45s' }}>
             Funciona no celular e no computador.
           </p>
 
           <div className="mt-6 sm:mt-8 flex flex-row gap-3 sm:gap-4 justify-center items-start animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <div className="flex flex-col items-center">
               <button
-                onClick={() => startCheckout("basico", "mensal")}
+                onClick={() => window.open("https://app.osdigitalplus.com.br/auth/login", "_blank")}
                 className="btn-hero-pulse group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 sm:px-8 text-sm sm:text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90"
               >
                 Começa Agora
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
               <p className="mt-2 text-xs sm:text-sm text-white/60">
-                A partir de R$49/mês <span className="text-white/80 font-semibold">Acesso imediato</span>
+                <span className="font-medium" style={{ color: '#f5f1f1' }}>Teste Grátis</span> <span className="text-white/80 font-semibold">• Acesso imediato</span>
               </p>
             </div>
             <a
@@ -61,9 +61,9 @@ export function Hero() {
           </div>
 
           <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-white/60 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <span>Sem contrato</span>
+            <span>Ordem rápida e simples</span>
             <span>•</span>
-            <span>Cancele quando quiser</span>
+            <span>Teste grátis 10 Ordens</span>
             <span>•</span>
             <span>Acesso imediato</span>
           </div>
