@@ -43,7 +43,7 @@ export function HowItWorks() {
         {/* Título Principal */}
         <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white text-balance">
-            Como o OS Digital+ <span className="text-blue-400">organiza</span> sua assistência na prática
+            Como o OS Digital+ <span className="text-blue-400">organiza</span> na prática
           </h2>
         </div>
 
