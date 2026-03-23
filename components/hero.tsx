@@ -20,7 +20,7 @@ export function Hero() {
               src="/hero-mockup.png"
               alt="OS Digital+ Dashboard e Mobile"
               className="max-w-full h-auto"
-              style={{ maxWidth: 'clamp(300px, 85vw, 480px)', display: 'block', margin: '0 auto' }}
+              style={{ maxWidth: 'clamp(280px, 75vw, 420px)', display: 'block', margin: '0 auto' }}
               loading="eager"
             />
           </div>
