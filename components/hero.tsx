@@ -14,15 +14,81 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 sm:px-5 md:px-8 py-12 sm:py-16">
         <div className="w-full max-w-5xl">
-          {/* Mockup image - Top */}
-          <div className="mb-6 sm:mb-8 md:mb-12 flex justify-center animate-fade-in" style={{ animationDelay: '0s' }}>
-            <img
-              src="/hero-mockup.png"
-              alt="OS Digital+ Dashboard e Mobile"
-              className="max-w-full h-auto"
-              style={{ maxWidth: 'clamp(280px, 75vw, 420px)', display: 'block', margin: '0 auto' }}
-              loading="eager"
-            />
+          {/* Mockup com Cards - Desktop: flexbox, Mobile: stack */}
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-12">
+            
+            {/* Cards Esquerda - Desktop apenas */}
+            <div className="hidden lg:flex flex-col gap-3 w-32 flex-shrink-0">
+              {['Controle financeiro em tempo real', 'Ordens de serviço organizadas', 'Tudo centralizado em um só lugar'].map((text, i) => (
+                <div
+                  key={i}
+                  className="benefit-card group p-3 rounded-lg backdrop-blur-sm transition-all hover:bg-white/8"
+                  style={{
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(255,255,255,0.08)'
+                  }}
+                >
+                  <div className="flex items-start gap-2.5">
+                    <span className="text-emerald-400 font-bold text-sm mt-0.5 flex-shrink-0">✔</span>
+                    <p className="text-xs leading-tight text-gray-300">{text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Mockup image - Center */}
+            <div className="flex justify-center animate-fade-in w-full lg:w-auto" style={{ animationDelay: '0s' }}>
+              <img
+                src="/hero-mockup.png"
+                alt="OS Digital+ Dashboard e Mobile"
+                className="max-w-full h-auto"
+                style={{ maxWidth: 'clamp(280px, 75vw, 420px)', display: 'block', margin: '0 auto' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Cards Direita - Desktop apenas */}
+            <div className="hidden lg:flex flex-col gap-3 w-32 flex-shrink-0">
+              {['Gerencie uma ou mais lojas', 'Orçamentos rápidos e profissionais', 'Acesse pelo celular ou computador'].map((text, i) => (
+                <div
+                  key={i}
+                  className="benefit-card group p-3 rounded-lg backdrop-blur-sm transition-all hover:bg-white/8"
+                  style={{
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(255,255,255,0.08)'
+                  }}
+                >
+                  <div className="flex items-start gap-2.5">
+                    <span className="text-blue-400 font-bold text-sm mt-0.5 flex-shrink-0">✔</span>
+                    <p className="text-xs leading-tight text-gray-300">{text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Cards Mobile - Abaixo do mockup */}
+          <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-3 mb-8 px-2">
+            {[
+              { text: 'Controle financeiro', color: 'text-emerald-400' },
+              { text: 'Ordens organizadas', color: 'text-emerald-400' },
+              { text: 'Uma ou mais lojas', color: 'text-blue-400' },
+              { text: 'Acesso mobile + desktop', color: 'text-blue-400' }
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="benefit-card-mobile p-3 rounded-lg backdrop-blur-sm transition-all hover:bg-white/8"
+                style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(255,255,255,0.08)'
+                }}
+              >
+                <div className="flex items-start gap-2.5">
+                  <span className={`${item.color} font-bold text-sm mt-0.5 flex-shrink-0`}>✔</span>
+                  <p className="text-xs leading-tight text-gray-300">{item.text}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Text content */}
@@ -175,6 +241,18 @@ export function Hero() {
         @keyframes underline-pulse {
           0%, 100% { opacity: 1; transform: scaleX(1); }
           50% { opacity: 0.6; transform: scaleX(0.9); }
+        }
+
+        .benefit-card {
+          animation: fade-in 0.8s ease-out forwards;
+          opacity: 0;
+          animation-delay: calc(0.6s + var(--index) * 0.1s);
+        }
+
+        .benefit-card-mobile {
+          animation: fade-in 0.7s ease-out forwards;
+          opacity: 0;
+          animation-delay: calc(0.8s + var(--index) * 0.05s);
         }
 
         @media (max-width: 640px) {
