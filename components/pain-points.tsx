@@ -140,7 +140,7 @@ export function PainPoints() {
 
         {/* Main Title */}
         <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-gray-900 text-balance">
+          <h2 className="font-heading font-extrabold leading-tight text-gray-900 text-balance" style={{ fontSize: '50px' }}>
             Você ainda passa por isso na sua <span className="text-blue-600">assistência</span>?
           </h2>
         </div>

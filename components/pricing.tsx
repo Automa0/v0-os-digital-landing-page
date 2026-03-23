@@ -19,7 +19,7 @@ const plans = [
     },
     features: [
       "Ordens ilimitadas",
-      "Orçamentos",
+      "Orçamentos automático",
       "Gestão de clientes",
       "Controle de caixa",
       "Logo no link do cliente e orçamento",

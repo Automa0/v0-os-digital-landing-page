@@ -35,8 +35,8 @@ export function CompaniesCarousel() {
     <section className="relative bg-background py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center mb-16">
-          <h3 className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent text-balance">
-            Assistências técnicas que já utilizam o sistema
+          <h3 className="font-heading font-extrabold bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent text-balance" style={{ fontSize: '29px' }}>
+            Assistências que já utilizam o OS Digital+
           </h3>
         </div>
 

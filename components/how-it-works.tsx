@@ -42,7 +42,7 @@ export function HowItWorks() {
       <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
         {/* Título Principal */}
         <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white text-balance">
+          <h2 className="font-heading font-extrabold leading-tight text-white text-balance" style={{ fontSize: '50px' }}>
             Como o OS Digital+ <span className="text-blue-400">organiza</span> na prática
           </h2>
         </div>
