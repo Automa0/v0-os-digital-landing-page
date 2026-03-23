@@ -1,6 +1,6 @@
 "use client"
 
-import { Check, Star, Zap, Loader2, Shield } from "lucide-react"
+import { Check, Star, Zap, Loader2 } from "lucide-react"
 import { useState } from "react"
 
 type BillingCycle = "mensal" | "semestral" | "anual"
@@ -264,31 +264,13 @@ export function Pricing() {
           Todos os planos incluem suporte via WhatsApp. Sem fidelidade. Cancele quando quiser.
         </p>
 
-        {/* Risk-free guarantee block */}
-        <div className="mt-12 mx-auto max-w-2xl rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-600/5 p-6 sm:p-8 text-center">
-          <div className="flex justify-center mb-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500/20 border border-green-400/50">
-              <Shield className="h-6 w-6 text-green-400" />
-            </div>
-          </div>
-          <h3 className="text-lg font-bold text-green-400 mb-2">Teste sem risco</h3>
-          <p className="text-sm text-white/80 mb-4">
-            Teste grátis por 7 dias. Se não gostar, devolvemos 100% do seu dinheiro.
-          </p>
-          <ul className="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-white/70">
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-green-400" />
-              Sem burocracia
-            </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-green-400" />
-              Sem perguntas
-            </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-green-400" />
-              Cancelamento simples
-            </li>
-          </ul>
+        {/* Garantia imagem */}
+        <div className="mt-10 flex justify-center">
+          <img
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Garantia-de-7-dias-Risco-ZERO-BZgBZC7fUJUZlmZB2Yl6yGZoTTy455.png"
+            alt="Garantia 7 dias - 100% Dinheiro de Volta - Risco Zero"
+            className="w-full max-w-sm object-contain drop-shadow-lg"
+          />
         </div>
       </div>
 
