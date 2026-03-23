@@ -41,8 +41,8 @@ export function HowItWorks() {
 
       <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
         {/* Título Principal */}
-        <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
-          <h2 className="font-heading font-extrabold leading-tight text-white text-balance" style={{ fontSize: '50px' }}>
+        <div className="mx-auto max-w-3xl text-center mb-10 sm:mb-16">
+          <h2 className="font-heading font-extrabold leading-tight text-white text-balance" style={{ fontSize: 'clamp(24px, 6vw, 50px)' }}>
             Como o OS Digital+ <span className="text-blue-400">organiza</span> na prática
           </h2>
         </div>
@@ -60,18 +60,18 @@ export function HowItWorks() {
           <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/30 via-blue-500/20 to-transparent" />
 
           {/* Items */}
-          <div className="space-y-5">
+          <div className="space-y-6 sm:space-y-8">
             {timelineItems.map((item, index) => {
               const isHighlighted = 'highlighted' in item && item.highlighted
               
               return (
                 <div
                   key={item.title}
-                  className="relative animate-fade-in"
+                  className="relative animate-fade-in flex items-start gap-4"
                   style={{ animationDelay: `${index * 0.1}s`, animationDuration: '0.6s' }}
                 >
-                  {/* Bolinha do timeline */}
-                  <div className="absolute left-0 top-0 -translate-y-1/2">
+                  {/* Bolinha do timeline - centralizada */}
+                  <div className="flex-shrink-0 mt-2">
                     <div className={`relative z-10 h-10 w-10 rounded-full flex items-center justify-center shadow-lg ${
                       isHighlighted 
                         ? 'bg-gradient-to-br from-green-500 to-green-600 border-2 border-green-400 shadow-green-500/50 animate-pulse' 
@@ -81,9 +81,9 @@ export function HowItWorks() {
                     </div>
                   </div>
 
-                  {/* Conteúdo - alinhado à direita */}
-                  <div className="pl-20">
-                    <div className={`rounded-xl backdrop-blur-md p-5 transition-all duration-300 relative overflow-hidden ${
+                  {/* Conteúdo */}
+                  <div className="flex-1 min-w-0">
+                    <div className={`rounded-xl backdrop-blur-md p-4 sm:p-5 transition-all duration-300 relative overflow-hidden ${
                       isHighlighted 
                         ? 'border-2 border-green-500/50 bg-gradient-to-br from-green-500/10 to-green-600/5 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20' 
                         : 'border border-white/10 bg-white/5 hover:border-blue-500/30 hover:bg-white/8'
@@ -93,14 +93,14 @@ export function HowItWorks() {
                           IMPORTANTE
                         </div>
                       )}
-                      <h3 className={`text-base font-bold mb-2 ${isHighlighted ? 'text-green-400' : 'text-white'}`}>
+                      <h3 className={`text-sm sm:text-base font-bold mb-2 ${isHighlighted ? 'text-green-400' : 'text-white'}`}>
                         {item.title}
                       </h3>
-                      <p className={`text-sm leading-relaxed whitespace-pre-line ${isHighlighted ? 'text-white/70' : 'text-white/60'}`}>
+                      <p className={`text-xs sm:text-sm leading-relaxed whitespace-pre-line ${isHighlighted ? 'text-white/70' : 'text-white/60'}`}>
                         {item.description}
                       </p>
                       {isHighlighted && (
-                        <p className="text-sm leading-relaxed mt-4 pt-4 border-t border-green-500/30">
+                        <p className="text-xs sm:text-sm leading-relaxed mt-3 pt-3 border-t border-green-500/30">
                           <span className="text-green-300 font-semibold">E mais:</span> {' '}
                           <span className="text-green-200 font-bold">se você esquecer de enviar o valor, o sistema te avisa para você não perder o cliente.</span>
                         </p>

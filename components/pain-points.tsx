@@ -132,15 +132,15 @@ export function PainPoints() {
     <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28" style={{ backgroundColor: '#F8FAFC' }}>
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         {/* Label - Realidade do dia a dia */}
-        <div className="text-center mb-6 sm:mb-8">
+        <div className="text-center mb-4 sm:mb-6">
           <p className="text-xs sm:text-sm font-semibold text-blue-600 uppercase tracking-wider">
             Realidade do dia a dia
           </p>
         </div>
 
         {/* Main Title */}
-        <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
-          <h2 className="font-heading font-extrabold leading-tight text-gray-900 text-balance" style={{ fontSize: '50px' }}>
+        <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16 px-4">
+          <h2 className="font-heading font-extrabold leading-tight text-gray-900 text-balance" style={{ fontSize: 'clamp(26px, 7vw, 50px)' }}>
             Você ainda passa por isso na sua <span className="text-blue-600">assistência</span>?
           </h2>
         </div>
