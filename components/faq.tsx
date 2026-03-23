@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, Zap, Box } from "lucide-react"
+import { ChevronDown, Zap } from "lucide-react"
 
 const LOGIN_URL = "https://app.osdigitalplus.com.br"
 
@@ -20,18 +20,6 @@ const highlights = [
       { plan: "Master", text: "IA avançada com análise por loja" }
     ],
     badge: "Em breve"
-  },
-  {
-    icon: Box,
-    title: "Venda de produtos com controle inteligente",
-    description: "Em breve você poderá vender produtos direto pelo sistema com controle completo de estoque.",
-    details: [
-      "Cadastro simples de produtos",
-      "Controle automático de estoque",
-      "Alertas quando estiver acabando",
-      "Integração com seu fluxo de atendimento"
-    ],
-    badge: "Nova funcionalidade"
   }
 ]
 
@@ -70,58 +58,58 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="relative bg-background py-16 lg:py-28">
+    <section id="faq" className="relative py-16 lg:py-28" style={{ background: 'linear-gradient(160deg, #0d1b2e 0%, #0f2340 50%, #0a1628 100%)' }}>
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="mx-auto max-w-5xl px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-14 lg:mb-16">
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
+          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-blue-400">
             FAQ e Novidades
           </span>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground text-balance leading-tight">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-white text-balance leading-tight">
             Dúvidas? Conheça as <span className="text-blue-400">novidades</span> em breve
           </h2>
         </div>
 
-        {/* Bloco de Novidades */}
-        <div className="grid lg:grid-cols-2 gap-6 mb-16 lg:mb-20">
+        {/* Bloco de Novidades - card centralizado */}
+        <div className="flex justify-center mb-16 lg:mb-20">
           {highlights.map((highlight, i) => {
             const Icon = highlight.icon
             return (
               <div
                 key={i}
-                className="group relative rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 transition-all hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/10"
+                className="group relative rounded-2xl border border-blue-400/30 bg-white/5 backdrop-blur-sm p-6 sm:p-8 transition-all hover:border-blue-400/60 hover:bg-white/8 max-w-lg w-full"
               >
                 {/* Badge */}
                 <div className="absolute top-4 right-4">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700 border border-amber-300">
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-400/40">
                     {highlight.badge}
                   </span>
                 </div>
 
                 {/* Icon */}
                 <div className="mb-4">
-                  <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 border border-blue-300">
-                    <Icon className="h-6 w-6 text-blue-600" />
+                  <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500/20 border border-blue-400/40">
+                    <Icon className="h-6 w-6 text-blue-400" />
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 leading-tight">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-3 leading-tight">
                   {highlight.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                <p className="text-sm text-white/70 mb-4 leading-relaxed">
                   {highlight.description}
                 </p>
 
                 {/* Details */}
                 <ul className="space-y-2 mb-6">
                   {highlight.details.map((detail, j) => (
-                    <li key={j} className="flex items-start gap-2.5 text-sm text-slate-700">
-                      <span className="text-emerald-600 font-bold mt-0.5 flex-shrink-0">✓</span>
+                    <li key={j} className="flex items-start gap-2.5 text-sm text-white/60">
+                      <span className="text-emerald-400 font-bold mt-0.5 flex-shrink-0">✓</span>
                       <span>{detail}</span>
                     </li>
                   ))}
@@ -129,11 +117,11 @@ export function FAQ() {
 
                 {/* Badges de Planos */}
                 {highlight.badges && (
-                  <div className="space-y-2 pt-4 border-t border-slate-200">
+                  <div className="space-y-2 pt-4 border-t border-white/10">
                     {highlight.badges.map((badgeItem, j) => (
                       <div key={j} className="text-xs">
-                        <span className="font-semibold text-blue-600">{badgeItem.plan}:</span>
-                        <span className="text-slate-600 ml-2">{badgeItem.text}</span>
+                        <span className="font-semibold text-blue-300">{badgeItem.plan}:</span>
+                        <span className="text-white/60 ml-2">{badgeItem.text}</span>
                       </div>
                     ))}
                   </div>
@@ -145,7 +133,7 @@ export function FAQ() {
 
         {/* Divisor */}
         <div className="mb-14 lg:mb-16">
-          <div className="h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
         </div>
 
         {/* FAQ Tradicional */}
@@ -158,23 +146,23 @@ export function FAQ() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="overflow-hidden rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-border hover:shadow-sm"
+                className="overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:border-white/20"
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className="flex w-full items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left"
                   aria-expanded={openIndex === index}
                 >
-                  <span className="pr-4 text-sm sm:text-base font-medium text-foreground">{faq.question}</span>
+                  <span className="pr-4 text-sm sm:text-base font-medium text-white">{faq.question}</span>
                   <ChevronDown
-                    className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform ${
+                    className={`h-5 w-5 shrink-0 text-blue-400 transition-transform ${
                       openIndex === index ? "rotate-180" : ""
                     }`}
                   />
                 </button>
                 {openIndex === index && (
-                  <div className="border-t border-border/50 px-5 sm:px-6 py-4">
-                    <p className="text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>
+                  <div className="border-t border-white/10 px-5 sm:px-6 py-4">
+                    <p className="text-sm leading-relaxed text-white/70">{faq.answer}</p>
                   </div>
                 )}
               </div>
