@@ -27,7 +27,7 @@ export function Hero() {
 
           {/* Text content */}
           <div className="text-center pt-4 sm:pt-6 md:pt-8">
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] tracking-tight text-white animate-slide-up" style={{ animationDelay: '0.15s' }}>
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] tracking-tight text-white animate-slide-up" style={{ animationDelay: '0.15s', marginTop: '-67px' }}>
               Você realmente tem <span className="title-shimmer">controle total</span>
               <br />
               da sua <span className="title-underline">assistência</span>?
