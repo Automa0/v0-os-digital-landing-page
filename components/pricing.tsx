@@ -260,16 +260,17 @@ export function Pricing() {
         </div>
 
         {/* Support text */}
-        <p className="mt-8 text-center text-xs text-white/50">
+        <p className="mt-8 text-center text-xs text-white/50" style={{ marginBottom: '-4px' }}>
           Todos os planos incluem suporte via WhatsApp. Sem fidelidade. Cancele quando quiser.
         </p>
 
         {/* Garantia imagem */}
-        <div className="mt-10 flex justify-center">
+        <div className="flex justify-center">
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Garantia-de-7-dias-Risco-ZERO-BZgBZC7fUJUZlmZB2Yl6yGZoTTy455.png"
             alt="Garantia 7 dias - 100% Dinheiro de Volta - Risco Zero"
             className="w-full max-w-sm object-contain drop-shadow-lg"
+            style={{ marginTop: '-29px', marginLeft: '2px', marginBottom: '-47px' }}
           />
         </div>
       </div>
