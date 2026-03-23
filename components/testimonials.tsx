@@ -18,10 +18,10 @@ const printScreens = [
 ]
 
 const stats = [
-  { value: 400, label: "assistências utilizando o sistema", suffix: "+" },
+  { value: 400, label: "lojas utilizando o sistema", suffix: "+" },
   { value: 8126, label: "ordens de serviço registradas", suffix: "+" },
   { value: 10482, label: "orçamentos enviados", suffix: "+" },
-  { value: 100, label: "Segurança dos dados", suffix: "%" },
+  { value: 100, label: "segurança dos dados", suffix: "%" },
 ]
 
 function CountUpNumber({ 
@@ -39,8 +39,8 @@ function CountUpNumber({
     if (!shouldAnimate) return
 
     let start = 0
-    const frames = 40
-    const frameDuration = 40 // Total ~1600ms (1.6s)
+    const frames = 30
+    const frameDuration = 50 // Total ~1500ms (1.5s)
     const increment = target / frames
     
     const timer = setInterval(() => {
@@ -105,14 +105,13 @@ export function Testimonials() {
         {/* Header com animação */}
         <div className="mx-auto max-w-3xl text-center mb-16 lg:mb-20 animate-fade-in">
           <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-foreground text-balance leading-tight">
-            Não é promessa.{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent animate-glow">
-              É o que já está acontecendo
+            <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent">
+              Não é promessa.
             </span>
-            {" "}todos os dias.
+            {" "}É o que já está acontecendo todos os dias.
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground/80">
-            Relatos de técnicos, donos de loja e autônomos que já transformaram suas operações
+            de quem decidiu ter controle de verdade sobre sua loja
           </p>
         </div>
 
@@ -169,38 +168,54 @@ export function Testimonials() {
           </div>
         </div>
 
-        {/* Bloco de números com contador e animação ao scroll */}
+        {/* Bloco de números - Layout leve e moderno */}
         <div 
           ref={statsRef}
-          className="mx-auto max-w-5xl rounded-2xl border-2 border-blue-400/30 bg-gradient-to-br from-blue-500/8 to-blue-600/4 p-8 sm:p-12 md:p-16 backdrop-blur-sm shadow-lg transition-all duration-500 hover:border-blue-400/50 hover:shadow-xl animate-fade-in"
+          className="mt-20 lg:mt-24 animate-fade-in"
           style={{ animationDelay: "0.2s" }}
         >
-          <h3 className="text-center font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Já faz parte do dia a dia
-          </h3>
-          <p className="text-center text-base text-muted-foreground/80 mb-12 max-w-2xl mx-auto">
-            de quem decidiu ter <span className="text-blue-400 font-semibold">controle de verdade</span> sobre a assistência técnica
-          </p>
-
-          {/* Grid de números com espaçamento melhorado */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
+          {/* Desktop - 4 colunas com gap maior */}
+          <div className="hidden md:grid grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat, i) => (
               <div 
                 key={i} 
-                className="group text-center p-4 sm:p-6 rounded-xl transition-all duration-300 hover:bg-blue-500/10 hover:scale-105"
+                className="text-center"
               >
-                <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-blue-500 mb-3 transition-all duration-300 group-hover:text-blue-400">
+                <div className="text-5xl lg:text-6xl font-extrabold text-blue-500 mb-3">
                   <CountUpNumber 
                     target={stat.value} 
                     suffix={stat.suffix}
                     shouldAnimate={shouldAnimateNumbers}
                   />
                 </div>
-                <p className="text-xs sm:text-sm text-muted-foreground/80 leading-snug">
+                <p className="text-xs lg:text-sm text-muted-foreground/70 leading-snug">
                   {stat.label}
                 </p>
               </div>
             ))}
+          </div>
+
+          {/* Mobile - 2 colunas com mini-cards leves */}
+          <div className="md:hidden">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
+              {stats.map((stat, i) => (
+                <div 
+                  key={i} 
+                  className="text-center p-4 rounded-lg bg-white/3 border border-blue-400/15 transition-all hover:border-blue-400/25 hover:bg-white/5"
+                >
+                  <div className="text-3xl sm:text-4xl font-extrabold text-blue-500 mb-2">
+                    <CountUpNumber 
+                      target={stat.value} 
+                      suffix={stat.suffix}
+                      shouldAnimate={shouldAnimateNumbers}
+                    />
+                  </div>
+                  <p className="text-xs text-muted-foreground/60 leading-snug">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
