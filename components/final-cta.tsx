@@ -14,8 +14,8 @@ export function FinalCTA() {
       />
 
       {/* Glow orbs */}
-      <div className="absolute -left-40 top-0 h-80 w-80 rounded-full bg-white/8 blur-[120px]" />
-      <div className="absolute -right-40 bottom-0 h-80 w-80 rounded-full bg-blue-300/15 blur-[120px]" />
+      <div className="absolute -left-40 top-0 h-80 w-80 rounded-full bg-white/10 blur-[120px]" />
+      <div className="absolute -right-40 bottom-0 h-80 w-80 rounded-full bg-blue-300/20 blur-[120px]" />
 
       <div className="relative mx-auto max-w-3xl px-4 text-center lg:px-8">
         {/* Título principal com destaque em amarelo */}
@@ -67,7 +67,7 @@ export function FinalCTA() {
         </div>
 
         {/* Bloco de Garantia - Glass effect melhorado */}
-        <div className="mt-10 sm:mt-14 p-5 sm:p-6 rounded-xl border border-white/20 bg-white/8 backdrop-blur-md max-w-2xl mx-auto">
+        <div className="mt-10 sm:mt-14 p-5 sm:p-6 rounded-xl border border-white/20 bg-white/10 backdrop-blur-md max-w-2xl mx-auto">
           <p className="text-sm sm:text-base text-white/90 leading-relaxed">
             <span className="font-semibold text-white">Teste sem risco.</span> Você pode usar o sistema gratuitamente e cancelar quando quiser. Nada pedido além do seu email.
           </p>
