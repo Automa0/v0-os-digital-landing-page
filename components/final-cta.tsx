@@ -20,12 +20,7 @@ export function FinalCTA() {
       <div className="relative mx-auto max-w-3xl px-4 text-center lg:px-8">
         {/* Título principal com destaque em amarelo */}
         <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white text-balance leading-tight">
-          Vamos implementar <span className="relative inline-block">
-            <span className="absolute inset-0 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-300 blur-xl opacity-40" />
-            <span className="relative bg-gradient-to-r from-yellow-300 via-yellow-100 to-yellow-300 bg-clip-text text-transparent" style={{ textShadow: '0 0 30px rgba(255, 214, 0, 0.5)' }}>
-              esse sistema
-            </span>
-          </span> na sua assistência?
+          Vamos implementar <span className="text-yellow-300">OS Digital+</span> na sua assistência?
         </h2>
 
         {/* Subtítulo otimizado para conversão */}
