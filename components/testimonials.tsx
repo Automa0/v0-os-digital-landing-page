@@ -103,14 +103,14 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         
         {/* Header com animação */}
-        <div className="mx-auto max-w-3xl text-center mb-16 lg:mb-20 animate-fade-in">
-          <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-foreground text-balance leading-tight">
+        <div className="mx-auto max-w-3xl text-center mb-10 sm:mb-16 lg:mb-20 animate-fade-in px-4">
+          <h2 className="font-heading font-extrabold text-foreground text-balance leading-snug" style={{ fontSize: 'clamp(26px, 7vw, 56px)', lineHeight: '1.2', letterSpacing: '-0.3px' }}>
             <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent">
               Não é promessa.
             </span>
             {" "}É o que já está acontecendo todos os dias.
           </h2>
-          <p className="mt-6 text-base md:text-lg text-muted-foreground/80">
+          <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-muted-foreground/80">
             de quem decidiu ter controle de verdade sobre sua loja
           </p>
         </div>

@@ -6,66 +6,117 @@ import { startCheckout } from "@/lib/checkout"
 export function Hero() {
   return (
     <section 
-      className="relative min-h-screen overflow-hidden bg-cover pt-10 hero-section"
+      className="relative min-h-screen overflow-hidden hero-section"
       style={{
-        backgroundImage: `url('/hero-mobile-bg.jpeg')`,
-        backgroundAttachment: 'scroll'
+        background: 'linear-gradient(180deg, #0B0F1A 0%, #0F172A 100%)'
       }}
     >
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/60" />
-
-      {/* Bottom shadow fade into next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/80 to-transparent" />
-
-      {/* Content overlay */}
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-12 sm:px-8 sm:py-16">
-        <div className="w-full max-w-4xl text-center pt-12 sm:pt-16">
-          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.15] tracking-tight text-white animate-slide-up" style={{ animationDelay: '0s' }}>
-            Você realmente tem <span className="title-shimmer">controle total</span>
-            <br />
-            da sua <span className="title-underline">assistência</span>?
-          </h1>
-
-          <p className="mt-6 text-lg sm:text-2xl md:text-3xl font-bold text-white/80 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Ou só <span className="title-question">acha que tem?</span>
-          </p>
-          
-          <p className="mt-4 text-sm sm:text-base text-white/70 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            Tenha controle completo da sua assistência e nunca mais perca informações, clientes ou dinheiro.
-          </p>
-
-          <p className="mt-1 text-sm sm:text-base font-thin text-white animate-fade-in font-['Montserrat']" style={{ animationDelay: '0.45s' }}>
-            Funciona no celular e no computador.
-          </p>
-
-          <div className="mt-6 sm:mt-8 flex flex-row gap-3 sm:gap-4 justify-center items-start animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            <div className="flex flex-col items-center">
-              <button
-                onClick={() => window.open("https://app.osdigitalplus.com.br/auth/login", "_blank")}
-                className="btn-hero-pulse group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 sm:px-8 text-sm sm:text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90"
-              >
-                Começa Agora
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </button>
-              <p className="mt-2 text-xs sm:text-sm text-white/60">
-                <span className="font-medium" style={{ color: '#f5f1f1' }}>Teste Grátis</span> <span className="text-white/80 font-semibold">• Acesso imediato</span>
-              </p>
+      {/* Content */}
+      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 sm:px-5 md:px-8 py-12 sm:py-16">
+        <div className="w-full max-w-5xl">
+          {/* Mockup com Cards - Desktop: flexbox, Mobile: stack */}
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-12">
+            
+            {/* Cards Esquerda - Desktop apenas */}
+            <div className="hidden lg:flex flex-col gap-3 w-32 flex-shrink-0">
+              {['Controle financeiro em tempo real', 'Ordens de serviço organizadas', 'Tudo centralizado em um só lugar'].map((text, i) => (
+                <div
+                  key={i}
+                  className="benefit-card group p-3 rounded-lg backdrop-blur-sm transition-all hover:bg-white/8"
+                  style={{
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(255,255,255,0.08)'
+                  }}
+                >
+                  <div className="flex items-start gap-2.5">
+                    <span className="text-emerald-400 font-bold text-sm mt-0.5 flex-shrink-0">✔</span>
+                    <p className="text-xs leading-tight text-gray-300">{text}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <a
-              href="#planos"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-4 sm:px-8 text-sm sm:text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 h-fit mt-2 sm:mt-0"
-            >
-              Ver planos
-            </a>
+
+            {/* Mockup image - Center */}
+            <div className="flex justify-center animate-fade-in w-full lg:w-auto" style={{ animationDelay: '0s' }}>
+              <img
+                src="/hero-mockup.png"
+                alt="OS Digital+ Dashboard e Mobile"
+                className="max-w-full h-auto"
+                style={{ maxWidth: 'clamp(280px, 75vw, 420px)', display: 'block', margin: '0 auto' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Cards Direita - Desktop apenas */}
+            <div className="hidden lg:flex flex-col gap-3 w-32 flex-shrink-0">
+              {['Gerencie uma ou mais lojas', 'Orçamentos rápidos e profissionais', 'Acesse pelo celular ou computador'].map((text, i) => (
+                <div
+                  key={i}
+                  className="benefit-card group p-3 rounded-lg backdrop-blur-sm transition-all hover:bg-white/8"
+                  style={{
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(255,255,255,0.08)'
+                  }}
+                >
+                  <div className="flex items-start gap-2.5">
+                    <span className="text-blue-400 font-bold text-sm mt-0.5 flex-shrink-0">✔</span>
+                    <p className="text-xs leading-tight text-gray-300">{text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-white/60 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <span>Ordem rápida e simples</span>
-            <span>•</span>
-            <span>Teste grátis 10 Ordens</span>
-            <span>•</span>
-            <span>Acesso imediato</span>
+
+
+          {/* Text content */}
+          <div className="text-center pt-4 sm:pt-6 md:pt-8">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] tracking-tight text-white animate-slide-up hero-title">
+              Você realmente tem <span className="title-shimmer">controle total</span>
+              <br />
+              da sua <span className="title-underline">assistência</span>?
+            </h1>
+
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-2xl font-bold text-white/80 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              Ou só <span className="title-question">acha que tem?</span>
+            </p>
+            
+            <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-white/70 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              Tenha controle completo da sua assistência e nunca mais perca informações, clientes ou dinheiro.
+            </p>
+
+            <p className="mt-1 text-xs sm:text-sm font-thin text-white animate-fade-in font-['Montserrat']" style={{ animationDelay: '0.45s' }}>
+              Funciona no celular e no computador.
+            </p>
+
+            <div className="mt-6 sm:mt-8 flex flex-row gap-2 sm:gap-3 md:gap-4 justify-center items-start animate-fade-in flex-wrap" style={{ animationDelay: '0.5s' }}>
+              <div className="flex flex-col items-center">
+                <button
+                  onClick={() => window.open("https://app.osdigitalplus.com.br/auth/login", "_blank")}
+                  className="btn-hero-pulse group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 sm:px-6 md:px-8 py-3 sm:py-4 text-xs sm:text-sm md:text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90"
+                >
+                  Começa Agora
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </button>
+                <p className="mt-2 text-xs text-white/60">
+                  <span className="font-medium" style={{ color: '#f5f1f1' }}>Teste Grátis</span> <span className="text-white/80 font-semibold">• Acesso imediato</span>
+                </p>
+              </div>
+              <a
+                href="#planos"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-5 sm:px-6 md:px-8 py-3 sm:py-4 text-xs sm:text-sm md:text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 h-fit mt-1 sm:mt-0"
+              >
+                Ver planos
+              </a>
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs text-white/60 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <span>Ordem rápida e simples</span>
+              <span>•</span>
+              <span>Teste grátis 10 Ordens</span>
+              <span>•</span>
+              <span>Acesso imediato</span>
+            </div>
           </div>
         </div>
       </div>
@@ -113,6 +164,7 @@ export function Hero() {
 
         .animate-slide-up {
           animation: slide-up 0.8s ease-out forwards;
+          opacity: 0;
         }
 
         .animate-fade-in {
@@ -134,37 +186,8 @@ export function Hero() {
           animation: btn-pulse 2s ease-in-out infinite;
         }
 
-        @keyframes brand-glow {
-          0%, 100% {
-            color: #ffffff;
-            text-shadow: 0 0 8px rgba(255,255,255,0.2);
-          }
-          50% {
-            color: #ffffff;
-            text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.5), 0 0 60px rgba(59,130,246,0.3);
-          }
-        }
-
-        .brand-glow {
-          animation: brand-glow 3s ease-in-out infinite;
-        }
-
         .hero-section {
-          background-position: center center;
-        }
-
-        @media (max-width: 768px) {
-          .hero-section {
-            background-position: 45% 28%;
-            background-size: cover;
-          }
-        }
-
-        @media (min-width: 640px) {
-          .hero-section {
-            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png') !important;
-            background-attachment: fixed;
-          }
+          background-attachment: scroll;
         }
 
         .title-underline {
@@ -198,30 +221,30 @@ export function Hero() {
           50% { opacity: 0.6; transform: scaleX(0.9); }
         }
 
-        .digital-highlight {
-          background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #93c5fd 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          filter: drop-shadow(0 0 12px rgba(59,130,246,0.6));
+        .benefit-card {
+          animation: fade-in 0.8s ease-out forwards;
+          opacity: 0;
+          animation-delay: calc(0.6s + var(--index) * 0.1s);
         }
 
-        .digital-highlight-animated {
-          background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%);
-          background-size: 200% auto;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          animation: shimmer-brand 3s linear infinite;
-          filter: drop-shadow(0 0 12px rgba(59,130,246,0.8)) drop-shadow(0 0 24px rgba(96,165,250,0.4));
+        .hero-title {
+          margin-top: -67px;
         }
 
-        @keyframes shimmer-brand {
-          0% {
-            background-position: 200% center;
+        @media (max-width: 1024px) {
+          .hero-title {
+            margin-top: -32px;
           }
-          100% {
-            background-position: -200% center;
+        }
+
+        @media (max-width: 640px) {
+          .hero-title {
+            margin-top: -24px;
+          }
+
+          .title-underline::after {
+            bottom: -2px;
+            height: 2px;
           }
         }
       `}</style>

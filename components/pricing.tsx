@@ -305,6 +305,25 @@ export function Pricing() {
           0%, 100% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.15), 0 0 40px rgba(96, 165, 250, 0.08); }
           50%       { box-shadow: 0 0 35px rgba(96, 165, 250, 0.25), 0 0 70px rgba(96, 165, 250, 0.12); }
         }
+
+        /* Mobile optimization - remove heavy effects */
+        @media (max-width: 768px) {
+          .plan-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(96, 165, 250, 0.15);
+            backdrop-filter: none;
+            animation: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          }
+
+          .plan-card--highlight {
+            background: rgba(30, 41, 59, 0.9);
+            border-color: rgba(96, 165, 250, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1);
+            animation: none;
+          }
+        }
       `}</style>
     </section>
   )

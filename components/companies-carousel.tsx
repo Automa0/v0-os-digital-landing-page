@@ -50,10 +50,10 @@ export function CompaniesCarousel() {
             {duplicatedCompanies.map((company, i) => (
               <div
                 key={`${company.name}-${i}`}
-                className="flex flex-col items-center gap-3 flex-shrink-0"
+                className="flex flex-col items-center gap-2 sm:gap-3 flex-shrink-0"
               >
                 {/* Logo circle */}
-                <div className="h-20 w-20 rounded-full border-2 border-border/30 bg-white overflow-hidden shadow-md hover:shadow-lg hover:scale-105 transition-all">
+                <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full border-2 border-border/30 bg-white overflow-hidden shadow-md hover:shadow-lg hover:scale-105 transition-all">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
                     src={company.logo} 
@@ -62,7 +62,7 @@ export function CompaniesCarousel() {
                   />
                 </div>
                 {/* Company name */}
-                <p className="text-sm font-medium text-foreground/80 text-center whitespace-nowrap">
+                <p className="text-xs sm:text-sm font-medium text-foreground/80 text-center whitespace-nowrap">
                   {company.name}
                 </p>
               </div>
@@ -81,8 +81,24 @@ export function CompaniesCarousel() {
           }
         }
 
+        @keyframes infinite-scroll-companies-mobile {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-50% - 16px));
+          }
+        }
+
         .infinite-scroll-companies {
           animation: infinite-scroll-companies 40s linear infinite;
+        }
+
+        @media (max-width: 768px) {
+          .infinite-scroll-companies {
+            animation: infinite-scroll-companies-mobile 12s linear infinite;
+            gap: 8px;
+          }
         }
 
         .infinite-scroll-companies:hover {
