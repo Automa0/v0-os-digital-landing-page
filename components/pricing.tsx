@@ -270,7 +270,7 @@ export function Pricing() {
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Garantia-de-7-dias-Risco-ZERO-BZgBZC7fUJUZlmZB2Yl6yGZoTTy455.png"
             alt="Garantia 7 dias - 100% Dinheiro de Volta - Risco Zero"
             className="w-full max-w-sm object-contain drop-shadow-lg"
-            style={{ marginTop: '-29px', marginLeft: '2px', marginBottom: '-47px' }}
+            style={{ marginTop: '-6px', marginLeft: '-2px', marginBottom: '-46px' }}
           />
         </div>
       </div>
