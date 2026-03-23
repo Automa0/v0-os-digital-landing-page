@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, Zap } from "lucide-react"
+import { ChevronDown, Zap, Box } from "lucide-react"
 
 const LOGIN_URL = "https://app.osdigitalplus.com.br"
 
@@ -18,6 +18,18 @@ const highlights = [
     badges: [
       { plan: "Pro", text: "IA com análise geral do negócio" },
       { plan: "Master", text: "IA avançada com análise por loja" }
+    ],
+    badge: "Em breve"
+  },
+  {
+    icon: Box,
+    title: "Venda de produtos com controle inteligente",
+    description: "Em breve você poderá vender produtos direto pelo sistema com controle completo de estoque.",
+    details: [
+      "Cadastro simples de produtos",
+      "Controle automático de estoque",
+      "Alertas quando estiver acabando",
+      "Integração com seu fluxo de atendimento"
     ],
     badge: "Em breve"
   }
@@ -72,14 +84,14 @@ export function FAQ() {
           </h2>
         </div>
 
-        {/* Bloco de Novidades - card centralizado */}
-        <div className="flex justify-center mb-16 lg:mb-20">
+        {/* Bloco de Novidades - 2 colunas */}
+        <div className="grid md:grid-cols-2 gap-6 mb-16 lg:mb-20">
           {highlights.map((highlight, i) => {
             const Icon = highlight.icon
             return (
               <div
                 key={i}
-                className="group relative rounded-2xl border border-blue-400/30 bg-white/5 backdrop-blur-sm p-6 sm:p-8 transition-all hover:border-blue-400/60 hover:bg-white/8 max-w-lg w-full"
+                className="group relative rounded-2xl border border-blue-400/30 bg-white/5 backdrop-blur-sm p-6 sm:p-8 transition-all hover:border-blue-400/60 hover:bg-white/8"
               >
                 {/* Badge */}
                 <div className="absolute top-4 right-4">
