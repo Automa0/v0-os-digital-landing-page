@@ -1,7 +1,6 @@
 import { Hero } from "@/components/hero"
 import { CompaniesCarousel } from "@/components/companies-carousel"
 import { HowItWorks } from "@/components/how-it-works"
-import { AboutUs } from "@/components/about-us"
 import { PainPoints } from "@/components/pain-points"
 import { FeaturesShowcase } from "@/components/features-showcase"
 import { Pricing } from "@/components/pricing"
@@ -35,9 +34,6 @@ export default function Home() {
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <FAQ />
-        </ScrollRevealWrapper>
-        <ScrollRevealWrapper>
-          <AboutUs />
         </ScrollRevealWrapper>
         <FinalCTA />
       </main>
