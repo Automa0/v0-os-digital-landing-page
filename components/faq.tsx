@@ -91,37 +91,37 @@ export function FAQ() {
             return (
               <div
                 key={i}
-                className="group relative rounded-2xl border border-blue-400/20 bg-gradient-to-br from-blue-500/8 to-blue-600/4 p-6 sm:p-8 transition-all hover:border-blue-400/40 hover:shadow-lg hover:shadow-blue-500/10"
+                className="group relative rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 transition-all hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/10"
               >
                 {/* Badge */}
                 <div className="absolute top-4 right-4">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700 border border-amber-300">
                     {highlight.badge}
                   </span>
                 </div>
 
                 {/* Icon */}
                 <div className="mb-4">
-                  <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500/20 border border-blue-400/30">
-                    <Icon className="h-6 w-6 text-blue-400" />
+                  <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 border border-blue-300">
+                    <Icon className="h-6 w-6 text-blue-600" />
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-3 leading-tight">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 leading-tight">
                   {highlight.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-white/70 mb-4 leading-relaxed">
+                <p className="text-sm text-slate-600 mb-4 leading-relaxed">
                   {highlight.description}
                 </p>
 
                 {/* Details */}
                 <ul className="space-y-2 mb-6">
                   {highlight.details.map((detail, j) => (
-                    <li key={j} className="flex items-start gap-2.5 text-sm text-white/60">
-                      <span className="text-emerald-400 font-bold mt-0.5 flex-shrink-0">✓</span>
+                    <li key={j} className="flex items-start gap-2.5 text-sm text-slate-700">
+                      <span className="text-emerald-600 font-bold mt-0.5 flex-shrink-0">✓</span>
                       <span>{detail}</span>
                     </li>
                   ))}
@@ -129,11 +129,11 @@ export function FAQ() {
 
                 {/* Badges de Planos */}
                 {highlight.badges && (
-                  <div className="space-y-2 pt-4 border-t border-blue-400/20">
+                  <div className="space-y-2 pt-4 border-t border-slate-200">
                     {highlight.badges.map((badgeItem, j) => (
                       <div key={j} className="text-xs">
-                        <span className="font-semibold text-blue-300">{badgeItem.plan}:</span>
-                        <span className="text-white/60 ml-2">{badgeItem.text}</span>
+                        <span className="font-semibold text-blue-600">{badgeItem.plan}:</span>
+                        <span className="text-slate-600 ml-2">{badgeItem.text}</span>
                       </div>
                     ))}
                   </div>
