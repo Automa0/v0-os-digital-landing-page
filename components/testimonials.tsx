@@ -1,108 +1,157 @@
 "use client"
 
-import { Star } from "lucide-react"
+import { useState, useEffect } from "react"
 
-const testimonials = [
+const printScreens = [
   {
-    name: "Carlos Mendes",
-    company: "SmartFix",
-    text: "Depois que comecei a usar o sistema nunca mais perdi uma ordem de serviço.",
-    rating: 5,
-    initials: "CM",
-    photo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png",
+    src: "/testimonial-1.jpg",
+    alt: "Depoimento João - Cliente 2",
   },
   {
-    name: "Fernanda Oliveira",
-    company: "CelularTop",
-    text: "O dashboard financeiro me surpreendeu. Vejo o faturamento em tempo real e consigo definir meta mensal.",
-    rating: 5,
-    initials: "FO",
-    photo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png",
+    src: "/testimonial-2.jpg",
+    alt: "Depoimento Carlos - Cliente",
   },
   {
-    name: "Ricardo Alves",
-    company: "Info Service",
-    text: "Com duas lojas agora, consigo ver tudo num painel só. Separado por loja, membros ativos, tudo organizado.",
-    rating: 5,
-    initials: "RA",
-    photo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png",
-  },
-  {
-    name: "Bruno Lima",
-    company: "Técnico Autônomo",
-    text: "Uso sozinho no celular em domicílio. Crio OS, mando link pro cliente e gero PDF. Nunca fui tão profissional.",
-    rating: 5,
-    initials: "BL",
-    photo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generated_image_85af9229-26a9-4703-aafd-b1a02c3ccfc8-r7FKgnWLyIhSV4LPeIZPUPHoVSRioc.png",
+    src: "/testimonial-3.jpg",
+    alt: "Depoimento Júnior Me. - Cliente 2",
   },
 ]
 
-export function Testimonials() {
-  return (
-    <section id="depoimentos" className="relative bg-gradient-to-b from-background to-secondary/30 py-20 lg:py-28">
-      <div className="section-divider absolute top-0 left-0 right-0" />
+const stats = [
+  { value: 400, label: "assistências utilizando o sistema", suffix: "+" },
+  { value: 8126, label: "ordens de serviço registradas", suffix: "+" },
+  { value: 10482, label: "orçamentos enviados", suffix: "+" },
+  { value: 100, label: "Segurança dos dados", suffix: "%" },
+]
 
+function CountUpNumber({ target, suffix }: { target: number; suffix: string }) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    let start = 0
+    const increment = Math.ceil(target / 30) // Anima em ~30 frames
+    const timer = setInterval(() => {
+      start += increment
+      if (start >= target) {
+        setCount(target)
+        clearInterval(timer)
+      } else {
+        setCount(start)
+      }
+    }, 50)
+    return () => clearInterval(timer)
+  }, [target])
+
+  return (
+    <span>
+      {count.toLocaleString("pt-BR")}
+      {suffix}
+    </span>
+  )
+}
+
+export function Testimonials() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % printScreens.length)
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [])
+
+  return (
+    <section id="depoimentos" className="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-b from-background to-secondary/20">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
-            Depoimentos
-          </span>
-          <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
-            Quem usa, recomenda
+        {/* Header */}
+        <div className="mx-auto max-w-2xl text-center mb-12 lg:mb-16">
+          <h2 className="font-heading text-3xl md:text-4xl font-extrabold text-foreground text-balance">
+            Não é promessa. É o que já está acontecendo.
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Técnicos, donos de loja e autônomos que transformaram a gestão com o OS Digital+.
+          <p className="mt-4 text-base text-muted-foreground">
+            Relatos de técnicos, donos de loja e autônomos
           </p>
         </div>
 
-        {/* Testimonials grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {testimonials.map((t) => (
+        {/* Desktop - 3 prints lado a lado */}
+        <div className="hidden lg:grid grid-cols-3 gap-6 mb-12">
+          {printScreens.map((print, i) => (
             <div
-              key={t.name}
-              className="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-sm transition-all hover:shadow-lg hover:border-primary/30"
+              key={i}
+              className="rounded-2xl border border-blue-400/30 overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white/5 backdrop-blur-sm"
             >
-              {/* Stars */}
-              <div className="mb-4 flex gap-0.5">
-                {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-
-              {/* Quote */}
-              <p className="mb-6 text-sm leading-relaxed text-foreground">
-                "{t.text}"
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-3 border-t border-border/50 pt-4">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-xs font-bold text-primary flex-shrink-0">
-                  {t.initials}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="text-sm font-semibold text-foreground truncate">{t.name}</div>
-                  <div className="text-xs text-muted-foreground truncate">{t.company}</div>
-                </div>
-              </div>
+              <img
+                src={print.src}
+                alt={print.alt}
+                className="w-full h-auto object-cover"
+              />
             </div>
           ))}
         </div>
 
-        {/* Stats */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-          {[
-            { label: "Assistências", value: "500+" },
-            { label: "Ordens criadas", value: "12.000+" },
-            { label: "PDFs gerados", value: "8.400+" },
-            { label: "Uptime", value: "99,9%" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-3xl font-bold text-primary">{stat.value}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
+        {/* Mobile - Carrossel automático */}
+        <div className="lg:hidden mb-12 relative">
+          <div className="rounded-2xl border border-blue-400/30 overflow-hidden shadow-lg bg-white/5 backdrop-blur-sm">
+            <div className="relative w-full aspect-video sm:aspect-[9/16] bg-black/30">
+              <img
+                key={currentSlide}
+                src={printScreens[currentSlide].src}
+                alt={printScreens[currentSlide].alt}
+                className="w-full h-full object-cover animate-fade-in"
+              />
             </div>
-          ))}
+          </div>
+
+          {/* Dots indicadores */}
+          <div className="flex justify-center gap-2 mt-4">
+            {printScreens.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentSlide(i)}
+                className={`h-2 rounded-full transition-all ${
+                  i === currentSlide ? "bg-blue-500 w-6" : "bg-slate-400 w-2"
+                }`}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Bloco de números com contador */}
+        <div className="mx-auto max-w-5xl rounded-2xl border border-blue-400/20 bg-gradient-to-br from-blue-500/10 to-blue-600/5 p-8 sm:p-12 backdrop-blur-sm">
+          <h3 className="text-center font-heading text-xl sm:text-2xl font-bold text-foreground mb-10">
+            Já faz parte do dia a dia de muitos lojistas e autônomos
+          </h3>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {stats.map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="text-3xl sm:text-4xl font-extrabold text-blue-500 mb-2">
+                  <CountUpNumber target={stat.value} suffix={stat.suffix} />
+                </div>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        :global(.animate-fade-in) {
+          animation: fade-in 0.5s ease-in-out;
+        }
+      `}</style>
     </section>
   )
 }
