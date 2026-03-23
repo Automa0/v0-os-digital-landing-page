@@ -13,15 +13,16 @@ const plans = [
     badge: null,
     planId: "basico",
     prices: {
-      mensal: { amount: "R$ 49", period: "/mês", note: "" },
-      semestral: { amount: "R$ 249", period: "/semestre", note: "Economia de R$ 45" },
-      anual: { amount: "R$ 499", period: "/ano", note: "Equivale a R$ 41,50/mês" },
+      mensal: { monthlyAmount: "R$ 49", period: "/mês", totalInfo: "" },
+      semestral: { monthlyAmount: "R$ 41,50", period: "/mês", totalInfo: "Cobrado R$ 249 semestralmente" },
+      anual: { monthlyAmount: "R$ 41,50", period: "/mês", totalInfo: "Cobrado R$ 499 por ano" },
     },
     features: [
-      "Ordens de serviço",
+      "Ordens ilimitadas",
+      "Orçamentos automático",
       "Gestão de clientes",
       "Controle de caixa",
-      "Logo na OS",
+      "Logo no link do cliente e orçamento",
       "1 loja",
       "OS com PDF profissional",
       "Dashboard empresarial",
@@ -36,9 +37,9 @@ const plans = [
     badge: "Mais popular",
     planId: "pro",
     prices: {
-      mensal: { amount: "R$ 59", period: "/mês", note: "" },
-      semestral: { amount: "R$ 319", period: "/semestre", note: "Economia de R$ 35" },
-      anual: { amount: "R$ 599", period: "/ano", note: "Equivale a R$ 49,90/mês" },
+      mensal: { monthlyAmount: "R$ 59", period: "/mês", totalInfo: "" },
+      semestral: { monthlyAmount: "R$ 53,17", period: "/mês", totalInfo: "Cobrado R$ 319 semestralmente" },
+      anual: { monthlyAmount: "R$ 49,90", period: "/mês", totalInfo: "Cobrado R$ 599 por ano" },
     },
     features: [
       "Tudo do Básico",
@@ -47,38 +48,39 @@ const plans = [
       "Dashboard empresarial completo",
       "Relatórios financeiros avançados",
       "Controle por membro",
-      "IA integrada [Em breve]",
+      "Venda de produtos (PDV)",
+      "IA integrada",
     ],
     cta: "Assinar Pro",
   },
   {
     name: "Master",
-    description: "Para quem quer escalar e profissionalizar de verdade",
+    description: "Para quem quer escalar e ter controle total da operação",
     highlight: false,
     badge: "Melhor custo-benefício",
     planId: "master",
     prices: {
-      mensal: { amount: "R$ 99", period: "/mês", note: "" },
-      semestral: { amount: "R$ 549", period: "/semestre", note: "Economia de R$ 45" },
-      anual: { amount: "R$ 999", period: "/ano", note: "Equivale a R$ 83,25/mês" },
+      mensal: { monthlyAmount: "R$ 99", period: "/mês", totalInfo: "" },
+      semestral: { monthlyAmount: "R$ 91,50", period: "/mês", totalInfo: "Cobrado R$ 549 semestralmente" },
+      anual: { monthlyAmount: "R$ 83,25", period: "/mês", totalInfo: "Cobrado R$ 999 por ano" },
     },
     features: [
       "Tudo do Pro",
       "Até 4 lojas",
-      "IA avançada [Em breve]",
+      "IA avançada",
       "Prioridade em novas funções",
-      "Venda de produtos (POS) [Em breve]",
+      "Venda de produtos (PDV)",
       "Relatórios completos por loja",
       "Suporte prioritário",
     ],
-    cta: "Assinar Master",
+    cta: "Escalar minha assistência",
   },
 ]
 
-const cycleLabels: Record<BillingCycle, string> = {
-  mensal: "Mensal",
-  semestral: "Semestral",
-  anual: "Anual",
+const cycleLabels: Record<BillingCycle, { label: string; badge?: string }> = {
+  mensal: { label: "Mensal" },
+  semestral: { label: "Semestral", badge: "-20%" },
+  anual: { label: "Anual", badge: "-30%" },
 }
 
 export function Pricing() {
@@ -110,7 +112,7 @@ export function Pricing() {
   }
 
   return (
-    <section id="planos" className="pricing-section relative py-20 lg:py-28 overflow-hidden">
+    <section id="planos" className="pricing-section relative py-16 lg:py-24 overflow-hidden">
 
       {/* Same dark background as AboutUs */}
       <div className="absolute inset-0 -z-10">
@@ -144,42 +146,49 @@ export function Pricing() {
 
         {/* Billing toggle */}
         <div className="mt-8 flex justify-center px-2">
-          <div className="inline-flex w-full max-w-xs sm:w-auto rounded-xl border border-blue-400/20 bg-slate-800/80 p-1">
-            {(Object.keys(cycleLabels) as BillingCycle[]).map((c) => (
-              <button
-                key={c}
-                onClick={() => setCycle(c)}
-                className={`flex-1 sm:flex-none rounded-lg px-3 sm:px-5 py-2 text-xs sm:text-sm font-medium transition-all ${
-                  cycle === c
-                    ? "bg-blue-500 text-white shadow-sm shadow-blue-500/30"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                {cycleLabels[c]}
-                {c === "anual" && (
-                  <span className="ml-1 sm:ml-2 rounded-full bg-blue-400/20 px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-xs font-semibold text-blue-300">
-                    -30%
-                  </span>
-                )}
-              </button>
-            ))}
+          <div className="inline-flex w-full max-w-xs sm:w-auto rounded-lg border border-blue-400/20 bg-slate-800/80 p-1">
+            {(Object.keys(cycleLabels) as BillingCycle[]).map((c) => {
+              const config = cycleLabels[c]
+              return (
+                <button
+                  key={c}
+                  onClick={() => setCycle(c)}
+                  className={`relative flex-1 sm:flex-none rounded-md px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium transition-all ${
+                    cycle === c
+                      ? "bg-blue-500 text-white shadow-sm shadow-blue-500/30"
+                      : "text-slate-400 hover:text-white"
+                  }`}
+                >
+                  {config.label}
+                  {config.badge && (
+                    <span className={`ml-1.5 rounded-full px-1.5 py-0.5 text-[10px] sm:text-xs font-bold ${
+                      cycle === c
+                        ? "bg-blue-300/30 text-blue-100"
+                        : "bg-green-500/20 text-green-300"
+                    }`}>
+                      {config.badge}
+                    </span>
+                  )}
+                </button>
+              )
+            })}
           </div>
         </div>
 
         {/* Cards */}
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:gap-5 lg:grid-cols-3">
           {plans.map((plan) => {
             const price = plan.prices[cycle]
             return (
               <div
                 key={plan.name}
-                className={`plan-card relative flex flex-col rounded-2xl p-5 sm:p-8 transition-all ${
+                className={`plan-card relative flex flex-col rounded-xl p-5 sm:p-6 transition-all ${
                   plan.highlight ? "plan-card--highlight" : ""
                 }`}
               >
                 {plan.badge && (
                   <div
-                    className={`absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full px-4 py-1 text-xs font-bold ${
+                    className={`absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ${
                       plan.highlight
                         ? "bg-blue-500 text-white shadow-md shadow-blue-500/40"
                         : "bg-slate-700 text-blue-300 border border-blue-400/30"
@@ -191,33 +200,33 @@ export function Pricing() {
                 )}
 
                 <div>
-                  <h3 className="font-heading text-xl font-bold text-white">{plan.name}</h3>
-                  <p className="mt-1 text-sm text-white/70">{plan.description}</p>
+                  <h3 className="font-heading text-lg font-bold text-white">{plan.name}</h3>
+                  <p className="mt-1 text-xs text-white/60">{plan.description}</p>
                 </div>
 
-                <div className="mt-6 flex items-baseline gap-1">
-                  <span className="font-heading text-4xl font-extrabold text-white">
-                    {price.amount}
+                <div className="mt-5 flex items-baseline gap-1">
+                  <span className="font-heading text-3xl font-extrabold text-white">
+                    {price.monthlyAmount}
                   </span>
-                  <span className="text-sm text-white/60">{price.period}</span>
+                  <span className="text-xs text-white/50">{price.period}</span>
                 </div>
-                {"note" in price && price.note && (
-                  <p className="mt-1 text-xs font-medium text-blue-300">{price.note}</p>
+                {price.totalInfo && (
+                  <p className="mt-1 text-xs text-white/50">{price.totalInfo}</p>
                 )}
 
-                <ul className="mt-8 flex-1 space-y-3">
+                <ul className="mt-6 flex-1 space-y-2.5">
                   {plan.features.map((f) => {
                     const hasTag = f.includes("[Em breve]")
                     const label = f.replace(" [Em breve]", "")
                     return (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-white/90">
-                        <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500/30 border border-blue-400/50">
-                          <Check className="h-3 w-3 text-blue-300" />
+                      <li key={f} className="flex items-start gap-2 text-xs text-white/85">
+                        <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-blue-500/30 border border-blue-400/50">
+                          <Check className="h-2.5 w-2.5 text-blue-300" />
                         </div>
-                        <span className="flex flex-wrap items-center gap-1.5">
+                        <span className="flex flex-wrap items-center gap-1">
                           {label}
                           {hasTag && (
-                            <span className="rounded-full bg-blue-400/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-blue-200 border border-blue-400/30">
+                            <span className="rounded-full bg-blue-400/20 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide text-blue-200 border border-blue-400/30">
                               Em breve
                             </span>
                           )}
@@ -230,10 +239,10 @@ export function Pricing() {
                 <button
                   onClick={() => handleCheckout(plan.planId, cycle)}
                   disabled={loading === `${plan.planId}-${cycle}`}
-                  className={`mt-8 flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-sm font-bold transition-all disabled:opacity-70 ${
+                  className={`mt-6 flex w-full items-center justify-center gap-2 rounded-lg px-4 py-3 text-xs sm:text-sm font-bold transition-all disabled:opacity-70 ${
                     plan.highlight
                       ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30 hover:bg-blue-400"
-                      : "border border-blue-400/30 bg-slate-700/60 text-white hover:bg-slate-700"
+                      : "border border-blue-400/30 bg-slate-700/40 text-white hover:bg-slate-700/60"
                   }`}
                 >
                   {loading === `${plan.planId}-${cycle}` ? (
@@ -250,12 +259,20 @@ export function Pricing() {
           })}
         </div>
 
-        <p className="mt-8 text-center text-sm text-white/55">
+        {/* Support text */}
+        <p className="mt-8 text-center text-xs text-white/50" style={{ marginBottom: '-4px' }}>
           Todos os planos incluem suporte via WhatsApp. Sem fidelidade. Cancele quando quiser.
         </p>
-        <p className="mt-4 text-center text-base font-medium text-white/80">
-          Menos que um café por dia para organizar toda sua assistência técnica.
-        </p>
+
+        {/* Garantia imagem */}
+        <div className="flex justify-center">
+          <img
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Garantia-de-7-dias-Risco-ZERO-BZgBZC7fUJUZlmZB2Yl6yGZoTTy455.png"
+            alt="Garantia 7 dias - 100% Dinheiro de Volta - Risco Zero"
+            className="w-full max-w-sm object-contain drop-shadow-lg"
+            style={{ marginTop: '-6px', marginLeft: '-2px', marginBottom: '-46px' }}
+          />
+        </div>
       </div>
 
       <style jsx>{`
@@ -265,7 +282,7 @@ export function Pricing() {
 
         /* --- Card base --- */
         .plan-card {
-          background: rgba(15, 23, 42, 0.7);
+          background: rgba(15, 23, 42, 0.6);
           border: 1px solid rgba(96, 165, 250, 0.15);
           backdrop-filter: blur(8px);
           animation: card-pulse 4s ease-in-out infinite;
@@ -273,20 +290,20 @@ export function Pricing() {
 
         .plan-card--highlight {
           border-color: rgba(96, 165, 250, 0.5);
-          background: rgba(30, 41, 59, 0.85);
-          box-shadow: 0 0 30px rgba(96, 165, 250, 0.12), 0 0 60px rgba(96, 165, 250, 0.06);
-          transform: scale(1.03);
+          background: rgba(30, 41, 59, 0.8);
+          box-shadow: 0 0 25px rgba(96, 165, 250, 0.12), 0 0 50px rgba(96, 165, 250, 0.06);
+          transform: scale(1.02);
           animation: card-pulse-highlight 3s ease-in-out infinite;
         }
 
         @keyframes card-pulse {
           0%, 100% { box-shadow: 0 0 0px rgba(96, 165, 250, 0); }
-          50%       { box-shadow: 0 0 18px rgba(96, 165, 250, 0.10); }
+          50%       { box-shadow: 0 0 14px rgba(96, 165, 250, 0.08); }
         }
 
         @keyframes card-pulse-highlight {
-          0%, 100% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.15), 0 0 50px rgba(96, 165, 250, 0.08); }
-          50%       { box-shadow: 0 0 40px rgba(96, 165, 250, 0.30), 0 0 80px rgba(96, 165, 250, 0.15); }
+          0%, 100% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.15), 0 0 40px rgba(96, 165, 250, 0.08); }
+          50%       { box-shadow: 0 0 35px rgba(96, 165, 250, 0.25), 0 0 70px rgba(96, 165, 250, 0.12); }
         }
       `}</style>
     </section>

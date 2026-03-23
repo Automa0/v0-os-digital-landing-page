@@ -41,8 +41,8 @@ export function HowItWorks() {
 
       <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
         {/* Título Principal */}
-        <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white text-balance">
+        <div className="mx-auto max-w-3xl text-center mb-10 sm:mb-16">
+          <h2 className="font-heading font-extrabold leading-tight text-white text-balance" style={{ fontSize: 'clamp(24px, 6vw, 50px)' }}>
             Como o OS Digital+ <span className="text-blue-400">organiza</span> na prática
           </h2>
         </div>
@@ -60,18 +60,18 @@ export function HowItWorks() {
           <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/30 via-blue-500/20 to-transparent" />
 
           {/* Items */}
-          <div className="space-y-5">
+          <div className="space-y-6 sm:space-y-8">
             {timelineItems.map((item, index) => {
               const isHighlighted = 'highlighted' in item && item.highlighted
               
               return (
                 <div
                   key={item.title}
-                  className="relative animate-fade-in"
+                  className="relative animate-fade-in flex items-start gap-4"
                   style={{ animationDelay: `${index * 0.1}s`, animationDuration: '0.6s' }}
                 >
-                  {/* Bolinha do timeline */}
-                  <div className="absolute left-0 top-0 -translate-y-1/2">
+                  {/* Bolinha do timeline - centralizada */}
+                  <div className="flex-shrink-0 mt-2">
                     <div className={`relative z-10 h-10 w-10 rounded-full flex items-center justify-center shadow-lg ${
                       isHighlighted 
                         ? 'bg-gradient-to-br from-green-500 to-green-600 border-2 border-green-400 shadow-green-500/50 animate-pulse' 
@@ -81,26 +81,26 @@ export function HowItWorks() {
                     </div>
                   </div>
 
-                  {/* Conteúdo - alinhado à direita */}
-                  <div className="pl-20">
-                    <div className={`rounded-xl backdrop-blur-md p-5 transition-all duration-300 relative overflow-hidden ${
+                  {/* Conteúdo */}
+                  <div className="flex-1 min-w-0">
+                    <div className={`rounded-xl backdrop-blur-md p-4 sm:p-5 transition-all duration-300 relative overflow-hidden ${
                       isHighlighted 
                         ? 'border-2 border-green-500/50 bg-gradient-to-br from-green-500/10 to-green-600/5 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20' 
                         : 'border border-white/10 bg-white/5 hover:border-blue-500/30 hover:bg-white/8'
                     }`}>
                       {isHighlighted && (
-                        <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-bl-lg rounded-tr-lg">
+                        <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-bl-lg rounded-tr-lg" style={{ lineHeight: '1.7em', letterSpacing: '0.026em' }}>
                           IMPORTANTE
                         </div>
                       )}
-                      <h3 className={`text-base font-bold mb-2 ${isHighlighted ? 'text-green-400' : 'text-white'}`}>
+                      <h3 className={`text-sm sm:text-base font-bold mb-2 ${isHighlighted ? 'text-green-400' : 'text-white'}`}>
                         {item.title}
                       </h3>
-                      <p className={`text-sm leading-relaxed whitespace-pre-line ${isHighlighted ? 'text-white/70' : 'text-white/60'}`}>
+                      <p className={`text-xs sm:text-sm leading-relaxed whitespace-pre-line ${isHighlighted ? 'text-white/70' : 'text-white/60'}`}>
                         {item.description}
                       </p>
                       {isHighlighted && (
-                        <p className="text-sm leading-relaxed mt-4 pt-4 border-t border-green-500/30">
+                        <p className="text-xs sm:text-sm leading-relaxed mt-3 pt-3 border-t border-green-500/30">
                           <span className="text-green-300 font-semibold">E mais:</span> {' '}
                           <span className="text-green-200 font-bold">se você esquecer de enviar o valor, o sistema te avisa para você não perder o cliente.</span>
                         </p>
@@ -113,94 +113,72 @@ export function HowItWorks() {
           </div>
         </div>
 
-        {/* Desktop Grid Layout (original) */}
-        <div className="hidden lg:grid grid-cols-3 gap-4 mb-4">
-          {timelineItems.slice(0, 3).map((item, index) => (
-            <div
-              key={item.title}
-              className="relative animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s`, animationDuration: '0.6s' }}
-            >
-              {/* Circle marker */}
-              <div className="flex justify-center mb-3">
-                <div className="h-10 w-10 rounded-full bg-blue-500 border-2 border-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
-                  <CheckCircle2 className="h-5 w-5 text-white" />
-                </div>
-              </div>
+        {/* Desktop Layout - Timeline Central Vertical */}
+        <div className="hidden lg:block">
+          <div className="relative">
+            {/* Linha vertical central */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/50 via-blue-500/30 to-green-500/50 -translate-x-1/2" />
 
-              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
-                <h3 className="text-base font-bold text-white mb-2 text-center">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-white/60 leading-relaxed text-center">
-                  {item.description}
-                </p>
-              </div>
+            {/* Items da timeline */}
+            <div className="space-y-8">
+              {timelineItems.map((item, index) => {
+                const isHighlighted = 'highlighted' in item && item.highlighted
+                const isEven = index % 2 === 0
+
+                return (
+                  <div
+                    key={item.title}
+                    className="relative animate-fade-in"
+                    style={{ animationDelay: `${index * 0.1}s`, animationDuration: '0.6s' }}
+                  >
+                    {/* Container flex para alinhar bolinha e card */}
+                    <div className={`flex items-center gap-6 ${isEven ? 'flex-row' : 'flex-row-reverse'}`}>
+                      {/* Card - ocupa metade da largura */}
+                      <div className={`w-[calc(50%-32px)] ${isEven ? 'text-right' : 'text-left'}`}>
+                        <div className={`rounded-xl backdrop-blur-md p-5 transition-all duration-300 relative overflow-hidden inline-block w-full ${
+                          isHighlighted 
+                            ? 'border-2 border-green-500/50 bg-gradient-to-br from-green-500/10 to-green-600/5 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20' 
+                            : 'border border-white/10 bg-white/5 hover:border-blue-500/30 hover:bg-white/8'
+                        }`}>
+                          {isHighlighted && (
+                            <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-bl-lg rounded-tr-lg" style={{ lineHeight: '1.7em', letterSpacing: '0.026em' }}>
+                              IMPORTANTE
+                            </div>
+                          )}
+                          <h3 className={`text-base font-bold mb-2 ${isHighlighted ? 'text-green-400' : 'text-white'}`}>
+                            {item.title}
+                          </h3>
+                          <p className={`text-sm leading-relaxed ${isHighlighted ? 'text-white/70' : 'text-white/60'}`}>
+                            {item.description}
+                          </p>
+                          {isHighlighted && (
+                            <p className="text-sm leading-relaxed mt-4 pt-4 border-t border-green-500/30">
+                              <span className="text-green-300 font-semibold">E mais:</span>{' '}
+                              <span className="text-green-200 font-bold">se você esquecer de enviar o valor, o sistema te avisa para você não perder o cliente.</span>
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Bolinha central - exatamente no meio */}
+                      <div className="flex-shrink-0 z-10">
+                        <div className={`h-12 w-12 rounded-full flex items-center justify-center shadow-lg ${
+                          isHighlighted 
+                            ? 'bg-gradient-to-br from-green-500 to-green-600 border-2 border-green-400 shadow-green-500/50 animate-pulse' 
+                            : 'bg-black border-2 border-blue-500 shadow-blue-500/30'
+                        }`}>
+                          <CheckCircle2 className={`h-6 w-6 ${isHighlighted ? 'text-white' : 'text-blue-400'}`} />
+                        </div>
+                      </div>
+
+                      {/* Espaço vazio do outro lado */}
+                      <div className="w-[calc(50%-32px)]" />
+                    </div>
+                  </div>
+                )
+              })}
             </div>
-          ))}
-        </div>
-
-        {/* Bottom 2 items - Desktop (2 colunas centradas) */}
-        <div className="hidden lg:grid grid-cols-2 gap-4 max-w-2xl mx-auto mb-4">
-          {timelineItems.slice(3, 5).map((item, index) => (
-            <div
-              key={item.title}
-              className="relative animate-fade-in"
-              style={{ animationDelay: `${(index + 3) * 0.1}s`, animationDuration: '0.6s' }}
-            >
-              {/* Circle marker */}
-              <div className="flex justify-center mb-3">
-                <div className="h-10 w-10 rounded-full bg-blue-500 border-2 border-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
-                  <CheckCircle2 className="h-5 w-5 text-white" />
-                </div>
-              </div>
-
-              <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-5 transition-all duration-300 hover:border-blue-500/30 hover:bg-white/8 h-full">
-                <h3 className="text-base font-bold text-white mb-2 text-center">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-white/60 leading-relaxed text-center whitespace-pre-line">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Last item - Desktop (1 coluna centrada) - DESTACADO */}
-        <div className="hidden lg:flex justify-center mb-4">
-          {timelineItems.slice(5).map((item, index) => (
-            <div
-              key={item.title}
-              className="relative animate-fade-in w-full max-w-md"
-              style={{ animationDelay: `${(index + 5) * 0.1}s`, animationDuration: '0.6s' }}
-            >
-              {/* Circle marker - destacado */}
-              <div className="flex justify-center mb-3">
-                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-500 to-green-600 border-2 border-green-400 flex items-center justify-center shadow-lg shadow-green-500/50 animate-pulse">
-                  <CheckCircle2 className="h-6 w-6 text-white" />
-                </div>
-              </div>
-
-              <div className="rounded-xl border-2 border-green-500/50 bg-gradient-to-br from-green-500/10 to-green-600/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20 h-full relative overflow-hidden">
-                {/* Badge de destaque */}
-                <div className="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
-                  IMPORTANTE
-                </div>
-                
-                <h3 className="text-lg font-bold text-green-400 mb-3 text-center">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-white/70 leading-relaxed text-center whitespace-pre-line">
-                  {item.description}
-                </p>
-                <p className="text-sm leading-relaxed mt-4 pt-4 border-t border-green-500/30 text-center">
-                  <span className="text-green-300 font-semibold">E mais:</span> {' '}
-                  <span className="text-green-200 font-bold">se você esquecer de enviar o valor, o sistema te avisa para você não perder o cliente.</span>
-                </p>
-              </div>
-            </div>
-          ))}
+          </div>
         </div>
 
         {/* Fechamento */}
