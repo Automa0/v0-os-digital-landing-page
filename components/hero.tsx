@@ -67,33 +67,11 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Cards Mobile - Abaixo do mockup */}
-          <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-3 mb-8 px-2">
-            {[
-              { text: 'Controle financeiro', color: 'text-emerald-400' },
-              { text: 'Ordens organizadas', color: 'text-emerald-400' },
-              { text: 'Uma ou mais lojas', color: 'text-blue-400' },
-              { text: 'Acesso mobile + desktop', color: 'text-blue-400' }
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="benefit-card-mobile p-3 rounded-lg backdrop-blur-sm transition-all hover:bg-white/8"
-                style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.08)'
-                }}
-              >
-                <div className="flex items-start gap-2.5">
-                  <span className={`${item.color} font-bold text-sm mt-0.5 flex-shrink-0`}>✔</span>
-                  <p className="text-xs leading-tight text-gray-300">{item.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+
 
           {/* Text content */}
           <div className="text-center pt-4 sm:pt-6 md:pt-8">
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] tracking-tight text-white animate-slide-up" style={{ animationDelay: '0.15s', marginTop: '-67px' }}>
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] tracking-tight text-white animate-slide-up hero-title">
               Você realmente tem <span className="title-shimmer">controle total</span>
               <br />
               da sua <span className="title-underline">assistência</span>?
@@ -249,10 +227,14 @@ export function Hero() {
           animation-delay: calc(0.6s + var(--index) * 0.1s);
         }
 
-        .benefit-card-mobile {
-          animation: fade-in 0.7s ease-out forwards;
-          opacity: 0;
-          animation-delay: calc(0.8s + var(--index) * 0.05s);
+        .hero-title {
+          margin-top: -67px;
+        }
+
+        @media (max-width: 1024px) {
+          .hero-title {
+            margin-top: 0;
+          }
         }
 
         @media (max-width: 640px) {
