@@ -11,6 +11,88 @@ export function Hero() {
         background: 'linear-gradient(180deg, #0B0F1A 0%, #0F172A 100%)'
       }}
     >
+      {/* Fundo tecnológico - grid + glow orbs */}
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        {/* Grid de pontos */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="tech-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="1" fill="#60a5fa" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#tech-grid)" />
+        </svg>
+
+        {/* Linhas de circuito - SVG decorativo */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.07]" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          {/* Linhas horizontais com nós */}
+          <line x1="0" y1="200" x2="400" y2="200" stroke="#3b82f6" strokeWidth="1" />
+          <circle cx="400" cy="200" r="3" fill="#3b82f6" />
+          <line x1="400" y1="200" x2="400" y2="350" stroke="#3b82f6" strokeWidth="1" />
+          <circle cx="400" cy="350" r="3" fill="#3b82f6" />
+          <line x1="400" y1="350" x2="700" y2="350" stroke="#3b82f6" strokeWidth="1" />
+
+          <line x1="1200" y1="150" x2="850" y2="150" stroke="#60a5fa" strokeWidth="1" />
+          <circle cx="850" cy="150" r="3" fill="#60a5fa" />
+          <line x1="850" y1="150" x2="850" y2="300" stroke="#60a5fa" strokeWidth="1" />
+          <circle cx="850" cy="300" r="3" fill="#60a5fa" />
+          <line x1="850" y1="300" x2="600" y2="300" stroke="#60a5fa" strokeWidth="1" />
+
+          <line x1="0" y1="550" x2="300" y2="550" stroke="#818cf8" strokeWidth="1" />
+          <circle cx="300" cy="550" r="3" fill="#818cf8" />
+          <line x1="300" y1="550" x2="300" y2="450" stroke="#818cf8" strokeWidth="1" />
+          <circle cx="300" cy="450" r="3" fill="#818cf8" />
+          <line x1="300" y1="450" x2="550" y2="450" stroke="#818cf8" strokeWidth="1" />
+
+          <line x1="1200" y1="600" x2="950" y2="600" stroke="#38bdf8" strokeWidth="1" />
+          <circle cx="950" cy="600" r="3" fill="#38bdf8" />
+          <line x1="950" y1="600" x2="950" y2="480" stroke="#38bdf8" strokeWidth="1" />
+          <circle cx="950" cy="480" r="3" fill="#38bdf8" />
+          <line x1="950" y1="480" x2="720" y2="480" stroke="#38bdf8" strokeWidth="1" />
+
+          {/* Nós centrais */}
+          <circle cx="600" cy="400" r="5" fill="none" stroke="#3b82f6" strokeWidth="1.5" opacity="0.5" />
+          <circle cx="600" cy="400" r="10" fill="none" stroke="#3b82f6" strokeWidth="0.5" opacity="0.3" />
+
+          <circle cx="200" cy="300" r="4" fill="none" stroke="#60a5fa" strokeWidth="1" opacity="0.4" />
+          <circle cx="1000" cy="250" r="4" fill="none" stroke="#60a5fa" strokeWidth="1" opacity="0.4" />
+          <circle cx="150" cy="500" r="3" fill="#3b82f6" opacity="0.4" />
+          <circle cx="1050" cy="500" r="3" fill="#3b82f6" opacity="0.4" />
+        </svg>
+
+        {/* Glow central azul atrás do mockup */}
+        <div
+          className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            width: 'clamp(300px, 60vw, 600px)',
+            height: 'clamp(200px, 40vw, 400px)',
+            background: 'radial-gradient(ellipse, rgba(59,130,246,0.18) 0%, rgba(99,102,241,0.10) 50%, transparent 75%)',
+            filter: 'blur(40px)'
+          }}
+        />
+
+        {/* Glow canto inferior esquerdo */}
+        <div
+          className="absolute -bottom-20 -left-20 rounded-full"
+          style={{
+            width: '300px',
+            height: '300px',
+            background: 'radial-gradient(circle, rgba(56,189,248,0.10) 0%, transparent 70%)',
+            filter: 'blur(60px)'
+          }}
+        />
+
+        {/* Glow canto superior direito */}
+        <div
+          className="absolute -top-20 -right-20 rounded-full"
+          style={{
+            width: '350px',
+            height: '350px',
+            background: 'radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)',
+            filter: 'blur(60px)'
+          }}
+        />
+      </div>
       {/* Content */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 sm:px-5 md:px-8 py-12 sm:py-16">
         <div className="w-full max-w-5xl">

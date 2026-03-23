@@ -1,48 +1,87 @@
 "use client"
 
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-[#0a3d7c] py-20 lg:py-28">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10" aria-hidden="true">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 1px)`,
-            backgroundSize: "32px 32px",
-          }}
-        />
-      </div>
+    <section className="relative overflow-hidden py-16 sm:py-20 lg:py-32">
+      {/* Fundo gradiente moderno */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(135deg, #0B1C2C 0%, #0E5EFF 45%, #6C63FF 100%)'
+        }}
+      />
 
       {/* Glow orbs */}
-      <div className="absolute -left-32 top-0 h-64 w-64 rounded-full bg-white/10 blur-[100px]" />
-      <div className="absolute -right-32 bottom-0 h-64 w-64 rounded-full bg-accent/20 blur-[100px]" />
+      <div className="absolute -left-40 top-0 h-80 w-80 rounded-full bg-white/10 blur-[120px]" />
+      <div className="absolute -right-40 bottom-0 h-80 w-80 rounded-full bg-blue-300/20 blur-[120px]" />
 
-      <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-8">
-        <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white md:text-5xl lg:text-6xl text-balance">
-          Ainda está em dúvida?
+      <div className="relative mx-auto max-w-3xl px-4 text-center lg:px-8">
+        {/* Título principal com destaque em amarelo */}
+        <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white text-balance leading-tight">
+          Vamos implementar <span className="text-yellow-300">OS Digital+</span> na sua assistência?
         </h2>
 
-        <p className="mx-auto mt-6 sm:mt-8 max-w-2xl text-base sm:text-xl text-white/90">
-          Crie sua conta e teste o sistema gratuitamente.
+        {/* Subtítulo otimizado para conversão */}
+        <p className="mx-auto mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg text-white/90 leading-relaxed">
+          Crie sua conta gratuita, comece a organizar suas ordens, clientes e financeiro e pare de perder dinheiro hoje mesmo.
         </p>
 
-        <div className="mt-8 sm:mt-12 flex flex-col items-center gap-3 sm:gap-4 sm:flex-row sm:justify-center">
+        {/* Prova / Segurança - com melhor contraste e glass effect */}
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-2 flex-wrap">
+          <div className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/20 hover:bg-white/15 transition-all">
+            <Check className="h-5 w-5 text-emerald-300 flex-shrink-0" />
+            <span className="text-sm sm:text-base font-medium text-white">Sem compromisso</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/20 hover:bg-white/15 transition-all">
+            <Check className="h-5 w-5 text-emerald-300 flex-shrink-0" />
+            <span className="text-sm sm:text-base font-medium text-white">Sem cartão de crédito</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/20 hover:bg-white/15 transition-all">
+            <Check className="h-5 w-5 text-emerald-300 flex-shrink-0" />
+            <span className="text-sm sm:text-base font-medium text-white">Acesso imediato</span>
+          </div>
+        </div>
+
+        {/* Botões */}
+        <div className="mt-10 sm:mt-12 flex flex-col items-center gap-3 sm:gap-4 sm:flex-row sm:justify-center px-2">
           <a
-            href="https://checkout.stripe.com/c/pay/cs_live_a1ZShxC1pzdtl5ZtP9rwYJP4zTleVGx2BjtrPm2Z5uVzkhJo5cbDO8BpDI#fid1d2BpamRhQ2prcSc%2FJ0dgJVNsYHFrZGglVXdqJyknZ2p3YWB3VnF8aWAnPyd3anBrYScpJ3ZwZ3Zmd2x1cWxqa1BrbHRwYGtgdnZAa2RnaWBhJz9jZGl2YCknZHVsTmB8Jz8ndW5aaWxzYFowNFZ8V3JvPTBQXW1TUm1TVTdcUn9xTW98NW82YUk0cW5OZEFcdUhmcmlnVmBzPWpqTmFMNVJfYTE2QVNiQWxJYTZgaExxQH90bV9yTlZAM1JRbnB8XENMXzU1T0dwcVFWbFEnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmNmcxMzxnJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
-            className="pulse-glow group inline-flex items-center justify-center gap-3 rounded-xl bg-white px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-bold text-primary shadow-2xl transition-all hover:bg-white/90 w-full sm:w-auto"
+            href="https://app.osdigitalplus.com.br/auth/login"
+            className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-blue-600 shadow-2xl shadow-white/20 transition-all hover:bg-white/95 hover:shadow-3xl hover:shadow-white/30 hover:scale-105 w-full sm:w-auto"
           >
-            Começar agora
+            Começar grátis agora
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </a>
           <a
-            href="https://app.osdigitalplus.com.br/auth/cadastro"
-            className="inline-flex items-center justify-center gap-3 rounded-xl border-2 border-white px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-bold text-white transition-all hover:bg-white/10 w-full sm:w-auto"
+            href="#planos"
+            className="group inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white transition-all hover:bg-white/15 hover:border-white/80 w-full sm:w-auto"
           >
-            Criar conta grátis
+            Ver planos
           </a>
+        </div>
+
+        {/* Bloco de Garantia - Glass effect melhorado */}
+        <div className="mt-10 sm:mt-14 p-5 sm:p-6 rounded-xl border border-white/20 bg-white/10 backdrop-blur-md max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-white/90 leading-relaxed">
+            <span className="font-semibold text-white">Teste sem risco.</span> Você pode usar o sistema gratuitamente e cancelar quando quiser. Nada pedido além do seu email.
+          </p>
+        </div>
+
+        {/* Micro Benefícios */}
+        <div className="mt-10 sm:mt-14 space-y-2.5 max-w-2xl mx-auto px-2">
+          <div className="flex items-center justify-center gap-3">
+            <Check className="h-5 w-5 text-emerald-300 flex-shrink-0" />
+            <span className="text-sm sm:text-base text-white/90">Organize suas ordens em minutos</span>
+          </div>
+          <div className="flex items-center justify-center gap-3">
+            <Check className="h-5 w-5 text-emerald-300 flex-shrink-0" />
+            <span className="text-sm sm:text-base text-white/90">Tenha controle total do financeiro</span>
+          </div>
+          <div className="flex items-center justify-center gap-3">
+            <Check className="h-5 w-5 text-emerald-300 flex-shrink-0" />
+            <span className="text-sm sm:text-base text-white/90">Pare de perder clientes por desorganização</span>
+          </div>
         </div>
       </div>
     </section>
