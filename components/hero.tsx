@@ -233,11 +233,15 @@ export function Hero() {
 
         @media (max-width: 1024px) {
           .hero-title {
-            margin-top: 0;
+            margin-top: -32px;
           }
         }
 
         @media (max-width: 640px) {
+          .hero-title {
+            margin-top: -24px;
+          }
+
           .title-underline::after {
             bottom: -2px;
             height: 2px;
