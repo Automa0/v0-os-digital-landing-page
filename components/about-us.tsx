@@ -105,7 +105,7 @@ export function AboutUs() {
 
             <div className="space-y-4 text-base text-slate-300 leading-relaxed">
               <p>
-                O OS Digital Plus foi criado para resolver os problemas reais enfrentados por assistências técnicas no dia a dia.
+                O OS Digital Plus foi criado para resolver os problemas reais enfrentados por assistências no dia a dia.
               </p>
 
               <p>
@@ -117,7 +117,7 @@ export function AboutUs() {
               </p>
 
               <p className="font-semibold text-blue-300 pt-2">
-                Mais de 500 assistências técnicas já confiam em nós.
+                Mais de 500 assistências já confiam em nós.
               </p>
             </div>
 

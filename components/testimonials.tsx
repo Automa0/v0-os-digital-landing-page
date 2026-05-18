@@ -19,7 +19,7 @@ const printScreens = [
 
 const stats = [
   { value: 400, label: "lojas utilizando o sistema", suffix: "+" },
-  { value: 8126, label: "ordens de serviço registradas", suffix: "+" },
+  { value: 8126, label: "ordens de serviço e vendas registradas", suffix: "+" },
   { value: 10482, label: "orçamentos enviados", suffix: "+" },
   { value: 100, label: "segurança dos dados", suffix: "%" },
 ]

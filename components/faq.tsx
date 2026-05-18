@@ -16,29 +16,57 @@ const highlights = [
       "Como melhorar seu faturamento"
     ],
     badges: [
-      { plan: "Pro", text: "IA com análise geral do negócio" },
-      { plan: "Master", text: "IA avançada com análise por loja" }
+      { plan: "Controle", text: "IA com análise geral do negócio" },
+      { plan: "Comando", text: "IA avançada com análise por loja" }
     ],
     badge: "Em breve"
   },
   {
     icon: Box,
     title: "Venda de produtos com controle inteligente",
-    description: "Em breve você poderá vender produtos direto pelo sistema com controle completo de estoque.",
+    description: "Venda produtos direto pelo sistema com controle completo de estoque, disponível em todos os planos.",
     details: [
       "Cadastro simples de produtos",
       "Controle automático de estoque",
-      "Alertas quando estiver acabando",
+      "Carrinho de compras com múltiplos meios de pagamento",
       "Integração com seu fluxo de atendimento"
     ],
-    badge: "Em breve"
+    badge: null
   }
 ]
 
 const faqs = [
   {
+    question: "O sistema funciona para outros tipos de assistência além de celular?",
+    answer: "Com certeza. O OS Digital+ é flexível e atende assistências de diversos ramos, como eletrônicos, eletrodomésticos, informática, ar-condicionado, games e muito mais.",
+  },
+  {
+    question: "Tem PDV no sistema?",
+    answer: "Sim, todos os nossos planos incluem um Ponto de Venda (PDV) completo e integrado para você vender produtos e serviços.",
+  },
+  {
+    question: "Posso controlar as permissões dos meus funcionários?",
+    answer: "Sim, você pode definir permissões granulares, controlando o que cada membro da equipe pode acessar e fazer no sistema.",
+  },
+  {
+    question: "Como funciona a comissão de vendedor?",
+    answer: "Você pode definir uma porcentagem de comissão por membro da equipe. O sistema calcula e atribui a comissão automaticamente a cada venda no PDV.",
+  },
+  {
+    question: "Tem termo de garantia digital?",
+    answer: "Sim, você pode gerar Termos de Garantia em PDF, com validade customizável, que ficam atrelados à Ordem de Serviço.",
+  },
+  {
+    question: "Posso importar dados de um sistema antigo?",
+    answer: "Sim, oferecemos a importação de dados de clientes e ordens de serviço através de planilhas CSV para facilitar sua migração.",
+  },
+  {
+    question: "Posso imprimir cupom em impressora térmica?",
+    answer: "Sim, o sistema gera cupons não fiscais formatados para impressoras térmicas de 80mm.",
+  },
+  {
     question: "O que é o OS Digital+?",
-    answer: "É um sistema completo para assistências técnicas organizarem ordens de serviço, clientes, financeiro e toda operação em um só lugar.",
+    answer: "É um sistema completo para assistências organizarem ordens de serviço, clientes, financeiro, vendas (PDV) e toda a operação em um só lugar.",
   },
   {
     question: "Funciona para quem trabalha sozinho?",
@@ -46,7 +74,7 @@ const faqs = [
   },
   {
     question: "Posso gerenciar mais de uma loja?",
-    answer: "Sim. Plano Pro: até 2 lojas. Plano Master: até 4 lojas.",
+    answer: "Sim. Plano Controle: até 2 lojas. Plano Comando: até 4 lojas.",
   },
   {
     question: "O sistema funciona no celular?",

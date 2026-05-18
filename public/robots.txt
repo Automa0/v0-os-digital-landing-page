@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://osdigitalplus.com.br/sitemap.xml

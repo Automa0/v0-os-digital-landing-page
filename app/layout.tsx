@@ -16,15 +16,21 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "OSDigitalPlus - Sistema de Ordem de Serviço para Assistências Técnicas",
+  title: "OS Digital+ | Sistema de Ordem de Serviço e PDV para Assistências",
   description:
-    "Organize ordens de serviço, envie links profissionais aos clientes e gere PDFs com assinatura digital em segundos. O sistema completo para assistências técnicas.",
+    "Sistema completo para assistências: ordens de serviço, PDV, controle de caixa, comissão de vendedores, garantia digital e gestão multiloja. Teste grátis 10 dias.",
   keywords: [
-    "ordem de serviço",
-    "assistência técnica",
-    "gestão",
-    "OS digital",
-    "sistema de OS",
+    "sistema para assistência",
+    "PDV para assistência",
+    "gestão de OS",
+    "ordem de serviço online",
+    "comissão de vendedor",
+    "controle de caixa",
+    "multiloja",
+    "garantia digital",
+    "assinatura digital OS",
+    "sistema para loja de celular",
+    "assistência de eletrônicos",
     "OSDigitalPlus",
   ],
   icons: {
@@ -33,9 +39,9 @@ export const metadata: Metadata = {
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "OSDigitalPlus - Profissionalize sua assistência técnica",
+    title: "OS Digital+ | Sistema de Ordem de Serviço e PDV para Assistências",
     description:
-      "Sistema completo de ordens de serviço para assistências técnicas. Organize, acompanhe e entregue com profissionalismo.",
+      "Sistema completo para assistências: ordens de serviço, PDV, controle de caixa, comissão de vendedores, garantia digital e gestão multiloja. Teste grátis 10 dias.",
     type: "website",
     url: "https://osdigitalplus.com.br",
     siteName: "OSDigitalPlus",
@@ -43,16 +49,16 @@ export const metadata: Metadata = {
       {
         url: "https://osdigitalplus.com.br/images/og-image.png",
         width: 1200,
-        height: 1200,
-        alt: "OSDigitalPlus - Sistema de Ordem de Serviço",
+        height: 630,
+        alt: "Dashboard do OS Digital+ — sistema de ordem de serviço e PDV",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "OSDigitalPlus - Profissionalize sua assistência técnica",
+    title: "OS Digital+ | Sistema de Ordem de Serviço e PDV para Assistências",
     description:
-      "Sistema completo de ordens de serviço para assistências técnicas.",
+      "Sistema completo para assistências: ordens de serviço, PDV, controle de caixa, comissão de vendedores, garantia digital e gestão multiloja.",
     images: ["https://osdigitalplus.com.br/images/og-image.png"],
   },
 }
@@ -70,6 +76,35 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${poppins.variable}`}>
+      <head>
+        <Script
+          id="json-ld"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "OS Digital+",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web (Windows, macOS, Linux), Android, iOS",
+                "description": "Sistema completo para assistências: ordens de serviço, PDV, controle de caixa, comissão de vendedores, garantia digital e gestão multiloja.",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "79.90",
+                  "priceCurrency": "BRL"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.9",
+                  "reviewCount": "89"
+                }
+              }
+            `,
+          }}
+        />
+      </head>
       <body className="font-sans antialiased">
         <TopBar />
         {children}

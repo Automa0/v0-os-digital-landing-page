@@ -9,12 +9,12 @@ type LocationState =
 
 function buildText(loc: LocationState): string {
   if (loc.type === 'city') {
-    return `📍 Assistências técnicas em ${loc.value} já estão usando o OS Digital Plus.`
+    return `📍 Assistências em ${loc.value} já organizam OS e PDV com OS Digital+.`
   }
   if (loc.type === 'state') {
-    return `📍 Assistências técnicas no estado de ${loc.value} já estão usando o OS Digital Plus.`
+    return `📍 Assistências no estado de ${loc.value} já organizam OS e PDV com OS Digital+.`
   }
-  return '📍 Assistências técnicas em todo o Brasil já estão usando o OS Digital Plus.'
+  return '📍 Assistências em todo o Brasil já organizam OS e PDV com OS Digital+.'
 }
 
 export function TopBar() {

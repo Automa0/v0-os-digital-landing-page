@@ -7,7 +7,7 @@ const LOGIN_URL = "https://app.osdigitalplus.com.br"
 const profiles = [
   {
     icon: Wrench,
-    title: "Assistências Técnicas",
+    title: "Assistências (todos os ramos)",
     description:
       "Gerencie ordens, equipe, caixa e múltiplas lojas com o dashboard empresarial completo.",
   },
@@ -88,7 +88,7 @@ export function AutonomosSection() {
             href={LOGIN_URL}
             className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:opacity-90"
           >
-            Começar Agora
+            Começar grátis
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>

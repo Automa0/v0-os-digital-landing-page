@@ -7,21 +7,23 @@ type BillingCycle = "mensal" | "semestral" | "anual"
 
 const plans = [
   {
-    name: "Básico",
+    name: "Ação",
     description: "Para quem está começando ou trabalha sozinho",
     highlight: false,
     badge: null,
     planId: "basico",
     prices: {
-      mensal: { monthlyAmount: "R$ 49", period: "/mês", totalInfo: "" },
-      semestral: { monthlyAmount: "R$ 41,50", period: "/mês", totalInfo: "Cobrado R$ 249 semestralmente" },
-      anual: { monthlyAmount: "R$ 41,50", period: "/mês", totalInfo: "Cobrado R$ 499 por ano" },
+      mensal: { monthlyAmount: "R$ 79,90", period: "/mês", totalInfo: "", stripePriceId: "price_1TWXgb85UXhVWhVPRas6u3NP" },
+      semestral: { monthlyAmount: "R$ 66,50", period: "/mês", totalInfo: "Cobrado R$ 399 semestralmente", stripePriceId: "price_1TWXhd85UXhVWhVP1girbVJU" },
+      anual: { monthlyAmount: "R$ 54,08", period: "/mês", totalInfo: "Cobrado R$ 649 por ano", stripePriceId: "price_1TWXia85UXhVWhVPDl9WIzlF" },
     },
     features: [
       "Ordens ilimitadas",
       "Orçamentos automático",
       "Gestão de clientes",
       "Controle de caixa",
+      "Assinatura digital na OS",
+      "Venda de produtos (PDV)",
       "Logo no link do cliente e orçamento",
       "1 loja",
       "OS com PDF profissional",
@@ -31,44 +33,46 @@ const plans = [
     cta: "Começar agora",
   },
   {
-    name: "Pro",
+    name: "Controle",
     description: "Para quem quer crescer e ter controle real",
     highlight: true,
     badge: "Mais popular",
     planId: "pro",
     prices: {
-      mensal: { monthlyAmount: "R$ 59", period: "/mês", totalInfo: "" },
-      semestral: { monthlyAmount: "R$ 53,17", period: "/mês", totalInfo: "Cobrado R$ 319 semestralmente" },
-      anual: { monthlyAmount: "R$ 49,90", period: "/mês", totalInfo: "Cobrado R$ 599 por ano" },
+      mensal: { monthlyAmount: "R$ 119,90", period: "/mês", totalInfo: "", stripePriceId: "price_1TWXjM85UXhVWhVPcfSHbJ9j" },
+      semestral: { monthlyAmount: "R$ 99,83", period: "/mês", totalInfo: "Cobrado R$ 599 semestralmente", stripePriceId: "price_1TWXkL85UXhVWhVPsTmpG2lb" },
+      anual: { monthlyAmount: "R$ 83,25", period: "/mês", totalInfo: "Cobrado R$ 999 por ano", stripePriceId: "price_1TWXlc85UXhVWhVPzgQNduSD" },
     },
     features: [
-      "Tudo do Básico",
+      "Tudo do Ação",
       "Ordens ilimitadas",
       "Até 2 lojas",
       "Dashboard empresarial completo",
       "Relatórios financeiros avançados",
       "Controle por membro",
+      "Assinatura digital na OS",
       "Venda de produtos (PDV)",
-      "IA integrada",
+      "IA integrada [Em breve]",
     ],
-    cta: "Assinar Pro",
+    cta: "Assinar Controle",
   },
   {
-    name: "Master",
+    name: "Comando",
     description: "Para quem quer escalar e ter controle total da operação",
     highlight: false,
     badge: "Melhor custo-benefício",
     planId: "master",
     prices: {
-      mensal: { monthlyAmount: "R$ 99", period: "/mês", totalInfo: "" },
-      semestral: { monthlyAmount: "R$ 91,50", period: "/mês", totalInfo: "Cobrado R$ 549 semestralmente" },
-      anual: { monthlyAmount: "R$ 83,25", period: "/mês", totalInfo: "Cobrado R$ 999 por ano" },
+      mensal: { monthlyAmount: "R$ 199,90", period: "/mês", totalInfo: "", stripePriceId: "price_1TWXmI85UXhVWhVPJh1nG9Ws" },
+      semestral: { monthlyAmount: "R$ 166,50", period: "/mês", totalInfo: "Cobrado R$ 999 semestralmente", stripePriceId: "price_1TWXnf85UXhVWhVPZJvlOezu" },
+      anual: { monthlyAmount: "R$ 137,42", period: "/mês", totalInfo: "Cobrado R$ 1.649 por ano", stripePriceId: "price_1TWXoR85UXhVWhVPIf4ikOZt" },
     },
     features: [
-      "Tudo do Pro",
+      "Tudo do Controle",
       "Até 4 lojas",
-      "IA avançada",
+      "IA avançada [Em breve]",
       "Prioridade em novas funções",
+      "Assinatura digital na OS",
       "Venda de produtos (PDV)",
       "Relatórios completos por loja",
       "Suporte prioritário",
@@ -79,23 +83,23 @@ const plans = [
 
 const cycleLabels: Record<BillingCycle, { label: string; badge?: string }> = {
   mensal: { label: "Mensal" },
-  semestral: { label: "Semestral", badge: "-20%" },
-  anual: { label: "Anual", badge: "-30%" },
+  semestral: { label: "Semestral", badge: "-17%" },
+  anual: { label: "Anual", badge: "-31%" },
 }
 
 export function Pricing() {
   const [cycle, setCycle] = useState<BillingCycle>("anual")
   const [loading, setLoading] = useState<string | null>(null)
 
-  async function handleCheckout(plan: string, interval: BillingCycle) {
-    setLoading(`${plan}-${interval}`)
+  async function handleCheckout(priceId: string, interval: BillingCycle) {
+    setLoading(`${priceId}-${interval}`)
     try {
       const res = await fetch(
-        "https://app.osdigitalplus.com.br/api/external-checkout",
+        "/api/create-checkout-session",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ plan, interval }),
+          body: JSON.stringify({ price_id: priceId }),
         }
       )
       const data = await res.json()
@@ -237,8 +241,8 @@ export function Pricing() {
                 </ul>
 
                 <button
-                  onClick={() => handleCheckout(plan.planId, cycle)}
-                  disabled={loading === `${plan.planId}-${cycle}`}
+                  onClick={() => handleCheckout(price.stripePriceId, cycle)}
+                   disabled={loading === `${price.stripePriceId}-${cycle}`}
                   className={`mt-6 flex w-full items-center justify-center gap-2 rounded-lg px-4 py-3 text-xs sm:text-sm font-bold transition-all disabled:opacity-70 ${
                     plan.highlight
                       ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30 hover:bg-blue-400"

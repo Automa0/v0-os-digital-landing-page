@@ -28,7 +28,7 @@ export function Header() {
       <div className="bg-primary px-4 py-2 text-center text-xs font-medium text-primary-foreground">
         <span className="inline-flex items-center gap-2">
           <Users className="h-3.5 w-3.5" />
-          +2.000 técnicos e assistências já usam o OS Digital+ para organizar e crescer
+          +2.000 assistências e lojas usam o OS Digital+ para organizar e crescer
         </span>
       </div>
 

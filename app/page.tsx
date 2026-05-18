@@ -3,6 +3,8 @@ import { CompaniesCarousel } from "@/components/companies-carousel"
 import { HowItWorks } from "@/components/how-it-works"
 import { PainPoints } from "@/components/pain-points"
 import { FeaturesShowcase } from "@/components/features-showcase"
+import { PdvModules } from "@/components/pdv-modules"
+import { AdvancedControls } from "@/components/advanced-controls"
 import { Pricing } from "@/components/pricing"
 import { SecurityBenefits } from "@/components/security-benefits"
 import { Testimonials } from "@/components/testimonials"
@@ -21,6 +23,12 @@ export default function Home() {
         <HowItWorks />
         <ScrollRevealWrapper>
           <FeaturesShowcase />
+        </ScrollRevealWrapper>
+        <ScrollRevealWrapper>
+          <PdvModules />
+        </ScrollRevealWrapper>
+        <ScrollRevealWrapper>
+          <AdvancedControls />
         </ScrollRevealWrapper>
         <ScrollRevealWrapper>
           <Pricing />

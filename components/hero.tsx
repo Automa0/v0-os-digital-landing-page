@@ -122,7 +122,7 @@ export function Hero() {
             <div className="flex justify-center animate-fade-in w-full lg:w-auto" style={{ animationDelay: '0s' }}>
               <img
                 src="/hero-mockup.png"
-                alt="OS Digital+ Dashboard e Mobile"
+                alt="Dashboard do OS Digital+ — sistema de ordem de serviço e PDV"
                 className="max-w-full h-auto"
                 style={{ maxWidth: 'clamp(280px, 75vw, 420px)', display: 'block', margin: '0 auto' }}
                 loading="eager"
@@ -131,7 +131,7 @@ export function Hero() {
 
             {/* Cards Direita - Desktop apenas */}
             <div className="hidden lg:flex flex-col gap-3 w-32 flex-shrink-0">
-              {['Gerencie uma ou mais lojas', 'Orçamentos rápidos e profissionais', 'Acesse pelo celular ou computador'].map((text, i) => (
+              {['Gerencie uma ou mais lojas', 'Orçamentos rápidos e profissionais', 'PDV integrado com comissão de vendedor'].map((text, i) => (
                 <div
                   key={i}
                   className="benefit-card group p-3 rounded-lg backdrop-blur-sm transition-all hover:bg-white/8"
@@ -164,7 +164,7 @@ export function Hero() {
             </p>
             
             <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-white/70 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              Tenha controle completo da sua assistência e nunca mais perca informações, clientes ou dinheiro.
+              Ordem de serviço, PDV, financeiro e multiloja em um só sistema. Para assistências de celular, eletrônicos, informática e qualquer ramo de serviço.
             </p>
 
             <p className="mt-1 text-xs sm:text-sm font-thin text-white animate-fade-in font-['Montserrat']" style={{ animationDelay: '0.45s' }}>
@@ -177,7 +177,7 @@ export function Hero() {
                   onClick={() => window.open("https://app.osdigitalplus.com.br/auth/login", "_blank")}
                   className="btn-hero-pulse group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 sm:px-6 md:px-8 py-3 sm:py-4 text-xs sm:text-sm md:text-base font-bold text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary/90"
                 >
-                  Começa Agora
+                  Começar grátis
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </button>
                 <p className="mt-2 text-xs text-white/60">
@@ -195,7 +195,7 @@ export function Hero() {
             <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs text-white/60 animate-fade-in" style={{ animationDelay: '0.6s' }}>
               <span>Ordem rápida e simples</span>
               <span>•</span>
-              <span>Teste grátis 10 Ordens</span>
+              <span>10 dias de trial grátis</span>
               <span>•</span>
               <span>Acesso imediato</span>
             </div>

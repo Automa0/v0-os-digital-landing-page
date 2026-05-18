@@ -1,7 +1,7 @@
 "use client"
 
 import { startCheckout } from "@/lib/checkout"
-import { Store, Smartphone, FolderOpen, Wrench, Zap } from "lucide-react"
+import { Store, Smartphone, Zap, ShieldCheck, ClipboardCheck, PenSquare } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 const funcionalidades = [
@@ -16,19 +16,24 @@ const funcionalidades = [
     description: "Assim que a ordem de serviço é criada, o sistema gera automaticamente um link para o cliente. Ele acompanha status, andamento e informações sem precisar te chamar no WhatsApp.",
   },
   {
-    icon: FolderOpen,
-    title: "Informações centralizadas",
-    description: "Tudo fica salvo dentro do sistema: cliente, aparelho, serviço e histórico. Você não depende mais de papel, memória ou mensagens perdidas.",
-  },
-  {
-    icon: Wrench,
-    title: "Controle das ordens de serviço",
-    description: "Cada aparelho fica organizado por etapa. Você sabe exatamente em que fase está, sem se perder no dia a dia.",
-  },
-  {
     icon: Zap,
     title: "Orçamento automático em segundos",
     description: "Gere um orçamento profissional com poucos cliques e envie direto para o cliente.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Termo de garantia com PDF",
+    description: "Emita termos de garantia em PDF com validade automática, protegendo você e seu cliente.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Checklist personalizado na entrada",
+    description: "Crie checklists customizados para a entrada de aparelhos, garantindo que nenhum detalhe seja esquecido.",
+  },
+  {
+    icon: PenSquare,
+    title: "Assinatura digital na OS",
+    description: "Capture a assinatura do seu cliente diretamente na tela, anexando-a digitalmente à Ordem de Serviço.",
   },
 ]
 
@@ -88,7 +93,7 @@ export function FeaturesShowcase() {
             Veja na prática
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
-            Conheça as funcionalidades do sistema
+            Tudo que sua assistência precisa em um sistema só
           </h2>
         </div>
 
@@ -117,7 +122,7 @@ export function FeaturesShowcase() {
               <div className="relative w-full" style={{ paddingBottom: '177.78%' }}>
                 <iframe
                   ref={iframeRef}
-                  src="https://player.vimeo.com/video/1175863288?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1"
+                  src="https://player.vimeo.com/video/1175863288?autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0"
                   className="absolute inset-0 w-full h-full"
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
@@ -131,7 +136,7 @@ export function FeaturesShowcase() {
           <div className="w-full lg:w-1/2">
             {/* Título principal */}
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center leading-tight">
-              Tudo que você viu como <span className="text-red-500 font-bold">problema</span> aqui já está <span className="text-green-500 font-bold inline-block animate-pulse font-['Raleway'] ml-1 sm:ml-2">RESOLVIDO</span>
+              Tudo que você viu como <span className="text-red-500 font-bold">problema</span> aqui já está <span className="text-green-500 font-bold">resolvido</span>
             </h3>
 
             {/* Blocos de funcionalidades */}
@@ -168,7 +173,7 @@ export function FeaturesShowcase() {
                 href="https://app.osdigitalplus.com.br/auth/login"
                 className="w-full sm:w-auto px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white font-semibold text-sm rounded-xl shadow-lg shadow-green-600/25 transition-all duration-300 hover:scale-[1.02] inline-block text-center"
               >
-                Crie sua conta agora
+                Começar grátis
               </a>
               
               {/* Texto abaixo do botão */}

@@ -53,7 +53,7 @@ export function Comparison() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-16">
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl text-balance">
-            Transforme sua assistência técnica
+            Transforme sua assistência
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Veja a diferença entre funcionar sem organização e ter tudo sob controle

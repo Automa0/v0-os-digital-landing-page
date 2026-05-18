@@ -6,8 +6,8 @@ import {
   DollarSign,
   LayoutDashboard,
   Store,
-  Bot,
-  FileText,
+  PenSquare,
+  Percent,
   ShoppingBag,
 } from "lucide-react"
 
@@ -48,17 +48,9 @@ const features = [
     badge: null,
   },
   {
-    icon: Bot,
-    title: "IA Integrada",
-    description:
-      "Chat inteligente que analisa faturamento, sugere melhorias e responde dúvidas do dono — disponível nos planos Pro e Master.",
-    badge: "Em breve",
-  },
-  {
-    icon: FileText,
-    title: "PDF & Marca",
-    description:
-      "Gere ordens com a logo da sua empresa, layout limpo e confiável — passa credibilidade ao cliente na hora da entrega.",
+    icon: PenSquare,
+    title: "Assinatura digital na OS",
+    description: "Capture a assinatura do seu cliente diretamente na tela, anexando-a digitalmente à Ordem de Serviço.",
     badge: null,
   },
   {
@@ -66,7 +58,13 @@ const features = [
     title: "Venda de Produtos",
     description:
       "Venda películas, capinhas e acessórios direto no sistema com controle de estoque integrado.",
-    badge: "Em breve",
+    badge: null,
+  },
+  {
+    icon: Percent,
+    title: "Comissão de vendedores no PDV",
+    description: "Defina e controle comissões de venda por membro da equipe automaticamente a cada item vendido no PDV.",
+    badge: null,
   },
 ]
 

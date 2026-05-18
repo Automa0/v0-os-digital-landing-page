@@ -3,13 +3,15 @@ import Stripe from "stripe"
 
 // Map price IDs to plan names for validation
 const VALID_PRICE_IDS: Record<string, string> = {
-  // Básico
-  price_1TAiJ385UXhVWhVPvU9vKfre: "Básico Mensal",
-  price_1T7M1Z85UXhVWhVPPUUICbSI: "Básico Semestral/Anual",
-  // Pro
-  price_1T7M4985UXhVWhVPn6O8mBfT: "Pro",
-  // Master
-  price_1T7M4g85UXhVWhVPtVVZnvzp: "Master",
+  "price_1TWXgb85UXhVWhVPRas6u3NP": "Ação Mensal",
+  "price_1TWXhd85UXhVWhVP1girbVJU": "Ação Semestral",
+  "price_1TWXia85UXhVWhVPDl9WIzlF": "Ação Anual",
+  "price_1TWXjM85UXhVWhVPcfSHbJ9j": "Controle Mensal",
+  "price_1TWXkL85UXhVWhVPsTmpG2lb": "Controle Semestral",
+  "price_1TWXlc85UXhVWhVPzgQNduSD": "Controle Anual",
+  "price_1TWXmI85UXhVWhVPJh1nG9Ws": "Comando Mensal",
+  "price_1TWXnf85UXhVWhVPZJvlOezu": "Comando Semestral",
+  "price_1TWXoR85UXhVWhVPIf4ikOZt": "Comando Anual",
 }
 
 export async function POST(req: NextRequest) {
@@ -42,11 +44,9 @@ export async function POST(req: NextRequest) {
     // Initialize Stripe client inside the request handler
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
-    // Redirect URLs - success goes to app, cancel stays on landing
-    const APP_URL = "https://os-digitalapp--enzocastilho93.replit.app"
-    const LANDING_URL = "https://osdigitalplus.com.br"
-    const successUrl = `${APP_URL}/criar-conta?session_id={CHECKOUT_SESSION_ID}`
-    const cancelUrl = LANDING_URL
+    const origin = req.nextUrl.origin
+    const successUrl = `${origin}/criar-conta?session_id={CHECKOUT_SESSION_ID}`
+    const cancelUrl = origin
 
     console.log("[v0] Using success_url:", successUrl)
     console.log("[v0] Using cancel_url:", cancelUrl)

@@ -16,7 +16,7 @@ export function Footer() {
               className="h-16 w-auto"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Sistema completo de gestão para assistências técnicas, lojas físicas e autônomos.
+              Sistema completo de gestão para assistências, lojas físicas e autônomos.
               Organize, controle e cresça sem complicação.
             </p>
             <div className="mt-4 inline-flex items-center gap-2 rounded-md border border-border bg-secondary/50 px-3 py-1.5">
@@ -29,7 +29,7 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-foreground">Planos</h4>
             <ul className="mt-4 space-y-2">
-              {["Básico", "Pro", "Master"].map((plan) => (
+              {["Ação", "Controle", "Comando"].map((plan) => (
                 <li key={plan}>
                   <a
                     href="#planos"
@@ -48,10 +48,13 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {[
                 "Ordens de Serviço",
+                "PDV (Ponto de Venda)",
                 "Dashboard Empresarial",
                 "Controle de Caixa",
-                "Multiloja",
+                "Comissão de Vendedores",
+                "Garantia Digital",
                 "IA Integrada",
+                "Multiloja",
               ].map((item) => (
                 <li key={item}>
                   <a
@@ -69,16 +72,22 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-foreground">Legal</h4>
             <ul className="mt-4 space-y-2">
-              <li>
-                <a href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">
-                  Termos de Uso
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">
-                  Política de Privacidade
-                </a>
-              </li>
+              {[
+                { href: "/legal/termos-de-uso", label: "Termos de Uso" },
+                { href: "/legal/politica-privacidade", label: "Política de Privacidade" },
+                { href: "/legal/politica-reembolso", label: "Política de Reembolso" },
+                { href: "/legal/politica-cancelamento", label: "Política de Cancelamento" },
+                { href: "/legal/politica-seguranca", label: "Política de Segurança" },
+                { href: "/legal/politica-cookies", label: "Política de Cookies" },
+                { href: "/legal/acordo-dpa", label: "Acordo de Dados (DPA)" },
+                { href: "/legal/uso-aceitavel", label: "Uso Aceitável" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <a href={item.href} target="_blank" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 

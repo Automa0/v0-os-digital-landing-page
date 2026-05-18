@@ -1,6 +1,6 @@
 "use client"
 
-import { Shield, Lock, Key } from "lucide-react"
+import { Shield, Lock, Key, Grid } from "lucide-react"
 
 export function SecurityBenefits() {
   return (
@@ -46,6 +46,20 @@ export function SecurityBenefits() {
               <p className="text-xs text-slate-600 leading-tight">Login seguro e autenticação robusta</p>
             </div>
           </div>
+
+          {/* Divider */}
+          <div className="w-px h-12 bg-blue-200" />
+
+          {/* Item 4 */}
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 flex-1">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-100 border-2 border-blue-400">
+              <Grid className="h-5 w-5 text-blue-600" />
+            </div>
+            <div>
+              <p className="font-bold text-slate-900 text-sm">Painel seguro</p>
+              <p className="text-xs text-slate-600 leading-tight">PIN e padrão de bloqueio no financeiro</p>
+            </div>
+          </div>
         </div>
 
         {/* Mobile layout - 2x2 grid */}
@@ -68,13 +82,22 @@ export function SecurityBenefits() {
             <p className="text-[10px] text-slate-600 leading-tight mt-0.5">Infraestrutura segura</p>
           </div>
 
-          {/* Item 3 - centered in new row */}
-          <div className="flex flex-col items-center text-center p-3 rounded-lg bg-blue-50/40 col-span-2">
+          {/* Item 3 */}
+          <div className="flex flex-col items-center text-center p-3 rounded-lg bg-blue-50/40">
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-100 border-2 border-blue-400 mb-2">
               <Key className="h-4 w-4 text-blue-600" />
             </div>
             <p className="font-bold text-slate-900 text-xs">Acesso protegido</p>
-            <p className="text-[10px] text-slate-600 leading-tight mt-0.5">Login seguro e autenticação</p>
+            <p className="text-[10px] text-slate-600 leading-tight mt-0.5">Login seguro</p>
+          </div>
+
+          {/* Item 4 */}
+          <div className="flex flex-col items-center text-center p-3 rounded-lg bg-blue-50/40">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-100 border-2 border-blue-400 mb-2">
+              <Grid className="h-4 w-4 text-blue-600" />
+            </div>
+            <p className="font-bold text-slate-900 text-xs">Painel seguro</p>
+            <p className="text-[10px] text-slate-600 leading-tight mt-0.5">PIN de bloqueio</p>
           </div>
         </div>
       </div>

@@ -25,7 +25,7 @@ export function FinalCTA() {
 
         {/* Subtítulo otimizado para conversão */}
         <p className="mx-auto mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg text-white/90 leading-relaxed">
-          Crie sua conta gratuita, comece a organizar suas ordens, clientes e financeiro e pare de perder dinheiro hoje mesmo.
+          Crie sua conta gratuita, comece a organizar suas ordens de serviço, vendas, clientes e financeiro.
         </p>
 
         {/* Prova / Segurança - com melhor contraste e glass effect */}
