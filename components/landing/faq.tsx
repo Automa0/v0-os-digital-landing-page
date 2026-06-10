@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const faqs = [
   {
@@ -78,21 +79,21 @@ export function LandingFAQ() {
   return (
     <section id="faq" className="bg-[#05060B] px-4 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl">
-        <div className="text-center">
+        <ScrollReveal className="text-center">
           <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl text-balance">
             Perguntas frequentes
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-slate-400 sm:text-base">
             Tudo o que você precisa saber antes de começar.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="mt-10 space-y-3">
           {faqs.map((faq, index) => {
             const open = openIndex === index
             return (
+              <ScrollReveal key={faq.question} delay={Math.min(index * 50, 250)}>
               <div
-                key={faq.question}
                 className={`rounded-xl border transition-colors ${
                   open
                     ? "border-blue-500/40 bg-[#0B0F1E]"
@@ -117,6 +118,7 @@ export function LandingFAQ() {
                   <p className="px-5 pb-5 text-sm leading-relaxed text-slate-400">{faq.answer}</p>
                 )}
               </div>
+              </ScrollReveal>
             )
           })}
         </div>

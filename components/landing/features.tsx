@@ -6,6 +6,7 @@ import {
   ShoppingCart,
   Wallet,
 } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const features = [
   {
@@ -38,8 +39,8 @@ const features = [
 export function FeaturesSection() {
   return (
     <section id="funcionalidades" className="relative overflow-hidden bg-[#05060B] px-4 py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl">
-        <div className="mx-auto max-w-2xl text-center">
+      <div className="mx-auto max-w-7xl">
+        <ScrollReveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl text-balance">
             Recursos Poderosos
           </h2>
@@ -47,11 +48,11 @@ export function FeaturesSection() {
             Explore a fronteira da gestão de assistências com o OS Digital+. Nossos recursos
             redefinem o que é possível no dia a dia da sua operação.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="mt-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
           {/* Texto */}
-          <div>
+          <ScrollReveal delay={100}>
             <h3 className="font-heading text-2xl font-bold leading-snug text-white sm:text-3xl text-balance">
               Gestão completa, para você ver o quadro inteiro
             </h3>
@@ -67,10 +68,10 @@ export function FeaturesSection() {
               Conhecer os planos
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-          </div>
+          </ScrollReveal>
 
           {/* Painel com anéis */}
-          <div className="relative flex items-center justify-center py-10">
+          <ScrollReveal delay={200} className="relative flex items-center justify-center py-10">
             {/* Anéis concêntricos */}
             <div
               className="pointer-events-none absolute left-1/2 top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-500/10"
@@ -109,7 +110,7 @@ export function FeaturesSection() {
                 ))}
               </ul>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

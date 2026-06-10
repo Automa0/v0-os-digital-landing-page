@@ -38,7 +38,7 @@ const socialLinks = [
 export function LandingFooter() {
   return (
     <footer className="border-t border-white/[0.05] bg-[#05060B]">
-      <div className="mx-auto max-w-6xl px-4 py-14 lg:py-16">
+      <div className="mx-auto max-w-7xl px-4 py-14 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           {/* Marca */}
           <div>

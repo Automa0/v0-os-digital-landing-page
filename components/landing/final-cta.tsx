@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ArrowRight } from "lucide-react"
 import { DashboardMockup } from "./dashboard-mockup"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const SIGNUP_URL =
   "https://app.osdigitalplus.com.br/register?utm_source=landing&utm_medium=final-cta&utm_campaign=cta"
@@ -20,7 +21,8 @@ export function FinalCtaSection() {
 
   return (
     <section className="bg-[#05060B] px-3 pb-20 pt-6 sm:px-4">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
+        <ScrollReveal>
         <div className="relative overflow-hidden rounded-[2rem] border border-white/[0.06] bg-[#08090F]">
           <div
             className="pointer-events-none absolute -left-24 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/15 blur-3xl"
@@ -75,6 +77,7 @@ export function FinalCtaSection() {
           {/* Barra de destaque inferior */}
           <div className="relative h-2.5 w-full bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-400" />
         </div>
+        </ScrollReveal>
       </div>
     </section>
   )

@@ -9,6 +9,7 @@ import {
   Watch,
   Wrench,
 } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const segments = [
   { icon: Smartphone, label: "Celulares" },
@@ -25,10 +26,12 @@ const segments = [
 export function LogosMarquee() {
   return (
     <section className="border-y border-white/[0.04] bg-[#05060B] py-12">
-      <p className="px-4 text-center text-sm text-slate-400">
-        Junte-se a <span className="font-bold text-white">+2.000 assistências e lojas</span> que
-        já crescem com o OS Digital+
-      </p>
+      <ScrollReveal>
+        <p className="px-4 text-center text-sm text-slate-400">
+          Junte-se a <span className="font-bold text-white">+2.000 assistências e lojas</span>{" "}
+          que já crescem com o OS Digital+
+        </p>
+      </ScrollReveal>
 
       <div
         className="mt-8 overflow-hidden"

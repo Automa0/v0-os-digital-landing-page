@@ -21,7 +21,7 @@ export function LandingNav() {
 
   return (
     <div className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4">
-      <header className="mx-auto max-w-6xl rounded-2xl border border-white/[0.06] bg-[#0B0D14]/85 shadow-xl shadow-black/40 backdrop-blur-md">
+      <header className="mx-auto max-w-[1400px] rounded-2xl border border-white/[0.06] bg-[#0B0D14]/85 shadow-xl shadow-black/40 backdrop-blur-md">
         <div className="flex items-center justify-between px-4 py-2.5 sm:px-5">
           <a href="#inicio" aria-label="OS Digital+ — Início">
             <Brand />

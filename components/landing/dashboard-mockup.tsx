@@ -175,7 +175,7 @@ export function DashboardMockup() {
             <div className="flex flex-1 items-center gap-1.5 rounded-lg border border-white/5 bg-[#0A0F1C] px-2.5 py-1.5 sm:max-w-[260px]">
               <Sparkles className="h-2.5 w-2.5 text-blue-400" />
               <span className="flex-1 truncate text-[9px] text-slate-500">
-                Pergunte ao Kronos...
+                Pergunte à Mythos...
               </span>
               <kbd className="rounded border border-white/10 bg-white/5 px-1 text-[7px] text-slate-400">
                 K

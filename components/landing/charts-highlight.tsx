@@ -1,4 +1,5 @@
 import { Check } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const checklist = [
   "Orçamentos profissionais com a sua logo.",
@@ -12,26 +13,28 @@ const bars = [34, 55, 42, 70, 58, 88, 64, 96]
 export function ChartsHighlight() {
   return (
     <section className="overflow-hidden bg-[#05060B] px-4 py-16 sm:py-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
         {/* Checklist */}
-        <div>
+        <ScrollReveal>
           <h3 className="font-heading text-2xl font-bold leading-snug text-white sm:text-3xl text-balance">
             Feito do seu jeito, pronto para crescer
           </h3>
           <ul className="mt-7 space-y-4">
-            {checklist.map((item) => (
-              <li key={item} className="flex items-center gap-3">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-gradient-to-br from-blue-600 to-blue-500 shadow shadow-blue-600/40">
-                  <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />
-                </span>
-                <span className="text-sm font-medium text-slate-300 sm:text-base">{item}</span>
+            {checklist.map((item, i) => (
+              <li key={item}>
+                <ScrollReveal delay={100 + i * 90} className="flex items-center gap-3">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-gradient-to-br from-blue-600 to-blue-500 shadow shadow-blue-600/40">
+                    <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />
+                  </span>
+                  <span className="text-sm font-medium text-slate-300 sm:text-base">{item}</span>
+                </ScrollReveal>
               </li>
             ))}
           </ul>
-        </div>
+        </ScrollReveal>
 
         {/* Gráficos sempre ON */}
-        <div className="relative">
+        <ScrollReveal delay={150} className="relative">
           <div className="relative z-10">
             <h3 className="font-heading text-2xl font-bold text-white sm:text-3xl">
               Gráficos sempre <span className="text-blue-400">ON!</span>
@@ -71,7 +74,7 @@ export function ChartsHighlight() {
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

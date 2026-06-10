@@ -2,6 +2,7 @@
 
 import { ArrowRight, Check, Loader2, Star } from "lucide-react"
 import { useState } from "react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 type BillingCycle = "mensal" | "semestral" | "anual"
 
@@ -123,8 +124,8 @@ export function LandingPricing() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-6xl">
-        <div className="mx-auto max-w-2xl text-center">
+      <div className="relative mx-auto max-w-7xl">
+        <ScrollReveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl text-balance">
             Planos para o seu sucesso
           </h2>
@@ -133,10 +134,10 @@ export function LandingPricing() {
             desenhadas para dar a flexibilidade que você precisa, sem surpresas e sem taxas
             ocultas.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Toggle de ciclo */}
-        <div className="mt-9 flex justify-center px-2">
+        <ScrollReveal delay={120} className="mt-9 flex justify-center px-2">
           <div className="inline-flex w-full max-w-xs rounded-full border border-white/10 bg-[#0B0D14] p-1 sm:w-auto">
             {(Object.keys(cycleLabels) as BillingCycle[]).map((c) => {
               const config = cycleLabels[c]
@@ -166,17 +167,17 @@ export function LandingPricing() {
               )
             })}
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Cards */}
         <div className="mt-12 grid grid-cols-1 gap-5 lg:grid-cols-3">
-          {plans.map((plan) => {
+          {plans.map((plan, planIndex) => {
             const price = plan.prices[cycle]
             const isLoading = loading === `${price.stripePriceId}-${cycle}`
             return (
+              <ScrollReveal key={plan.name} delay={planIndex * 130}>
               <div
-                key={plan.name}
-                className={`relative flex flex-col rounded-2xl border p-6 transition-all sm:p-7 ${
+                className={`relative flex h-full flex-col rounded-2xl border p-6 transition-all sm:p-7 ${
                   plan.highlight
                     ? "border-blue-500/60 bg-[#0B0F1E] shadow-[0_0_60px_-12px_rgba(37,99,235,0.45)] lg:scale-[1.03]"
                     : "border-white/[0.07] bg-[#0B0D14] hover:border-white/15"
@@ -262,6 +263,7 @@ export function LandingPricing() {
                   })}
                 </ul>
               </div>
+              </ScrollReveal>
             )
           })}
         </div>
