@@ -86,7 +86,12 @@ export function FeaturesSection() {
               aria-hidden="true"
             />
             <div
-              className="pointer-events-none absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/25 blur-3xl"
+              className="lp-breathe pointer-events-none absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/25 blur-3xl"
+              aria-hidden="true"
+            />
+            {/* Anel expandindo */}
+            <div
+              className="lp-ring-pulse pointer-events-none absolute left-1/2 top-1/2 h-[290px] w-[290px] rounded-full border border-blue-400/40"
               aria-hidden="true"
             />
 

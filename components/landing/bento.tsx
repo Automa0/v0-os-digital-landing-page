@@ -91,7 +91,7 @@ export function BentoGrid() {
           <div className="relative h-full overflow-hidden rounded-2xl border border-white/[0.06] bg-[#0B0D14] p-6">
             {/* Feixe de luz */}
             <div
-              className="pointer-events-none absolute -top-2 left-1/2 h-[42%] w-[70%] -translate-x-1/2"
+              className="lp-breathe pointer-events-none absolute -top-2 left-1/2 h-[42%] w-[70%] -translate-x-1/2"
               style={{
                 clipPath: "polygon(38% 0, 62% 0, 100% 100%, 0 100%)",
                 background:
@@ -106,7 +106,7 @@ export function BentoGrid() {
             />
 
             <div className="relative flex h-full flex-col items-center gap-6 pt-[30%] text-center lg:pt-[40%]">
-              <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-blue-400/30 bg-[#0F1322] shadow-[0_0_50px_rgba(59,130,246,0.45)]">
+              <span className="lp-float flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-blue-400/30 bg-[#0F1322] shadow-[0_0_50px_rgba(59,130,246,0.45)]">
                 <Sparkles className="h-7 w-7 text-blue-300" />
               </span>
               <div>

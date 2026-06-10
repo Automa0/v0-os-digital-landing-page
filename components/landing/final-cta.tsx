@@ -75,7 +75,7 @@ export function FinalCtaSection() {
           </div>
 
           {/* Barra de destaque inferior */}
-          <div className="relative h-2.5 w-full bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-400" />
+          <div className="lp-gradient-move relative h-2.5 w-full bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-400" />
         </div>
         </ScrollReveal>
       </div>

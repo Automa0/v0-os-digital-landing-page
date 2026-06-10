@@ -47,7 +47,7 @@ export function ChartsHighlight() {
 
           {/* Card 3D inclinado */}
           <div
-            className="relative mx-auto mt-10 h-56 w-72"
+            className="lp-float relative mx-auto mt-10 h-56 w-72"
             style={{ perspective: "900px" }}
             aria-hidden="true"
           >
@@ -67,8 +67,8 @@ export function ChartsHighlight() {
                 {bars.map((height, i) => (
                   <div
                     key={i}
-                    className="flex-1 rounded-sm bg-white/45"
-                    style={{ height: `${height}%` }}
+                    className="lp-bar flex-1 rounded-sm bg-white/45"
+                    style={{ height: `${height}%`, animationDelay: `${i * 0.18}s` }}
                   />
                 ))}
               </div>

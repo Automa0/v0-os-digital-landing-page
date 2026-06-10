@@ -269,6 +269,7 @@ export function DashboardMockup() {
                 fill="url(#lp-chart-blue)"
               />
               <path
+                className="lp-draw"
                 d="M30,145 C70,145 80,142 105,135 C130,128 135,112 158,111 C180,110 205,110 228,117 C250,124 262,141 288,144 C310,147 330,145 348,145 C370,145 385,90 395,55 C402,30 400,16 405,16 C410,16 412,40 422,75 C434,118 444,144 466,145 C500,147 545,145 590,145"
                 fill="none"
                 stroke="#3b82f6"
@@ -276,6 +277,8 @@ export function DashboardMockup() {
               />
               {/* Produtos (amarelo) */}
               <path
+                className="lp-draw"
+                style={{ animationDelay: "0.5s" }}
                 d="M30,145 C80,145 110,143 140,134 C165,126 185,101 206,100 C227,99 240,118 262,132 C280,142 300,145 320,145 L590,145"
                 fill="none"
                 stroke="#eab308"
@@ -283,6 +286,8 @@ export function DashboardMockup() {
               />
               {/* Saídas (vermelho) */}
               <path
+                className="lp-draw"
+                style={{ animationDelay: "0.9s" }}
                 d="M30,142.5 L340,142.5 C360,142.5 380,134 400,133 C418,132 428,139 448,141.5 L590,141.5"
                 fill="none"
                 stroke="#ef4444"
