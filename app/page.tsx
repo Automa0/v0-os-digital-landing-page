@@ -1,53 +1,33 @@
-import { Hero } from "@/components/hero"
-import { CompaniesCarousel } from "@/components/companies-carousel"
-import { HowItWorks } from "@/components/how-it-works"
-import { PainPoints } from "@/components/pain-points"
-import { FeaturesShowcase } from "@/components/features-showcase"
-import { PdvModules } from "@/components/pdv-modules"
-import { AdvancedControls } from "@/components/advanced-controls"
-import { Pricing } from "@/components/pricing"
-import { SecurityBenefits } from "@/components/security-benefits"
-import { Testimonials } from "@/components/testimonials"
-import { FAQ } from "@/components/faq"
-import { FinalCTA } from "@/components/final-cta"
-import { Footer } from "@/components/footer"
+import { LandingNav } from "@/components/landing/nav"
+import { LandingHero } from "@/components/landing/hero"
+import { LogosMarquee } from "@/components/landing/logos-marquee"
+import { BentoGrid } from "@/components/landing/bento"
+import { FeaturesSection } from "@/components/landing/features"
+import { ChartsHighlight } from "@/components/landing/charts-highlight"
+import { LandingPricing } from "@/components/landing/pricing"
+import { TestimonialsCards } from "@/components/landing/testimonials"
+import { LandingFAQ } from "@/components/landing/faq"
+import { FinalCtaSection } from "@/components/landing/final-cta"
+import { LandingFooter } from "@/components/landing/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
-import { ScrollRevealWrapper } from "@/components/scroll-reveal-wrapper"
 
 export default function Home() {
   return (
     <>
-      <main>
-        <Hero />
-        <PainPoints />
-        <HowItWorks />
-        <ScrollRevealWrapper>
-          <FeaturesShowcase />
-        </ScrollRevealWrapper>
-        <ScrollRevealWrapper>
-          <PdvModules />
-        </ScrollRevealWrapper>
-        <ScrollRevealWrapper>
-          <AdvancedControls />
-        </ScrollRevealWrapper>
-        <ScrollRevealWrapper>
-          <Pricing />
-        </ScrollRevealWrapper>
-        <SecurityBenefits />
-        <ScrollRevealWrapper>
-          <Testimonials />
-        </ScrollRevealWrapper>
-        <ScrollRevealWrapper>
-          <CompaniesCarousel />
-        </ScrollRevealWrapper>
-        <ScrollRevealWrapper>
-          <FAQ />
-        </ScrollRevealWrapper>
-        <FinalCTA />
+      <main className="bg-[#05060B]">
+        <LandingNav />
+        <LandingHero />
+        <LogosMarquee />
+        <BentoGrid />
+        <FeaturesSection />
+        <ChartsHighlight />
+        <LandingPricing />
+        <TestimonialsCards />
+        <LandingFAQ />
+        <FinalCtaSection />
       </main>
-      <Footer />
+      <LandingFooter />
       <WhatsAppButton />
     </>
   )
 }
-
