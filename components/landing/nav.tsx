@@ -1,12 +1,11 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { ArrowRight, Menu, X } from "lucide-react"
-import { Brand } from "./brand"
 
 const LOGIN_URL = "https://app.osdigitalplus.com.br"
-const SIGNUP_URL =
-  "https://app.osdigitalplus.com.br/register?utm_source=landing&utm_medium=header&utm_campaign=cta"
+const SIGNUP_URL = "https://app.osdigitalplus.com.br/auth/login?modo=cadastro"
 
 const links = [
   { label: "Início", href: "#inicio" },
@@ -24,7 +23,14 @@ export function LandingNav() {
       <header className="mx-auto max-w-[1400px] rounded-2xl border border-white/[0.06] bg-[#0B0D14]/85 shadow-xl shadow-black/40 backdrop-blur-md">
         <div className="flex items-center justify-between px-4 py-2.5 sm:px-5">
           <a href="#inicio" aria-label="OS Digital+ — Início">
-            <Brand />
+            <Image
+              src="/images/logo-transparent.png"
+              alt="OS Digital+"
+              width={160}
+              height={46}
+              className="h-9 w-auto"
+              priority
+            />
           </a>
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Menu principal">
@@ -50,7 +56,7 @@ export function LandingNav() {
               href={SIGNUP_URL}
               className="group inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-600/30 transition-all hover:from-blue-500 hover:to-blue-400"
             >
-              Testar grátis
+              Cadastre-se
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
@@ -90,7 +96,7 @@ export function LandingNav() {
                 href={SIGNUP_URL}
                 className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/30"
               >
-                Testar grátis
+                Cadastre-se
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>

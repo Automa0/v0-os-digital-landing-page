@@ -28,8 +28,9 @@ export function LogosMarquee() {
     <section className="border-y border-white/[0.04] bg-[#05060B] py-12">
       <ScrollReveal>
         <p className="px-4 text-center text-sm text-slate-400">
-          Junte-se a <span className="font-bold text-white">+2.000 assistências e lojas</span>{" "}
-          que já crescem com o OS Digital+
+          Um sistema feito para{" "}
+          <span className="font-bold text-white">diversos nichos de assistência</span>
+          {" "}— o único pensado de verdade para o seu negócio
         </p>
       </ScrollReveal>
 

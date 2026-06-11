@@ -1,11 +1,9 @@
 "use client"
 
-import { useEffect, useRef, type CSSProperties } from "react"
+import { useEffect, useRef, useState, type CSSProperties } from "react"
 import { ArrowRight, Sparkles } from "lucide-react"
-import { DashboardMockup } from "./dashboard-mockup"
 
-const SIGNUP_URL =
-  "https://app.osdigitalplus.com.br/register?utm_source=landing&utm_medium=hero&utm_campaign=cta"
+const SIGNUP_URL = "https://app.osdigitalplus.com.br/auth/login?modo=cadastro"
 
 const stars = [
   { top: "8%", left: "12%", delay: "0s" },
@@ -18,8 +16,34 @@ const stars = [
   { top: "20%", left: "90%", delay: "0.4s" },
 ]
 
+const niches = [
+  "Loja de Celular",
+  "Assistência Técnica de TV",
+  "Empresa de Refrigeração",
+  "Loja de Informática",
+  "Loja de Notebook",
+  "Loja de Videogame",
+  "Loja de Eletrodoméstico",
+  "Empresa de Ar-Condicionado",
+  "Relojoaria",
+  "Loja de Impressora",
+]
+
 export function LandingHero() {
   const sectionRef = useRef<HTMLElement>(null)
+  const [nicheIndex, setNicheIndex] = useState(0)
+  const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setVisible(false)
+      setTimeout(() => {
+        setNicheIndex(i => (i + 1) % niches.length)
+        setVisible(true)
+      }, 380)
+    }, 2800)
+    return () => clearInterval(timer)
+  }, [])
 
   useEffect(() => {
     const el = sectionRef.current
@@ -34,8 +58,8 @@ export function LandingHero() {
     const update = () => {
       raf = 0
       const p = Math.min(Math.max(window.scrollY / 500, 0), 1)
-      // easing suave (easeOutQuad) para o crescimento acompanhar a rolagem
-      const eased = 1 - (1 - p) * (1 - p)
+      // easeOutCubic — mais suave e fluido que easeOutQuad
+      const eased = 1 - (1 - p) * (1 - p) * (1 - p)
       el.style.setProperty("--hero-p", eased.toFixed(4))
     }
     const onScroll = () => {
@@ -111,12 +135,28 @@ export function LandingHero() {
           </div>
 
           {/* Headline */}
-          <h1
-            className="stagger-item mx-auto mt-6 max-w-4xl font-heading text-4xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-6xl text-balance"
-            style={{ animationDelay: "0.15s" }}
-          >
-            Gestão inteligente para a sua assistência.
-          </h1>
+          <div className="stagger-item mx-auto mt-6 max-w-4xl" style={{ animationDelay: "0.15s" }}>
+            <h1 className="font-heading text-4xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Gestão inteligente para a sua
+            </h1>
+            <div className="mt-3 font-heading text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl" style={{ minHeight: "1.2em" }}>
+              <span
+                style={{
+                  display: "inline-block",
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? "translateY(0px)" : "translateY(14px)",
+                  transition: "opacity 0.38s cubic-bezier(0.22,1,0.36,1), transform 0.38s cubic-bezier(0.22,1,0.36,1)",
+                  background: "linear-gradient(90deg, #60a5fa, #67e8f9)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  filter: "drop-shadow(0 0 18px rgba(96,165,250,0.55))",
+                }}
+              >
+                {niches[nicheIndex]}
+              </span>
+            </div>
+          </div>
 
           <p
             className="stagger-item mx-auto mt-5 max-w-xl text-sm leading-relaxed text-slate-400 sm:text-base"
@@ -141,14 +181,11 @@ export function LandingHero() {
               href={SIGNUP_URL}
               className="pulse-glow group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-3.5 text-sm font-bold text-white shadow-xl shadow-blue-600/40 transition-all hover:from-blue-500 hover:to-blue-400"
             >
-              Começar grátis
+              Cadastre-se
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
 
-          <p className="stagger-item mt-4 text-xs text-slate-500" style={{ animationDelay: "0.52s" }}>
-            10 dias de teste grátis · Acesso imediato · Cancele quando quiser
-          </p>
         </div>
 
         {/* Horizonte / eclipse + mockup */}
@@ -193,9 +230,16 @@ export function LandingHero() {
                   transform: "scale(calc(0.9 + var(--hero-p) * 0.16))",
                   transformOrigin: "top center",
                   willChange: "transform",
+                  transition: "transform 0.1s linear",
                 }}
               >
-                <DashboardMockup />
+                <img
+                  src="https://res.cloudinary.com/dmiwcdvi8/image/upload/v1781192500/Captura_de_tela_2026-06-11_124120_cneeb5.png"
+                  alt="Dashboard OS Digital+"
+                  className="w-full rounded-xl shadow-2xl shadow-blue-900/40"
+                  loading="eager"
+                  draggable={false}
+                />
               </div>
             </div>
           </div>

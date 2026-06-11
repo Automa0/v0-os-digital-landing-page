@@ -1,12 +1,11 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import { DashboardMockup } from "./dashboard-mockup"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
-const SIGNUP_URL =
-  "https://app.osdigitalplus.com.br/register?utm_source=landing&utm_medium=final-cta&utm_campaign=cta"
+const SIGNUP_URL = "https://app.osdigitalplus.com.br/auth/login?modo=cadastro"
 
 export function FinalCtaSection() {
   const [email, setEmail] = useState("")
@@ -39,8 +38,7 @@ export function FinalCtaSection() {
                 </span>
               </h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-400 sm:text-base">
-                Embarque em uma jornada de organização e crescimento. Crie sua conta e teste
-                grátis por 10 dias — sem cartão, acesso imediato.
+                Embarque em uma jornada de organização e crescimento. Crie sua conta e comece agora mesmo.
               </p>
 
               <form onSubmit={handleSubmit} className="mt-7 flex max-w-md flex-col gap-3 sm:flex-row">
@@ -56,21 +54,23 @@ export function FinalCtaSection() {
                   type="submit"
                   className="group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-3.5 text-sm font-bold text-white shadow-xl shadow-blue-600/40 transition-all hover:from-blue-500 hover:to-blue-400"
                 >
-                  Começar grátis
+                  Cadastre-se
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </button>
               </form>
 
-              <p className="mt-3 text-xs text-slate-500">
-                10 dias de teste grátis · Suporte via WhatsApp · Cancele quando quiser
-              </p>
             </div>
 
             {/* Mockup transbordando à direita */}
-            <div className="relative hidden h-full min-h-[400px] lg:block" aria-hidden="true">
-              <div className="absolute left-6 top-1/2 w-[150%] -translate-y-1/2">
-                <DashboardMockup />
-              </div>
+            <div className="relative hidden h-full min-h-[400px] lg:flex items-center justify-center overflow-hidden">
+              <Image
+                src="https://res.cloudinary.com/dmiwcdvi8/image/upload/v1781137234/ChatGPT_Image_10_de_jun._de_2026_21_04_41_o5d1qx.png"
+                alt="OS Digital+ no notebook e celular"
+                width={680}
+                height={440}
+                className="w-full h-full object-cover"
+                style={{ objectPosition: "40% center" }}
+              />
             </div>
           </div>
 

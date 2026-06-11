@@ -1,5 +1,5 @@
+import Image from "next/image"
 import { Instagram, Linkedin, MessageCircle, Music2, ShieldCheck } from "lucide-react"
-import { Brand } from "./brand"
 
 const WHATSAPP_URL =
   "https://wa.me/5521996595469?text=Ol%C3%A1,%20quero%20saber%20sobre%20o%20OSDigitalPlus"
@@ -42,7 +42,13 @@ export function LandingFooter() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           {/* Marca */}
           <div>
-            <Brand />
+            <Image
+              src="/images/logo-transparent.png"
+              alt="OS Digital+"
+              width={180}
+              height={52}
+              className="h-11 w-auto"
+            />
             <h4 className="mt-5 font-heading text-xl font-bold leading-snug text-white text-balance">
               Transforme sua assistência com o OS Digital+
             </h4>

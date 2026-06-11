@@ -53,7 +53,7 @@ const plans = [
       "Controle por membro",
       "Assinatura digital na OS",
       "Venda de produtos (PDV)",
-      "IA integrada [Em breve]",
+      "IA integrada",
     ],
     cta: "Assinar Controle",
   },
@@ -71,7 +71,7 @@ const plans = [
     features: [
       "Tudo do Controle",
       "Até 4 lojas",
-      "IA avançada [Em breve]",
+      "IA avançada",
       "Prioridade em novas funções",
       "Assinatura digital na OS",
       "Venda de produtos (PDV)",
